@@ -126,6 +126,7 @@
             this.aBMRutaToolStripMenuItem.Name = "aBMRutaToolStripMenuItem";
             this.aBMRutaToolStripMenuItem.Size = new System.Drawing.Size(200, 28);
             this.aBMRutaToolStripMenuItem.Text = "ABM Ruta";
+            this.aBMRutaToolStripMenuItem.Click += new System.EventHandler(this.aBMRutaToolStripMenuItem_Click);
             // 
             // bCompras
             // 
@@ -158,14 +159,14 @@
             // 
             this.consultaToolStripMenuItem.BackColor = System.Drawing.Color.White;
             this.consultaToolStripMenuItem.Name = "consultaToolStripMenuItem";
-            this.consultaToolStripMenuItem.Size = new System.Drawing.Size(149, 28);
+            this.consultaToolStripMenuItem.Size = new System.Drawing.Size(152, 28);
             this.consultaToolStripMenuItem.Text = "Consulta";
             // 
             // canjeToolStripMenuItem
             // 
             this.canjeToolStripMenuItem.BackColor = System.Drawing.Color.White;
             this.canjeToolStripMenuItem.Name = "canjeToolStripMenuItem";
-            this.canjeToolStripMenuItem.Size = new System.Drawing.Size(149, 28);
+            this.canjeToolStripMenuItem.Size = new System.Drawing.Size(152, 28);
             this.canjeToolStripMenuItem.Text = "Canje";
             // 
             // bDevolucion

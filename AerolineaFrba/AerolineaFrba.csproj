@@ -33,6 +33,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -62,11 +63,17 @@
     <Compile Include="Abm Rol\Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
-    <Compile Include="Abm Ruta\Form1.cs">
+    <Compile Include="Abm Ruta\ListadoRutasForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Abm Ruta\Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="Abm Ruta\ListadoRutasForm.Designer.cs">
+      <DependentUpon>ListadoRutasForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Abm Ruta\RutaAereaForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Abm Ruta\RutaAereaForm.Designer.cs">
+      <DependentUpon>RutaAereaForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Canje Millas\Form1.cs">
       <SubType>Form</SubType>
@@ -80,6 +87,7 @@
     <Compile Include="Compra\Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Conexion.cs" />
     <Compile Include="Consulta Millas\Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -97,6 +105,12 @@
     </Compile>
     <Compile Include="Alta.Designer.cs">
       <DependentUpon>Alta.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ListadoForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ListadoForm.Designer.cs">
+      <DependentUpon>ListadoForm.cs</DependentUpon>
     </Compile>
     <Compile Include="MasterForm.cs">
       <SubType>Form</SubType>
@@ -122,6 +136,12 @@
     <Compile Include="Listado Estadistico\Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="OpcionesABMForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="OpcionesABMForm.Designer.cs">
+      <DependentUpon>OpcionesABMForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Registro de Usuario\Form1.cs">
@@ -139,14 +159,26 @@
     <EmbeddedResource Include="Abm Rol\Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Abm Ruta\ListadoRutasForm.resx">
+      <DependentUpon>ListadoRutasForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Abm Ruta\RutaAereaForm.resx">
+      <DependentUpon>RutaAereaForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Alta.resx">
       <DependentUpon>Alta.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ListadoForm.resx">
+      <DependentUpon>ListadoForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MasterForm.resx">
       <DependentUpon>MasterForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Home\Home.resx">
       <DependentUpon>Home.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="OpcionesABMForm.resx">
+      <DependentUpon>OpcionesABMForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

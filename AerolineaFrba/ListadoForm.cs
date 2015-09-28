@@ -7,14 +7,16 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using sql = System.Data.SqlClient;
 
-namespace AerolineaFrba.Abm_Ruta
+namespace AerolineaFrba
 {
-    public partial class Form1 : AerolineaFrba.MasterForm
+    public partial class ListadoForm : Form
     {
-        public Form1()
+        public ListadoForm()
         {
             InitializeComponent();
         }
+
     }
 }

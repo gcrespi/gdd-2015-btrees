@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using AerolineaFrba.Abm_Ruta;
 
 namespace AerolineaFrba
 {
@@ -48,8 +49,12 @@ namespace AerolineaFrba
 
         }
 
+        private void aBMRutaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            RutaAereaForm frmRuta = new RutaAereaForm();
+            frmRuta.Show();
+        }
 
-     
 
 
     }

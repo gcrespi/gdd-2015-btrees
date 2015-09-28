@@ -1,6 +1,6 @@
 ﻿namespace AerolineaFrba.Abm_Ruta
 {
-    partial class Form1
+    partial class ListadoRutasForm
     {
         /// <summary>
         /// Required designer variable.
@@ -28,9 +28,18 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
+            this.SuspendLayout();
+            // 
+            // listadoRutasForm
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Text = "Form1";
+            this.ClientSize = new System.Drawing.Size(624, 375);
+            this.Name = "listadoRutasForm";
+            this.Text = "listadoRutasForm";
+            this.Load += new System.EventHandler(this.listadoRutasForm_Load);
+            this.ResumeLayout(false);
+
         }
 
         #endregion
