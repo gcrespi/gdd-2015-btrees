@@ -47,7 +47,6 @@
             this.picbox.Location = new System.Drawing.Point(0, 0);
             this.picbox.Margin = new System.Windows.Forms.Padding(0);
             this.picbox.Name = "picbox";
-            this.picbox.Padding = new System.Windows.Forms.Padding(0, 0, 1, 1);
             this.picbox.Size = new System.Drawing.Size(884, 486);
             this.picbox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.picbox.TabIndex = 1;
@@ -55,11 +54,7 @@
             // 
             // imagelist
             // 
-            this.imagelist.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imagelist.ImageStream")));
             this.imagelist.TransparentColor = System.Drawing.Color.Transparent;
-            this.imagelist.Images.SetKeyName(0, "alMundo1.jpg");
-            this.imagelist.Images.SetKeyName(1, "almundo2.jpg");
-            this.imagelist.Images.SetKeyName(2, "alMundo3.jpg");
             // 
             // slideR
             // 

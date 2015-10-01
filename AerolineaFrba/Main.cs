@@ -24,6 +24,8 @@ namespace AerolineaFrba
         {
             mostrarForm(new Home());
             setColor(bHome);
+            menu.Parent = menuPanel;
+            menuPanel.AutoScroll = true;
         }
 
         private class MyRenderer : ToolStripProfessionalRenderer
@@ -93,8 +95,6 @@ namespace AerolineaFrba
             }
             btn.BackColor = Color.SteelBlue;
         }
-
-
 
     }
 }
