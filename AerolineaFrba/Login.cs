@@ -19,8 +19,15 @@ namespace AerolineaFrba
 
         private void button1_Click(object sender, EventArgs e)
         {
-            ;
-            this.Close();
+            // Aca consultar la base
+            if (usrBox.Text == "sa" && passBox.Text == "gdd")
+            {
+                this.DialogResult = DialogResult.OK;
+            }
+            else
+            {
+                wrongLabel.Text = "Usuario  o contraseña incorrecto";
+            }
         }
 
     }

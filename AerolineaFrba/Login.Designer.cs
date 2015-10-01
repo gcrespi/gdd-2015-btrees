@@ -29,10 +29,11 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
-            this.label2 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.wrongLabel = new System.Windows.Forms.Label();
+            this.lContrasenia = new System.Windows.Forms.Label();
+            this.passBox = new System.Windows.Forms.TextBox();
+            this.lUsuario = new System.Windows.Forms.Label();
+            this.usrBox = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -40,48 +41,61 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.Silver;
-            this.panel1.Controls.Add(this.label2);
-            this.panel1.Controls.Add(this.textBox2);
-            this.panel1.Controls.Add(this.label1);
-            this.panel1.Controls.Add(this.textBox1);
+            this.panel1.Controls.Add(this.wrongLabel);
+            this.panel1.Controls.Add(this.lContrasenia);
+            this.panel1.Controls.Add(this.passBox);
+            this.panel1.Controls.Add(this.lUsuario);
+            this.panel1.Controls.Add(this.usrBox);
             this.panel1.Location = new System.Drawing.Point(12, 12);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(442, 190);
             this.panel1.TabIndex = 0;
             // 
-            // label2
+            // wrongLabel
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(28, 89);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(114, 25);
-            this.label2.TabIndex = 3;
-            this.label2.Text = "Contraseña";
+            this.wrongLabel.AutoSize = true;
+            this.wrongLabel.BackColor = System.Drawing.Color.Transparent;
+            this.wrongLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.wrongLabel.ForeColor = System.Drawing.Color.DarkRed;
+            this.wrongLabel.Location = new System.Drawing.Point(103, 146);
+            this.wrongLabel.Name = "wrongLabel";
+            this.wrongLabel.Size = new System.Drawing.Size(0, 20);
+            this.wrongLabel.TabIndex = 4;
             // 
-            // textBox2
+            // lContrasenia
             // 
-            this.textBox2.Location = new System.Drawing.Point(149, 92);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(262, 20);
-            this.textBox2.TabIndex = 2;
+            this.lContrasenia.AutoSize = true;
+            this.lContrasenia.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lContrasenia.Location = new System.Drawing.Point(28, 89);
+            this.lContrasenia.Name = "lContrasenia";
+            this.lContrasenia.Size = new System.Drawing.Size(114, 25);
+            this.lContrasenia.TabIndex = 3;
+            this.lContrasenia.Text = "Contraseña";
             // 
-            // label1
+            // passBox
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(28, 40);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(79, 25);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "Usuario";
+            this.passBox.Location = new System.Drawing.Point(149, 92);
+            this.passBox.Name = "passBox";
+            this.passBox.PasswordChar = '•';
+            this.passBox.Size = new System.Drawing.Size(262, 20);
+            this.passBox.TabIndex = 2;
             // 
-            // textBox1
+            // lUsuario
             // 
-            this.textBox1.Location = new System.Drawing.Point(149, 42);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(262, 20);
-            this.textBox1.TabIndex = 0;
+            this.lUsuario.AutoSize = true;
+            this.lUsuario.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lUsuario.Location = new System.Drawing.Point(28, 40);
+            this.lUsuario.Name = "lUsuario";
+            this.lUsuario.Size = new System.Drawing.Size(79, 25);
+            this.lUsuario.TabIndex = 1;
+            this.lUsuario.Text = "Usuario";
+            // 
+            // usrBox
+            // 
+            this.usrBox.Location = new System.Drawing.Point(149, 42);
+            this.usrBox.Name = "usrBox";
+            this.usrBox.Size = new System.Drawing.Size(262, 20);
+            this.usrBox.TabIndex = 0;
             // 
             // button1
             // 
@@ -106,7 +120,10 @@
             this.ClientSize = new System.Drawing.Size(466, 257);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.panel1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
             this.Name = "Login";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Aerolineas Patito";
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
@@ -117,10 +134,11 @@
         #endregion
 
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Label lContrasenia;
+        private System.Windows.Forms.TextBox passBox;
+        private System.Windows.Forms.Label lUsuario;
+        private System.Windows.Forms.TextBox usrBox;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Label wrongLabel;
     }
 }

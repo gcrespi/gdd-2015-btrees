@@ -13,7 +13,19 @@ namespace AerolineaFrba
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Main());
+            // Aca se chequea la infiguracion para determinar la terminal
+            int bleh = 1;
+            if (bleh == 1)
+            {
+                Login login = new Login();
+                if (login.ShowDialog() == DialogResult.OK) Application.Run(new Main());
+                else Application.Exit();
+            }
+            else
+            {
+                Application.Run(new Main());
+            }
+
         }
 
     }

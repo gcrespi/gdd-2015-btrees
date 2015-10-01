@@ -233,6 +233,7 @@
             this.Controls.Add(this.menu);
             this.ForeColor = System.Drawing.SystemColors.ControlText;
             this.Name = "Main";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Aerolineas Patito";
             this.Load += new System.EventHandler(this.MasterForm_Load);
             this.menu.ResumeLayout(false);
