@@ -35,7 +35,6 @@
             this.slideR = new System.Windows.Forms.Button();
             this.slideL = new System.Windows.Forms.Button();
             this.leyenda = new System.Windows.Forms.Label();
-            this.login = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.picbox)).BeginInit();
             this.SuspendLayout();
             // 
@@ -45,11 +44,11 @@
             this.picbox.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.picbox.Dock = System.Windows.Forms.DockStyle.Fill;
             this.picbox.Image = ((System.Drawing.Image)(resources.GetObject("picbox.Image")));
-            this.picbox.Location = new System.Drawing.Point(100, 0);
+            this.picbox.Location = new System.Drawing.Point(0, 0);
             this.picbox.Margin = new System.Windows.Forms.Padding(0);
             this.picbox.Name = "picbox";
             this.picbox.Padding = new System.Windows.Forms.Padding(0, 0, 1, 1);
-            this.picbox.Size = new System.Drawing.Size(784, 486);
+            this.picbox.Size = new System.Drawing.Size(884, 486);
             this.picbox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.picbox.TabIndex = 1;
             this.picbox.TabStop = false;
@@ -95,7 +94,7 @@
             this.slideL.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.slideL.Font = new System.Drawing.Font("NSimSun", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.slideL.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.slideL.Location = new System.Drawing.Point(100, 185);
+            this.slideL.Location = new System.Drawing.Point(0, 185);
             this.slideL.Margin = new System.Windows.Forms.Padding(0);
             this.slideL.Name = "slideL";
             this.slideL.Size = new System.Drawing.Size(25, 95);
@@ -112,30 +111,12 @@
             this.leyenda.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.leyenda.Font = new System.Drawing.Font("Calibri Light", 35F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.leyenda.ForeColor = System.Drawing.Color.White;
-            this.leyenda.Location = new System.Drawing.Point(141, 69);
+            this.leyenda.Location = new System.Drawing.Point(192, 68);
             this.leyenda.Margin = new System.Windows.Forms.Padding(0);
             this.leyenda.Name = "leyenda";
             this.leyenda.Size = new System.Drawing.Size(499, 58);
             this.leyenda.TabIndex = 4;
             this.leyenda.Text = "¿A dónde quieres irte tú?";
-            // 
-            // login
-            // 
-            this.login.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.login.BackColor = System.Drawing.SystemColors.MenuHighlight;
-            this.login.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.login.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.login.FlatAppearance.MouseDownBackColor = System.Drawing.SystemColors.MenuHighlight;
-            this.login.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DeepSkyBlue;
-            this.login.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.login.Font = new System.Drawing.Font("Calibri Light", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.login.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.login.Location = new System.Drawing.Point(707, 405);
-            this.login.Name = "login";
-            this.login.Size = new System.Drawing.Size(127, 38);
-            this.login.TabIndex = 5;
-            this.login.Text = "Login >>";
-            this.login.UseVisualStyleBackColor = false;
             // 
             // Home
             // 
@@ -144,17 +125,12 @@
             this.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.ClientSize = new System.Drawing.Size(884, 486);
             this.Controls.Add(this.leyenda);
-            this.Controls.Add(this.login);
             this.Controls.Add(this.slideL);
             this.Controls.Add(this.slideR);
             this.Controls.Add(this.picbox);
             this.Name = "Home";
+            this.Text = "Home";
             this.Load += new System.EventHandler(this.Form1_Load);
-            this.Controls.SetChildIndex(this.picbox, 0);
-            this.Controls.SetChildIndex(this.slideR, 0);
-            this.Controls.SetChildIndex(this.slideL, 0);
-            this.Controls.SetChildIndex(this.login, 0);
-            this.Controls.SetChildIndex(this.leyenda, 0);
             ((System.ComponentModel.ISupportInitialize)(this.picbox)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -167,7 +143,6 @@
         private System.Windows.Forms.Button slideR;
         private System.Windows.Forms.Button slideL;
         private System.Windows.Forms.Label leyenda;
-        private System.Windows.Forms.Button login;
         private System.Windows.Forms.PictureBox picbox;
 
     }

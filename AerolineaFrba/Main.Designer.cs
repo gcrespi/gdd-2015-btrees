@@ -1,6 +1,6 @@
 ﻿namespace AerolineaFrba
 {
-    partial class MasterForm
+    partial class Main
     {
         /// <summary>
         /// Required designer variable.
@@ -43,6 +43,7 @@
             this.bAuditoria = new System.Windows.Forms.ToolStripMenuItem();
             this.regUsuariosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.regLLegadaDestinoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.panel = new System.Windows.Forms.Panel();
             this.menu.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -50,7 +51,7 @@
             // 
             this.menu.AutoSize = false;
             this.menu.BackColor = System.Drawing.Color.White;
-            this.menu.Dock = System.Windows.Forms.DockStyle.Left;
+            this.menu.Dock = System.Windows.Forms.DockStyle.None;
             this.menu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.bHome,
             this.bAdministracion,
@@ -78,6 +79,7 @@
             this.bHome.Padding = new System.Windows.Forms.Padding(0);
             this.bHome.Size = new System.Drawing.Size(98, 80);
             this.bHome.Text = "Home";
+            this.bHome.Click += new System.EventHandler(this.bHome_Click);
             // 
             // bAdministracion
             // 
@@ -105,6 +107,7 @@
             this.aBMAeronaveToolStripMenuItem.Name = "aBMAeronaveToolStripMenuItem";
             this.aBMAeronaveToolStripMenuItem.Size = new System.Drawing.Size(200, 28);
             this.aBMAeronaveToolStripMenuItem.Text = "ABM Aeronave";
+            this.aBMAeronaveToolStripMenuItem.Click += new System.EventHandler(this.aBMAeronaveToolStripMenuItem_Click);
             // 
             // aBMCiudadToolStripMenuItem
             // 
@@ -159,14 +162,14 @@
             // 
             this.consultaToolStripMenuItem.BackColor = System.Drawing.Color.White;
             this.consultaToolStripMenuItem.Name = "consultaToolStripMenuItem";
-            this.consultaToolStripMenuItem.Size = new System.Drawing.Size(152, 28);
+            this.consultaToolStripMenuItem.Size = new System.Drawing.Size(149, 28);
             this.consultaToolStripMenuItem.Text = "Consulta";
             // 
             // canjeToolStripMenuItem
             // 
             this.canjeToolStripMenuItem.BackColor = System.Drawing.Color.White;
             this.canjeToolStripMenuItem.Name = "canjeToolStripMenuItem";
-            this.canjeToolStripMenuItem.Size = new System.Drawing.Size(152, 28);
+            this.canjeToolStripMenuItem.Size = new System.Drawing.Size(149, 28);
             this.canjeToolStripMenuItem.Text = "Canje";
             // 
             // bDevolucion
@@ -209,14 +212,27 @@
             this.regLLegadaDestinoToolStripMenuItem.Size = new System.Drawing.Size(244, 28);
             this.regLLegadaDestinoToolStripMenuItem.Text = "Reg LLegada Destino";
             // 
-            // MasterForm
+            // panel
+            // 
+            this.panel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel.BackColor = System.Drawing.Color.Gainsboro;
+            this.panel.Location = new System.Drawing.Point(100, 0);
+            this.panel.Name = "panel";
+            this.panel.Size = new System.Drawing.Size(784, 486);
+            this.panel.TabIndex = 4;
+            // 
+            // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(884, 486);
+            this.Controls.Add(this.panel);
             this.Controls.Add(this.menu);
-            this.Name = "MasterForm";
+            this.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.Name = "Main";
             this.Text = "Aerolineas Patito";
             this.Load += new System.EventHandler(this.MasterForm_Load);
             this.menu.ResumeLayout(false);
@@ -242,5 +258,6 @@
         protected System.Windows.Forms.ToolStripMenuItem aBMAeronaveToolStripMenuItem;
         protected System.Windows.Forms.ToolStripMenuItem aBMCiudadToolStripMenuItem;
         public System.Windows.Forms.MenuStrip menu;
+        private System.Windows.Forms.Panel panel;
     }
 }

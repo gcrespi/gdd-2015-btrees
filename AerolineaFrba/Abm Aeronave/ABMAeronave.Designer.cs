@@ -1,6 +1,6 @@
-﻿namespace AerolineaFrba.Abm_Ruta
+﻿namespace AerolineaFrba.Abm_Aeronave
 {
-    partial class RutaAereaForm
+    partial class ABMAeronave
     {
         /// <summary>
         /// Required designer variable.
@@ -28,42 +28,34 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.panel1.SuspendLayout();
+            this.label1 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
-            // panel1
+            // label1
             // 
-            this.panel1.Size = new System.Drawing.Size(792, 116);
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(43, 104);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(188, 31);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "ABMAeronave";
             // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(22, 47);
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // button4
-            // 
-            this.button4.Location = new System.Drawing.Point(448, 47);
-            // 
-            // button3
-            // 
-            this.button3.Location = new System.Drawing.Point(295, 47);
-            // 
-            // button2
-            // 
-            this.button2.Location = new System.Drawing.Point(151, 47);
-            // 
-            // RutaAereaForm
+            // ABMAeronave
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(884, 486);
-            this.Name = "RutaAereaForm";
-            this.Text = "Ruta Aerea";
-            this.panel1.ResumeLayout(false);
+            this.ClientSize = new System.Drawing.Size(284, 261);
+            this.Controls.Add(this.label1);
+            this.Name = "ABMAeronave";
+            this.Text = "ABM Aeronave";
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
         #endregion
+
+        private System.Windows.Forms.Label label1;
     }
 }

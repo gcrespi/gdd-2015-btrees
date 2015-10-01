@@ -10,21 +10,18 @@ using System.Windows.Forms;
 
 namespace AerolineaFrba
 {
-    public partial class Alta : AerolineaFrba.MasterForm
+    public partial class Login : Form
     {
-        public Alta()
+        public Login()
         {
             InitializeComponent();
         }
 
-        private void label1_Click(object sender, EventArgs e)
+        private void button1_Click(object sender, EventArgs e)
         {
-
+            ;
+            this.Close();
         }
 
-        private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
     }
 }

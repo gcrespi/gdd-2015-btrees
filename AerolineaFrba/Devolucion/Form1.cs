@@ -10,7 +10,7 @@ using System.Windows.Forms;
 
 namespace AerolineaFrba.Devolucion
 {
-    public partial class Form1 : AerolineaFrba.MasterForm
+    public partial class Form1 : Form
     {
         public Form1()
         {

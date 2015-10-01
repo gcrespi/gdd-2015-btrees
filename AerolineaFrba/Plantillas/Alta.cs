@@ -8,13 +8,23 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace AerolineaFrba.Abm_Aeronave
+namespace AerolineaFrba
 {
-    public partial class Form1 : AerolineaFrba.MasterForm
+    public partial class Alta : Form
     {
-        public Form1()
+        public Alta()
         {
             InitializeComponent();
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

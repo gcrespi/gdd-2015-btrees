@@ -8,13 +8,14 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace AerolineaFrba.Generacion_Viaje
+namespace AerolineaFrba.Abm_Aeronave
 {
-    public partial class Form1 : Form
+    public partial class ABMAeronave : Form
     {
-        public Form1()
+        public ABMAeronave()
         {
             InitializeComponent();
         }
+
     }
 }

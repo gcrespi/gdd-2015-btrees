@@ -10,7 +10,7 @@ using System.Windows.Forms;
 
 namespace AerolineaFrba
 {
-    public partial class Home : AerolineaFrba.MasterForm
+    public partial class Home : Form
     {
         int imageIndex = 0;
 
@@ -25,7 +25,6 @@ namespace AerolineaFrba
             picbox.Location = new Point(97,0);
             leyenda.Parent = picbox;
             leyenda.BackColor = Color.Transparent;
-            this.bHome.BackColor = System.Drawing.Color.SteelBlue;
         }
 
         private void slideR_Click(object sender, EventArgs e)
