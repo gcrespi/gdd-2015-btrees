@@ -54,7 +54,11 @@
             // 
             // imagelist
             // 
+            this.imagelist.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imagelist.ImageStream")));
             this.imagelist.TransparentColor = System.Drawing.Color.Transparent;
+            this.imagelist.Images.SetKeyName(0, "alMundo1.jpg");
+            this.imagelist.Images.SetKeyName(1, "almundo2.jpg");
+            this.imagelist.Images.SetKeyName(2, "alMundo3.jpg");
             // 
             // slideR
             // 

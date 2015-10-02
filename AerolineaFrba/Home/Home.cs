@@ -53,9 +53,28 @@ namespace AerolineaFrba
             picbox.Image = imagelist.Images[imageIndex];
         }
 
+/*
+        void Form1_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == Enter)
+            {
+                MessageBox.Show("Form.KeyPress: '" +
+                    e.KeyChar.ToString() + "' pressed.");
 
+                switch (e.KeyChar)
+                {
+                    case (char)49:
+                    case (char)52:
+                    case (char)55:
+                        MessageBox.Show("Form.KeyPress: '" +
+                            e.KeyChar.ToString() + "' consumed.");
+                        e.Handled = true;
+                        break;
+                }
+            }
+        }
  
-
+*/
 
 
     }

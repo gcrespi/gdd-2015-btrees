@@ -53,13 +53,13 @@
             this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem3 = new System.Windows.Forms.ToolStripMenuItem();
             this.bloh = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem14 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem15 = new System.Windows.Forms.ToolStripMenuItem();
             this.bluh = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem11 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem12 = new System.Windows.Forms.ToolStripMenuItem();
             this.panel = new System.Windows.Forms.Panel();
             this.menuPanel = new System.Windows.Forms.Panel();
-            this.toolStripMenuItem14 = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItem12 = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItem11 = new System.Windows.Forms.ToolStripMenuItem();
             this.menu.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -336,6 +336,13 @@
             this.bloh.Size = new System.Drawing.Size(98, 80);
             this.bloh.Text = "Bloh";
             // 
+            // toolStripMenuItem14
+            // 
+            this.toolStripMenuItem14.BackColor = System.Drawing.Color.White;
+            this.toolStripMenuItem14.Name = "toolStripMenuItem14";
+            this.toolStripMenuItem14.Size = new System.Drawing.Size(244, 28);
+            this.toolStripMenuItem14.Text = "Reg Usuarios";
+            // 
             // toolStripMenuItem15
             // 
             this.toolStripMenuItem15.BackColor = System.Drawing.Color.White;
@@ -356,6 +363,20 @@
             this.bluh.Padding = new System.Windows.Forms.Padding(0);
             this.bluh.Size = new System.Drawing.Size(98, 80);
             this.bluh.Text = "Bluh";
+            // 
+            // toolStripMenuItem11
+            // 
+            this.toolStripMenuItem11.BackColor = System.Drawing.Color.White;
+            this.toolStripMenuItem11.Name = "toolStripMenuItem11";
+            this.toolStripMenuItem11.Size = new System.Drawing.Size(244, 28);
+            this.toolStripMenuItem11.Text = "Reg Usuarios";
+            // 
+            // toolStripMenuItem12
+            // 
+            this.toolStripMenuItem12.BackColor = System.Drawing.Color.White;
+            this.toolStripMenuItem12.Name = "toolStripMenuItem12";
+            this.toolStripMenuItem12.Size = new System.Drawing.Size(244, 28);
+            this.toolStripMenuItem12.Text = "Reg LLegada Destino";
             // 
             // panel
             // 
@@ -378,27 +399,6 @@
             this.menuPanel.Size = new System.Drawing.Size(117, 486);
             this.menuPanel.TabIndex = 5;
             // 
-            // toolStripMenuItem14
-            // 
-            this.toolStripMenuItem14.BackColor = System.Drawing.Color.White;
-            this.toolStripMenuItem14.Name = "toolStripMenuItem14";
-            this.toolStripMenuItem14.Size = new System.Drawing.Size(244, 28);
-            this.toolStripMenuItem14.Text = "Reg Usuarios";
-            // 
-            // toolStripMenuItem12
-            // 
-            this.toolStripMenuItem12.BackColor = System.Drawing.Color.White;
-            this.toolStripMenuItem12.Name = "toolStripMenuItem12";
-            this.toolStripMenuItem12.Size = new System.Drawing.Size(244, 28);
-            this.toolStripMenuItem12.Text = "Reg LLegada Destino";
-            // 
-            // toolStripMenuItem11
-            // 
-            this.toolStripMenuItem11.BackColor = System.Drawing.Color.White;
-            this.toolStripMenuItem11.Name = "toolStripMenuItem11";
-            this.toolStripMenuItem11.Size = new System.Drawing.Size(244, 28);
-            this.toolStripMenuItem11.Text = "Reg Usuarios";
-            // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -411,7 +411,7 @@
             this.ForeColor = System.Drawing.SystemColors.ControlText;
             this.Name = "Main";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Aerolineas Patito";
+            this.Text = "Aerolineas Btrees";
             this.Load += new System.EventHandler(this.MasterForm_Load);
             this.menu.ResumeLayout(false);
             this.menu.PerformLayout();
