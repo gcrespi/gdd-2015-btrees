@@ -10,11 +10,17 @@ using System.Windows.Forms;
 
 namespace AerolineaFrba.Abm_Aeronave
 {
-    public partial class ABMAeronave : Form
+    public partial class ABMAeronave : AerolineaFrba.OpcionesABMForm
+
     {
         public ABMAeronave()
         {
             InitializeComponent();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+
         }
 
     }
