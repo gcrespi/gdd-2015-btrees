@@ -207,7 +207,7 @@ SELECT DISTINCT C.CodigoCompra,
 				C.Cli_Telefono,
 				C.Cli_Mail,
 				C.Cli_Fecha_Nac
-FROM dbo.compra_con_ref c
+FROM dbo.compra_con_ref C
 
 /************ INSERT PASAJES ****** 135658 PASAJES ********/
 
