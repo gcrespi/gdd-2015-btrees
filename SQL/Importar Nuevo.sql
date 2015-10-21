@@ -209,7 +209,34 @@ SELECT DISTINCT C.CodigoCompra,
 				C.Cli_Fecha_Nac
 FROM dbo.compra_con_ref C
 
-/************ INSERT PASAJES ****** 135658 PASAJES ********/
+/************ INSERT PASAJES ****** 265646 PASAJES ********/
+INSERT INTO dbo.Pasaje
+        ( Pasaje_ClienteRef ,
+          Pasaje_CompraRef ,
+          Pasaje_Precio ,
+          Pasaje_ButacaRef ,
+          Pasaje_ViajeRef
+        )
+SELECT DISTINCT (SELECT TOP 1 ClienteID FROM dbo.Cliente WHERE Cliente_DNI=M.Cli_Dni),
+				(SELECT CompraID FROM dbo.Compra WHERE Compra_Codigo=M.Pasaje_Codigo),
+				M.Pasaje_Precio,
+				(SELECT ButacaID FROM dbo.Butaca WHERE Butaca_AvionRef=A.AvionID AND Butaca_Numero=M.Butaca_Nro), 
+				V.ViajeID
+FROM gd_esquema.Maestra M
+INNER JOIN dbo.TipoServicio T ON T.TipoSer_Nombre=M.Tipo_Servicio
+INNER JOIN dbo.Avion A ON M.Aeronave_Matricula=A.Avion_Matricula 
+INNER JOIN (SELECT R.RutaAereaID,
+				   R.Ruta_Codigo,
+				   W.TipoServicioRef,
+				   R.Ruta_CiudadDestinoRef,
+				   R.Ruta_CiudadOrigenRef
+			FROM dbo.RutaAerea R
+			INNER JOIN dbo.TipoServicioXRutaAerea W ON W.RutaAereaRef = R.RutaAereaID
+			) B ON B.Ruta_Codigo=M.Ruta_Codigo AND B.TipoServicioRef=T.TipoServicioID 
+			AND B.Ruta_CiudadOrigenRef=(SELECT CiudadID FROM dbo.Ciudad WHERE Ciudad_Nombre=M.Ruta_Ciudad_Origen)
+			AND B.Ruta_CiudadDestinoRef=(SELECT CiudadID FROM dbo.Ciudad WHERE Ciudad_Nombre=M.Ruta_Ciudad_Destino)
+INNER JOIN dbo.Viaje V ON V.Viaje_AvionRef=A.AvionID AND V.Viaje_FechaLlegada=M.FechaLLegada AND V.Viaje_FechaSalida=M.FechaSalida
+						  AND V.Viaje_RutaAereaRef=B.RutaAereaID
+WHERE Pasaje_Codigo<>0 
 
-
-/************ INSERT ENCOMIENDA *******265646 ENCOMIEDAS*******/
+/************ INSERT ENCOMIENDA ******* 135658 ENCOMIEDAS*******/
