@@ -27,9 +27,9 @@ AS
 
 	--Borro los stored procedures
 	SELECT @names = coalesce(@names + ', ','') + NAME
-	FROM sys.procedures 
+	FROM GD2C2015.sys.procedures
 	WHERE NAME != 'CleanDatabase' AND NAME NOT LIKE 'sp_%'
-
+	
 	SET @sql = 'DROP PROCEDURE ' + @names
 	EXEC(@sql)
 
