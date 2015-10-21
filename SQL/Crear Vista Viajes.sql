@@ -9,4 +9,4 @@ SELECT DISTINCT m.FechaSalida,
 				(SELECT CiudadID FROM dbo.Ciudad WHERE m.Ruta_Ciudad_Destino=Ciudad_Nombre) AS CiudadDestinoRef,
 				(SELECT CiudadID FROM dbo.Ciudad WHERE m.Ruta_Ciudad_Origen=Ciudad_Nombre) AS CiudadOrigenRef
 FROM gd_esquema.Maestra m
-END
+GO
