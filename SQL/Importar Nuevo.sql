@@ -1,5 +1,4 @@
 /************ INSERT CIUDADES *********35 CIUDADES*****/
-BEGIN
 INSERT INTO dbo.Ciudad
         ( Ciudad_Nombre, Ciudad_Activo )
 SELECT DISTINCT m.Ruta_Ciudad_Destino,
@@ -13,10 +12,9 @@ SELECT DISTINCT m.Ruta_Ciudad_Origen,
 FROM gd_esquema.Maestra M
 WHERE M.Ruta_Ciudad_Origen NOT IN (SELECT Ciudad_Nombre FROM dbo.Ciudad)
 
-END
+GO
 
 /************ INSERT CLIENTES ***** 2594 CLIENTES *********/
-BEGIN
 INSERT INTO dbo.Cliente
         ( Cliente_Nombre ,
           Cliente_Apellido ,
@@ -34,10 +32,9 @@ SELECT DISTINCT M.Cli_Nombre,
 		M.Cli_Mail,
 		M.Cli_Fecha_Nac
 FROM gd_esquema.Maestra M
-END
+GO
 
 /************ INSERT TIPO DE SERVICIOS ****** 3 TIPOS ********/
-BEGIN
 INSERT INTO dbo.TipoServicio
         ( TipoSer_Nombre ,
           TipoSer_PorcentajeAdicional
@@ -45,10 +42,9 @@ INSERT INTO dbo.TipoServicio
 SELECT DISTINCT m.Tipo_Servicio,
 		1
 FROM gd_esquema.Maestra m
-END
+GO
 
 /************ INSERT AVION ***** 30 AVIONES ********/
-BEGIN
 INSERT INTO dbo.Avion
         ( Avion_FechaDeAlta ,
           Avion_Modelo ,
@@ -68,10 +64,9 @@ SELECT DISTINCT GETDATE(),
 		0,
 		m.Aeronave_KG_Disponibles				
 FROM gd_esquema.Maestra M
-END
+GO
 
 /************ INSERT BUTACAS ******** 1337 butacas ******/
-BEGIN
 INSERT INTO dbo.Butaca
         ( Butaca_AvionRef ,
           Butaca_Numero ,
@@ -85,12 +80,11 @@ SELECT DISTINCT (SELECT AvionID FROM dbo.Avion WHERE Avion_Matricula=m.Aeronave_
 		END) AS tipoButaca
 FROM gd_esquema.Maestra m
 WHERE m.Butaca_Piso=1
-END
+GO
 
 /************ INSERT RUTAS AEREAS ****** 68 rutas ********/ ---> UN MISMO CODIGO DE RUTA TIENE DISTINTAS CIUDADES DE ORIGEN Y DESTINO... TURBIO
 -- https://groups.google.com/forum/#!topic/gestiondedatos/Q1eg0vCooVE en este link explica que tenemos que guardar todo, y manejarlo nosotros bien con un codigo interno, asi que esto esta bien
 -- existen en total 35 codigo de rutas diferentes nomas, pero con el tema de que estna mal las ciudades, se hacen 68
-BEGIN
 INSERT INTO dbo.RutaAerea
         ( Ruta_Codigo ,
           Ruta_CiudadOrigenRef ,
@@ -130,11 +124,9 @@ FROM RutaAerea t1, (SELECT Ruta_Precio_BasePasaje AS precioBase,m.Ruta_Codigo AS
 					)  tabla2
 WHERE t1.Ruta_Codigo = tabla2.ruta
 COMMIT
-
-END
+GO
 
 /************ INSERT TIPO SERVICIO X RUTA AEREA ***** 68 RUTAS POR TIPO DE SERVICIO *********/
-BEGIN
 INSERT INTO dbo.TipoServicioXRutaAerea
         ( RutaAereaRef, TipoServicioRef )
 SELECT	DISTINCT R.RutaAereaID,
@@ -147,10 +139,9 @@ INNER JOIN (SELECT DISTINCT M.Ruta_Codigo,
             FROM gd_esquema.Maestra m ) AS T ON T.Ruta_Codigo=R.Ruta_Codigo 
 												AND T.CiudadOrigenRef=R.Ruta_CiudadOrigenRef
 												AND T.CiudadDestinoRef=R.Ruta_CiudadDestinoRef
-
+GO
 
 /************ INSERT TIPO TARJETA **************/
-BEGIN
 INSERT INTO dbo.TiposTarjeta
         ( TipoTarj_Descripcion ,
           TipoTarj_CuotasMax
@@ -158,10 +149,9 @@ INSERT INTO dbo.TiposTarjeta
 VALUES  ('MasterCard',2),
 		('Visa',5),
 		('American Express',4)
-END
+GO
 
 /************ INSERT VIAJE ***** 8510 VIAJES *********/ 
-BEGIN
 INSERT INTO dbo.Viaje
         ( Viaje_FechaSalida,
           Viaje_FechaLlegada,
@@ -179,7 +169,7 @@ FROM dbo.viajes_con_ref V
 INNER JOIN dbo.RutaAerea r ON r.Ruta_Codigo = v.Ruta_Codigo 
 							  AND r.Ruta_CiudadDestinoRef=v.CiudadDestinoRef 
 							  AND r.Ruta_CiudadOrigenRef=v.CiudadOrigenRef
-END
+GO
 
 /************ INSERT COMPRAS **************/
 -- EN IMPORTACION HAY RELACION DE UNO A UNO CON COMPRAS Y PASAJES Y PAQUETES (TIENE EL MISMO CODIGO)
@@ -208,6 +198,7 @@ SELECT DISTINCT C.CodigoCompra,
 				C.Cli_Mail,
 				C.Cli_Fecha_Nac
 FROM dbo.compra_con_ref C
+GO
 
 /************ INSERT PASAJES ****** 265646 PASAJES ********/
 INSERT INTO dbo.Pasaje
@@ -238,5 +229,6 @@ INNER JOIN (SELECT R.RutaAereaID,
 INNER JOIN dbo.Viaje V ON V.Viaje_AvionRef=A.AvionID AND V.Viaje_FechaLlegada=M.FechaLLegada AND V.Viaje_FechaSalida=M.FechaSalida
 						  AND V.Viaje_RutaAereaRef=B.RutaAereaID
 WHERE Pasaje_Codigo<>0 
+GO
 
 /************ INSERT ENCOMIENDA ******* 135658 ENCOMIEDAS*******/
