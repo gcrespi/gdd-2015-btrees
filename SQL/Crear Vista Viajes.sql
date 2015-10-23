@@ -9,3 +9,4 @@ SELECT DISTINCT m.FechaSalida,
 				(SELECT CiudadID FROM THE_BTREES.Ciudad WHERE m.Ruta_Ciudad_Destino=Ciudad_Nombre) AS CiudadDestinoRef,
 				(SELECT CiudadID FROM THE_BTREES.Ciudad WHERE m.Ruta_Ciudad_Origen=Ciudad_Nombre) AS CiudadOrigenRef
 FROM gd_esquema.Maestra m
+GO
