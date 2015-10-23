@@ -20,6 +20,33 @@ AS
 	   END
 GO
 
+***** GetDestinosConAvionesMasVaciosList *****/
+IF  object_id(N'[GetDestinosConAvionesMasVaciosList]','P') IS NOT NULL
+	DROP PROCEDURE [GetDestinosConAvionesMasVaciosList]
+GO
+
+CREATE PROCEDURE [GetDestinosConAvionesMasVaciosList]		
+
+AS
+    BEGIN
+	   SET NOCOUNT ON	
+
+	   SELECT TOP 5 (SELECT Ciudad_Nombre FROM dbo.Ciudad WHERE CiudadID=R.Ruta_CiudadDestinoRef),
+				 (SUM(Y.CantButacas) - COUNT(P.Pasaje_ButacaRef)) AS ButacasSinComprar  
+	   FROM dbo.Pasaje P
+	   INNER JOIN dbo.Viaje V ON V.ViajeID = P.Pasaje_ViajeRef
+	   INNER JOIN (SELECT A.AvionID,
+				          COUNT(B.ButacaID) AS CantButacas
+			      FROM dbo.Avion A
+			      INNER JOIN dbo.Butaca B ON B.Butaca_AvionRef = A.AvionID
+			      GROUP BY A.AvionID) Y ON Y.AvionID=V.Viaje_AvionRef
+       INNER JOIN dbo.RutaAerea R ON R.RutaAereaID = V.Viaje_RutaAereaRef
+       GROUP BY R.Ruta_CiudadDestinoRef
+       ORDER BY (SUM(Y.CantButacas) - COUNT(P.Pasaje_ButacaRef)) DESC
+	   
+	  END
+GO
+
 /***** GetDestinosMasPasajesCanceladosList *****/
 IF  object_id(N'[GetDestinosMasPasajesCanceladosList]','P') IS NOT NULL
 	DROP PROCEDURE [GetDestinosMasPasajesCanceladosList]
