@@ -1,3 +1,6 @@
+USE [GD2C2015]
+GO
+
 /***** GetClientesList *****/
 IF  object_id(N'[THE_BTREES].[GetClientesList]','P') IS NOT NULL
 	DROP PROCEDURE [THE_BTREES].[GetClientesList]

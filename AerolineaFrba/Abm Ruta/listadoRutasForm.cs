@@ -21,12 +21,16 @@ namespace AerolineaFrba.Abm_Ruta
         private void listadoRutasForm_Load(object sender, EventArgs e)
         {
             DataTable dt = new DataTable();
-            string strProc = "TraerData";
-            sql.SqlDataAdapter da = new sql.SqlDataAdapter(strProc, Conexion.strCon);
-            da.SelectCommand.CommandType = CommandType.StoredProcedure;
-            da.SelectCommand.Parameters.AddWithValue("@Tabla", "RutaAerea");
-            da.Fill(dt);
-            DataGrid.DataSource = dt;
+            string strProc = "THE_BTREES.TraerData";
+
+            using (var da = new sql.SqlDataAdapter(strProc, Conexion.strCon))
+            {
+                da.SelectCommand.CommandType = CommandType.StoredProcedure;
+                da.SelectCommand.Parameters.AddWithValue("@Tabla", "RutaAerea");
+
+                da.Fill(dt);
+                DataGrid.DataSource = dt;
+            }
         }
 
        

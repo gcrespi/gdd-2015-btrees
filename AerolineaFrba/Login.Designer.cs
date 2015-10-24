@@ -75,6 +75,7 @@
             // passBox
             // 
             this.passBox.Location = new System.Drawing.Point(149, 92);
+            this.passBox.MaxLength = 60;
             this.passBox.Name = "passBox";
             this.passBox.PasswordChar = '•';
             this.passBox.Size = new System.Drawing.Size(262, 20);
@@ -93,6 +94,7 @@
             // usrBox
             // 
             this.usrBox.Location = new System.Drawing.Point(149, 42);
+            this.usrBox.MaxLength = 60;
             this.usrBox.Name = "usrBox";
             this.usrBox.Size = new System.Drawing.Size(262, 20);
             this.usrBox.TabIndex = 0;
