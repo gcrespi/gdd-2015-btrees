@@ -5,22 +5,24 @@ CREATE PROCEDURE THE_BTREES.NO_CHECK_CONSTRAINS
 AS 
 	DECLARE @sql varchar(max)
 	DECLARE tables_in_schema CURSOR FOR 
-	SELECT TABLE_NAME
-	FROM GD2C2015.INFORMATION_SCHEMA.TABLES
-	WHERE TABLE_SCHEMA = 'THE_BTREES' and TABLE_TYPE = 'BASE TABLE';
+	SELECT f.name, Object_NAME(f.parent_object_id)
+	FROM sys.foreign_keys AS f JOIN
+	sys.schemas AS s ON s.schema_id = f.schema_id
+	WHERE s.name = 'THE_BTREES'
 
 	DECLARE @table_name varchar(max)
+	DECLARE @fk_name varchar(max)
 
 	OPEN tables_in_schema 
 
-	FETCH tables_in_schema INTO @table_name 
+	FETCH tables_in_schema INTO  @fk_name, @table_name
 
 	WHILE (@@FETCH_STATUS = 0) 
 	BEGIN 
-		SET @sql = 'ALTER TABLE ' + @table_name + ' NOCHECK CONSTRAINT ALL'
+		SET @sql = 'ALTER TABLE THE_BTREES.' + @table_name + ' DROP CONSTRAINT ' + @fk_name
 		EXEC(@sql)
 
-		FETCH tables_in_schema INTO @table_name
+		FETCH tables_in_schema INTO  @fk_name, @table_name
 	END 
 
 	CLOSE tables_in_schema 
@@ -30,55 +32,53 @@ GO
 -- Creo el SP para limpiar la base
 CREATE PROCEDURE [THE_BTREES].CleanDatabase
 AS
-	DECLARE @names varchar(max)
+	begin TRAN
+	DECLARE @names_sp varchar(max)
+	DECLARE @names_veiws varchar(max)
+	DECLARE @names_tables varchar(max)
+
 	DECLARE @sql varchar(max)
+
+	--Borro los stored procedures
+	SELECT @names_sp = coalesce(@names_sp + ', ','') + '[THE_BTREES].' + p.NAME
+	FROM GD2C2015.sys.procedures p, GD2C2015.sys.schemas s
+	WHERE s.schema_id = p.schema_id AND p.NAME != 'CleanDatabase' AND p.NAME != 'NO_CHECK_CONSTRAINS' AND s.name = 'THE_BTREES'
+	
+	SET @sql = 'DROP PROCEDURE ' + @names_sp
+	EXEC(@sql)
+
+	--Borro las vistas
+	SELECT @names_veiws = coalesce(@names_veiws + ', ','') + '[THE_BTREES].' + TABLE_NAME
+	FROM GD2C2015.INFORMATION_SCHEMA.VIEWS
+	WHERE TABLE_SCHEMA = 'THE_BTREES'
+
+	SET @sql = 'DROP VIEW ' + @names_veiws
+	EXEC(@sql)
 
 	-- Deshabilito la integridad referencial de las tablas a borrar
 	EXEC THE_BTREES.NO_CHECK_CONSTRAINS
 
 	--Borro las tablas excepto la maestra
-	SELECT @names = coalesce(@names + ', ','') + '[THE_BTREES].' + TABLE_NAME
+	SELECT @names_tables = coalesce(@names_tables + ', ','') + '[THE_BTREES].' + TABLE_NAME
 	FROM GD2C2015.INFORMATION_SCHEMA.TABLES
 	WHERE TABLE_SCHEMA = 'THE_BTREES' and TABLE_TYPE = 'BASE TABLE'
 
-	SET @sql = 'DROP TABLE ' + @names
+	SET @sql = 'DROP TABLE ' + @names_tables
 	EXEC(@sql)
 
-	--Borro las vistas
-	SELECT @names = coalesce(@names + ', ','') + '[THE_BTREES].' + TABLE_NAME
-	FROM GD2C2015.INFORMATION_SCHEMA.VIEWS
-	WHERE TABLE_SCHEMA = 'THE_BTREES'
-
-	SET @sql = 'DROP VIEW ' + @names
-	EXEC(@sql)
-
-	--Borro los stored procedures
-	SELECT @names = coalesce(@names + ', ','') + '[THE_BTREES].' + p.NAME
-	FROM GD2C2015.sys.procedures p, GD2C2015.sys.schemas s
-	WHERE s.schema_id = p.schema_id AND p.NAME != 'CleanDatabase' AND s.name = 'THE_BTREES'
-	
-	SET @sql = 'DROP PROCEDURE ' + @names
-	EXEC(@sql)
+	COMMIT TRAN
 
 GO
 
 -- Hago un algoritmo para que ande a pesar de los errores de FK
 PRINT 'Command(s) completed successfully.'
-
+/*
 DECLARE @C int
 SET @C = 1
 WHILE @C<20 BEGIN PRINT CHAR(13) SET @C+=1 END
 PRINT 'A TODO ESTO NO LE DEN BOLA....'
-
-DECLARE @END bit
-SET @END = 0
-	BEGIN TRY
-		EXEC [THE_BTREES].CleanDatabase
-		SET @END = 1
-	END TRY
-	BEGIN CATCH
-		PRINT 'ERROR'
-	END CATCH 
+*/
+	EXEC [THE_BTREES].CleanDatabase
 GO
 
 DROP PROCEDURE [THE_BTREES].CleanDatabase

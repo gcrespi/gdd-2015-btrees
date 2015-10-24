@@ -15,7 +15,7 @@ CREATE PROCEDURE THE_BTREES.CheckearUsuarioAdministrador
 	@Usuario_Wrong_Password BIT OUT
 AS 
 	DECLARE @Usuario_Intentos_Fallidos TINYINT
-	DECLARE @Usuario_Actual_Password varchar(64)
+	DECLARE @Usuario_Actual_Password VARBINARY(64)
 
 	SET @UsuarioID = 0
 	SET @Usuario_Activo = 0
@@ -30,7 +30,7 @@ AS
 	WHERE Usuario_Nombre = @Usuario_Nombre AND r.Rol_Nombre = 'Administrador General'
 	
 	IF @@ROWCOUNT > 0 BEGIN
-		IF @Usuario_Actual_Password <> @Usuario_Password BEGIN
+		IF @Usuario_Actual_Password <> HASHBYTES('SHA2_256', @Usuario_Password) BEGIN
 			SET @Usuario_Intentos_Fallidos = @Usuario_Intentos_Fallidos + 1 
 
 			IF @Usuario_Intentos_Fallidos >= 3 BEGIN

@@ -264,7 +264,7 @@ INSERT INTO THE_BTREES.Roles (Rol_Nombre, Rol_Activo) VALUES
 	('Cliente', 1)
 
 INSERT INTO THE_BTREES.Usuarios (Usuario_Nombre, Usuario_Password, Usuario_Intentos_Fallidos, Usuario_Activo) VALUES 
-	('admin', 'w23e', 0, 1)
+	('admin',  HASHBYTES('SHA2_256', N'w23e'), 0, 1)
 
 INSERT INTO THE_BTREES.RolesXUsuarios (UsuarioRef, RolRef) VALUES 
 	(1, 1)
