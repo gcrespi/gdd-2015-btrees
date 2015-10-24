@@ -1,6 +1,6 @@
-CREATE VIEW compra_con_ref
+CREATE VIEW THE_BTREES.compra_con_ref
 AS
-SELECT DISTINCT (SELECT AvionID FROM dbo.Avion WHERE Avion_Matricula=m.Aeronave_Matricula) AS AvionRef,
+SELECT DISTINCT (SELECT AvionID FROM THE_BTREES.Avion WHERE Avion_Matricula=m.Aeronave_Matricula) AS AvionRef,
 	   (CASE 
 			WHEN M.Pasaje_Codigo<>0 THEN M.Pasaje_FechaCompra
 			ELSE M.Paquete_FechaCompra

@@ -17,10 +17,18 @@ namespace AerolineaFrba
             InitializeComponent();
         }
 
+        private Conexion conn = null;
+
         private void button1_Click(object sender, EventArgs e)
         {
-            // Aca consultar la base
-            if (usrBox.Text == "sa" && passBox.Text == "gdd")
+            if (conn == null)
+            {
+                conn = new Conexion();
+            }
+            // Falta codificar Pass con SHA256
+            // Falta bloquear luego de 3 intentos
+            // Averiguar como hacer que la app rompa si hay una exeption
+            if (conn.existsAnyThat("SELECT Usuarios.id_usuario FROM Usuarios, Claves WHERE name = '"+ usrBox.Text +"' AND clave = '"+ passBox.Text +"' AND id_rol = 1"))
             {
                 this.DialogResult = DialogResult.OK;
             }
@@ -32,7 +40,7 @@ namespace AerolineaFrba
 
         private void Login_Load(object sender, EventArgs e)
         {
-
+            
         }
 
 
