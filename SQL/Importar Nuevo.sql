@@ -241,6 +241,8 @@ GO
 /************ INSERT ENCOMIENDA ******* 135658 ENCOMIEDAS*******/
 
 
+
+
 /************ INSERT Usuarios ******* *******/
 
 BEGIN TRAN
