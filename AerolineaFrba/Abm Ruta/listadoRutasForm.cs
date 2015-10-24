@@ -22,11 +22,15 @@ namespace AerolineaFrba.Abm_Ruta
         {
             DataTable dt = new DataTable();
             string strProc = "THE_BTREES.TraerData";
-            sql.SqlDataAdapter da = new sql.SqlDataAdapter(strProc, Conexion.strCon);
-            da.SelectCommand.CommandType = CommandType.StoredProcedure;
-            da.SelectCommand.Parameters.AddWithValue("@Tabla", "RutaAerea");
-            da.Fill(dt);
-            DataGrid.DataSource = dt;
+
+            using (var da = new sql.SqlDataAdapter(strProc, Conexion.strCon))
+            {
+                da.SelectCommand.CommandType = CommandType.StoredProcedure;
+                da.SelectCommand.Parameters.AddWithValue("@Tabla", "RutaAerea");
+
+                da.Fill(dt);
+                DataGrid.DataSource = dt;
+            }
         }
 
        
