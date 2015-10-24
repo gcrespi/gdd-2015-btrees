@@ -8,29 +8,53 @@ GO
 
 CREATE PROCEDURE THE_BTREES.CheckearUsuarioAdministrador
 	@Usuario_Nombre NVARCHAR(60),
+	-- Falta codificar Pass con SHA256
 	@Usuario_Password NVARCHAR(60),
 	@UsuarioID INT OUT,
-	@Usuario_Intentos_Fallidos TINYINT OUT,
+	@Usuario_Activo BIT OUT,
 	@Usuario_Wrong_Password BIT OUT
 AS 
-	DECLARE @Usuario_Actual_Password varchar(max)
+	DECLARE @Usuario_Intentos_Fallidos TINYINT
+	DECLARE @Usuario_Actual_Password varchar(64)
 
-	SELECT TOP 1 @UsuarioID = u.UsuarioID, @Usuario_Intentos_Fallidos = u.Usuario_Intentos_Fallidos, @Usuario_Actual_Password = u.Usuario_Password
+	SET @UsuarioID = 0
+	SET @Usuario_Activo = 0
+	SET @Usuario_Wrong_Password = 0
+
+	SET @Usuario_Intentos_Fallidos = 0
+
+	SELECT TOP 1 @UsuarioID = u.UsuarioID, @Usuario_Activo = u.Usuario_Activo, @Usuario_Intentos_Fallidos = u.Usuario_Intentos_Fallidos, @Usuario_Actual_Password = u.Usuario_Password
 	FROM THE_BTREES.Usuarios as u JOIN
 	THE_BTREES.RolesXUsuarios as ru ON u.UsuarioID = ru.UsuarioRef JOIN
 	THE_BTREES.Roles as r ON r.Rol_Activo = ru.RolRef
 	WHERE Usuario_Nombre = @Usuario_Nombre AND r.Rol_Nombre = 'Administrador General'
 	
-	IF @@ROWCOUNT = 0 BEGIN
-		SET @UsuarioID = NULL
-	END ELSE BEGIN
+	IF @@ROWCOUNT > 0 BEGIN
 		IF @Usuario_Actual_Password <> @Usuario_Password BEGIN
-			UPDATE THE_BTREES.Usuarios SET Usuario_Intentos_Fallidos = Usuario_Intentos_Fallidos + 1
-			WHERE UsuarioID = @UsuarioID
+			SET @Usuario_Intentos_Fallidos = @Usuario_Intentos_Fallidos + 1 
+
+			IF @Usuario_Intentos_Fallidos >= 3 BEGIN
+				
+				UPDATE THE_BTREES.Usuarios SET 
+					Usuario_Intentos_Fallidos = @Usuario_Intentos_Fallidos, 
+					Usuario_Activo = 0
+				WHERE UsuarioID = @UsuarioID
+
+				SET @Usuario_Activo = 0
+			END ELSE BEGIN
+
+				UPDATE THE_BTREES.Usuarios SET 
+					Usuario_Intentos_Fallidos = @Usuario_Intentos_Fallidos
+				WHERE UsuarioID = @UsuarioID
+			END
 
 			SET @Usuario_Wrong_Password = 1
 		END ELSE BEGIN
-			SET @Usuario_Wrong_Password = 0
-		END 
+			
+			UPDATE THE_BTREES.Usuarios SET 
+				Usuario_Intentos_Fallidos = 0, 
+				Usuario_Activo = 1
+			WHERE UsuarioID = @UsuarioID
+		END
 	END
-GO
+	GO

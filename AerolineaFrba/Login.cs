@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -12,30 +13,75 @@ namespace AerolineaFrba
 {
     public partial class Login : Form
     {
+        private int usuarioID;
+
         public Login()
         {
             InitializeComponent();
         }
 
-        private Conexion conn = null;
+        private int idUsuarioWith(String nombre, String pass)
+        {
+            int _usuarioID = 0;
+            bool _usuarioActivo = false;
+            bool _wrongPassword = false;
+
+            using (var conn = new SqlConnection(Conexion.strCon))
+            using (var command = new SqlCommand("THE_BTREES.CheckearUsuarioAdministrador", conn)
+            {
+                CommandType = CommandType.StoredProcedure
+            })
+            {
+                // set up the parameters
+                command.Parameters.Add("@UsuarioID", SqlDbType.Int).Direction = ParameterDirection.Output;
+                command.Parameters.Add("@Usuario_Activo", SqlDbType.Bit).Direction = ParameterDirection.Output;
+                command.Parameters.Add("@Usuario_Wrong_Password", SqlDbType.Bit).Direction = ParameterDirection.Output;
+
+                // set parameter values
+                command.Parameters.AddWithValue("@Usuario_Nombre", nombre);
+                command.Parameters.AddWithValue("@Usuario_Password", pass);
+                conn.Open();
+
+                command.ExecuteNonQuery();
+
+                // read output value from output variables
+                _usuarioID = Convert.ToInt32(command.Parameters["@UsuarioID"].Value);
+                _usuarioActivo = Convert.ToBoolean(command.Parameters["@Usuario_Activo"].Value);
+                _wrongPassword = Convert.ToBoolean(command.Parameters["@Usuario_Wrong_Password"].Value);
+                conn.Close();
+            }
+
+            return validarUsuario(_usuarioID, _usuarioActivo, _wrongPassword);
+        }
+
+        private int validarUsuario(int usuarioID, bool usuarioActivo, bool wrongPassword) 
+        {
+            if (usuarioID == 0)
+            {
+                wrongLabel.Text = "Usuario  o contraseña incorrecto!";
+                return 0;
+            }
+
+            if (!usuarioActivo)
+            {
+                wrongLabel.Text = "Usuario Inhabilitado!";
+                return 0;
+            }
+
+            if (wrongPassword)
+            {
+                wrongLabel.Text = "Usuario  o contraseña incorrecto";
+                return 0;
+            }
+
+            return usuarioID;
+        }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            if (conn == null)
-            {
-                conn = new Conexion();
-            }
-            // Falta codificar Pass con SHA256
-            // Falta bloquear luego de 3 intentos
-            // Averiguar como hacer que la app rompa si hay una exeption
-            if (conn.existsAnyThat("SELECT Usuarios.id_usuario FROM Usuarios, Claves WHERE name = '"+ usrBox.Text +"' AND clave = '"+ passBox.Text +"' AND id_rol = 1"))
-            {
+            usuarioID = idUsuarioWith(usrBox.Text, passBox.Text);
+            if(usuarioID != 0)
                 this.DialogResult = DialogResult.OK;
-            }
-            else
-            {
-                wrongLabel.Text = "Usuario  o contraseña incorrecto";
-            }
         }
 
         private void Login_Load(object sender, EventArgs e)
