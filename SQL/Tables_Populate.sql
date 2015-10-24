@@ -210,7 +210,7 @@ FROM THE_BTREES.compra_con_ref C
 SET IDENTITY_INSERT THE_BTREES.Compra OFF
 GO
 
-/*
+
 /************ INSERT PASAJES ****** 265646 PASAJES ********/
 INSERT INTO THE_BTREES.Pasaje
         ( Pasaje_ClienteRef ,
@@ -218,9 +218,9 @@ INSERT INTO THE_BTREES.Pasaje
           Pasaje_Precio ,
           Pasaje_ButacaRef ,
           Pasaje_ViajeRef
-        )
-SELECT DISTINCT (SELECT TOP 1 ClienteID FROM THE_BTREES.Cliente WHERE Cliente_DNI=M.Cli_Dni),
-				(SELECT CompraID FROM THE_BTREES.Compra WHERE CompraID=M.Pasaje_Codigo),
+        )  
+SELECT DISTINCT (SELECT ClienteID FROM THE_BTREES.Cliente WHERE Cliente_DNI=M.Cli_Dni AND Cliente_Apellido=M.Cli_Apellido),
+				M.Pasaje_Codigo,
 				M.Pasaje_Precio,
 				(SELECT ButacaID FROM THE_BTREES.Butaca WHERE Butaca_AvionRef=A.AvionID AND Butaca_Numero=M.Butaca_Nro), 
 				V.ViajeID
@@ -230,17 +230,14 @@ INNER JOIN THE_BTREES.Avion A ON M.Aeronave_Matricula=A.Avion_Matricula
 INNER JOIN (SELECT R.RutaAereaID,
 				   R.Ruta_Codigo,
 				   W.TipoServicioRef,
-				   R.Ruta_CiudadDestinoRef,
 				   R.Ruta_CiudadOrigenRef
 			FROM THE_BTREES.RutaAerea R
 			INNER JOIN THE_BTREES.TipoServicioXRutaAerea W ON W.RutaAereaRef = R.RutaAereaID
 			) B ON B.Ruta_Codigo=M.Ruta_Codigo AND B.TipoServicioRef=T.TipoServicioID 
 			AND B.Ruta_CiudadOrigenRef=(SELECT CiudadID FROM THE_BTREES.Ciudad WHERE Ciudad_Nombre=M.Ruta_Ciudad_Origen)
-			AND B.Ruta_CiudadDestinoRef=(SELECT CiudadID FROM THE_BTREES.Ciudad WHERE Ciudad_Nombre=M.Ruta_Ciudad_Destino)
-INNER JOIN THE_BTREES.Viaje V ON V.Viaje_AvionRef=A.AvionID AND V.Viaje_FechaLlegada=M.FechaLLegada AND V.Viaje_FechaSalida=M.FechaSalida
+INNER JOIN THE_BTREES.Viaje V ON V.Viaje_AvionRef=A.AvionID AND V.Viaje_FechaLlegada=M.FechaLLegada 
 						  AND V.Viaje_RutaAereaRef=B.RutaAereaID
 WHERE Pasaje_Codigo<>0 
-GO
 
 /************ INSERT ENCOMIENDA ******* 135658 ENCOMIEDAS*******/
 
@@ -252,29 +249,27 @@ INSERT INTO THE_BTREES.Encomienda
 		Enco_ClienteRespRef,
 		Enco_ViajeRef
 	)
-SELECT DISTINCT	m.Paquete_KG,
-				m.Paquete_Precio, 
-				c.CompraID,
-				cl.ClienteID,
-				v.ViajeID
-FROM gd_esquema.Maestra m,
-	 THE_BTREES.Compra c,
-	 THE_BTREES.Cliente cl,
-     THE_BTREES.Viaje v,
-	 THE_BTREES.Avion a,
-	 THE_BTREES.RutaAerea r
-WHERE m.Paquete_KG <> 0 AND
-	  c.CompraID = m.Paquete_Codigo AND
-	  cl.Cliente_DNI = m.Cli_Dni AND 
-	  cl.Cliente_Apellido = m.Cli_Apellido AND
-	  v.Viaje_AvionRef = a.AvionID AND
-	  v.Viaje_RutaAereaRef = r.RutaAereaID AND
-	  m.FechaSalida = v.Viaje_FechaSalida AND
-	  a.Avion_Matricula = m.Aeronave_Matricula
-*/
+SELECT DISTINCT m.Paquete_KG,
+				m.Paquete_Precio,
+				M.Paquete_Codigo,
+				(SELECT ClienteID FROM THE_BTREES.Cliente WHERE Cliente_DNI=M.Cli_Dni AND Cliente_Apellido=M.Cli_Apellido),
+				V.ViajeID
+FROM gd_esquema.Maestra M
+INNER JOIN THE_BTREES.TipoServicio T ON T.TipoSer_Nombre=M.Tipo_Servicio
+INNER JOIN THE_BTREES.Avion A ON M.Aeronave_Matricula=A.Avion_Matricula 
+INNER JOIN (SELECT R.RutaAereaID,
+				   R.Ruta_Codigo,
+				   W.TipoServicioRef,
+				   R.Ruta_CiudadOrigenRef
+			FROM THE_BTREES.RutaAerea R
+			INNER JOIN THE_BTREES.TipoServicioXRutaAerea W ON W.RutaAereaRef = R.RutaAereaID
+			) B ON B.Ruta_Codigo=M.Ruta_Codigo AND B.TipoServicioRef=T.TipoServicioID 
+			AND B.Ruta_CiudadOrigenRef=(SELECT CiudadID FROM THE_BTREES.Ciudad WHERE Ciudad_Nombre=M.Ruta_Ciudad_Origen)
+INNER JOIN THE_BTREES.Viaje V ON V.Viaje_AvionRef=A.AvionID AND V.Viaje_FechaLlegada=M.FechaLLegada 
+						 	  AND V.Viaje_RutaAereaRef=B.RutaAereaID
+WHERE Paquete_Codigo<>0 
 
 /************ INSERT Usuarios ******* *******/
-
 BEGIN TRAN
 INSERT INTO THE_BTREES.Funcionalidades (Funcionalidad_Nombre) VALUES 
 	('ABM de Rol'),
