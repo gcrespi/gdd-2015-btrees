@@ -110,7 +110,6 @@ SELECT DISTINCT M.Ruta_Codigo,
 		1
 FROM gd_esquema.Maestra m
 
-BEGIN TRANSACTION
 UPDATE THE_BTREES.RutaAerea
 SET Ruta_PrecioBaseKg = tabla2.precioBase
 FROM THE_BTREES.RutaAerea t1, (SELECT m.Ruta_Precio_BaseKG AS precioBase,
@@ -121,9 +120,7 @@ FROM THE_BTREES.RutaAerea t1, (SELECT m.Ruta_Precio_BaseKG AS precioBase,
 					GROUP BY m.Ruta_Codigo,Ruta_Precio_BaseKG
 					) tabla2
 WHERE t1.Ruta_Codigo = tabla2.ruta
-COMMIT
 
-BEGIN TRANSACTION
 UPDATE THE_BTREES.RutaAerea
 SET Ruta_PrecioBasePasaje = tabla2.precioBase
 FROM THE_BTREES.RutaAerea t1, (SELECT Ruta_Precio_BasePasaje AS precioBase,m.Ruta_Codigo AS ruta FROM gd_esquema.Maestra m 
@@ -132,7 +129,6 @@ FROM THE_BTREES.RutaAerea t1, (SELECT Ruta_Precio_BasePasaje AS precioBase,m.Rut
 					GROUP BY m.Ruta_Codigo,Ruta_Precio_BasePasaje
 					)  tabla2
 WHERE t1.Ruta_Codigo = tabla2.ruta
-COMMIT
 GO
 
 /************ INSERT TIPO SERVICIO X RUTA AEREA ***** 68 RUTAS POR TIPO DE SERVICIO *********/
@@ -188,7 +184,8 @@ GO
 -- CUANDO SE IMPLEMENTE UNA COMPRA PUEDE TENER MAS 
 -- DE UN PASAJE O ENCOMIENDA 
 INSERT INTO THE_BTREES.Compra
-        ( Compra_Fecha ,
+        ( Compra_Codigo ,
+		  Compra_Fecha ,
           Compra_AbonaEnEfectivo ,
           Compra_DNIComprador ,
           Compra_Nombre ,
@@ -198,7 +195,8 @@ INSERT INTO THE_BTREES.Compra
           Compra_Mail ,
           Compra_FechaNac
         )
-SELECT DISTINCT C.fechaCompra,
+SELECT DISTINCT C.CodigoCompra ,
+				C.fechaCompra,
 				1, --TODOS ABONAN EN EFECTIVO
 				C.Cli_Dni,
 				C.Cli_Nombre,
@@ -243,7 +241,33 @@ GO
 
 /************ INSERT ENCOMIENDA ******* 135658 ENCOMIEDAS*******/
 
-
+INSERT INTO THE_BTREES.Encomienda 
+	(
+		Enco_KG,
+		Enco_Precio,
+		Enco_CompraRef,
+		Enco_ClienteRespRef,
+		Enco_ViajeRef
+	)
+SELECT DISTINCT	m.Paquete_KG,
+				m.Paquete_Precio, 
+				c.CompraID,
+				cl.ClienteID,
+				v.ViajeID
+FROM gd_esquema.Maestra m,
+	 THE_BTREES.Compra c,
+	 THE_BTREES.Cliente cl,
+     THE_BTREES.Viaje v,
+	 THE_BTREES.Avion a,
+	 THE_BTREES.RutaAerea r
+WHERE m.Paquete_KG <> 0 AND
+	  c.Compra_Codigo = m.Paquete_Codigo AND
+	  cl.Cliente_DNI = m.Cli_Dni AND 
+	  cl.Cliente_Apellido = m.Cli_Apellido AND
+	  v.Viaje_AvionRef = a.AvionID AND
+	  v.Viaje_RutaAereaRef = r.RutaAereaID AND
+	  m.FechaSalida = v.Viaje_FechaSalida AND
+	  a.Avion_Matricula = m.Aeronave_Matricula
 
 
 /************ INSERT Usuarios ******* *******/

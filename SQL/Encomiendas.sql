@@ -1,3 +1,6 @@
+use GD2C2015
+go
+
 INSERT INTO THE_BTREES.Encomienda 
 	(
 		Enco_KG,
@@ -18,13 +21,13 @@ FROM gd_esquema.Maestra m,
 	 THE_BTREES.Avion a,
 	 THE_BTREES.RutaAerea r
 WHERE m.Paquete_KG <> 0 AND
-	  c.CompraID = m.Paquete_Codigo AND
+	  c.Compra_Codigo = m.Paquete_Codigo AND
 	  cl.Cliente_DNI = m.Cli_Dni AND 
 	  cl.Cliente_Apellido = m.Cli_Apellido AND
 	  v.Viaje_AvionRef = a.AvionID AND
 	  v.Viaje_RutaAereaRef = r.RutaAereaID AND
-	  m.Ruta_Ciudad_Origen = (SELECT Ciudad_Nombre FROM THE_BTREES.Ciudad WHERE CiudadID = r.Ruta_CiudadOrigenRef) AND
-	  m.Ruta_Ciudad_Destino = (SELECT Ciudad_Nombre FROM THE_BTREES.Ciudad WHERE CiudadID = r.Ruta_CiudadDestinoRef) AND
+	  m.FechaSalida = v.Viaje_FechaSalida AND
+--	  m.Ruta_Ciudad_Origen = (SELECT Ciudad_Nombre FROM THE_BTREES.Ciudad WHERE CiudadID = r.Ruta_CiudadOrigenRef) AND
 	  a.Avion_Matricula = m.Aeronave_Matricula
 
 	   
