@@ -240,3 +240,48 @@ GO
 
 /************ INSERT ENCOMIENDA ******* 135658 ENCOMIEDAS*******/
 
+
+/************ INSERT Usuarios ******* *******/
+
+BEGIN TRAN
+INSERT INTO THE_BTREES.Funcionalidades (Funcionalidad_Nombre) VALUES 
+	('ABM de Rol'),
+	('Login y seguridad'),
+	('Registro de Usuario'),
+	('ABM de Ciudad'),
+	('ABM de Ruta Aérea'),
+	('ABM de Aeronave'),
+	('Generación de Viaje'),
+	('Registro de llegada a Destino'),
+	('Compra de pasaje/encomienda'),
+	('Devolución/Cancelación de pasaje y/o encomienda'),
+	('Canje de millas'),
+	('Consulta de millas de pasajero frecuente'),
+	('Listado Estadístico')
+
+INSERT INTO THE_BTREES.Roles (Rol_Nombre, Rol_Activo) VALUES 
+	('Administrador General', 1),
+	('Cliente', 1)
+
+INSERT INTO THE_BTREES.Usuarios (Usuario_Nombre, Usuario_Password, Usuario_Intentos_Fallidos, Usuario_Activo) VALUES 
+	('admin', 'w23e', 0, 1)
+
+INSERT INTO THE_BTREES.RolesXUsuarios (UsuarioRef, RolRef) VALUES 
+	(1, 1)
+
+INSERT INTO THE_BTREES.FuncionalidadesXRoles (RolRef, FuncionalidadRef) VALUES 
+	(1, 1),
+	(1, 2),
+	(1, 3),
+	(1, 4),
+	(1, 5),
+	(1, 6),
+	(1, 7),
+	(1, 8),
+	(1, 9),
+	(1, 10),
+	(1, 11),
+	(1, 12),
+	(1, 13)
+COMMIT TRAN
+GO
