@@ -6,7 +6,7 @@ create PROCEDURE [THE_BTREES].[TraerData]
 ( @Tabla nvarchar(20) )
 as
 declare @sentencia nvarchar(200)
-set @sentencia='select * from ' + @Tabla 
+set @sentencia='select * from [THE_BTREES].' + @Tabla 
 execute (@sentencia)
 
 
