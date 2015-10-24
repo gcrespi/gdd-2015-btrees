@@ -183,8 +183,9 @@ GO
 -- EN IMPORTACION HAY RELACION DE UNO A UNO CON COMPRAS Y PASAJES Y PAQUETES (TIENE EL MISMO CODIGO)
 -- CUANDO SE IMPLEMENTE UNA COMPRA PUEDE TENER MAS 
 -- DE UN PASAJE O ENCOMIENDA 
+SET IDENTITY_INSERT THE_BTREES.Compra ON
 INSERT INTO THE_BTREES.Compra
-        ( Compra_Codigo ,
+        ( CompraID ,
 		  Compra_Fecha ,
           Compra_AbonaEnEfectivo ,
           Compra_DNIComprador ,
@@ -206,6 +207,7 @@ SELECT DISTINCT C.CodigoCompra ,
 				C.Cli_Mail,
 				C.Cli_Fecha_Nac
 FROM THE_BTREES.compra_con_ref C
+SET IDENTITY_INSERT THE_BTREES.Compra OFF
 GO
 
 /************ INSERT PASAJES ****** 265646 PASAJES ********/
