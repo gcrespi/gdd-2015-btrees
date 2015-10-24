@@ -26,7 +26,7 @@ AS
 
 	SET @Usuario_Intentos_Fallidos = 0
 
-	SELECT TOP 1 @UsuarioID = u.UsuarioID, @Usuario_Activo = u.Usuario_Activo, @Usuario_Intentos_Fallidos = u.Usuario_Intentos_Fallidos, @Usuario_Actual_Password = u.Usuario_Password
+	SELECT TOP 1 @UsuarioID = u.UsuarioID, @Usuario_Activo = u.Usuario_Activo, @Usuario_Intentos_Fallidos = u.Usuario_Intentos_Fallidos, @Usuario_Actual_Password = CAST(u.Usuario_Password AS VARBINARY(64))
 	FROM THE_BTREES.Usuarios as u JOIN
 	THE_BTREES.RolesXUsuarios as ru ON u.UsuarioID = ru.UsuarioRef JOIN
 	THE_BTREES.Roles as r ON r.Rol_Activo = ru.RolRef
