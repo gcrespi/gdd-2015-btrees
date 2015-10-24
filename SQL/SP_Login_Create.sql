@@ -1,3 +1,6 @@
+USE [GD2C2015]
+GO
+
 /***** CheckearUsuarioAdministrador *****/
 IF  object_id(N'[THE_BTREES].[CheckearUsuarioAdministrador]','P') IS NOT NULL
 	DROP PROCEDURE [THE_BTREES].[CheckearUsuarioAdministrador]

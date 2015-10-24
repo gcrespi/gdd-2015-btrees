@@ -1,6 +1,12 @@
 USE [GD2C2015]
 GO
 
+IF (NOT EXISTS (SELECT * FROM sys.schemas WHERE name = 'THE_BTREES')) 
+BEGIN
+    EXEC ('CREATE SCHEMA THE_BTREES')
+END
+GO
+
 CREATE PROCEDURE THE_BTREES.NO_CHECK_CONSTRAINS
 AS 
 	DECLARE @sql varchar(max)
@@ -32,7 +38,6 @@ GO
 -- Creo el SP para limpiar la base
 CREATE PROCEDURE [THE_BTREES].CleanDatabase
 AS
-	begin TRAN
 	DECLARE @names_sp varchar(max)
 	DECLARE @names_veiws varchar(max)
 	DECLARE @names_tables varchar(max)
@@ -65,24 +70,15 @@ AS
 
 	SET @sql = 'DROP TABLE ' + @names_tables
 	EXEC(@sql)
-
-	COMMIT TRAN
-
 GO
 
 -- Hago un algoritmo para que ande a pesar de los errores de FK
-PRINT 'Command(s) completed successfully.'
-/*
-DECLARE @C int
-SET @C = 1
-WHILE @C<20 BEGIN PRINT CHAR(13) SET @C+=1 END
-PRINT 'A TODO ESTO NO LE DEN BOLA....'
-*/
+begin TRAN
 	EXEC [THE_BTREES].CleanDatabase
-GO
 
-DROP PROCEDURE [THE_BTREES].CleanDatabase
-GO
+	DROP PROCEDURE [THE_BTREES].CleanDatabase
+	DROP PROCEDURE [THE_BTREES].NO_CHECK_CONSTRAINS	
 
-DROP PROCEDURE [THE_BTREES].NO_CHECK_CONSTRAINS
+	DROP SCHEMA THE_BTREES
+COMMIT TRAN
 GO

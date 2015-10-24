@@ -1,3 +1,6 @@
+USE [GD2C2015]
+GO
+
 /***** GetDestinosMasCompradosList *****/
 IF  object_id(N'[THE_BTREES].[GetDestinosMasCompradosList]','P') IS NOT NULL
 	DROP PROCEDURE [THE_BTREES].[GetDestinosMasCompradosList]

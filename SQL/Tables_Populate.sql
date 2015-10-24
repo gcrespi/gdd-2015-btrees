@@ -1,3 +1,6 @@
+USE [GD2C2015]
+GO
+
 /************ INSERT CIUDADES *********35 CIUDADES*****/
 
 INSERT INTO THE_BTREES.Ciudad
