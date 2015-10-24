@@ -210,6 +210,7 @@ FROM THE_BTREES.compra_con_ref C
 SET IDENTITY_INSERT THE_BTREES.Compra OFF
 GO
 
+/*
 /************ INSERT PASAJES ****** 265646 PASAJES ********/
 INSERT INTO THE_BTREES.Pasaje
         ( Pasaje_ClienteRef ,
@@ -219,7 +220,7 @@ INSERT INTO THE_BTREES.Pasaje
           Pasaje_ViajeRef
         )
 SELECT DISTINCT (SELECT TOP 1 ClienteID FROM THE_BTREES.Cliente WHERE Cliente_DNI=M.Cli_Dni),
-				(SELECT CompraID FROM THE_BTREES.Compra WHERE Compra_Codigo=M.Pasaje_Codigo),
+				(SELECT CompraID FROM THE_BTREES.Compra WHERE CompraID=M.Pasaje_Codigo),
 				M.Pasaje_Precio,
 				(SELECT ButacaID FROM THE_BTREES.Butaca WHERE Butaca_AvionRef=A.AvionID AND Butaca_Numero=M.Butaca_Nro), 
 				V.ViajeID
@@ -263,14 +264,14 @@ FROM gd_esquema.Maestra m,
 	 THE_BTREES.Avion a,
 	 THE_BTREES.RutaAerea r
 WHERE m.Paquete_KG <> 0 AND
-	  c.Compra_Codigo = m.Paquete_Codigo AND
+	  c.CompraID = m.Paquete_Codigo AND
 	  cl.Cliente_DNI = m.Cli_Dni AND 
 	  cl.Cliente_Apellido = m.Cli_Apellido AND
 	  v.Viaje_AvionRef = a.AvionID AND
 	  v.Viaje_RutaAereaRef = r.RutaAereaID AND
 	  m.FechaSalida = v.Viaje_FechaSalida AND
 	  a.Avion_Matricula = m.Aeronave_Matricula
-
+*/
 
 /************ INSERT Usuarios ******* *******/
 
@@ -316,3 +317,4 @@ INSERT INTO THE_BTREES.FuncionalidadesXRoles (RolRef, FuncionalidadRef) VALUES
 	(1, 13)
 COMMIT TRAN
 GO
+
