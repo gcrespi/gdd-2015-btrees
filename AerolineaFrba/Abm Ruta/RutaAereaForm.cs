@@ -24,6 +24,15 @@ namespace AerolineaFrba.Abm_Ruta
             frmListadoRuta.Show();
         }
 
-        
+
+        protected override ListadoForm nuevoListado()
+        {
+            return new ListadoRutasForm();
+        }
+
+        protected override AltaForm nuevoAlta()
+        {
+            return new AltaRutaForm();
+        }
     }
 }

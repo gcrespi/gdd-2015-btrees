@@ -1,6 +1,6 @@
 ﻿namespace AerolineaFrba
 {
-    partial class OpcionesABMForm
+    partial class ExampleOpcionesABMForm
     {
         /// <summary>
         /// Required designer variable.
@@ -85,7 +85,6 @@
             this.btnAgregar.TabIndex = 1;
             this.btnAgregar.Text = "Agregar";
             this.btnAgregar.UseVisualStyleBackColor = true;
-            this.btnAgregar.Click += new System.EventHandler(this.btnAgregar_Click);
             // 
             // OpcionesABMForm
             // 

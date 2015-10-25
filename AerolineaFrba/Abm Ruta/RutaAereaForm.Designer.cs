@@ -28,29 +28,29 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.panel1.SuspendLayout();
+            this.pnlOpciones.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
             // 
-            this.panel1.Size = new System.Drawing.Size(792, 116);
+            this.pnlOpciones.Size = new System.Drawing.Size(792, 116);
             // 
-            // button1
+            // btnListar
             // 
-            this.button1.Location = new System.Drawing.Point(22, 47);
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.btnListar.Location = new System.Drawing.Point(22, 47);
+            this.btnListar.Click += new System.EventHandler(this.button1_Click);
             // 
             // button4
             // 
-            this.button4.Location = new System.Drawing.Point(448, 47);
+            this.btnEliminar.Location = new System.Drawing.Point(448, 47);
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(295, 47);
+            this.btnModificar.Location = new System.Drawing.Point(295, 47);
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(151, 47);
+            this.btnAgregar.Location = new System.Drawing.Point(151, 47);
             // 
             // RutaAereaForm
             // 
@@ -59,7 +59,7 @@
             this.ClientSize = new System.Drawing.Size(884, 486);
             this.Name = "RutaAereaForm";
             this.Text = "Ruta Aerea";
-            this.panel1.ResumeLayout(false);
+            this.pnlOpciones.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }

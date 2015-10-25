@@ -11,7 +11,6 @@ GO
 
 CREATE PROCEDURE THE_BTREES.CheckearUsuarioAdministrador
 	@Usuario_Nombre NVARCHAR(60),
-	-- Falta codificar Pass con SHA256
 	@Usuario_Password NVARCHAR(60),
 	@UsuarioID INT OUT,
 	@Usuario_Activo BIT OUT,

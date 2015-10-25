@@ -53,17 +53,47 @@
     <Compile Include="Abm Aeronave\ABMAeronave.Designer.cs">
       <DependentUpon>ABMAeronave.cs</DependentUpon>
     </Compile>
+    <Compile Include="Abm Aeronave\AltaAeronaveForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Abm Aeronave\AltaAeronaveForm.Designer.cs">
+      <DependentUpon>AltaAeronaveForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Abm Aeronave\ListadoAeronaveForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Abm Aeronave\ListadoAeronaveForm.Designer.cs">
+      <DependentUpon>ListadoAeronaveForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Abm Ciudad\Form1.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Abm Ciudad\Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
-    <Compile Include="Abm Rol\Form1.cs">
+    <Compile Include="Abm Rol\AltaRolForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Abm Rol\Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="Abm Rol\AltaRolForm.Designer.cs">
+      <DependentUpon>AltaRolForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Abm Rol\ListadoRolForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Abm Rol\ListadoRolForm.Designer.cs">
+      <DependentUpon>ListadoRolForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Abm Rol\RolForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Abm Rol\RolForm.Designer.cs">
+      <DependentUpon>RolForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Abm Ruta\AltaRutaForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Abm Ruta\AltaRutaForm.Designer.cs">
+      <DependentUpon>AltaRutaForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Abm Ruta\ListadoRutasForm.cs">
       <SubType>Form</SubType>
@@ -96,6 +126,24 @@
     <Compile Include="Consulta Millas\Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="_Examples\ExampleAltaForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="_Examples\ExampleAltaForm.Designer.cs">
+      <DependentUpon>ExampleAltaForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_Examples\ExampleListadoForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="_Examples\ExampleListadoForm.Designer.cs">
+      <DependentUpon>ExampleListadoForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_Examples\ExampleOpcionesABMForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="_Examples\ExampleOpcionesABMForm.Designer.cs">
+      <DependentUpon>ExampleOpcionesABMForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Devolucion\Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -108,11 +156,11 @@
     <Compile Include="Login.Designer.cs">
       <DependentUpon>Login.cs</DependentUpon>
     </Compile>
-    <Compile Include="Plantillas\Alta.cs">
+    <Compile Include="Plantillas\AltaForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Plantillas\Alta.Designer.cs">
-      <DependentUpon>Alta.cs</DependentUpon>
+    <Compile Include="Plantillas\AltaForm.Designer.cs">
+      <DependentUpon>AltaForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Plantillas\ListadoForm.cs">
       <SubType>Form</SubType>
@@ -167,8 +215,11 @@
     <EmbeddedResource Include="Abm Aeronave\ABMAeronave.resx">
       <DependentUpon>ABMAeronave.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Abm Rol\Form1.resx">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <EmbeddedResource Include="Abm Rol\AltaRolForm.resx">
+      <DependentUpon>AltaRolForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Abm Rol\RolForm.resx">
+      <DependentUpon>RolForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Abm Ruta\ListadoRutasForm.resx">
       <DependentUpon>ListadoRutasForm.cs</DependentUpon>
@@ -176,11 +227,20 @@
     <EmbeddedResource Include="Abm Ruta\RutaAereaForm.resx">
       <DependentUpon>RutaAereaForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="_Examples\ExampleAltaForm.resx">
+      <DependentUpon>ExampleAltaForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="_Examples\ExampleListadoForm.resx">
+      <DependentUpon>ExampleListadoForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="_Examples\ExampleOpcionesABMForm.resx">
+      <DependentUpon>ExampleOpcionesABMForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Plantillas\Alta.resx">
-      <DependentUpon>Alta.cs</DependentUpon>
+    <EmbeddedResource Include="Plantillas\AltaForm.resx">
+      <DependentUpon>AltaForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Plantillas\ListadoForm.resx">
       <DependentUpon>ListadoForm.cs</DependentUpon>

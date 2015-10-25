@@ -1,6 +1,6 @@
 ﻿namespace AerolineaFrba
 {
-    partial class Alta
+    partial class ExampleAltaForm
     {
         /// <summary>
         /// Required designer variable.

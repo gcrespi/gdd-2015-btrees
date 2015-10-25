@@ -29,12 +29,12 @@
         private void InitializeComponent()
         {
             this.label1 = new System.Windows.Forms.Label();
-            this.panel1.SuspendLayout();
+            this.pnlOpciones.SuspendLayout();
             this.SuspendLayout();
             // 
             // button1
             // 
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.btnListar.Click += new System.EventHandler(this.button1_Click);
             // 
             // label1
             // 
@@ -55,8 +55,8 @@
             this.Name = "ABMAeronave";
             this.Text = "ABM Aeronave";
             this.Controls.SetChildIndex(this.label1, 0);
-            this.Controls.SetChildIndex(this.panel1, 0);
-            this.panel1.ResumeLayout(false);
+            this.Controls.SetChildIndex(this.pnlOpciones, 0);
+            this.pnlOpciones.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 

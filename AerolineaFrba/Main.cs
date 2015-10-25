@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using AerolineaFrba.Abm_Ruta;
 using AerolineaFrba.Abm_Aeronave;
+using AerolineaFrba.Abm_Rol;
 
 namespace AerolineaFrba
 {
@@ -94,6 +95,13 @@ namespace AerolineaFrba
                 item.BackColor = SystemColors.MenuHighlight;
             }
             btn.BackColor = Color.SteelBlue;
+        }
+
+        private void aBMRolToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            mostrarForm(new RolForm());
+            setColor(bAdministracion);
+        
         }
 
     }

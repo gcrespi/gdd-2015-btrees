@@ -8,18 +8,13 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace AerolineaFrba.Abm_Rol
+namespace AerolineaFrba.Abm_Ruta
 {
-    public partial class Form1 : Form
+    public partial class AltaRutaForm : AltaForm
     {
-        public Form1()
+        public AltaRutaForm()
         {
             InitializeComponent();
-        }
-
-        private void Form1_Load(object sender, EventArgs e)
-        {
-
         }
     }
 }

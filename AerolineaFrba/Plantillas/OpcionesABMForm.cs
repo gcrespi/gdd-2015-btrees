@@ -16,5 +16,31 @@ namespace AerolineaFrba
         {
             InitializeComponent();
         }
+
+        private void btnListar_Click(object sender, EventArgs e)
+        {
+            ListadoForm frmListado = this.nuevoListado();
+            frmListado.StartPosition = FormStartPosition.CenterScreen;
+            frmListado.Show();
+        }
+
+        private void btnAgregar_Click(object sender, EventArgs e)
+        {
+            AltaForm frmAlta = this.nuevoAlta();
+            frmAlta.StartPosition = FormStartPosition.CenterScreen;
+            frmAlta.Show();
+        }
+
+        protected virtual ListadoForm nuevoListado()
+        {
+            return new ListadoForm();
+        }
+
+        protected virtual AltaForm nuevoAlta()
+        {
+            return new AltaForm();
+        }
+
+
     }
 }
