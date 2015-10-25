@@ -52,3 +52,16 @@ INNER JOIN (SELECT Butaca_AvionRef AS Avion,
 GROUP BY P.Pasaje_ViajeRef,B.CantidadDeButacas
 GO
 
+CREATE VIEW THE_BTREES.kg_Dispo_Por_Viaje
+AS
+	   SELECT v.ViajeID,
+			  A.Avion_CantidadKgsDisponibles AS KSTotales,
+			 (A.Avion_CantidadKgsDisponibles-(SUM(E.Enco_KG))) AS KGDisponibles
+	   FROM THE_BTREES.Avion A
+	   INNER JOIN THE_BTREES.Viaje V ON A.AvionID=V.Viaje_AvionRef
+	   INNER JOIN THE_BTREES.Encomienda E ON E.Enco_ViajeRef=V.ViajeID
+	   GROUP BY E.Enco_ViajeRef,A.Avion_CantidadKgsDisponibles,V.ViajeID
+
+GO
+
+

@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using AerolineaFrba.Abm_Ruta;
 using AerolineaFrba.Abm_Aeronave;
 using AerolineaFrba.Compra;
+using AerolineaFrba.Generacion_Viaje;
 
 namespace AerolineaFrba
 {
@@ -99,6 +100,11 @@ namespace AerolineaFrba
                 item.BackColor = SystemColors.MenuHighlight;
             }
             btn.BackColor = Color.SteelBlue;
+        }
+
+        private void generarViajeToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            mostrarForm(new GenerarViajeForm());
         }
 
        

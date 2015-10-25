@@ -77,6 +77,7 @@
     <Compile Include="Abm Ruta\RutaAereaForm.Designer.cs">
       <DependentUpon>RutaAereaForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Avion.cs" />
     <Compile Include="Canje Millas\Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -133,11 +134,11 @@
     <Compile Include="Home\Home.Designer.cs">
       <DependentUpon>Home.cs</DependentUpon>
     </Compile>
-    <Compile Include="Generacion Viaje\Form1.cs">
+    <Compile Include="Generacion Viaje\GenerarViajeForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Generacion Viaje\Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="Generacion Viaje\GenerarViajeForm.Designer.cs">
+      <DependentUpon>GenerarViajeForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Listado Estadistico\Form1.cs">
       <SubType>Form</SubType>
@@ -165,6 +166,7 @@
     <Compile Include="Registro Llegada Destino\Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="RutaAerea.cs" />
     <Compile Include="TipoServicio.cs" />
     <Compile Include="Utiles.cs" />
     <Compile Include="Viaje.cs" />
@@ -182,6 +184,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Compra\CompraForm.resx">
       <DependentUpon>CompraForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Generacion Viaje\GenerarViajeForm.resx">
+      <DependentUpon>GenerarViajeForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Login.resx">
       <DependentUpon>Login.cs</DependentUpon>

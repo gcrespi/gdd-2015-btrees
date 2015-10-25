@@ -55,7 +55,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(12, 50);
+            this.label2.Location = new System.Drawing.Point(33, 75);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(87, 13);
             this.label2.TabIndex = 1;
@@ -64,7 +64,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(239, 50);
+            this.label3.Location = new System.Drawing.Point(161, 13);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(40, 13);
             this.label3.TabIndex = 2;
@@ -73,7 +73,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(12, 83);
+            this.label4.Location = new System.Drawing.Point(33, 48);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(77, 13);
             this.label4.TabIndex = 3;
@@ -82,7 +82,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(241, 83);
+            this.label5.Location = new System.Drawing.Point(262, 48);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(82, 13);
             this.label5.TabIndex = 4;
@@ -92,7 +92,7 @@
             // 
             this.cboCiudadOrigen.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboCiudadOrigen.FormattingEnabled = true;
-            this.cboCiudadOrigen.Location = new System.Drawing.Point(96, 74);
+            this.cboCiudadOrigen.Location = new System.Drawing.Point(117, 39);
             this.cboCiudadOrigen.Name = "cboCiudadOrigen";
             this.cboCiudadOrigen.Size = new System.Drawing.Size(121, 21);
             this.cboCiudadOrigen.TabIndex = 5;
@@ -101,7 +101,7 @@
             // 
             this.cboCiudadDestino.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboCiudadDestino.FormattingEnabled = true;
-            this.cboCiudadDestino.Location = new System.Drawing.Point(332, 80);
+            this.cboCiudadDestino.Location = new System.Drawing.Point(353, 45);
             this.cboCiudadDestino.Name = "cboCiudadDestino";
             this.cboCiudadDestino.Size = new System.Drawing.Size(121, 21);
             this.cboCiudadDestino.TabIndex = 6;
@@ -110,7 +110,7 @@
             // 
             this.cboTipoServicio.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboTipoServicio.FormattingEnabled = true;
-            this.cboTipoServicio.Location = new System.Drawing.Point(105, 47);
+            this.cboTipoServicio.Location = new System.Drawing.Point(126, 72);
             this.cboTipoServicio.Name = "cboTipoServicio";
             this.cboTipoServicio.Size = new System.Drawing.Size(121, 21);
             this.cboTipoServicio.TabIndex = 7;
@@ -118,7 +118,7 @@
             // timePickerFecha
             // 
             this.timePickerFecha.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.timePickerFecha.Location = new System.Drawing.Point(286, 47);
+            this.timePickerFecha.Location = new System.Drawing.Point(208, 10);
             this.timePickerFecha.Name = "timePickerFecha";
             this.timePickerFecha.Size = new System.Drawing.Size(98, 20);
             this.timePickerFecha.TabIndex = 8;
@@ -155,7 +155,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(766, 506);
+            this.ClientSize = new System.Drawing.Size(769, 474);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.btnBuscar);
             this.Controls.Add(this.gridViajes);

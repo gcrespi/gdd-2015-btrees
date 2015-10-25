@@ -27,5 +27,35 @@ namespace AerolineaFrba
             }
             return dt;
         }
+
+        public static void CrearViaje(DateTime fSal, DateTime fLle, DateTime fLleEst, int avionId, int rutaID)
+        {
+            SqlConnection objConexion = new SqlConnection(Conexion.strCon);
+            try
+            {
+                string strProc = "THE_BTREES.AddViaje";
+                SqlCommand comando = new SqlCommand(strProc, objConexion);
+                comando.CommandType = CommandType.StoredProcedure;
+                comando.Parameters.AddWithValue("@FechaSalida", fSal);
+                comando.Parameters.AddWithValue("@FechaLlegada", fLle);
+                comando.Parameters.AddWithValue("@FechaLlegadaEst",fLleEst);
+                comando.Parameters.AddWithValue("@Avion", avionId);
+                comando.Parameters.AddWithValue("@RutaAerea", rutaID);
+                objConexion.Open();
+                comando.ExecuteNonQuery();
+                objConexion.Close();
+            }
+            catch (Exception)
+            {
+                throw new Exception();
+            }
+            finally
+            {
+                if (objConexion.State == System.Data.ConnectionState.Open)
+                {
+                    objConexion.Close();
+                }
+            }
+        }
     }
 }

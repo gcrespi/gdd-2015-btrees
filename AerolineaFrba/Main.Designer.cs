@@ -60,6 +60,7 @@
             this.toolStripMenuItem12 = new System.Windows.Forms.ToolStripMenuItem();
             this.panel = new System.Windows.Forms.Panel();
             this.menuPanel = new System.Windows.Forms.Panel();
+            this.generarViajeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menu.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -112,7 +113,8 @@
             this.aBMAeronaveToolStripMenuItem,
             this.aBMCiudadToolStripMenuItem,
             this.aBMRolToolStripMenuItem,
-            this.aBMRutaToolStripMenuItem});
+            this.aBMRutaToolStripMenuItem,
+            this.generarViajeToolStripMenuItem});
             this.bAdministracion.Font = new System.Drawing.Font("Calibri Light", 15F);
             this.bAdministracion.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.bAdministracion.Margin = new System.Windows.Forms.Padding(0, 0, 0, 1);
@@ -184,14 +186,14 @@
             // 
             this.consultaToolStripMenuItem.BackColor = System.Drawing.Color.White;
             this.consultaToolStripMenuItem.Name = "consultaToolStripMenuItem";
-            this.consultaToolStripMenuItem.Size = new System.Drawing.Size(149, 28);
+            this.consultaToolStripMenuItem.Size = new System.Drawing.Size(152, 28);
             this.consultaToolStripMenuItem.Text = "Consulta";
             // 
             // canjeToolStripMenuItem
             // 
             this.canjeToolStripMenuItem.BackColor = System.Drawing.Color.White;
             this.canjeToolStripMenuItem.Name = "canjeToolStripMenuItem";
-            this.canjeToolStripMenuItem.Size = new System.Drawing.Size(149, 28);
+            this.canjeToolStripMenuItem.Size = new System.Drawing.Size(152, 28);
             this.canjeToolStripMenuItem.Text = "Canje";
             // 
             // bDevolucion
@@ -400,6 +402,13 @@
             this.menuPanel.Size = new System.Drawing.Size(117, 486);
             this.menuPanel.TabIndex = 5;
             // 
+            // generarViajeToolStripMenuItem
+            // 
+            this.generarViajeToolStripMenuItem.Name = "generarViajeToolStripMenuItem";
+            this.generarViajeToolStripMenuItem.Size = new System.Drawing.Size(200, 28);
+            this.generarViajeToolStripMenuItem.Text = "Generar Viaje";
+            this.generarViajeToolStripMenuItem.Click += new System.EventHandler(this.generarViajeToolStripMenuItem_Click);
+            // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -454,5 +463,6 @@
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem14;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem11;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem12;
+        private System.Windows.Forms.ToolStripMenuItem generarViajeToolStripMenuItem;
     }
 }
