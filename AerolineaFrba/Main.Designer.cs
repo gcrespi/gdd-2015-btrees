@@ -163,6 +163,7 @@
             this.bCompras.Padding = new System.Windows.Forms.Padding(0);
             this.bCompras.Size = new System.Drawing.Size(98, 80);
             this.bCompras.Text = "Compras";
+            this.bCompras.Click += new System.EventHandler(this.bCompras_Click);
             // 
             // bMillas
             // 
