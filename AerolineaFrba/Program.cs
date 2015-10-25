@@ -14,7 +14,7 @@ namespace AerolineaFrba
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             // Aca se chequea la infiguracion para determinar la terminal
-            int bleh = 1;
+            int bleh = -1;
             if (bleh == 1)
             {
                 Login login = new Login();

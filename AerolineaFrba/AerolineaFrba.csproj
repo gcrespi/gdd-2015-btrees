@@ -33,10 +33,10 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Microsoft.VisualBasic" />
-    <Reference Include="Microsoft.VisualBasic.PowerPacks.Vs, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
     <Reference Include="System" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Web" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -107,17 +107,19 @@
     <Compile Include="Abm Ruta\RutaAereaForm.Designer.cs">
       <DependentUpon>RutaAereaForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Avion.cs" />
     <Compile Include="Canje Millas\Form1.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Canje Millas\Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
-    <Compile Include="Compra\Form1.cs">
+    <Compile Include="Ciudad.cs" />
+    <Compile Include="Compra\CompraForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Compra\Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="Compra\CompraForm.Designer.cs">
+      <DependentUpon>CompraForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Conexion.cs" />
     <Compile Include="Consulta Millas\Form1.cs">
@@ -180,11 +182,11 @@
     <Compile Include="Home\Home.Designer.cs">
       <DependentUpon>Home.cs</DependentUpon>
     </Compile>
-    <Compile Include="Generacion Viaje\Form1.cs">
+    <Compile Include="Generacion Viaje\GenerarViajeForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Generacion Viaje\Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="Generacion Viaje\GenerarViajeForm.Designer.cs">
+      <DependentUpon>GenerarViajeForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Listado Estadistico\Form1.cs">
       <SubType>Form</SubType>
@@ -212,6 +214,10 @@
     <Compile Include="Registro Llegada Destino\Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="RutaAerea.cs" />
+    <Compile Include="TipoServicio.cs" />
+    <Compile Include="Utiles.cs" />
+    <Compile Include="Viaje.cs" />
     <EmbeddedResource Include="Abm Aeronave\ABMAeronave.resx">
       <DependentUpon>ABMAeronave.cs</DependentUpon>
     </EmbeddedResource>
@@ -235,6 +241,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="_Examples\ExampleOpcionesABMForm.resx">
       <DependentUpon>ExampleOpcionesABMForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Compra\CompraForm.resx">
+      <DependentUpon>CompraForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Generacion Viaje\GenerarViajeForm.resx">
+      <DependentUpon>GenerarViajeForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Login.resx">
       <DependentUpon>Login.cs</DependentUpon>

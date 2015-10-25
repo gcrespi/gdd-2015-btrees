@@ -10,6 +10,8 @@ using System.Windows.Forms;
 using AerolineaFrba.Abm_Ruta;
 using AerolineaFrba.Abm_Aeronave;
 using AerolineaFrba.Abm_Rol;
+using AerolineaFrba.Compra;
+using AerolineaFrba.Generacion_Viaje;
 
 namespace AerolineaFrba
 {
@@ -67,6 +69,10 @@ namespace AerolineaFrba
            setColor(bHome);
         }
 
+        private void bCompras_Click(object sender, EventArgs e)
+        {
+            mostrarForm(new CompraForm());
+        }
         private void aBMAeronaveToolStripMenuItem_Click(object sender, EventArgs e)
         {
            mostrarForm(new ABMAeronave());
@@ -97,12 +103,20 @@ namespace AerolineaFrba
             btn.BackColor = Color.SteelBlue;
         }
 
+
         private void aBMRolToolStripMenuItem_Click(object sender, EventArgs e)
         {
             mostrarForm(new RolForm());
             setColor(bAdministracion);
         
         }
+
+        private void generarViajeToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            mostrarForm(new GenerarViajeForm());
+        }
+
+       
 
     }
 }

@@ -37,3 +37,31 @@ SELECT DISTINCT (SELECT AvionID FROM THE_BTREES.Avion WHERE Avion_Matricula=m.Ae
 	   M.Cli_Telefono	
 FROM gd_esquema.Maestra m
 GO
+
+CREATE VIEW THE_BTREES.Viaje_Pasajes_Vendidos
+AS
+SELECT P.Pasaje_ViajeRef AS Viaje,
+	   B.CantidadDeButacas,
+	   B.CantidadDeButacas -  COUNT(P.PasajeID) AS ButacasDisponibles
+FROM THE_BTREES.Pasaje P
+INNER JOIN THE_BTREES.Viaje V ON V.ViajeID = P.Pasaje_ViajeRef
+INNER JOIN (SELECT Butaca_AvionRef AS Avion,
+					COUNT(ButacaID) AS CantidadDeButacas
+            FROM THE_BTREES.Butaca
+			GROUP BY Butaca_AvionRef) B ON V.Viaje_AvionRef=B.Avion
+GROUP BY P.Pasaje_ViajeRef,B.CantidadDeButacas
+GO
+
+CREATE VIEW THE_BTREES.kg_Dispo_Por_Viaje
+AS
+	   SELECT v.ViajeID,
+			  A.Avion_CantidadKgsDisponibles AS KSTotales,
+			 (A.Avion_CantidadKgsDisponibles-(SUM(E.Enco_KG))) AS KGDisponibles
+	   FROM THE_BTREES.Avion A
+	   INNER JOIN THE_BTREES.Viaje V ON A.AvionID=V.Viaje_AvionRef
+	   INNER JOIN THE_BTREES.Encomienda E ON E.Enco_ViajeRef=V.ViajeID
+	   GROUP BY E.Enco_ViajeRef,A.Avion_CantidadKgsDisponibles,V.ViajeID
+
+GO
+
+
