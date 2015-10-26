@@ -19,11 +19,7 @@ namespace AerolineaFrba.Abm_Ruta
 
         private void button1_Click(object sender, EventArgs e)
         {
-            ListadoRutasForm frmListadoRuta = new ListadoRutasForm();
-            frmListadoRuta.StartPosition = FormStartPosition.CenterScreen;
-            frmListadoRuta.Show();
         }
-
 
         protected override ListadoForm nuevoListado()
         {

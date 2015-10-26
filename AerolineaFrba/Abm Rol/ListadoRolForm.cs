@@ -16,5 +16,29 @@ namespace AerolineaFrba.Abm_Rol
         {
             InitializeComponent();
         }
+
+        protected override String nombreTabla()
+        {
+            return "Roles";
+        }
+
+        protected override void llenarGrilla()
+        {
+            base.llenarGrilla();
+
+            var columnaDetalles = new DataGridViewButtonColumn();
+            {
+                columnaDetalles.Text = "Detalles";
+                columnaDetalles.UseColumnTextForButtonValue = true;
+                columnaDetalles.AutoSizeMode =
+                    DataGridViewAutoSizeColumnMode.AllCells;
+                columnaDetalles.FlatStyle = FlatStyle.Standard;
+                columnaDetalles.CellTemplate.Style.BackColor = Color.Honeydew;
+            }
+            DataGrid.Columns.Add(columnaDetalles);
+
+            //TODO agregar evento para mostrar detalles
+
+        }
     }
 }

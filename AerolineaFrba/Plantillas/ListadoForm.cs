@@ -18,5 +18,31 @@ namespace AerolineaFrba
             InitializeComponent();
         }
 
+        private void ListadoForm_Load(object sender, EventArgs e)
+        {
+            this.llenarGrilla();   
+        }
+
+        protected virtual String nombreTabla()
+        {
+            return "nombre";
+        }
+
+        protected virtual void llenarGrilla()
+        {
+            DataTable dt = new DataTable();
+            string strProc = "THE_BTREES.TraerData";
+
+            using (var da = new sql.SqlDataAdapter(strProc, Conexion.strCon))
+            {
+                da.SelectCommand.CommandType = CommandType.StoredProcedure;
+                da.SelectCommand.Parameters.AddWithValue("@Tabla", this.nombreTabla());
+
+                da.Fill(dt);
+                DataGrid.DataSource = dt;
+            }
+        }
+
+
     }
 }

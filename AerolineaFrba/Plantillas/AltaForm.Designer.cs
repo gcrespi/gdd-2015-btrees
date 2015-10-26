@@ -91,8 +91,8 @@
 
         #endregion
 
-        private System.Windows.Forms.Button btnGuardar;
-        private System.Windows.Forms.Button btnLimpiar;
-        private System.Windows.Forms.Button btnCancelar;
+        protected System.Windows.Forms.Button btnGuardar;
+        protected System.Windows.Forms.Button btnLimpiar;
+        protected System.Windows.Forms.Button btnCancelar;
     }
 }
