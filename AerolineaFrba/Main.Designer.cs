@@ -35,6 +35,7 @@
             this.aBMCiudadToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aBMRolToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aBMRutaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.generarViajeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.bCompras = new System.Windows.Forms.ToolStripMenuItem();
             this.bMillas = new System.Windows.Forms.ToolStripMenuItem();
             this.consultaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -43,9 +44,6 @@
             this.bAuditoria = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem5 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem6 = new System.Windows.Forms.ToolStripMenuItem();
-            this.blah = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItem20 = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItem21 = new System.Windows.Forms.ToolStripMenuItem();
             this.bleh = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem17 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem18 = new System.Windows.Forms.ToolStripMenuItem();
@@ -58,10 +56,11 @@
             this.bluh = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem11 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem12 = new System.Windows.Forms.ToolStripMenuItem();
+            this.blah = new System.Windows.Forms.ToolStripMenuItem();
             this.panel = new System.Windows.Forms.Panel();
             this.menuPanel = new System.Windows.Forms.Panel();
-            this.generarViajeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menu.SuspendLayout();
+            this.menuPanel.SuspendLayout();
             this.SuspendLayout();
             // 
             // menu
@@ -76,11 +75,11 @@
             this.bMillas,
             this.bDevolucion,
             this.bAuditoria,
-            this.blah,
             this.bleh,
             this.blih,
             this.bloh,
-            this.bluh});
+            this.bluh,
+            this.blah});
             this.menu.LayoutStyle = System.Windows.Forms.ToolStripLayoutStyle.VerticalStackWithOverflow;
             this.menu.Location = new System.Drawing.Point(0, 0);
             this.menu.Name = "menu";
@@ -154,6 +153,13 @@
             this.aBMRutaToolStripMenuItem.Text = "ABM Ruta";
             this.aBMRutaToolStripMenuItem.Click += new System.EventHandler(this.aBMRutaToolStripMenuItem_Click);
             // 
+            // generarViajeToolStripMenuItem
+            // 
+            this.generarViajeToolStripMenuItem.Name = "generarViajeToolStripMenuItem";
+            this.generarViajeToolStripMenuItem.Size = new System.Drawing.Size(200, 28);
+            this.generarViajeToolStripMenuItem.Text = "Generar Viaje";
+            this.generarViajeToolStripMenuItem.Click += new System.EventHandler(this.generarViajeToolStripMenuItem_Click);
+            // 
             // bCompras
             // 
             this.bCompras.AutoSize = false;
@@ -186,14 +192,14 @@
             // 
             this.consultaToolStripMenuItem.BackColor = System.Drawing.Color.White;
             this.consultaToolStripMenuItem.Name = "consultaToolStripMenuItem";
-            this.consultaToolStripMenuItem.Size = new System.Drawing.Size(152, 28);
+            this.consultaToolStripMenuItem.Size = new System.Drawing.Size(149, 28);
             this.consultaToolStripMenuItem.Text = "Consulta";
             // 
             // canjeToolStripMenuItem
             // 
             this.canjeToolStripMenuItem.BackColor = System.Drawing.Color.White;
             this.canjeToolStripMenuItem.Name = "canjeToolStripMenuItem";
-            this.canjeToolStripMenuItem.Size = new System.Drawing.Size(152, 28);
+            this.canjeToolStripMenuItem.Size = new System.Drawing.Size(149, 28);
             this.canjeToolStripMenuItem.Text = "Canje";
             // 
             // bDevolucion
@@ -237,35 +243,6 @@
             this.toolStripMenuItem6.Size = new System.Drawing.Size(244, 28);
             this.toolStripMenuItem6.Text = "Reg LLegada Destino";
             // 
-            // blah
-            // 
-            this.blah.AutoSize = false;
-            this.blah.BackColor = System.Drawing.SystemColors.MenuHighlight;
-            this.blah.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripMenuItem20,
-            this.toolStripMenuItem21});
-            this.blah.Font = new System.Drawing.Font("Calibri Light", 15F);
-            this.blah.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.blah.Margin = new System.Windows.Forms.Padding(0, 0, 0, 1);
-            this.blah.Name = "blah";
-            this.blah.Padding = new System.Windows.Forms.Padding(0);
-            this.blah.Size = new System.Drawing.Size(98, 80);
-            this.blah.Text = "Blah";
-            // 
-            // toolStripMenuItem20
-            // 
-            this.toolStripMenuItem20.BackColor = System.Drawing.Color.White;
-            this.toolStripMenuItem20.Name = "toolStripMenuItem20";
-            this.toolStripMenuItem20.Size = new System.Drawing.Size(244, 28);
-            this.toolStripMenuItem20.Text = "Reg Usuarios";
-            // 
-            // toolStripMenuItem21
-            // 
-            this.toolStripMenuItem21.BackColor = System.Drawing.Color.White;
-            this.toolStripMenuItem21.Name = "toolStripMenuItem21";
-            this.toolStripMenuItem21.Size = new System.Drawing.Size(244, 28);
-            this.toolStripMenuItem21.Text = "Reg LLegada Destino";
-            // 
             // bleh
             // 
             this.bleh.AutoSize = false;
@@ -278,8 +255,9 @@
             this.bleh.Margin = new System.Windows.Forms.Padding(0, 0, 0, 1);
             this.bleh.Name = "bleh";
             this.bleh.Padding = new System.Windows.Forms.Padding(0);
-            this.bleh.Size = new System.Drawing.Size(98, 80);
-            this.bleh.Text = "Bleh";
+            this.bleh.Size = new System.Drawing.Size(98, 22);
+            this.bleh.Text = "Estadisticas";
+            this.bleh.Click += new System.EventHandler(this.bleh_Click);
             // 
             // toolStripMenuItem17
             // 
@@ -381,6 +359,18 @@
             this.toolStripMenuItem12.Size = new System.Drawing.Size(244, 28);
             this.toolStripMenuItem12.Text = "Reg LLegada Destino";
             // 
+            // blah
+            // 
+            this.blah.AutoSize = false;
+            this.blah.BackColor = System.Drawing.SystemColors.MenuHighlight;
+            this.blah.Font = new System.Drawing.Font("Calibri Light", 15F);
+            this.blah.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.blah.Margin = new System.Windows.Forms.Padding(0, 0, 0, 1);
+            this.blah.Name = "blah";
+            this.blah.Padding = new System.Windows.Forms.Padding(0);
+            this.blah.Size = new System.Drawing.Size(98, 22);
+            this.blah.Text = "Estadisticas";
+            // 
             // panel
             // 
             this.panel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -389,7 +379,7 @@
             this.panel.BackColor = System.Drawing.Color.Gainsboro;
             this.panel.Location = new System.Drawing.Point(100, 0);
             this.panel.Name = "panel";
-            this.panel.Size = new System.Drawing.Size(784, 486);
+            this.panel.Size = new System.Drawing.Size(772, 516);
             this.panel.TabIndex = 4;
             // 
             // menuPanel
@@ -397,26 +387,19 @@
             this.menuPanel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
             this.menuPanel.BackColor = System.Drawing.Color.DimGray;
+            this.menuPanel.Controls.Add(this.menu);
             this.menuPanel.Location = new System.Drawing.Point(0, 0);
             this.menuPanel.Name = "menuPanel";
-            this.menuPanel.Size = new System.Drawing.Size(117, 486);
+            this.menuPanel.Size = new System.Drawing.Size(117, 516);
             this.menuPanel.TabIndex = 5;
-            // 
-            // generarViajeToolStripMenuItem
-            // 
-            this.generarViajeToolStripMenuItem.Name = "generarViajeToolStripMenuItem";
-            this.generarViajeToolStripMenuItem.Size = new System.Drawing.Size(200, 28);
-            this.generarViajeToolStripMenuItem.Text = "Generar Viaje";
-            this.generarViajeToolStripMenuItem.Click += new System.EventHandler(this.generarViajeToolStripMenuItem_Click);
             // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(884, 486);
+            this.ClientSize = new System.Drawing.Size(872, 516);
             this.Controls.Add(this.panel);
-            this.Controls.Add(this.menu);
             this.Controls.Add(this.menuPanel);
             this.ForeColor = System.Drawing.SystemColors.ControlText;
             this.Name = "Main";
@@ -425,6 +408,7 @@
             this.Load += new System.EventHandler(this.MasterForm_Load);
             this.menu.ResumeLayout(false);
             this.menu.PerformLayout();
+            this.menuPanel.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -449,8 +433,6 @@
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem5;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem6;
         protected System.Windows.Forms.ToolStripMenuItem blah;
-        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem20;
-        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem21;
         protected System.Windows.Forms.ToolStripMenuItem bleh;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem17;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem18;

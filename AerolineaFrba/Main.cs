@@ -11,6 +11,7 @@ using AerolineaFrba.Abm_Ruta;
 using AerolineaFrba.Abm_Aeronave;
 using AerolineaFrba.Compra;
 using AerolineaFrba.Generacion_Viaje;
+using AerolineaFrba.Listado_Estadistico;
 
 namespace AerolineaFrba
 {
@@ -105,6 +106,11 @@ namespace AerolineaFrba
         private void generarViajeToolStripMenuItem_Click(object sender, EventArgs e)
         {
             mostrarForm(new GenerarViajeForm());
+        }
+
+        private void bleh_Click(object sender, EventArgs e)
+        {
+            mostrarForm(new Estadisticas());
         }
 
        
