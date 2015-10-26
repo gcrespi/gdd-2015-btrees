@@ -77,6 +77,12 @@
     <Compile Include="Abm Rol\AltaRolForm.Designer.cs">
       <DependentUpon>AltaRolForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Abm Rol\DetalleRolForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Abm Rol\DetalleRolForm.Designer.cs">
+      <DependentUpon>DetalleRolForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Abm Rol\ListadoRolForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -127,6 +133,12 @@
     </Compile>
     <Compile Include="Consulta Millas\Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Plantillas\DetalleForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Plantillas\DetalleForm.Designer.cs">
+      <DependentUpon>DetalleForm.cs</DependentUpon>
     </Compile>
     <Compile Include="_Examples\ExampleAltaForm.cs">
       <SubType>Form</SubType>
@@ -232,6 +244,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Abm Ruta\RutaAereaForm.resx">
       <DependentUpon>RutaAereaForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Plantillas\DetalleForm.resx">
+      <DependentUpon>DetalleForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="_Examples\ExampleAltaForm.resx">
       <DependentUpon>ExampleAltaForm.cs</DependentUpon>

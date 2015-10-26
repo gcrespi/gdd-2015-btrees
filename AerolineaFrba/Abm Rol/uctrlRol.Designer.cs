@@ -1,16 +1,16 @@
 ﻿namespace AerolineaFrba.Abm_Rol
 {
-    partial class AltaRolForm
+    partial class uctrlRol
     {
-        /// <summary>
-        /// Required designer variable.
+        /// <summary> 
+        /// Variable del diseñador requerida.
         /// </summary>
         private System.ComponentModel.IContainer components = null;
 
-        /// <summary>
-        /// Clean up any resources being used.
+        /// <summary> 
+        /// Limpiar los recursos que se estén utilizando.
         /// </summary>
-        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        /// <param name="disposing">true si los recursos administrados se deben eliminar; false en caso contrario.</param>
         protected override void Dispose(bool disposing)
         {
             if (disposing && (components != null))
@@ -20,11 +20,11 @@
             base.Dispose(disposing);
         }
 
-        #region Windows Form Designer generated code
+        #region Código generado por el Diseñador de componentes
 
-        /// <summary>
-        /// Required method for Designer support - do not modify
-        /// the contents of this method with the code editor.
+        /// <summary> 
+        /// Método necesario para admitir el Diseñador. No se puede modificar 
+        /// el contenido del método con el editor de código.
         /// </summary>
         private void InitializeComponent()
         {
@@ -36,28 +36,16 @@
             this.grbDatosRol.SuspendLayout();
             this.SuspendLayout();
             // 
-            // btnGuardar
-            // 
-            this.btnGuardar.FlatAppearance.BorderSize = 0;
-            // 
-            // btnLimpiar
-            // 
-            this.btnLimpiar.FlatAppearance.BorderSize = 0;
-            // 
-            // btnCancelar
-            // 
-            this.btnCancelar.FlatAppearance.BorderSize = 0;
-            // 
             // grbDatosRol
             // 
             this.grbDatosRol.Controls.Add(this.chlFuncionalidades);
             this.grbDatosRol.Controls.Add(this.lblFuncionalidades);
             this.grbDatosRol.Controls.Add(this.txtNombre);
             this.grbDatosRol.Controls.Add(this.lblNombre);
-            this.grbDatosRol.Location = new System.Drawing.Point(39, 28);
+            this.grbDatosRol.Location = new System.Drawing.Point(3, 3);
             this.grbDatosRol.Name = "grbDatosRol";
             this.grbDatosRol.Size = new System.Drawing.Size(751, 337);
-            this.grbDatosRol.TabIndex = 9;
+            this.grbDatosRol.TabIndex = 10;
             this.grbDatosRol.TabStop = false;
             this.grbDatosRol.Text = "Datos del nuevo Rol";
             // 
@@ -99,19 +87,13 @@
             this.lblNombre.TabIndex = 9;
             this.lblNombre.Text = "Nombre";
             // 
-            // AltaRolForm
+            // uctrlRol
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(884, 486);
             this.Controls.Add(this.grbDatosRol);
-            this.Name = "AltaRolForm";
-            this.Text = "AltaRolForm";
-            this.Load += new System.EventHandler(this.AltaRolForm_Load);
-            this.Controls.SetChildIndex(this.btnGuardar, 0);
-            this.Controls.SetChildIndex(this.btnLimpiar, 0);
-            this.Controls.SetChildIndex(this.btnCancelar, 0);
-            this.Controls.SetChildIndex(this.grbDatosRol, 0);
+            this.Name = "uctrlRol";
+            this.Size = new System.Drawing.Size(761, 349);
             this.grbDatosRol.ResumeLayout(false);
             this.grbDatosRol.PerformLayout();
             this.ResumeLayout(false);
@@ -125,6 +107,5 @@
         private System.Windows.Forms.Label lblFuncionalidades;
         private System.Windows.Forms.TextBox txtNombre;
         private System.Windows.Forms.Label lblNombre;
-
     }
 }

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using AerolineaFrba.Plantillas;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -37,8 +38,23 @@ namespace AerolineaFrba.Abm_Rol
             }
             DataGrid.Columns.Add(columnaDetalles);
 
+
+
             //TODO agregar evento para mostrar detalles
 
+        }
+
+        private void DataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            var senderGrid = (DataGridView)sender;
+
+            if (senderGrid.Columns[e.ColumnIndex] is DataGridViewButtonColumn && e.RowIndex >= 0)
+            {
+                DetalleForm frmDetalle = new DetalleRolForm();//senderGrid.Rows[e.RowIndex].Cells[0]);
+                frmDetalle.StartPosition = FormStartPosition.CenterScreen;
+                frmDetalle.Show();
+                
+            }
         }
     }
 }
