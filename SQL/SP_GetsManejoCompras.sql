@@ -25,7 +25,7 @@ AS
 	   IF @CiudadOrigen=0 
 			SET @CiudadOrigen=NULL
 
-	   IF CAST(@Fecha AS DATE)=CAST(GETDATE() AS DATE)
+	   IF CAST(@Fecha AS DATE)= CAST('2000-01-01' AS DATE)
 			SET @Fecha=NULL
 
 	   SELECT V.ViajeID,

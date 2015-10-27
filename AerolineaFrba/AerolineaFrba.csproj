@@ -85,11 +85,18 @@
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
     <Compile Include="Ciudad.cs" />
+    <Compile Include="Compra\Compra.cs" />
     <Compile Include="Compra\CompraForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Compra\CompraForm.Designer.cs">
       <DependentUpon>CompraForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Compra\CompraForm2.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Compra\CompraForm2.Designer.cs">
+      <DependentUpon>CompraForm2.cs</DependentUpon>
     </Compile>
     <Compile Include="Conexion.cs" />
     <Compile Include="Consulta Millas\Form1.cs">
@@ -185,6 +192,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Compra\CompraForm.resx">
       <DependentUpon>CompraForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Compra\CompraForm2.resx">
+      <DependentUpon>CompraForm2.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Generacion Viaje\GenerarViajeForm.resx">
       <DependentUpon>GenerarViajeForm.cs</DependentUpon>
