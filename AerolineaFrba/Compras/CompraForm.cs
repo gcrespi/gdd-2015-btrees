@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace AerolineaFrba.Compra
+namespace AerolineaFrba.Compras
 {
     public partial class CompraForm : Form
     {

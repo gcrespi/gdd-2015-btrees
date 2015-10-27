@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace AerolineaFrba.Compra
+namespace AerolineaFrba.Compras
 {
     public partial class CompraForm2 : Form
     {
@@ -43,6 +43,7 @@ namespace AerolineaFrba.Compra
                 compra.telefono = tbTel.Text;
                 compra.mail = tbMail.Text;
                 compra.fechaNac = dtpFechaNac.Value;
+                
             }
         }
 

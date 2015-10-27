@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using AerolineaFrba.Abm_Ruta;
 using AerolineaFrba.Abm_Aeronave;
-using AerolineaFrba.Compra;
+using AerolineaFrba.Compras;
 using AerolineaFrba.Generacion_Viaje;
 using AerolineaFrba.Listado_Estadistico;
 using AerolineaFrba.Devolucion;

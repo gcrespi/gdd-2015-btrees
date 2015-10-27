@@ -1,4 +1,4 @@
-﻿namespace AerolineaFrba.Compra
+﻿namespace AerolineaFrba.Compras
 {
     partial class CompraForm2
     {
