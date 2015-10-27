@@ -12,7 +12,9 @@ namespace AerolineaFrba.Compra
 {
     public partial class CompraForm : Form
     {
-           
+        private DateTime fechaViaje;
+        private Compra compra = new Compra();
+ 
         public CompraForm()
         {
             InitializeComponent();
@@ -33,6 +35,7 @@ namespace AerolineaFrba.Compra
             cboCiudadDestino.ValueMember = "CiudadID";
             cboCiudadDestino.SelectedValue = 0;
             timePickerFecha.MinDate = DateTime.Today;
+            timePickerFecha.Enabled = false;
         }
 
         private void btnBuscar_Click(object sender, EventArgs e)
@@ -40,15 +43,23 @@ namespace AerolineaFrba.Compra
             Byte tipoSer=Convert.ToByte(cboTipoServicio.SelectedValue);
             Int16 origen=Convert.ToInt16(cboCiudadOrigen.SelectedValue);
             Int16 destino=Convert.ToInt16(cboCiudadDestino.SelectedValue);
-            gridViajes.DataSource = Viaje.TraerViajesDisponibles(tipoSer, timePickerFecha.Value, destino, origen);
+            if (checkBoxFecha.Checked) fechaViaje = timePickerFecha.Value;
+            else fechaViaje = DateTime.Parse("2000-01-01");
+            gridViajes.DataSource = Viaje.TraerViajesDisponibles(tipoSer, fechaViaje, destino, origen);
             gridViajes.Columns["ViajeId"].Visible=false;
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            
+           compra.viajeID = gridViajes.CurrentRow.Cells[0].Value.ToString();
+           Program.main.addForm(new CompraForm2(compra));
         }
 
+        private void checkBoxFecha_CheckedChanged(object sender, EventArgs e)
+        {
+            if (checkBoxFecha.Checked) timePickerFecha.Enabled = true;
+            else timePickerFecha.Enabled = false;
+        }
 
     }
 }

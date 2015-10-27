@@ -26,7 +26,7 @@ namespace AerolineaFrba
 
         private void MasterForm_Load(object sender, EventArgs e)
         {
-            mostrarForm(new Home());
+            replaceForm(new Home());
             setColor(bHome);
             menu.Parent = menuPanel;
             menuPanel.AutoScroll = true;
@@ -60,38 +60,45 @@ namespace AerolineaFrba
 
         private void aBMRutaToolStripMenuItem_Click(object sender, EventArgs e)
         {
-           mostrarForm(new RutaAereaForm());
+           replaceForm(new RutaAereaForm());
            setColor(bAdministracion);
         }
 
         private void bHome_Click(object sender, EventArgs e)
         {
-           mostrarForm(new Home());
+           replaceForm(new Home());
            setColor(bHome);
         }
 
         private void bCompras_Click(object sender, EventArgs e)
         {
-            mostrarForm(new CompraForm());
+            replaceForm(new CompraForm());
         }
         private void aBMAeronaveToolStripMenuItem_Click(object sender, EventArgs e)
         {
-           mostrarForm(new ABMAeronave());
+           replaceForm(new ABMAeronave());
            setColor(bAdministracion);
         }
 
 
-        // Para mostrar formularios
-        private void mostrarForm(Form form)
+        // Para agregar formularios
+        public void addForm(Form form)
         {
-            if (this.panel.Controls.Count > 0)
-                this.panel.Controls.RemoveAt(0);            
             form.TopLevel = false;
             form.FormBorderStyle = FormBorderStyle.None;
             form.Dock = DockStyle.Fill;
             this.panel.Controls.Add(form);
             this.panel.Tag = form;
+            form.BringToFront();
             form.Show();
+        }
+
+        // Para reemplazar formularios
+        public void replaceForm(Form form)
+        {
+            if (this.panel.Controls.Count > 0) 
+                this.panel.Controls.Clear();
+            addForm(form);
         }
 
         // Para seteaer el color
@@ -106,12 +113,12 @@ namespace AerolineaFrba
 
         private void generarViajeToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            mostrarForm(new GenerarViajeForm());
+            replaceForm(new GenerarViajeForm());
         }
 
         private void bleh_Click(object sender, EventArgs e)
         {
-            mostrarForm(new Estadisticas());
+            replaceForm(new Estadisticas());
         }
 
         private void bDevolucion_Click(object sender, EventArgs e)
