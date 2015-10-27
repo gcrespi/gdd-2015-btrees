@@ -125,9 +125,12 @@
             // 
             // gridViajes
             // 
+            this.gridViajes.AllowUserToAddRows = false;
+            this.gridViajes.AllowUserToDeleteRows = false;
             this.gridViajes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.gridViajes.Location = new System.Drawing.Point(12, 107);
             this.gridViajes.Name = "gridViajes";
+            this.gridViajes.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.gridViajes.Size = new System.Drawing.Size(724, 295);
             this.gridViajes.TabIndex = 9;
             // 

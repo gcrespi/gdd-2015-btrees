@@ -66,7 +66,7 @@ AS
 			  B.Butaca_EsVentanilla
 	   FROM THE_BTREES.Butaca B
 	   INNER JOIN THE_BTREES.Viaje V ON V.ViajeID=@Viaje AND Butaca_AvionRef=V.Viaje_AvionRef
-	   WHERE B.ButacaID NOT IN (SELECT ButacaID FROM THE_BTREES.Pasaje WHERE Pasaje_ViajeRef=@Viaje)
+	   WHERE B.ButacaID NOT IN (SELECT ButacaID FROM THE_BTREES.Pasaje WHERE Pasaje_ViajeRef=@Viaje AND Pasaje_CancelacionRef IS NULL)
 
 	   END
 GO

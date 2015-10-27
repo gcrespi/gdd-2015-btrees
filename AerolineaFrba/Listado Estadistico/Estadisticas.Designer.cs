@@ -158,7 +158,8 @@
             this.tdpAño.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.tdpAño.Location = new System.Drawing.Point(107, 52);
             this.tdpAño.Name = "tdpAño";
-            this.tdpAño.Size = new System.Drawing.Size(47, 20);
+            this.tdpAño.ShowUpDown = true;
+            this.tdpAño.Size = new System.Drawing.Size(55, 20);
             this.tdpAño.TabIndex = 3;
             // 
             // label2

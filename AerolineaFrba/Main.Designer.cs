@@ -213,6 +213,7 @@
             this.bDevolucion.Padding = new System.Windows.Forms.Padding(0);
             this.bDevolucion.Size = new System.Drawing.Size(98, 80);
             this.bDevolucion.Text = "Devolución";
+            this.bDevolucion.Click += new System.EventHandler(this.bDevolucion_Click);
             // 
             // bAuditoria
             // 

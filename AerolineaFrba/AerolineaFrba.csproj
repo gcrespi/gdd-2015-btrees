@@ -77,14 +77,17 @@
     <Compile Include="Abm Ruta\RutaAereaForm.Designer.cs">
       <DependentUpon>RutaAereaForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Avion.cs" />
+    <Compile Include="Classes\Avion.cs" />
     <Compile Include="Canje Millas\Form1.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Canje Millas\Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
-    <Compile Include="Ciudad.cs" />
+    <Compile Include="Classes\Cancelacion.cs" />
+    <Compile Include="Classes\Ciudad.cs" />
+    <Compile Include="Classes\Encomienda.cs" />
+    <Compile Include="Classes\Pasaje.cs" />
     <Compile Include="Compra\CompraForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -98,13 +101,13 @@
     <Compile Include="Consulta Millas\Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
-    <Compile Include="Devolucion\Form1.cs">
+    <Compile Include="Devolucion\DevolucionForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Devolucion\Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="Devolucion\DevolucionForm.Designer.cs">
+      <DependentUpon>DevolucionForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Estadistica.cs" />
+    <Compile Include="Classes\Estadistica.cs" />
     <Compile Include="Login.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -167,10 +170,10 @@
     <Compile Include="Registro Llegada Destino\Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
-    <Compile Include="RutaAerea.cs" />
-    <Compile Include="TipoServicio.cs" />
-    <Compile Include="Utiles.cs" />
-    <Compile Include="Viaje.cs" />
+    <Compile Include="Classes\RutaAerea.cs" />
+    <Compile Include="Classes\TipoServicio.cs" />
+    <Compile Include="Classes\Utiles.cs" />
+    <Compile Include="Classes\Viaje.cs" />
     <EmbeddedResource Include="Abm Aeronave\ABMAeronave.resx">
       <DependentUpon>ABMAeronave.cs</DependentUpon>
     </EmbeddedResource>
@@ -185,6 +188,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Compra\CompraForm.resx">
       <DependentUpon>CompraForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Devolucion\DevolucionForm.resx">
+      <DependentUpon>DevolucionForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Generacion Viaje\GenerarViajeForm.resx">
       <DependentUpon>GenerarViajeForm.cs</DependentUpon>

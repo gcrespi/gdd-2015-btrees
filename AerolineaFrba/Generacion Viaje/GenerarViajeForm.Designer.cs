@@ -114,9 +114,12 @@
             // 
             // gridRutaAerea
             // 
+            this.gridRutaAerea.AllowUserToAddRows = false;
+            this.gridRutaAerea.AllowUserToDeleteRows = false;
             this.gridRutaAerea.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.gridRutaAerea.Location = new System.Drawing.Point(156, 250);
             this.gridRutaAerea.Name = "gridRutaAerea";
+            this.gridRutaAerea.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.gridRutaAerea.Size = new System.Drawing.Size(584, 156);
             this.gridRutaAerea.TabIndex = 9;
             // 
@@ -132,6 +135,9 @@
             // 
             // gridAeronave
             // 
+            this.gridAeronave.AllowUserToAddRows = false;
+            this.gridAeronave.AllowUserToDeleteRows = false;
+            this.gridAeronave.AllowUserToOrderColumns = true;
             this.gridAeronave.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.gridAeronave.Location = new System.Drawing.Point(156, 95);
             this.gridAeronave.Name = "gridAeronave";

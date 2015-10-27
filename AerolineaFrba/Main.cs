@@ -12,6 +12,7 @@ using AerolineaFrba.Abm_Aeronave;
 using AerolineaFrba.Compra;
 using AerolineaFrba.Generacion_Viaje;
 using AerolineaFrba.Listado_Estadistico;
+using AerolineaFrba.Devolucion;
 
 namespace AerolineaFrba
 {
@@ -113,7 +114,12 @@ namespace AerolineaFrba
             mostrarForm(new Estadisticas());
         }
 
-       
+        private void bDevolucion_Click(object sender, EventArgs e)
+        {
+            mostrarForm(new DevolucionForm());
+        }
+   
+   
 
     }
 }
