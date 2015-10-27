@@ -181,6 +181,7 @@
     <Compile Include="Classes\TipoServicio.cs" />
     <Compile Include="Classes\Utiles.cs" />
     <Compile Include="Classes\Viaje.cs" />
+    <Compile Include="Utils\TextValidations.cs" />
     <EmbeddedResource Include="Abm Aeronave\ABMAeronave.resx">
       <DependentUpon>ABMAeronave.cs</DependentUpon>
     </EmbeddedResource>
