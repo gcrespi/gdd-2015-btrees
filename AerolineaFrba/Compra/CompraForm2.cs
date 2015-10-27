@@ -48,11 +48,11 @@ namespace AerolineaFrba.Compra
 
         private void tbDNI_TextChanged(object sender, EventArgs e)
         {
-            if (tbDNI.Text.Length >= 7){
-               
+            if (tbDNI.Text.Length >= 7)
+            {
+
+            }
+
         }
-
-        
-
     }
 }

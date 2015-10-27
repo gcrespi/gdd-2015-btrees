@@ -123,7 +123,7 @@ namespace AerolineaFrba
 
         private void bDevolucion_Click(object sender, EventArgs e)
         {
-            mostrarForm(new DevolucionForm());
+            replaceForm(new DevolucionForm());
         }
    
    

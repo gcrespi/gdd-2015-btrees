@@ -8,14 +8,14 @@ namespace AerolineaFrba.Compra
 {
     public class Compra
     {
-        public string viajeID { set; }
-        public string nombre { set; }
-        public string apellido { set; }
-        public string dni { set; }
-        public string direccion { set; }
-        public string telefono { set; }
-        public string mail { set; }
-        public DateTime fechaNac  { set; }
+        public string viajeID { get; set; }
+        public string nombre { get; set; }
+        public string apellido { get; set; }
+        public string dni { get; set; }
+        public string direccion { get; set; }
+        public string telefono { get; set; }
+        public string mail { get; set; }
+        public DateTime fechaNac { get; set; }
 
     }
 }
