@@ -70,3 +70,32 @@ AS
 
 	   END
 GO
+
+USE [GD2C2015]
+GO
+
+/***** GetDatosCliente *****/
+IF  object_id(N'[THE_BTREES].[GetDatosCliente]','P') IS NOT NULL
+	DROP PROCEDURE [THE_BTREES].[GetDatosCliente]
+GO
+
+CREATE PROCEDURE [THE_BTREES].[GetDatosCliente]		
+    @nombre AS varchar(50),
+	@apellido AS varchar(50),
+	@dni AS int
+			
+AS
+    BEGIN
+	   SET NOCOUNT ON
+	   SELECT ClienteID,
+			  Cliente_Nombre,
+			  Cliente_Apellido,
+			  Cliente_DNI,
+			  Cliente_Direccion,
+			  Cliente_Telefono,
+			  Cliente_Mail,
+			  Cliente_FechaNac
+	   FROM THE_BTREES.Cliente
+	   WHERE Cliente_DNI = @dni AND Cliente_Apellido = @apellido AND Cliente_Nombre = @nombre
+	END
+GO

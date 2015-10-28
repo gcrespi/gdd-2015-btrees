@@ -72,7 +72,7 @@ namespace AerolineaFrba
 
         private void bCompras_Click(object sender, EventArgs e)
         {
-            replaceForm(new CompraForm());
+            replaceForm(new CompraFormPickViaje());
         }
         private void aBMAeronaveToolStripMenuItem_Click(object sender, EventArgs e)
         {

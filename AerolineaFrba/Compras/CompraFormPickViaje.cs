@@ -10,12 +10,12 @@ using System.Windows.Forms;
 
 namespace AerolineaFrba.Compras
 {
-    public partial class CompraForm : Form
+    public partial class CompraFormPickViaje : Form
     {
         private DateTime fechaViaje;
         private Compra compra = new Compra();
  
-        public CompraForm()
+        public CompraFormPickViaje()
         {
             InitializeComponent();
         }
@@ -49,16 +49,40 @@ namespace AerolineaFrba.Compras
             gridViajes.Columns["ViajeId"].Visible=false;
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void checkBtnContinue()
         {
-           compra.viajeID = gridViajes.CurrentRow.Cells[0].Value.ToString();
-           Program.main.addForm(new CompraForm2(compra));
+            if ((upDownPasajes.Value > 0 || upDownKg.Value > 0) && gridViajes.CurrentRow != null )
+                btnContinue.Enabled = true;
+            else btnContinue.Enabled = false;
         }
 
         private void checkBoxFecha_CheckedChanged(object sender, EventArgs e)
         {
             if (checkBoxFecha.Checked) timePickerFecha.Enabled = true;
             else timePickerFecha.Enabled = false;
+        }
+
+        private void upDownPasajes_ValueChanged(object sender, EventArgs e)
+        {
+            checkBtnContinue();
+        }
+
+        private void upDownKg_ValueChanged(object sender, EventArgs e)
+        {
+            checkBtnContinue();
+        }
+
+        private void gridViajes_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            checkBtnContinue();
+        }
+
+        private void btnContinue_Click(object sender, EventArgs e)
+        {
+            compra.viajeRef = (int)gridViajes.CurrentRow.Cells[0].Value;
+            compra.cantPasajes = (int)upDownPasajes.Value;
+            compra.kg = (int)upDownKg.Value;
+            Program.main.addForm(new CompraFormDatosEncomienda(compra, 0));
         }
 
     }

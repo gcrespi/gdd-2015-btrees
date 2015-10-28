@@ -25,11 +25,47 @@ namespace AerolineaFrba
         public DateTime fechaVenc { get; set; }
         public double precio { get; set; }
         public int compraRef { get; set; }
-        public int clienteRef { get; set; }
+        public int compradorRef { get; set; }
         public int viajeRef { get; set; }
-        
+        public int cantPasajes { get; set; }
+        public List<int> pasajerosRef { get; set; }
+        public int encomiendaResponsabeRef { get; set; }
+        public int kg { get; set; }
 
-        //Devuelve el ID de la compra
+        public Compra()
+        {
+            pasajerosRef = new List<int>();
+        }
+
+        public void store()
+        {
+            SqlConnection objConexion = new SqlConnection(Conexion.strCon);
+            SqlTransaction tran = null;
+            try
+            {
+                objConexion.Open();
+                tran = objConexion.BeginTransaction();
+                CrearCompra(objConexion);
+                if (cantPasajes > 0) CrearPasajes(objConexion);
+                if (kg > 0) CrearEncomienda(objConexion);
+                tran.Commit();
+            }
+            catch (Exception)
+            {
+                tran.Rollback();
+                throw new Exception();
+            }
+            finally
+            {
+                if (objConexion.State == System.Data.ConnectionState.Open)
+                {
+                    objConexion.Close();
+                }
+                objConexion.Dispose();
+            }
+        }
+
+        //Setea el compraRef
         public void CrearCompra(SqlConnection openedObjConexion) 
         {
             try
@@ -55,6 +91,46 @@ namespace AerolineaFrba
                 comando.Parameters.Add(compraID);
                 comando.ExecuteNonQuery();
                 compraRef = Convert.ToInt32(comando.Parameters["@CancelID"].Value);
+            }
+            catch (Exception)
+            {
+                throw new Exception();
+            }
+        }
+
+        public void CrearPasajes(SqlConnection openedObjConexion)
+        {
+            try
+            {
+                string strProc = "THE_BTREES.AddPasaje";
+                SqlCommand comando = new SqlCommand(strProc, openedObjConexion);
+                comando.CommandType = CommandType.StoredProcedure;
+                comando.Parameters.AddWithValue("@butacaRef", cantPasajes);
+                comando.Parameters.AddWithValue("@precio", precio);
+                comando.Parameters.AddWithValue("@compraRef", compraRef);
+                comando.Parameters.AddWithValue("@clienteRef", compradorRef);
+                comando.Parameters.AddWithValue("@viajeRef", viajeRef);
+                comando.ExecuteNonQuery(); 
+            }
+            catch (Exception)
+            {
+                throw new Exception();
+            }
+        }
+
+        public void CrearEncomienda(SqlConnection openedObjConexion)
+        {
+            try
+            {
+                string strProc = "THE_BTREES.AddEncomienda";
+                SqlCommand comando = new SqlCommand(strProc, openedObjConexion);
+                comando.CommandType = CommandType.StoredProcedure;
+                comando.Parameters.AddWithValue("@kg", kg);
+                comando.Parameters.AddWithValue("@precio", precio);
+                comando.Parameters.AddWithValue("@compraRef", compraRef);
+                comando.Parameters.AddWithValue("@clienteRef", compradorRef);
+                comando.Parameters.AddWithValue("@viajeRef", viajeRef);
+                comando.ExecuteNonQuery();
             }
             catch (Exception)
             {
