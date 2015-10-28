@@ -17,5 +17,11 @@ namespace AerolineaFrba.Abm_Rol
         {
             InitializeComponent();
         }
+
+        public DetalleRolForm(int rolID) : this()
+        {
+            uctrlRolDetalle.retrieveInfoFrom(rolID);
+            uctrlRolDetalle.blockAttrs();
+        }
     }
 }

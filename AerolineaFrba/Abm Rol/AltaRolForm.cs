@@ -9,6 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using sql = System.Data.SqlClient;
+using AerolineaFrba.Plantillas;
 
 namespace AerolineaFrba.Abm_Rol
 {
@@ -23,67 +24,27 @@ namespace AerolineaFrba.Abm_Rol
 
         private void AltaRolForm_Load(object sender, EventArgs e)
         {
-            this.fill_funcionalidades();
-        }
-
-        private void fill_funcionalidades()
-        {
-            string query = "SELECT * FROM THE_BTREES.Funcionalidades";
-
-            using (var da = new sql.SqlDataAdapter(query, Conexion.strCon))
-            {
-                da.SelectCommand.CommandType = CommandType.Text;
-                da.Fill(funcionalidadesTable);
-                chlFuncionalidades.DataSource = funcionalidadesTable;
-                chlFuncionalidades.DisplayMember = "Funcionalidad_Nombre";
-                chlFuncionalidades.ValueMember = "FuncionalidadID";
-            }
+            uctrlRolAlta.fillAttrsDefault();
         }
 
         protected override void btnLimpiar_Click(object sender, EventArgs e)
         {
-            txtNombre.Text = "";
-            foreach (int i in chlFuncionalidades.CheckedIndices)
-            {
-                chlFuncionalidades.SetItemCheckState(i, CheckState.Unchecked);
-            }
+            uctrlRolAlta.limpiar_campos();
         }
 
 
         protected override void btnGuardar_Click(object sender, EventArgs e)
         {
-            //TODO agregar validaciones, userControl?
-
-            DataTable funcionalidadesCheckeadas = new DataTable();
-            funcionalidadesCheckeadas.Columns.Add("Item", typeof(int));
-
-            foreach (DataRowView indexChecked in chlFuncionalidades.CheckedItems)
+            if (uctrlRolAlta.validateAttrs())
             {
-                funcionalidadesCheckeadas.Rows.Add(indexChecked["FuncionalidadID"]);
+                Roles.darAlta(uctrlRolAlta);
+                MessageBox.Show("Se ha Guardado el Rol: " + uctrlRolAlta.Nombre + " con Exito!", "Alta Exitosa", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                this.Close();   
             }
-
-            using (var conn = new SqlConnection(Conexion.strCon))
-            using (var command = new SqlCommand("THE_BTREES.Crear_Rol", conn)
+            else
             {
-                CommandType = CommandType.StoredProcedure
-            })
-            {
-                command.Parameters.AddWithValue("@Rol_Nombre", txtNombre.Text);
-
-                var pList = new SqlParameter("@funcionalidadesSeleccionadas", SqlDbType.Structured);
-                pList.TypeName = "THE_BTREES.IntList";
-                pList.Value = funcionalidadesCheckeadas;
-                command.Parameters.Add(pList);
-
-                conn.Open();
-                command.ExecuteNonQuery();
-                conn.Close();
-
-                MessageBox.Show("Se ha Guardado el Rol: " + txtNombre.Text + " con Exito!");
-                btnLimpiar.PerformClick();
-                this.Close();
+                MessageBox.Show("No se ha podido guardar el Rol.", "Error de validación", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-
         }
     }
 }

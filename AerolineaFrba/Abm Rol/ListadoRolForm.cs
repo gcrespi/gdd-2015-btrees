@@ -1,5 +1,4 @@
-﻿using AerolineaFrba.Plantillas;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -8,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using AerolineaFrba;
+using AerolineaFrba.Plantillas;
 
 namespace AerolineaFrba.Abm_Rol
 {
@@ -23,37 +24,51 @@ namespace AerolineaFrba.Abm_Rol
             return "Roles";
         }
 
-        protected override void llenarGrilla()
+        protected void ListadoForm_Load(object sender, EventArgs e)
         {
-            base.llenarGrilla();
-
-            var columnaDetalles = new DataGridViewButtonColumn();
-            {
-                columnaDetalles.Text = "Detalles";
-                columnaDetalles.UseColumnTextForButtonValue = true;
-                columnaDetalles.AutoSizeMode =
-                    DataGridViewAutoSizeColumnMode.AllCells;
-                columnaDetalles.FlatStyle = FlatStyle.Standard;
-                columnaDetalles.CellTemplate.Style.BackColor = Color.Honeydew;
-            }
-            DataGrid.Columns.Add(columnaDetalles);
-
-
-
-            //TODO agregar evento para mostrar detalles
-
+            btnBuscar.PerformClick();
         }
 
-        private void DataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        protected override void btnBuscar_Click(object sender, EventArgs e)
+        {
+            this.llenarGrilla(uctrlFiltrosRol1.whereClause());
+        }
+
+
+        protected override void DataGrid_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             var senderGrid = (DataGridView)sender;
 
             if (senderGrid.Columns[e.ColumnIndex] is DataGridViewButtonColumn && e.RowIndex >= 0)
             {
-                DetalleForm frmDetalle = new DetalleRolForm();//senderGrid.Rows[e.RowIndex].Cells[0]);
-                frmDetalle.StartPosition = FormStartPosition.CenterScreen;
-                frmDetalle.Show();
-                
+                var RolID = (byte)senderGrid.Rows[e.RowIndex].Cells[0].Value;
+                Form frm;
+
+                switch (this.tipo)
+                {
+                    case TipoListado.Detalle:
+                        frm = new DetalleRolForm(RolID);
+                        break;
+
+                    case TipoListado.Modif:
+                        frm = new ModifRolForm(RolID);
+                        break;
+
+                    case TipoListado.Baja:
+                        if (!(bool)senderGrid.Rows[e.RowIndex].Cells[2].Value)
+                        {
+                            MessageBox.Show("No se puede deshabilitar un Rol ya deshabilitado!", "Rol ya deshabilitado", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                            return;
+                        }
+                        frm = new BajaRolForm(RolID);
+                        break;
+
+                    default:
+                        throw new ArgumentOutOfRangeException("TipoListado");
+                }
+
+                frm.StartPosition = FormStartPosition.CenterScreen;
+                frm.Show();
             }
         }
     }

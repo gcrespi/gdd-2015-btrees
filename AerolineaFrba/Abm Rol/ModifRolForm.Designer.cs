@@ -1,6 +1,6 @@
 ﻿namespace AerolineaFrba.Abm_Rol
 {
-    partial class AltaRolForm
+    partial class ModifRolForm
     {
         /// <summary>
         /// Required designer variable.
@@ -28,49 +28,42 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.uctrlRolAlta = new AerolineaFrba.Abm_Rol.uctrlRol();
+            this.uctrlRolModif = new AerolineaFrba.Abm_Rol.uctrlRol();
             this.SuspendLayout();
-            // 
-            // btnGuardar
-            // 
-            this.btnGuardar.FlatAppearance.BorderSize = 0;
-            // 
-            // btnLimpiar
-            // 
-            this.btnLimpiar.FlatAppearance.BorderSize = 0;
             // 
             // btnCancelar
             // 
             this.btnCancelar.FlatAppearance.BorderSize = 0;
             // 
-            // uctrlRolAlta
+            // btnModif
             // 
-            this.uctrlRolAlta.Location = new System.Drawing.Point(51, 27);
-            this.uctrlRolAlta.Name = "uctrlRolAlta";
-            this.uctrlRolAlta.Size = new System.Drawing.Size(761, 349);
-            this.uctrlRolAlta.TabIndex = 5;
+            this.btnModif.FlatAppearance.BorderSize = 0;
             // 
-            // AltaRolForm
+            // uctrlRolModif
+            // 
+            this.uctrlRolModif.Location = new System.Drawing.Point(12, 12);
+            this.uctrlRolModif.Name = "uctrlRolModif";
+            this.uctrlRolModif.Size = new System.Drawing.Size(761, 349);
+            this.uctrlRolModif.TabIndex = 7;
+            // 
+            // ModifRolForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(884, 486);
-            this.Controls.Add(this.uctrlRolAlta);
-            this.Name = "AltaRolForm";
-            this.Text = "AltaRolForm";
-            this.Load += new System.EventHandler(this.AltaRolForm_Load);
-            this.Controls.SetChildIndex(this.btnGuardar, 0);
-            this.Controls.SetChildIndex(this.btnLimpiar, 0);
+            this.ClientSize = new System.Drawing.Size(799, 490);
+            this.Controls.Add(this.uctrlRolModif);
+            this.Name = "ModifRolForm";
+            this.Text = "ModifRolForm";
             this.Controls.SetChildIndex(this.btnCancelar, 0);
-            this.Controls.SetChildIndex(this.uctrlRolAlta, 0);
+            this.Controls.SetChildIndex(this.btnModif, 0);
+            this.Controls.SetChildIndex(this.uctrlRolModif, 0);
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private uctrlRol uctrlRolAlta;
-
+        private uctrlRol uctrlRolModif;
 
     }
 }

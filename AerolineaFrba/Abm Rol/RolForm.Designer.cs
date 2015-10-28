@@ -31,9 +31,13 @@
             this.pnlOpciones.SuspendLayout();
             this.SuspendLayout();
             // 
-            // panel1
+            // pnlOpciones
             // 
             this.pnlOpciones.Size = new System.Drawing.Size(1115, 116);
+            // 
+            // btnModificar
+            // 
+            this.btnModificar.Click += new System.EventHandler(this.btnModificar_Click);
             // 
             // RolForm
             // 

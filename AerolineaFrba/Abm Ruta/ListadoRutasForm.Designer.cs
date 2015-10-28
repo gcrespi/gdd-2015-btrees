@@ -37,7 +37,6 @@
             this.ClientSize = new System.Drawing.Size(624, 375);
             this.Name = "listadoRutasForm";
             this.Text = "listadoRutasForm";
-            this.Load += new System.EventHandler(this.listadoRutasForm_Load);
             this.ResumeLayout(false);
 
         }

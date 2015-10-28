@@ -28,11 +28,36 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
+            this.uctrlRolDetalle = new AerolineaFrba.Abm_Rol.uctrlRol();
+            this.SuspendLayout();
+            // 
+            // btnCancelar
+            // 
+            this.btnCancelar.FlatAppearance.BorderSize = 0;
+            // 
+            // uctrlRolDetalle
+            // 
+            this.uctrlRolDetalle.Location = new System.Drawing.Point(12, 12);
+            this.uctrlRolDetalle.Name = "uctrlRolDetalle";
+            this.uctrlRolDetalle.Size = new System.Drawing.Size(761, 349);
+            this.uctrlRolDetalle.TabIndex = 6;
+            // 
+            // DetalleRolForm
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.ClientSize = new System.Drawing.Size(799, 490);
+            this.Controls.Add(this.uctrlRolDetalle);
+            this.Name = "DetalleRolForm";
             this.Text = "DetalleRolForm";
+            this.Controls.SetChildIndex(this.btnCancelar, 0);
+            this.Controls.SetChildIndex(this.uctrlRolDetalle, 0);
+            this.ResumeLayout(false);
+
         }
 
         #endregion
+
+        private uctrlRol uctrlRolDetalle;
     }
 }

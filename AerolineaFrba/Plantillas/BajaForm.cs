@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace AerolineaFrba.Plantillas
 {
-    public partial class DetalleForm : Form
+    public partial class BajaForm : Form
     {
-        public DetalleForm()
+        public BajaForm()
         {
             InitializeComponent();
         }
@@ -22,7 +22,12 @@ namespace AerolineaFrba.Plantillas
             this.Close();
         }
 
-        private void DetalleForm_FormClosing(object sender, FormClosingEventArgs e)
+        protected virtual void btnEliminar_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void BajaForm_FormClosing(object sender, FormClosingEventArgs e)
         {
             AutoValidate = AutoValidate.Disable;
         }

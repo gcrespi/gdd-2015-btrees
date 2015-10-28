@@ -1,4 +1,5 @@
-﻿using System;
+﻿using AerolineaFrba.Plantillas;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -30,6 +31,11 @@ namespace AerolineaFrba.Abm_Rol
         protected override AltaForm nuevoAlta()
         {
             return new AltaRolForm();
+        }
+
+        private void btnModificar_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

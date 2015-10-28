@@ -8,10 +8,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using sql = System.Data.SqlClient;
+using AerolineaFrba.Plantillas;
 
 namespace AerolineaFrba.Abm_Ruta
 {
-    public partial class ListadoRutasForm : AerolineaFrba.ListadoForm
+    public partial class ListadoRutasForm : ListadoForm
     {
         public ListadoRutasForm()
         {
@@ -23,9 +24,5 @@ namespace AerolineaFrba.Abm_Ruta
             return "RutaAerea";
         }
 
-        private void listadoRutasForm_Load(object sender, EventArgs e)
-        { 
-        
-        }
     }
 }

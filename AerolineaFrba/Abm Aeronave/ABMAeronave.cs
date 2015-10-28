@@ -8,10 +8,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using AerolineaFrba.Plantillas;
 
 namespace AerolineaFrba.Abm_Aeronave
 {
-    public partial class ABMAeronave : AerolineaFrba.OpcionesABMForm
+    public partial class ABMAeronave : OpcionesABMForm
 
     {
         public ABMAeronave()

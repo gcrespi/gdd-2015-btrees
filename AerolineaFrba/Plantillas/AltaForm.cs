@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace AerolineaFrba
+namespace AerolineaFrba.Plantillas
 {
     public partial class AltaForm : Form
     {
@@ -31,6 +31,10 @@ namespace AerolineaFrba
         protected virtual void btnGuardar_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void AltaForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
         }
     }
 }

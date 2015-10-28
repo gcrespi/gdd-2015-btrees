@@ -1,4 +1,4 @@
-﻿namespace AerolineaFrba
+﻿namespace AerolineaFrba.Plantillas
 {
     partial class AltaForm
     {
@@ -85,6 +85,7 @@
             this.Controls.Add(this.btnGuardar);
             this.Name = "AltaForm";
             this.Text = "Alta";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.AltaForm_FormClosing);
             this.ResumeLayout(false);
 
         }

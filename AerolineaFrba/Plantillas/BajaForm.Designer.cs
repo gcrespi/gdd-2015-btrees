@@ -1,6 +1,6 @@
 ﻿namespace AerolineaFrba.Plantillas
 {
-    partial class DetalleForm
+    partial class BajaForm
     {
         /// <summary>
         /// Required designer variable.
@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.btnCancelar = new System.Windows.Forms.Button();
+            this.btnEliminar = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnCancelar
@@ -45,15 +46,30 @@
             this.btnCancelar.UseVisualStyleBackColor = false;
             this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
-            // DetalleForm
+            // btnEliminar
+            // 
+            this.btnEliminar.BackColor = System.Drawing.Color.Silver;
+            this.btnEliminar.FlatAppearance.BorderSize = 0;
+            this.btnEliminar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnEliminar.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEliminar.Location = new System.Drawing.Point(530, 401);
+            this.btnEliminar.Name = "btnEliminar";
+            this.btnEliminar.Size = new System.Drawing.Size(107, 56);
+            this.btnEliminar.TabIndex = 6;
+            this.btnEliminar.Text = "Eliminar";
+            this.btnEliminar.UseVisualStyleBackColor = false;
+            this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
+            // 
+            // BajaForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(799, 490);
+            this.Controls.Add(this.btnEliminar);
             this.Controls.Add(this.btnCancelar);
-            this.Name = "DetalleForm";
+            this.Name = "BajaForm";
             this.Text = "Form1";
-            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.DetalleForm_FormClosing);
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.BajaForm_FormClosing);
             this.ResumeLayout(false);
 
         }
@@ -61,6 +77,7 @@
         #endregion
 
         protected System.Windows.Forms.Button btnCancelar;
+        protected System.Windows.Forms.Button btnEliminar;
 
     }
 }
