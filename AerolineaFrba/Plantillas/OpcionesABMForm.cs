@@ -9,6 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using AerolineaFrba;
+using AerolineaFrba.Abm_Rol;
 
 
 namespace AerolineaFrba
@@ -22,7 +23,7 @@ namespace AerolineaFrba
 
         protected virtual ListadoForm nuevoListado()
         {
-            return new ListadoForm();
+            return new ListadoForm(new UctrlFiltrosRol());
         }
 
         protected virtual AltaForm nuevoAlta()

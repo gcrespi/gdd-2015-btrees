@@ -25,7 +25,7 @@ namespace AerolineaFrba.Abm_Rol
 
         protected override ListadoForm nuevoListado()
         {
-            return new ListadoRolForm();
+            return new ListadoForm(new UctrlFiltrosRol());
         }
 
         protected override AltaForm nuevoAlta()

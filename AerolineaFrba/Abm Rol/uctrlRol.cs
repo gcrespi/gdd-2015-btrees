@@ -12,7 +12,7 @@ using System.Data.SqlClient;
 
 namespace AerolineaFrba.Abm_Rol
 {
-    public partial class uctrlRol : UserControl
+    public partial class UctrlRol : UserControl
     {
         private DataTable funcionalidadesTable = new DataTable();
 
@@ -38,7 +38,7 @@ namespace AerolineaFrba.Abm_Rol
         }
         public String Nombre { get { return txtNombre.Text; } }
 
-        public uctrlRol()
+        public UctrlRol()
         {
             InitializeComponent();
 
@@ -55,18 +55,6 @@ namespace AerolineaFrba.Abm_Rol
             funcionalidadRefs = dt.AsEnumerable().Select(x => Convert.ToInt32((byte)x[1])).ToList();
 
             this.checkRolFunc();
-        }
-
-        private void checkRolFunc()
-        {
-            for (int i = 0; i < chlFuncionalidades.Items.Count; i++)
-            {
-                DataRowView view = chlFuncionalidades.Items[i] as DataRowView;
-                var value = (byte)view["FuncionalidadID"];
-
-                if (funcionalidadRefs.Contains(value))
-                    chlFuncionalidades.SetItemChecked(i, true);                    
-            }
         }
 
         public void fillAttrsDefault()
@@ -100,7 +88,7 @@ namespace AerolineaFrba.Abm_Rol
 
         public void blockKeyAttrs()
         {
-            
+
         }
 
         public bool validateAttrs()
@@ -109,6 +97,18 @@ namespace AerolineaFrba.Abm_Rol
             var funcionalidadesVal = this.validateFunc();
 
             return nombreVal && funcionalidadesVal;
+        }
+
+        private void checkRolFunc()
+        {
+            for (int i = 0; i < chlFuncionalidades.Items.Count; i++)
+            {
+                DataRowView view = chlFuncionalidades.Items[i] as DataRowView;
+                var value = (byte)view["FuncionalidadID"];
+
+                if (funcionalidadRefs.Contains(value))
+                    chlFuncionalidades.SetItemChecked(i, true);                    
+            }
         }
 
         private bool validateNombre()

@@ -9,6 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using AerolineaFrba.Plantillas;
+using AerolineaFrba.Abm_Rol;
 
 namespace AerolineaFrba.Abm_Aeronave
 {
@@ -27,7 +28,7 @@ namespace AerolineaFrba.Abm_Aeronave
 
         protected override ListadoForm nuevoListado()
         {
-            return new ListadoAeronaveForm();
+            return new ListadoForm(new UctrlFiltrosRol());
         }
 
         protected override AltaForm nuevoAlta()

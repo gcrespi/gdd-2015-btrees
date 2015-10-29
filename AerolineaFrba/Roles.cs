@@ -28,7 +28,7 @@ namespace AerolineaFrba
             return dt;
         }
 
-        public static bool allreadyExistWithOtherID(uctrlRol rolAttrs)
+        public static bool allreadyExistWithOtherID(UctrlRol rolAttrs)
         {
             bool _self;
 
@@ -51,7 +51,7 @@ namespace AerolineaFrba
             return _self;
         }
 
-        public static void darAlta(uctrlRol rolAttrs)
+        public static void darAlta(UctrlRol rolAttrs)
         {
             using (var conn = new SqlConnection(Conexion.strCon))
             using (var command = new SqlCommand("THE_BTREES.Crear_Rol", conn)
@@ -67,7 +67,7 @@ namespace AerolineaFrba
             }
         }
 
-        public static void darBajaLogica(uctrlRol rolAttrs)
+        public static void darBajaLogica(UctrlRol rolAttrs)
         {
             using (var conn = new SqlConnection(Conexion.strCon))
             using (var command = new SqlCommand("THE_BTREES.Deshabilitar_Rol", conn)
@@ -82,7 +82,7 @@ namespace AerolineaFrba
             }
         }
 
-        private static SqlParameter funcionalidadesParametro(uctrlRol rolAttrs)
+        private static SqlParameter funcionalidadesParametro(UctrlRol rolAttrs)
         {
             DataTable funcionalidadesCheckeadas = rolAttrs.FuncionalidadesCheckeadas;
             var pList = new SqlParameter("@funcionalidadesSeleccionadas", SqlDbType.Structured);
@@ -91,7 +91,7 @@ namespace AerolineaFrba
             return pList;
         }
 
-        public static void darModif(uctrlRol rolAttrs)
+        public static void darModif(UctrlRol rolAttrs)
         {
             using (var conn = new SqlConnection(Conexion.strCon))
             using (var command = new SqlCommand("THE_BTREES.Modificar_Rol", conn)

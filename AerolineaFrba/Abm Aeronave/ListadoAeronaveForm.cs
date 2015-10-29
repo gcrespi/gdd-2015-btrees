@@ -11,9 +11,9 @@ using AerolineaFrba.Plantillas;
 
 namespace AerolineaFrba.Abm_Aeronave
 {
-    public partial class ListadoAeronaveForm : ListadoForm
+    public partial class ListadoAeronaveForm : Form
     {
-        public ListadoAeronaveForm()
+        public ListadoAeronaveForm(UserControl ble)
         {
             InitializeComponent();
         }

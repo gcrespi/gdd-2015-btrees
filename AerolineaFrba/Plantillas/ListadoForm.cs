@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using AerolineaFrba;
 using sql = System.Data.SqlClient;
+using AerolineaFrba.Filtros;
 
 namespace AerolineaFrba.Plantillas
 {
@@ -16,11 +17,29 @@ namespace AerolineaFrba.Plantillas
 
     public partial class ListadoForm : Form
     {
-        protected TipoListado tipo;
+        private TipoListado tipo;
+        private FiltroControl filtroCtrl;
 
-        public ListadoForm()
+        public ListadoForm(FiltroControl filtroCtrl)
         {
             InitializeComponent();
+            this.filtroCtrl = filtroCtrl;
+
+            this.drawFiltro();
+        }
+
+        private void drawFiltro()
+        {
+            // 
+            // uctrlFiltrosRolListado
+            // 
+            this.filtroCtrl.Location = new System.Drawing.Point(12, -1);
+            this.filtroCtrl.Name = "uctrlFiltrosRol";
+            this.filtroCtrl.Size = new System.Drawing.Size(868, 177);
+            this.filtroCtrl.TabIndex = 8;
+
+            this.Controls.Add(this.filtroCtrl);
+            this.Controls.SetChildIndex(this.filtroCtrl, 0);
         }
 
         public void setTipo(TipoListado tipo)
@@ -28,12 +47,7 @@ namespace AerolineaFrba.Plantillas
             this.tipo = tipo;
         }
 
-        protected virtual String nombreProcedure()
-        {
-            return "THE_BTREES.TraerDataConFiltros";
-        }
-
-        protected virtual void agregarColumna()
+        private void agregarColumna()
         {
             var columnaDetalles = new DataGridViewButtonColumn();
             {
@@ -59,13 +73,13 @@ namespace AerolineaFrba.Plantillas
             DataGrid.Columns.Add(columnaDetalles);
         }
 
-        protected virtual void llenarGrilla(String whereClause)
+        private void llenarGrilla(String whereClause)
         {
             DataGrid.DataSource = null;
             DataGrid.Columns.Clear();
 
             DataTable dt = new DataTable();
-            string strProc = this.nombreProcedure();
+            string strProc = filtroCtrl.ProcedureName();
 
             using (var da = new sql.SqlDataAdapter(strProc, Conexion.strCon))
             {
@@ -77,9 +91,13 @@ namespace AerolineaFrba.Plantillas
             }
         }
 
-        protected virtual void DataGrid_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        { 
-            
+        private void DataGrid_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            var senderGrid = (DataGridView)sender;
+            if (senderGrid.Columns[e.ColumnIndex] is DataGridViewButtonColumn && e.RowIndex >= 0)
+            {
+                filtroCtrl.callBMDForm(senderGrid, e.RowIndex, e.ColumnIndex, this.tipo);
+            }
         }
 
         private void btnVolver_Click(object sender, EventArgs e)
@@ -87,14 +105,20 @@ namespace AerolineaFrba.Plantillas
             this.Close();
         }
 
-        protected virtual void btnBuscar_Click(object sender, EventArgs e)
+        private void btnBuscar_Click(object sender, EventArgs e)
         {
-            
+            this.llenarGrilla(filtroCtrl.whereClause());
+            this.agregarColumna();
         }
 
-        protected virtual void btnLimpiar_Click(object sender, EventArgs e)
+        private void btnLimpiar_Click(object sender, EventArgs e)
         {
+            filtroCtrl.limpiar();
+        }
 
+        private void ListadoForm_Load(object sender, EventArgs e)
+        {
+            btnBuscar.PerformClick();
         }
     }
 }

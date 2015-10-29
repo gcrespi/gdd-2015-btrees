@@ -1,6 +1,6 @@
 ﻿namespace AerolineaFrba.Abm_Rol
 {
-    partial class uctrlFiltrosRol
+    partial class UctrlFiltrosRol
     {
         /// <summary> 
         /// Variable del diseñador requerida.

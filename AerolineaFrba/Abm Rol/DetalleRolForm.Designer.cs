@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.uctrlRolDetalle = new AerolineaFrba.Abm_Rol.uctrlRol();
+            this.uctrlRolDetalle = new AerolineaFrba.Abm_Rol.UctrlRol();
             this.SuspendLayout();
             // 
             // btnCancelar
@@ -58,6 +58,6 @@
 
         #endregion
 
-        private uctrlRol uctrlRolDetalle;
+        private UctrlRol uctrlRolDetalle;
     }
 }

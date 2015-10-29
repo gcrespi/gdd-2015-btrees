@@ -12,14 +12,14 @@ using AerolineaFrba.Plantillas;
 
 namespace AerolineaFrba.Abm_Ruta
 {
-    public partial class ListadoRutasForm : ListadoForm
+    public partial class ListadoRutasForm : Form
     {
-        public ListadoRutasForm()
+        public ListadoRutasForm(UserControl sarasa)
         {
             InitializeComponent();
         }
 
-        protected override String nombreProcedure()
+        protected String nombreProcedure()
         {
             return "RutaAerea";
         }

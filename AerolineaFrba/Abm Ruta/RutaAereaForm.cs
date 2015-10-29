@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using AerolineaFrba.Plantillas;
+using AerolineaFrba.Abm_Rol;
 
 namespace AerolineaFrba.Abm_Ruta
 {
@@ -24,7 +25,7 @@ namespace AerolineaFrba.Abm_Ruta
 
         protected override ListadoForm nuevoListado()
         {
-            return new ListadoRutasForm();
+            return new ListadoForm(new UctrlFiltrosRol());
         }
 
         protected override AltaForm nuevoAlta()

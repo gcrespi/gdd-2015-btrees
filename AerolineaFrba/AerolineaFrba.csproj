@@ -89,12 +89,6 @@
     <Compile Include="Abm Rol\DetalleRolForm.Designer.cs">
       <DependentUpon>DetalleRolForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Abm Rol\ListadoRolForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Abm Rol\ListadoRolForm.Designer.cs">
-      <DependentUpon>ListadoRolForm.cs</DependentUpon>
-    </Compile>
     <Compile Include="Abm Rol\ModifRolForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -107,17 +101,17 @@
     <Compile Include="Abm Rol\RolForm.Designer.cs">
       <DependentUpon>RolForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Abm Rol\uctrlRol.cs">
+    <Compile Include="Abm Rol\UctrlRol.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Abm Rol\uctrlRol.Designer.cs">
-      <DependentUpon>uctrlRol.cs</DependentUpon>
+    <Compile Include="Abm Rol\UctrlRol.Designer.cs">
+      <DependentUpon>UctrlRol.cs</DependentUpon>
     </Compile>
-    <Compile Include="Abm Rol\uctrlFiltrosRol.cs">
+    <Compile Include="Abm Rol\UctrlFiltrosRol.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Abm Rol\uctrlFiltrosRol.Designer.cs">
-      <DependentUpon>uctrlFiltrosRol.cs</DependentUpon>
+    <Compile Include="Abm Rol\UctrlFiltrosRol.Designer.cs">
+      <DependentUpon>UctrlFiltrosRol.cs</DependentUpon>
     </Compile>
     <Compile Include="Abm Ruta\AltaRutaForm.cs">
       <SubType>Form</SubType>
@@ -137,6 +131,7 @@
     <Compile Include="Abm Ruta\RutaAereaForm.Designer.cs">
       <DependentUpon>RutaAereaForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Abm\IAbmControl.cs" />
     <Compile Include="AtributeValidationException.cs" />
     <Compile Include="Avion.cs" />
     <Compile Include="Canje Millas\Form1.cs">
@@ -163,6 +158,9 @@
     <Compile Include="Filtros\FiltroChlb.cs" />
     <Compile Include="Filtros\FitroTxt.cs" />
     <Compile Include="Filtros\Filtro.cs" />
+    <Compile Include="Filtros\IFiltroControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Include="Funcionalidades.cs" />
     <Compile Include="Plantillas\AltaForm.cs">
       <SubType>Form</SubType>
@@ -285,20 +283,17 @@
     <EmbeddedResource Include="Abm Rol\DetalleRolForm.resx">
       <DependentUpon>DetalleRolForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Abm Rol\ListadoRolForm.resx">
-      <DependentUpon>ListadoRolForm.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Abm Rol\ModifRolForm.resx">
       <DependentUpon>ModifRolForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Abm Rol\RolForm.resx">
       <DependentUpon>RolForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Abm Rol\uctrlFiltrosRol.resx">
-      <DependentUpon>uctrlFiltrosRol.cs</DependentUpon>
+    <EmbeddedResource Include="Abm Rol\UctrlFiltrosRol.resx">
+      <DependentUpon>UctrlFiltrosRol.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Abm Rol\uctrlRol.resx">
-      <DependentUpon>uctrlRol.cs</DependentUpon>
+    <EmbeddedResource Include="Abm Rol\UctrlRol.resx">
+      <DependentUpon>UctrlRol.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Abm Ruta\ListadoRutasForm.resx">
       <DependentUpon>ListadoRutasForm.cs</DependentUpon>

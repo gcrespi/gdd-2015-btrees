@@ -28,14 +28,14 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.uctrlRolBaja = new AerolineaFrba.Abm_Rol.uctrlRol();
+            this.uctrlRolBaja = new AerolineaFrba.Abm_Rol.UctrlRol();
             this.SuspendLayout();
             // 
             // btnCancelar
             // 
             this.btnCancelar.FlatAppearance.BorderSize = 0;
             // 
-            // button1
+            // btnEliminar
             // 
             this.btnEliminar.FlatAppearance.BorderSize = 0;
             // 
@@ -54,6 +54,7 @@
             this.Controls.Add(this.uctrlRolBaja);
             this.Name = "BajaRolForm";
             this.Text = "BajaRolForm";
+            this.Load += new System.EventHandler(this.BajaRolForm_Load);
             this.Controls.SetChildIndex(this.btnCancelar, 0);
             this.Controls.SetChildIndex(this.btnEliminar, 0);
             this.Controls.SetChildIndex(this.uctrlRolBaja, 0);
@@ -63,6 +64,6 @@
 
         #endregion
 
-        private uctrlRol uctrlRolBaja;
+        private UctrlRol uctrlRolBaja;
     }
 }

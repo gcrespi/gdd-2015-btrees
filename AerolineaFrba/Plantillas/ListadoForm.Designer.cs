@@ -102,6 +102,7 @@
             this.Controls.Add(this.DataGrid);
             this.Name = "ListadoForm";
             this.Text = "ListadoForm";
+            this.Load += new System.EventHandler(this.ListadoForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.DataGrid)).EndInit();
             this.ResumeLayout(false);
 

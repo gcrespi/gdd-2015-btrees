@@ -20,11 +20,22 @@ namespace AerolineaFrba.Abm_Rol
             uctrlRolBaja.blockAttrs();
         }
 
+
+
         protected override void btnEliminar_Click(object sender, EventArgs e)
         {
             Roles.darBajaLogica(uctrlRolBaja);
             MessageBox.Show("Se ha Deshabilitado el Rol: " + uctrlRolBaja.Nombre + " con Exito!", "Baja Exitosa", MessageBoxButtons.OK, MessageBoxIcon.Information);
             this.Close();
+        }
+
+        private void BajaRolForm_Load(object sender, EventArgs e)
+        {
+            if (!uctrlRolBaja.Activo)
+            {
+                MessageBox.Show("No se puede deshabilitar un Rol ya deshabilitado!", "Rol ya deshabilitado", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                this.Close();
+            }
         }
     }
 }
