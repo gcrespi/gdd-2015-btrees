@@ -192,7 +192,7 @@ INSERT INTO THE_BTREES.Compra
           Compra_Nombre ,
           Compra_Apellido ,
           Compra_Direccion ,
-          Compra_Telefeno ,
+          Compra_Telefono ,
           Compra_Mail ,
           Compra_FechaNac
         )

@@ -49,6 +49,7 @@ INNER JOIN (SELECT Butaca_AvionRef AS Avion,
 					COUNT(ButacaID) AS CantidadDeButacas
             FROM THE_BTREES.Butaca
 			GROUP BY Butaca_AvionRef) B ON V.Viaje_AvionRef=B.Avion
+WHERE P.Pasaje_CancelacionRef IS NULL
 GROUP BY P.Pasaje_ViajeRef,B.CantidadDeButacas
 GO
 
@@ -60,6 +61,7 @@ AS
 	   FROM THE_BTREES.Avion A
 	   INNER JOIN THE_BTREES.Viaje V ON A.AvionID=V.Viaje_AvionRef
 	   INNER JOIN THE_BTREES.Encomienda E ON E.Enco_ViajeRef=V.ViajeID
+	   WHERE E.Enco_CancelacionRef IS NULL
 	   GROUP BY E.Enco_ViajeRef,A.Avion_CantidadKgsDisponibles,V.ViajeID
 
 GO

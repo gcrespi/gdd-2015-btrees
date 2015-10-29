@@ -1,6 +1,6 @@
-﻿namespace AerolineaFrba.Compra
+﻿namespace AerolineaFrba.Compras
 {
-    partial class CompraForm
+    partial class CompraFormPickViaje
     {
         /// <summary>
         /// Required designer variable.
@@ -39,8 +39,15 @@
             this.timePickerFecha = new System.Windows.Forms.DateTimePicker();
             this.gridViajes = new System.Windows.Forms.DataGridView();
             this.btnBuscar = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnContinue = new System.Windows.Forms.Button();
+            this.checkBoxFecha = new System.Windows.Forms.CheckBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.upDownPasajes = new System.Windows.Forms.NumericUpDown();
+            this.upDownKg = new System.Windows.Forms.NumericUpDown();
             ((System.ComponentModel.ISupportInitialize)(this.gridViajes)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.upDownPasajes)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.upDownKg)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -125,11 +132,15 @@
             // 
             // gridViajes
             // 
+            this.gridViajes.AllowUserToAddRows = false;
+            this.gridViajes.AllowUserToDeleteRows = false;
             this.gridViajes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.gridViajes.Location = new System.Drawing.Point(12, 107);
             this.gridViajes.Name = "gridViajes";
-            this.gridViajes.Size = new System.Drawing.Size(724, 295);
+            this.gridViajes.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.gridViajes.Size = new System.Drawing.Size(745, 274);
             this.gridViajes.TabIndex = 9;
+            this.gridViajes.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.gridViajes_CellContentClick);
             // 
             // btnBuscar
             // 
@@ -141,22 +152,78 @@
             this.btnBuscar.UseVisualStyleBackColor = true;
             this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
             // 
-            // button1
+            // btnContinue
             // 
-            this.button1.Location = new System.Drawing.Point(600, 427);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(136, 23);
-            this.button1.TabIndex = 11;
-            this.button1.Text = "Continuar";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.btnContinue.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnContinue.Enabled = false;
+            this.btnContinue.Location = new System.Drawing.Point(599, 416);
+            this.btnContinue.Name = "btnContinue";
+            this.btnContinue.Size = new System.Drawing.Size(136, 23);
+            this.btnContinue.TabIndex = 11;
+            this.btnContinue.Text = "Continuar";
+            this.btnContinue.UseVisualStyleBackColor = true;
+            this.btnContinue.Click += new System.EventHandler(this.btnContinue_Click);
+            // 
+            // checkBoxFecha
+            // 
+            this.checkBoxFecha.AutoSize = true;
+            this.checkBoxFecha.Location = new System.Drawing.Point(313, 12);
+            this.checkBoxFecha.Name = "checkBoxFecha";
+            this.checkBoxFecha.Size = new System.Drawing.Size(99, 17);
+            this.checkBoxFecha.TabIndex = 12;
+            this.checkBoxFecha.Text = "Filtrar por fecha";
+            this.checkBoxFecha.UseVisualStyleBackColor = true;
+            this.checkBoxFecha.CheckedChanged += new System.EventHandler(this.checkBoxFecha_CheckedChanged);
+            // 
+            // label6
+            // 
+            this.label6.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(77, 421);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(107, 13);
+            this.label6.TabIndex = 13;
+            this.label6.Text = "Cantidad de Pasajes:";
+            // 
+            // label7
+            // 
+            this.label7.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(360, 421);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(23, 13);
+            this.label7.TabIndex = 14;
+            this.label7.Text = "Kg:";
+            // 
+            // upDownPasajes
+            // 
+            this.upDownPasajes.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.upDownPasajes.Location = new System.Drawing.Point(190, 419);
+            this.upDownPasajes.Name = "upDownPasajes";
+            this.upDownPasajes.Size = new System.Drawing.Size(120, 20);
+            this.upDownPasajes.TabIndex = 15;
+            this.upDownPasajes.ValueChanged += new System.EventHandler(this.upDownPasajes_ValueChanged);
+            // 
+            // upDownKg
+            // 
+            this.upDownKg.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.upDownKg.Location = new System.Drawing.Point(389, 419);
+            this.upDownKg.Name = "upDownKg";
+            this.upDownKg.Size = new System.Drawing.Size(120, 20);
+            this.upDownKg.TabIndex = 16;
+            this.upDownKg.ValueChanged += new System.EventHandler(this.upDownKg_ValueChanged);
             // 
             // CompraForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(769, 474);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.upDownKg);
+            this.Controls.Add(this.upDownPasajes);
+            this.Controls.Add(this.label7);
+            this.Controls.Add(this.label6);
+            this.Controls.Add(this.checkBoxFecha);
+            this.Controls.Add(this.btnContinue);
             this.Controls.Add(this.btnBuscar);
             this.Controls.Add(this.gridViajes);
             this.Controls.Add(this.timePickerFecha);
@@ -172,6 +239,8 @@
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.CompraForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.gridViajes)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.upDownPasajes)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.upDownKg)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -190,6 +259,11 @@
         private System.Windows.Forms.DateTimePicker timePickerFecha;
         private System.Windows.Forms.DataGridView gridViajes;
         private System.Windows.Forms.Button btnBuscar;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnContinue;
+        private System.Windows.Forms.CheckBox checkBoxFecha;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.NumericUpDown upDownPasajes;
+        private System.Windows.Forms.NumericUpDown upDownKg;
     }
 }

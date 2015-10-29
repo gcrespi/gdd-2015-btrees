@@ -43,7 +43,6 @@ namespace AerolineaFrba
                 comando.Parameters.AddWithValue("@RutaAerea", rutaID);
                 objConexion.Open();
                 comando.ExecuteNonQuery();
-                objConexion.Close();
             }
             catch (Exception)
             {
@@ -55,6 +54,7 @@ namespace AerolineaFrba
                 {
                     objConexion.Close();
                 }
+                objConexion.Dispose();
             }
         }
     }

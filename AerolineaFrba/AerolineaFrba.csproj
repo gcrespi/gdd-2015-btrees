@@ -133,19 +133,42 @@
     </Compile>
     <Compile Include="Abm\IAbmControl.cs" />
     <Compile Include="AtributeValidationException.cs" />
-    <Compile Include="Avion.cs" />
+    <Compile Include="Classes\Avion.cs" />
     <Compile Include="Canje Millas\Form1.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Canje Millas\Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
-    <Compile Include="Ciudad.cs" />
-    <Compile Include="Compra\CompraForm.cs">
+    <Compile Include="Classes\Cancelacion.cs" />
+    <Compile Include="Classes\Ciudad.cs" />
+    <Compile Include="Classes\Cliente.cs" />
+    <Compile Include="Classes\Encomienda.cs" />
+    <Compile Include="Classes\Pasaje.cs" />
+    <Compile Include="Classes\Compra.cs" />
+    <Compile Include="Compras\CompraFormDatosPasajero.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Compra\CompraForm.Designer.cs">
-      <DependentUpon>CompraForm.cs</DependentUpon>
+    <Compile Include="Compras\CompraFormDatosPasajero.Designer.cs">
+      <DependentUpon>CompraFormDatosPasajero.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Compras\CompraFormPago.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Compras\CompraFormPago.Designer.cs">
+      <DependentUpon>CompraFormPago.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Compras\CompraFormPickViaje.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Compras\CompraFormPickViaje.Designer.cs">
+      <DependentUpon>CompraFormPickViaje.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Compras\CompraFormDatosEncomienda.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Compras\CompraFormDatosEncomienda.Designer.cs">
+      <DependentUpon>CompraFormDatosEncomienda.cs</DependentUpon>
     </Compile>
     <Compile Include="Conexion.cs" />
     <Compile Include="Consulta Millas\Form1.cs">
@@ -170,6 +193,19 @@
     </Compile>
     <Compile Include="Plantillas\BajaForm.cs">
       <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Devolucion\DevolucionForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Devolucion\DevolucionForm.Designer.cs">
+      <DependentUpon>DevolucionForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Classes\Estadistica.cs" />
+    <Compile Include="Login.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Login.Designer.cs">
+      <DependentUpon>Login.cs</DependentUpon>
     </Compile>
     <Compile Include="Plantillas\BajaForm.Designer.cs">
       <DependentUpon>BajaForm.cs</DependentUpon>
@@ -211,18 +247,6 @@
     <Compile Include="_Examples\ExampleOpcionesABMForm.Designer.cs">
       <DependentUpon>ExampleOpcionesABMForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Devolucion\Form1.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Devolucion\Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Login.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Login.Designer.cs">
-      <DependentUpon>Login.cs</DependentUpon>
-    </Compile>
     <Compile Include="Main.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -241,11 +265,11 @@
     <Compile Include="Generacion Viaje\GenerarViajeForm.Designer.cs">
       <DependentUpon>GenerarViajeForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Listado Estadistico\Form1.cs">
+    <Compile Include="Listado Estadistico\Estadisticas.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Listado Estadistico\Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="Listado Estadistico\Estadisticas.Designer.cs">
+      <DependentUpon>Estadisticas.cs</DependentUpon>
     </Compile>
     <Compile Include="Plantillas\OpcionesABMForm.cs">
       <SubType>Form</SubType>
@@ -267,10 +291,11 @@
     <Compile Include="Registro Llegada Destino\Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
-    <Compile Include="RutaAerea.cs" />
-    <Compile Include="TipoServicio.cs" />
-    <Compile Include="Utiles.cs" />
-    <Compile Include="Viaje.cs" />
+    <Compile Include="Classes\RutaAerea.cs" />
+    <Compile Include="Classes\TipoServicio.cs" />
+    <Compile Include="Classes\Utiles.cs" />
+    <Compile Include="Classes\Viaje.cs" />
+    <Compile Include="Utils\TextValidations.cs" />
     <EmbeddedResource Include="Abm Aeronave\ABMAeronave.resx">
       <DependentUpon>ABMAeronave.cs</DependentUpon>
     </EmbeddedResource>
@@ -325,11 +350,26 @@
     <EmbeddedResource Include="_Examples\ExampleOpcionesABMForm.resx">
       <DependentUpon>ExampleOpcionesABMForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Compra\CompraForm.resx">
-      <DependentUpon>CompraForm.cs</DependentUpon>
+    <EmbeddedResource Include="Compras\CompraFormDatosPasajero.resx">
+      <DependentUpon>CompraFormDatosPasajero.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Compras\CompraFormPago.resx">
+      <DependentUpon>CompraFormPago.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Compras\CompraFormPickViaje.resx">
+      <DependentUpon>CompraFormPickViaje.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Compras\CompraFormDatosEncomienda.resx">
+      <DependentUpon>CompraFormDatosEncomienda.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Devolucion\DevolucionForm.resx">
+      <DependentUpon>DevolucionForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Generacion Viaje\GenerarViajeForm.resx">
       <DependentUpon>GenerarViajeForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Listado Estadistico\Estadisticas.resx">
+      <DependentUpon>Estadisticas.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Login.resx">
       <DependentUpon>Login.cs</DependentUpon>

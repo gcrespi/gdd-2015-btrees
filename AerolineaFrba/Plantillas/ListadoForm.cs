@@ -34,7 +34,7 @@ namespace AerolineaFrba.Plantillas
             // uctrlFiltrosRolListado
             // 
             this.filtroCtrl.Location = new System.Drawing.Point(12, -1);
-            this.filtroCtrl.Name = "uctrlFiltrosRol";
+            this.filtroCtrl.Name = "filtroCtrl";
             this.filtroCtrl.Size = new System.Drawing.Size(868, 177);
             this.filtroCtrl.TabIndex = 8;
 

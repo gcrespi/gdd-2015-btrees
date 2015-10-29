@@ -25,7 +25,7 @@ AS
 	   IF @CiudadOrigen=0 
 			SET @CiudadOrigen=NULL
 
-	   IF CAST(@Fecha AS DATE)=CAST(GETDATE() AS DATE)
+	   IF CAST(@Fecha AS DATE)= CAST('2000-01-01' AS DATE)
 			SET @Fecha=NULL
 
 	   SELECT V.ViajeID,
@@ -66,7 +66,36 @@ AS
 			  B.Butaca_EsVentanilla
 	   FROM THE_BTREES.Butaca B
 	   INNER JOIN THE_BTREES.Viaje V ON V.ViajeID=@Viaje AND Butaca_AvionRef=V.Viaje_AvionRef
-	   WHERE B.ButacaID NOT IN (SELECT ButacaID FROM THE_BTREES.Pasaje WHERE Pasaje_ViajeRef=@Viaje)
+	   WHERE B.ButacaID NOT IN (SELECT ButacaID FROM THE_BTREES.Pasaje WHERE Pasaje_ViajeRef=@Viaje AND Pasaje_CancelacionRef IS NULL)
 
 	   END
+GO
+
+USE [GD2C2015]
+GO
+
+/***** GetDatosCliente *****/
+IF  object_id(N'[THE_BTREES].[GetDatosCliente]','P') IS NOT NULL
+	DROP PROCEDURE [THE_BTREES].[GetDatosCliente]
+GO
+
+CREATE PROCEDURE [THE_BTREES].[GetDatosCliente]		
+    @nombre AS varchar(50),
+	@apellido AS varchar(50),
+	@dni AS int
+			
+AS
+    BEGIN
+	   SET NOCOUNT ON
+	   SELECT ClienteID,
+			  Cliente_Nombre,
+			  Cliente_Apellido,
+			  Cliente_DNI,
+			  Cliente_Direccion,
+			  Cliente_Telefono,
+			  Cliente_Mail,
+			  Cliente_FechaNac
+	   FROM THE_BTREES.Cliente
+	   WHERE Cliente_DNI = @dni AND Cliente_Apellido = @apellido AND Cliente_Nombre = @nombre
+	END
 GO
