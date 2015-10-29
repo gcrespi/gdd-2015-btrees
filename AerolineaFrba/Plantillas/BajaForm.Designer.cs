@@ -69,7 +69,8 @@
             this.Controls.Add(this.btnCancelar);
             this.Name = "BajaForm";
             this.Text = "Form1";
-            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.BajaForm_FormClosing);
+            this.Load += new System.EventHandler(this.BajaForm_Load);
+            this.VisibleChanged += new System.EventHandler(this.BajaForm_VisibleChanged);
             this.ResumeLayout(false);
 
         }

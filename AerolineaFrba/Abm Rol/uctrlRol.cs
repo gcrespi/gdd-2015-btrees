@@ -9,10 +9,11 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using sql = System.Data.SqlClient;
 using System.Data.SqlClient;
+using AerolineaFrba.Abm;
 
 namespace AerolineaFrba.Abm_Rol
 {
-    public partial class UctrlRol : UserControl
+    public partial class UctrlRol : UserControl, IAbmControl
     {
         private DataTable funcionalidadesTable = new DataTable();
 
@@ -44,9 +45,9 @@ namespace AerolineaFrba.Abm_Rol
 
         }
 
-        public void retrieveInfoFrom(int rolID)
+        public void retrieveInfoFrom(DataGridViewRow selectedRow)
         {
-            this.rolID = rolID;
+            this.rolID = (byte)selectedRow.Cells[0].Value;
             this.fillAttrsDefault();
             var dt = Roles.getWithFunc(rolID);
 
@@ -97,6 +98,42 @@ namespace AerolineaFrba.Abm_Rol
             var funcionalidadesVal = this.validateFunc();
 
             return nombreVal && funcionalidadesVal;
+        }
+
+        public void darModif()
+        {
+            Roles.darModif(this);
+        }
+
+        public void darBaja()
+        {
+            Roles.darBajaLogica(this);
+        }
+
+        public String accionConcretadaMessage()
+        {
+            return "el Rol: " + this.Nombre;
+        }
+
+        public String accionRechazadaMessage()
+        {
+            return "el Rol";
+        }
+
+        public void drawIn(Form aForm)
+        {
+            this.Location = new System.Drawing.Point(12, 12);
+            this.Name = "uctrlRolModif";
+            this.Size = new System.Drawing.Size(761, 349);
+            this.TabIndex = 7;
+
+            aForm.Controls.Add(this);
+            aForm.Controls.SetChildIndex(this, 0);
+        }
+
+        public bool validateBaja()
+        {
+            return Activo;
         }
 
         private void checkRolFunc()

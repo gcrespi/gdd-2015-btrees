@@ -53,7 +53,6 @@
             this.Controls.Add(this.btnCancelar);
             this.Name = "DetalleForm";
             this.Text = "Form1";
-            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.DetalleForm_FormClosing);
             this.ResumeLayout(false);
 
         }

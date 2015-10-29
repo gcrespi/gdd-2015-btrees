@@ -8,14 +8,14 @@ using System.Windows.Forms;
 
 namespace AerolineaFrba.Filtros
 {
-    public abstract class FiltroControl : UserControl
+    public interface FiltroControl
     {
-        public abstract String ProcedureName();
+        String ProcedureName();
 
-        public abstract string whereClause();
+        string whereClause();
 
-        public abstract void limpiar();
+        void limpiar();
 
-        public abstract void callBMDForm(DataGridView senderGrid, int rowIndex, int columnIndex, TipoListado tipoForm);
+        void drawIn(Form aForm);
     }
 }

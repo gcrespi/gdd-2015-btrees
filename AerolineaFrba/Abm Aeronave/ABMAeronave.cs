@@ -26,11 +26,6 @@ namespace AerolineaFrba.Abm_Aeronave
 
         }
 
-        protected override ListadoForm nuevoListado()
-        {
-            return new ListadoForm(new UctrlFiltrosRol());
-        }
-
         protected override AltaForm nuevoAlta()
         {
             return new AltaAeronaveForm();

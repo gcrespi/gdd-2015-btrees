@@ -23,11 +23,6 @@ namespace AerolineaFrba.Abm_Ruta
         {
         }
 
-        protected override ListadoForm nuevoListado()
-        {
-            return new ListadoForm(new UctrlFiltrosRol());
-        }
-
         protected override AltaForm nuevoAlta()
         {
             return new AltaRutaForm();

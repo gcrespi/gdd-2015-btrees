@@ -1,4 +1,6 @@
-﻿using AerolineaFrba.Plantillas;
+﻿using AerolineaFrba.Abm;
+using AerolineaFrba.Filtros;
+using AerolineaFrba.Plantillas;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -23,9 +25,14 @@ namespace AerolineaFrba.Abm_Rol
 
         }
 
-        protected override ListadoForm nuevoListado()
+        protected override FiltroControl filtroControl()
         {
-            return new ListadoForm(new UctrlFiltrosRol());
+            return new UctrlFiltrosRol();
+        }
+
+        protected override IAbmControl abmControl()
+        {
+            return new UctrlRol();
         }
 
         protected override AltaForm nuevoAlta()

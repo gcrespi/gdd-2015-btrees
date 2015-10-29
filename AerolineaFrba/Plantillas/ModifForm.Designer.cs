@@ -69,7 +69,6 @@
             this.Controls.Add(this.btnCancelar);
             this.Name = "ModifForm";
             this.Text = "Form1";
-            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.ModifForm_FormClosing);
             this.ResumeLayout(false);
 
         }

@@ -77,24 +77,6 @@
     <Compile Include="Abm Rol\AltaRolForm.Designer.cs">
       <DependentUpon>AltaRolForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Abm Rol\BajaRolForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Abm Rol\BajaRolForm.Designer.cs">
-      <DependentUpon>BajaRolForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Abm Rol\DetalleRolForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Abm Rol\DetalleRolForm.Designer.cs">
-      <DependentUpon>DetalleRolForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Abm Rol\ModifRolForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Abm Rol\ModifRolForm.Designer.cs">
-      <DependentUpon>ModifRolForm.cs</DependentUpon>
-    </Compile>
     <Compile Include="Abm Rol\RolForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -132,6 +114,7 @@
       <DependentUpon>RutaAereaForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Abm\IAbmControl.cs" />
+    <Compile Include="Abm\IBmdForm.cs" />
     <Compile Include="AtributeValidationException.cs" />
     <Compile Include="Classes\Avion.cs" />
     <Compile Include="Canje Millas\Form1.cs">
@@ -181,9 +164,7 @@
     <Compile Include="Filtros\FiltroChlb.cs" />
     <Compile Include="Filtros\FitroTxt.cs" />
     <Compile Include="Filtros\Filtro.cs" />
-    <Compile Include="Filtros\IFiltroControl.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
+    <Compile Include="Filtros\IFiltroControl.cs" />
     <Compile Include="Funcionalidades.cs" />
     <Compile Include="Plantillas\AltaForm.cs">
       <SubType>Form</SubType>
@@ -301,15 +282,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Abm Rol\AltaRolForm.resx">
       <DependentUpon>AltaRolForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Abm Rol\BajaRolForm.resx">
-      <DependentUpon>BajaRolForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Abm Rol\DetalleRolForm.resx">
-      <DependentUpon>DetalleRolForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Abm Rol\ModifRolForm.resx">
-      <DependentUpon>ModifRolForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Abm Rol\RolForm.resx">
       <DependentUpon>RolForm.cs</DependentUpon>

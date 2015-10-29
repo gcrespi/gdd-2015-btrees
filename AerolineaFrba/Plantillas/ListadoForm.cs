@@ -10,36 +10,25 @@ using System.Windows.Forms;
 using AerolineaFrba;
 using sql = System.Data.SqlClient;
 using AerolineaFrba.Filtros;
+using AerolineaFrba.Abm;
 
 namespace AerolineaFrba.Plantillas
 {
     public enum TipoListado { Detalle, Modif, Baja };
-
+    
     public partial class ListadoForm : Form
     {
         private TipoListado tipo;
+        private IBmdForm bmdForm;
         private FiltroControl filtroCtrl;
 
-        public ListadoForm(FiltroControl filtroCtrl)
+        public ListadoForm(FiltroControl filtroCtrl, IBmdForm bmdForm)
         {
             InitializeComponent();
             this.filtroCtrl = filtroCtrl;
+            this.bmdForm = bmdForm;
 
-            this.drawFiltro();
-        }
-
-        private void drawFiltro()
-        {
-            // 
-            // uctrlFiltrosRolListado
-            // 
-            this.filtroCtrl.Location = new System.Drawing.Point(12, -1);
-            this.filtroCtrl.Name = "filtroCtrl";
-            this.filtroCtrl.Size = new System.Drawing.Size(868, 177);
-            this.filtroCtrl.TabIndex = 8;
-
-            this.Controls.Add(this.filtroCtrl);
-            this.Controls.SetChildIndex(this.filtroCtrl, 0);
+            filtroCtrl.drawIn(this);
         }
 
         public void setTipo(TipoListado tipo)
@@ -51,20 +40,7 @@ namespace AerolineaFrba.Plantillas
         {
             var columnaDetalles = new DataGridViewButtonColumn();
             {
-                switch (this.tipo)
-                {
-                    case TipoListado.Detalle:
-                        columnaDetalles.Text = "Detalles";
-                        break;
-
-                    case TipoListado.Modif:
-                        columnaDetalles.Text = "Modificar";
-                        break;
-
-                    case TipoListado.Baja:
-                        columnaDetalles.Text = "Eliminar";
-                        break;
-                }
+                columnaDetalles.Text = bmdForm.nameButtonAccess();
                 columnaDetalles.UseColumnTextForButtonValue = true;
                 columnaDetalles.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
                 columnaDetalles.FlatStyle = FlatStyle.Standard;
@@ -96,7 +72,7 @@ namespace AerolineaFrba.Plantillas
             var senderGrid = (DataGridView)sender;
             if (senderGrid.Columns[e.ColumnIndex] is DataGridViewButtonColumn && e.RowIndex >= 0)
             {
-                filtroCtrl.callBMDForm(senderGrid, e.RowIndex, e.ColumnIndex, this.tipo);
+                bmdForm.showUp(senderGrid.Rows[e.RowIndex]);
             }
         }
 
@@ -119,6 +95,11 @@ namespace AerolineaFrba.Plantillas
         private void ListadoForm_Load(object sender, EventArgs e)
         {
             btnBuscar.PerformClick();
+        }
+
+        private void ListadoForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            bmdForm.Close();
         }
     }
 }

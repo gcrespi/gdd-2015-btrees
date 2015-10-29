@@ -1,4 +1,5 @@
-﻿using System;
+﻿using AerolineaFrba.Abm;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -10,21 +11,34 @@ using System.Windows.Forms;
 
 namespace AerolineaFrba.Plantillas
 {
-    public partial class DetalleForm : Form
+    public partial class DetalleForm : Form, IBmdForm
     {
-        public DetalleForm()
+        private IAbmControl abmControl;
+
+        public DetalleForm(IAbmControl abmControl)
         {
             InitializeComponent();
+
+            this.abmControl = abmControl;
+            this.abmControl.drawIn(this);
+            this.abmControl.blockAttrs();
         }
 
         private void btnCancelar_Click(object sender, EventArgs e)
         {
-            this.Close();
+            this.Hide();
         }
 
-        private void DetalleForm_FormClosing(object sender, FormClosingEventArgs e)
+        public void showUp(DataGridViewRow selectedRow)
         {
-            AutoValidate = AutoValidate.Disable;
+            this.StartPosition = FormStartPosition.CenterScreen;
+            this.Show();
+            this.abmControl.retrieveInfoFrom(selectedRow);
+        }
+
+        public String nameButtonAccess()
+        {
+            return "Detalles";
         }
     }
 }

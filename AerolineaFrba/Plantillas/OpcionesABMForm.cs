@@ -10,6 +10,8 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using AerolineaFrba;
 using AerolineaFrba.Abm_Rol;
+using AerolineaFrba.Abm;
+using AerolineaFrba.Filtros;
 
 
 namespace AerolineaFrba
@@ -21,9 +23,14 @@ namespace AerolineaFrba
             InitializeComponent();
         }
 
-        protected virtual ListadoForm nuevoListado()
+        protected virtual FiltroControl filtroControl()
         {
-            return new ListadoForm(new UctrlFiltrosRol());
+            return new UctrlFiltrosRol();
+        }
+
+        protected virtual IAbmControl abmControl()
+        { 
+            return new UctrlRol();
         }
 
         protected virtual AltaForm nuevoAlta()
@@ -33,17 +40,17 @@ namespace AerolineaFrba
 
         private void btnListar_Click(object sender, EventArgs e)
         {
-            this.crearListadoForm(TipoListado.Detalle);
+            this.crearListadoForm(new DetalleForm(this.abmControl()));
         }
 
         private void btnModificar_Click(object sender, EventArgs e)
         {
-            this.crearListadoForm(TipoListado.Modif);
+            this.crearListadoForm(new ModifForm(this.abmControl()));
         }
 
         private void btnEliminar_Click(object sender, EventArgs e)
         {
-            this.crearListadoForm(TipoListado.Baja);
+            this.crearListadoForm(new BajaForm(this.abmControl()));
         }
 
         private void btnAgregar_Click(object sender, EventArgs e)
@@ -53,10 +60,9 @@ namespace AerolineaFrba
             frmDetalle.Show();
         }
 
-        private void crearListadoForm(TipoListado tipoListado)
+        private void crearListadoForm(IBmdForm bmdForm)
         {
-            ListadoForm frmDetalle = this.nuevoListado();
-            frmDetalle.setTipo(tipoListado);
+            ListadoForm frmDetalle = new ListadoForm(this.filtroControl(), bmdForm);
             frmDetalle.StartPosition = FormStartPosition.CenterScreen;
             frmDetalle.Show();
         }

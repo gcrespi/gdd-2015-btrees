@@ -12,12 +12,12 @@ using AerolineaFrba.Plantillas;
 
 namespace AerolineaFrba.Abm_Rol
 {
-    public partial class UctrlFiltrosRol : FiltroControl
+    public partial class UctrlFiltrosRol : UserControl, FiltroControl
     {
         private List<Filtro> filtros;
         private DataTable funcionalidadesTable;
         
-        public override String ProcedureName() 
+        public String ProcedureName() 
         { 
             return "THE_BTREES.Listar_Roles"; 
         } 
@@ -42,7 +42,7 @@ namespace AerolineaFrba.Abm_Rol
             chlFuncionalidades.ValueMember = "FuncionalidadID";
         }
 
-        public override string whereClause()
+        public string whereClause()
         {
             var _self = "";
 
@@ -57,36 +57,20 @@ namespace AerolineaFrba.Abm_Rol
             return _self;
         }
 
-        public override void limpiar()
+        public void limpiar()
         {
             filtros.ForEach(f => f.limpiar());
         }
 
-        public override void callBMDForm(DataGridView senderGrid, int rowIndex, int columnIndex, TipoListado tipoForm)
+        public void drawIn(Form aForm)
         {
-            var RolID = (byte)senderGrid.Rows[rowIndex].Cells[0].Value;
-            Form frm;
+            this.Location = new System.Drawing.Point(12, -1);
+            this.Name = "filtroCtrl";
+            this.Size = new System.Drawing.Size(868, 177);
+            this.TabIndex = 8;
 
-            switch (tipoForm)
-            {
-                case TipoListado.Detalle:
-                    frm = new DetalleRolForm(RolID);
-                    break;
-
-                case TipoListado.Modif:
-                    frm = new ModifRolForm(RolID);
-                    break;
-
-                case TipoListado.Baja:
-                    frm = new BajaRolForm(RolID);
-                    break;
-
-                default:
-                    throw new ArgumentOutOfRangeException("TipoListado");
-            }
-
-            frm.StartPosition = FormStartPosition.CenterScreen;
-            frm.Show();
+            aForm.Controls.Add(this);
+            aForm.Controls.SetChildIndex(this, 0);
         }
     }
 }
