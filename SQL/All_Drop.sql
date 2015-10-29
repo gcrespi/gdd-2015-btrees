@@ -43,8 +43,17 @@ AS
 	DECLARE @names_veiws varchar(max)
 	DECLARE @names_tables varchar(max)
 	DECLARE @names_types varchar(max)
+	DECLARE @names_triggers varchar(max)
 
 	DECLARE @sql varchar(max)
+
+	--Borro los triggers
+	SELECT @names_triggers = coalesce(@names_triggers + ', ','') + '[THE_BTREES].' + t.NAME
+	FROM GD2C2015.sys.objects t, GD2C2015.sys.schemas s
+	WHERE s.schema_id = t.schema_id AND s.name = 'THE_BTREES' AND  t.type = 'TR'
+	
+	SET @sql = 'DROP TRIGGER ' + @names_triggers
+	EXEC(@sql)
 
 	--Borro los stored procedures
 	SELECT @names_sp = coalesce(@names_sp + ', ','') + '[THE_BTREES].' + p.NAME
