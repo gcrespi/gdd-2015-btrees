@@ -19,9 +19,9 @@ namespace AerolineaFrba.Abm_Rol
             InitializeComponent();
         }
 
-        protected override String nombreTabla()
+        protected override String nombreProcedure()
         {
-            return "Roles";
+            return uctrlFiltrosRolListado.ProcedureName;
         }
 
         protected void ListadoForm_Load(object sender, EventArgs e)
@@ -31,7 +31,8 @@ namespace AerolineaFrba.Abm_Rol
 
         protected override void btnBuscar_Click(object sender, EventArgs e)
         {
-            this.llenarGrilla(uctrlFiltrosRol1.whereClause());
+            this.llenarGrilla(uctrlFiltrosRolListado.whereClause());
+            this.agregarColumna();
         }
 
 
@@ -70,6 +71,11 @@ namespace AerolineaFrba.Abm_Rol
                 frm.StartPosition = FormStartPosition.CenterScreen;
                 frm.Show();
             }
+        }
+
+        protected override void btnLimpiar_Click(object sender, EventArgs e)
+        {
+            uctrlFiltrosRolListado.limpiar();
         }
     }
 }

@@ -309,7 +309,8 @@ INSERT INTO THE_BTREES.FuncionalidadesXRoles (RolRef, FuncionalidadRef) VALUES
 	(1, 10),
 	(1, 11),
 	(1, 12),
-	(1, 13)
+	(1, 13),
+	(2, 1)
 COMMIT TRAN
 GO
 

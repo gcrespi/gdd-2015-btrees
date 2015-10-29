@@ -39,8 +39,10 @@ GO
 CREATE PROCEDURE [THE_BTREES].CleanDatabase
 AS
 	DECLARE @names_sp varchar(max)
+	DECLARE @names_func varchar(max)
 	DECLARE @names_veiws varchar(max)
 	DECLARE @names_tables varchar(max)
+	DECLARE @names_types varchar(max)
 
 	DECLARE @sql varchar(max)
 
@@ -51,6 +53,15 @@ AS
 	
 	SET @sql = 'DROP PROCEDURE ' + @names_sp
 	EXEC(@sql)
+
+	--Borro las functions
+	SELECT @names_func = coalesce(@names_func + ', ','') + '[THE_BTREES].' + f.NAME
+	FROM GD2C2015.sys.objects f, GD2C2015.sys.schemas s
+	WHERE s.schema_id = f.schema_id AND s.name = 'THE_BTREES' AND  f.type IN ('FN', 'IF', 'TF')
+	
+	SET @sql = 'DROP FUNCTION ' + @names_func
+	EXEC(@sql)
+
 
 	--Borro las vistas
 	SELECT @names_veiws = coalesce(@names_veiws + ', ','') + '[THE_BTREES].' + TABLE_NAME
@@ -69,6 +80,16 @@ AS
 	WHERE TABLE_SCHEMA = 'THE_BTREES' and TABLE_TYPE = 'BASE TABLE'
 
 	SET @sql = 'DROP TABLE ' + @names_tables
+	EXEC(@sql)
+
+
+	
+	--Borro los User define types
+	SELECT @names_types = coalesce(@names_types + ', ','') + '[THE_BTREES].' + t.NAME
+	FROM GD2C2015.sys.types t, GD2C2015.sys.schemas s
+	WHERE s.schema_id = t.schema_id AND s.name = 'THE_BTREES'
+	
+	SET @sql = 'DROP TYPE ' + @names_types
 	EXEC(@sql)
 GO
 

@@ -19,7 +19,7 @@ namespace AerolineaFrba.Abm_Ruta
             InitializeComponent();
         }
 
-        protected override String nombreTabla()
+        protected override String nombreProcedure()
         {
             return "RutaAerea";
         }

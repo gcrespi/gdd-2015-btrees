@@ -28,25 +28,13 @@ namespace AerolineaFrba.Plantillas
             this.tipo = tipo;
         }
 
-        protected virtual String nombreTabla()
+        protected virtual String nombreProcedure()
         {
-            return "nombre";
+            return "THE_BTREES.TraerDataConFiltros";
         }
 
-        protected virtual void llenarGrilla(String whereClause)
+        protected virtual void agregarColumna()
         {
-            DataTable dt = new DataTable();
-            string strProc = "THE_BTREES.TraerData";
-
-            using (var da = new sql.SqlDataAdapter(strProc, Conexion.strCon))
-            {
-                da.SelectCommand.CommandType = CommandType.StoredProcedure;
-                da.SelectCommand.Parameters.AddWithValue("@Tabla", this.nombreTabla());
-
-                da.Fill(dt);
-                DataGrid.DataSource = dt;
-            }
-
             var columnaDetalles = new DataGridViewButtonColumn();
             {
                 switch (this.tipo)
@@ -69,7 +57,24 @@ namespace AerolineaFrba.Plantillas
                 columnaDetalles.CellTemplate.Style.BackColor = Color.Honeydew;
             }
             DataGrid.Columns.Add(columnaDetalles);
+        }
 
+        protected virtual void llenarGrilla(String whereClause)
+        {
+            DataGrid.DataSource = null;
+            DataGrid.Columns.Clear();
+
+            DataTable dt = new DataTable();
+            string strProc = this.nombreProcedure();
+
+            using (var da = new sql.SqlDataAdapter(strProc, Conexion.strCon))
+            {
+                da.SelectCommand.CommandType = CommandType.StoredProcedure;
+                da.SelectCommand.Parameters.AddWithValue("@WhereClause", whereClause);
+
+                da.Fill(dt);
+                DataGrid.DataSource = dt;
+            }
         }
 
         protected virtual void DataGrid_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -85,6 +90,11 @@ namespace AerolineaFrba.Plantillas
         protected virtual void btnBuscar_Click(object sender, EventArgs e)
         {
             
+        }
+
+        protected virtual void btnLimpiar_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -1,6 +1,6 @@
 
-DROP PROC THE_BTREES.TraerRolConFuncionalidades
-	
+IF  object_id(N'[THE_BTREES].[TraerRolConFuncionalidades]','P') IS NOT NULL
+	DROP PROCEDURE [THE_BTREES].[TraerRolConFuncionalidades]
 GO
 
 CREATE PROCEDURE THE_BTREES.TraerRolConFuncionalidades

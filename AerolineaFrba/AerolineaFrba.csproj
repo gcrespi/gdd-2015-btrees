@@ -159,6 +159,10 @@
     <Compile Include="Consulta Millas\Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Filtros\FiltroChb.cs" />
+    <Compile Include="Filtros\FiltroChlb.cs" />
+    <Compile Include="Filtros\FitroTxt.cs" />
+    <Compile Include="Filtros\Filtro.cs" />
     <Compile Include="Funcionalidades.cs" />
     <Compile Include="Plantillas\AltaForm.cs">
       <SubType>Form</SubType>
