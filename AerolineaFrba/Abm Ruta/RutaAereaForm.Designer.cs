@@ -1,6 +1,6 @@
 ﻿namespace AerolineaFrba.Abm_Ruta
 {
-    partial class RutaAereaForm
+    partial class RutaAereaForm : OpcionesABMForm
     {
         /// <summary>
         /// Required designer variable.
@@ -31,8 +31,9 @@
             this.pnlOpciones.SuspendLayout();
             this.SuspendLayout();
             // 
-            // panel1
+            // pnlOpciones
             // 
+            this.pnlOpciones.Location = new System.Drawing.Point(80, 358);
             this.pnlOpciones.Size = new System.Drawing.Size(792, 116);
             // 
             // btnListar
@@ -40,15 +41,15 @@
             this.btnListar.Location = new System.Drawing.Point(22, 47);
             this.btnListar.Click += new System.EventHandler(this.button1_Click);
             // 
-            // button4
+            // btnEliminar
             // 
             this.btnEliminar.Location = new System.Drawing.Point(448, 47);
             // 
-            // button3
+            // btnModificar
             // 
             this.btnModificar.Location = new System.Drawing.Point(295, 47);
             // 
-            // button2
+            // btnAgregar
             // 
             this.btnAgregar.Location = new System.Drawing.Point(151, 47);
             // 

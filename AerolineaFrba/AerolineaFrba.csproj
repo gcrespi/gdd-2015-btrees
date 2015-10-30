@@ -101,17 +101,23 @@
     <Compile Include="Abm Ruta\AltaRutaForm.Designer.cs">
       <DependentUpon>AltaRutaForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Abm Ruta\ListadoRutasForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Abm Ruta\ListadoRutasForm.Designer.cs">
-      <DependentUpon>ListadoRutasForm.cs</DependentUpon>
-    </Compile>
     <Compile Include="Abm Ruta\RutaAereaForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Abm Ruta\RutaAereaForm.Designer.cs">
       <DependentUpon>RutaAereaForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Abm Ruta\UctrlFiltrosRuta.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Abm Ruta\UctrlFiltrosRuta.Designer.cs">
+      <DependentUpon>UctrlFiltrosRuta.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Abm Ruta\UctrlRuta.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Abm Ruta\UctrlRuta.Designer.cs">
+      <DependentUpon>UctrlRuta.cs</DependentUpon>
     </Compile>
     <Compile Include="Abm\IAbmControl.cs" />
     <Compile Include="Abm\IBmdForm.cs" />
@@ -160,8 +166,10 @@
     <Compile Include="Consulta Millas\Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Filtros\FiltroCbo.cs" />
     <Compile Include="Filtros\FiltroChb.cs" />
     <Compile Include="Filtros\FiltroChlb.cs" />
+    <Compile Include="Filtros\FiltroDcm.cs" />
     <Compile Include="Filtros\FitroTxt.cs" />
     <Compile Include="Filtros\Filtro.cs" />
     <Compile Include="Filtros\IFiltroControl.cs" />
@@ -210,6 +218,12 @@
       <DependentUpon>ModifForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Roles.cs" />
+    <Compile Include="Utils\ComboBoxWithAllOption.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Utils\DecimalBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="_Examples\ExampleAltaForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -292,11 +306,17 @@
     <EmbeddedResource Include="Abm Rol\UctrlRol.resx">
       <DependentUpon>UctrlRol.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Abm Ruta\ListadoRutasForm.resx">
-      <DependentUpon>ListadoRutasForm.cs</DependentUpon>
+    <EmbeddedResource Include="Abm Ruta\AltaRutaForm.resx">
+      <DependentUpon>AltaRutaForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Abm Ruta\RutaAereaForm.resx">
       <DependentUpon>RutaAereaForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Abm Ruta\UctrlFiltrosRuta.resx">
+      <DependentUpon>UctrlFiltrosRuta.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Abm Ruta\UctrlRuta.resx">
+      <DependentUpon>UctrlRuta.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Plantillas\AltaForm.resx">
       <DependentUpon>AltaForm.cs</DependentUpon>

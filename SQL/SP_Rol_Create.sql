@@ -26,11 +26,12 @@ GO
 
 CREATE PROCEDURE THE_BTREES.Crear_Rol
 	@Rol_Nombre VARCHAR(60),
+	@Rol_Activo BIT,
 	@funcionalidadesSeleccionadas [THE_BTREES].[IntList] READONLY
 AS
 
 	BEGIN TRAN
-	INSERT INTO THE_BTREES.Roles (Rol_Nombre, Rol_Activo) VALUES (@Rol_Nombre, 1)
+	INSERT INTO THE_BTREES.Roles (Rol_Nombre, Rol_Activo) VALUES (@Rol_Nombre, @Rol_Activo)
 	DECLARE @RolRef tinyint
 
 	SET  @RolRef = SCOPE_IDENTITY()
