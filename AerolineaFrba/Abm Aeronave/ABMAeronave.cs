@@ -25,10 +25,5 @@ namespace AerolineaFrba.Abm_Aeronave
         {
 
         }
-
-        protected override AltaForm nuevoAlta()
-        {
-            return new AltaAeronaveForm();
-        }
     }
 }

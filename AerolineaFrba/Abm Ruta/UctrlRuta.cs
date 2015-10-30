@@ -166,6 +166,11 @@ namespace AerolineaFrba.Abm_Ruta
             RutaAerea.darBajaLogica(this);
         }
 
+        public void darAlta()
+        {
+            RutaAerea.darAlta(this);
+        }
+
         public String accionConcretadaMessage()
         {
             return "la Ruta: " + this.codigoRuta;

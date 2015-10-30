@@ -53,12 +53,6 @@
     <Compile Include="Abm Aeronave\ABMAeronave.Designer.cs">
       <DependentUpon>ABMAeronave.cs</DependentUpon>
     </Compile>
-    <Compile Include="Abm Aeronave\AltaAeronaveForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Abm Aeronave\AltaAeronaveForm.Designer.cs">
-      <DependentUpon>AltaAeronaveForm.cs</DependentUpon>
-    </Compile>
     <Compile Include="Abm Aeronave\ListadoAeronaveForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -70,12 +64,6 @@
     </Compile>
     <Compile Include="Abm Ciudad\Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Abm Rol\AltaRolForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Abm Rol\AltaRolForm.Designer.cs">
-      <DependentUpon>AltaRolForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Abm Rol\RolForm.cs">
       <SubType>Form</SubType>
@@ -94,12 +82,6 @@
     </Compile>
     <Compile Include="Abm Rol\UctrlFiltrosRol.Designer.cs">
       <DependentUpon>UctrlFiltrosRol.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Abm Ruta\AltaRutaForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Abm Ruta\AltaRutaForm.Designer.cs">
-      <DependentUpon>AltaRutaForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Abm Ruta\RutaAereaForm.cs">
       <SubType>Form</SubType>
@@ -294,9 +276,6 @@
     <EmbeddedResource Include="Abm Aeronave\ABMAeronave.resx">
       <DependentUpon>ABMAeronave.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Abm Rol\AltaRolForm.resx">
-      <DependentUpon>AltaRolForm.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Abm Rol\RolForm.resx">
       <DependentUpon>RolForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -305,9 +284,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Abm Rol\UctrlRol.resx">
       <DependentUpon>UctrlRol.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Abm Ruta\AltaRutaForm.resx">
-      <DependentUpon>AltaRutaForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Abm Ruta\RutaAereaForm.resx">
       <DependentUpon>RutaAereaForm.cs</DependentUpon>

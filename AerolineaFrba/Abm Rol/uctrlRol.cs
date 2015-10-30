@@ -110,6 +110,11 @@ namespace AerolineaFrba.Abm_Rol
             Roles.darBajaLogica(this);
         }
 
+        public void darAlta()
+        {
+            Roles.darAlta(this);
+        }
+
         public String accionConcretadaMessage()
         {
             return "el Rol: " + this.Nombre;

@@ -32,5 +32,7 @@ namespace AerolineaFrba.Abm
         void drawIn(Form aForm);
 
         bool validateBaja();
+
+        void darAlta();
     }
 }
