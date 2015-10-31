@@ -25,5 +25,4 @@ as
 	declare @sentencia nvarchar(MAX)
 	set @sentencia='select * FROM ' + @Tabla + ' ' + @WhereClause
 	execute (@sentencia)
-
 GO

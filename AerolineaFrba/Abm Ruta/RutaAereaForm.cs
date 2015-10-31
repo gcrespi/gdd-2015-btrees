@@ -9,10 +9,12 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using AerolineaFrba.Plantillas;
 using AerolineaFrba.Abm_Rol;
+using AerolineaFrba.Filtros;
+using AerolineaFrba.Abm;
 
 namespace AerolineaFrba.Abm_Ruta
 {
-    public partial class RutaAereaForm : AerolineaFrba.OpcionesABMForm
+    public partial class RutaAereaForm : OpcionesABMForm
     {
         public RutaAereaForm()
         {
@@ -21,6 +23,17 @@ namespace AerolineaFrba.Abm_Ruta
 
         private void button1_Click(object sender, EventArgs e)
         {
+
+        }
+
+        protected override FiltroControl filtroControl()
+        {
+            return new UctrlFiltrosRuta();
+        }
+
+        protected override IAbmControl abmControl()
+        {
+            return new UctrlRuta();
         }
 
         protected override AltaForm nuevoAlta()

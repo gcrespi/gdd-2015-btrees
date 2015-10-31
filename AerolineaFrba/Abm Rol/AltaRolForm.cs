@@ -14,9 +14,7 @@ using AerolineaFrba.Plantillas;
 namespace AerolineaFrba.Abm_Rol
 {
     public partial class AltaRolForm : AltaForm
-    {
-        private DataTable funcionalidadesTable = new DataTable();
-            
+    {    
         public AltaRolForm()
         {
             InitializeComponent();
@@ -31,7 +29,6 @@ namespace AerolineaFrba.Abm_Rol
         {
             uctrlRolAlta.limpiar_campos();
         }
-
 
         protected override void btnGuardar_Click(object sender, EventArgs e)
         {

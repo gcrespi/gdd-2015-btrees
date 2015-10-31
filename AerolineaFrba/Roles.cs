@@ -60,6 +60,7 @@ namespace AerolineaFrba
             })
             {
                 command.Parameters.AddWithValue("@Rol_Nombre", rolAttrs.Nombre);
+                command.Parameters.AddWithValue("@Rol_Activo", rolAttrs.Activo);
                 command.Parameters.Add(funcionalidadesParametro(rolAttrs));
                 conn.Open();
                 command.ExecuteNonQuery();
