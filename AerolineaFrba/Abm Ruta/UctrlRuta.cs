@@ -17,14 +17,12 @@ namespace AerolineaFrba.Abm_Ruta
     {
         private List<int> serviciosRefs;
         private int rutaID;
-        private Decimal codigoRuta;
-
         private DataTable serviciosTable = new DataTable();
         private DataTable ciudadesOrigen = new DataTable();
         private DataTable ciudadesDestino = new DataTable();
 
         public int RutaID { get { return rutaID; } }
-        public Decimal CodigoRuta { get { return codigoRuta; } }
+        public int CodigoRuta { get { return numCodigoRuta.TextValue; } }
         public Int16 CiudadOrigenKey { get { return (Int16)cboCiudadOrigen.SelectedValue; } }
         public Int16 CiudadDestinoKey { get { return (Int16)cboCiudadDestino.SelectedValue; } }
         public Decimal PrecioBEnc 
@@ -74,7 +72,7 @@ namespace AerolineaFrba.Abm_Ruta
             this.fillAttrsDefault();
             var dt = RutaAerea.getWithServicios(rutaID);
 
-            codigoRuta = (Decimal)dt.Rows[0][0];
+            numCodigoRuta.TextValue = Decimal.ToInt32(((Decimal)dt.Rows[0][0]));
             var origen =(Int16)dt.Rows[0][1];
             cboCiudadOrigen.SelectedValue = origen;
             var destino = (Int16)dt.Rows[0][2];
@@ -128,6 +126,8 @@ namespace AerolineaFrba.Abm_Ruta
             dcmPrecioBEnc.Text = "";
             dcmPrecioBPas.Text = "";
 
+            numCodigoRuta.Text = "";
+
             foreach (int i in chlServicios.CheckedIndices)
             {
                 chlServicios.SetItemCheckState(i, CheckState.Unchecked);
@@ -144,6 +144,7 @@ namespace AerolineaFrba.Abm_Ruta
             dcmPrecioBPas.Enabled = false;
             chlServicios.SelectionMode = SelectionMode.None;
             chbHabilitado.Enabled = false;
+            numCodigoRuta.Enabled = false;
         }
 
         public void blockKeyAttrs()
@@ -173,7 +174,7 @@ namespace AerolineaFrba.Abm_Ruta
 
         public String accionConcretadaMessage()
         {
-            return "la Ruta: " + this.codigoRuta;
+            return "la Ruta: " + this.numCodigoRuta.TextValue;
         }
 
         public String accionRechazadaMessage()

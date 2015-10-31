@@ -31,6 +31,7 @@ namespace AerolineaFrba.Abm_Ruta
             filtros.Add(new FiltroChlb<byte>(chlServicios, "ts.TipoServicioRef"));
             filtros.Add(new FiltroDcm(dcmPrecioBPas, "r.Ruta_PrecioBasePasaje"));
             filtros.Add(new FiltroDcm(dcmPrecioBEnc, "r.Ruta_PrecioBaseKg"));
+            filtros.Add(new FiltroNum(numCodigoRuta, "r.Ruta_Codigo"));
 
             this.fillCiudades();
             this.limpiar();

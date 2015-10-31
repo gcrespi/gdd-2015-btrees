@@ -152,6 +152,7 @@
     <Compile Include="Filtros\FiltroChb.cs" />
     <Compile Include="Filtros\FiltroChlb.cs" />
     <Compile Include="Filtros\FiltroDcm.cs" />
+    <Compile Include="Filtros\FiltroNum.cs" />
     <Compile Include="Filtros\FitroTxt.cs" />
     <Compile Include="Filtros\Filtro.cs" />
     <Compile Include="Filtros\IFiltroControl.cs" />
@@ -204,6 +205,9 @@
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Utils\DecimalBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Utils\NumericBox.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="_Examples\ExampleAltaForm.cs">
