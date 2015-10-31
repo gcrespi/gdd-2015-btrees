@@ -134,13 +134,16 @@
             // 
             this.gridViajes.AllowUserToAddRows = false;
             this.gridViajes.AllowUserToDeleteRows = false;
+            this.gridViajes.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.gridViajes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.gridViajes.Location = new System.Drawing.Point(12, 107);
             this.gridViajes.Name = "gridViajes";
             this.gridViajes.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.gridViajes.Size = new System.Drawing.Size(745, 274);
             this.gridViajes.TabIndex = 9;
-            this.gridViajes.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.gridViajes_CellContentClick);
+            this.gridViajes.MouseClick += new System.Windows.Forms.MouseEventHandler(this.gridViajes_MouseClick);
             // 
             // btnBuscar
             // 
@@ -213,7 +216,7 @@
             this.upDownKg.TabIndex = 16;
             this.upDownKg.ValueChanged += new System.EventHandler(this.upDownKg_ValueChanged);
             // 
-            // CompraForm
+            // CompraFormPickViaje
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -235,7 +238,7 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Name = "CompraForm";
+            this.Name = "CompraFormPickViaje";
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.CompraForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.gridViajes)).EndInit();

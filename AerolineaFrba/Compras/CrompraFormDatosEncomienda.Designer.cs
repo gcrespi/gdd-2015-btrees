@@ -45,8 +45,6 @@
             this.btnContinue = new System.Windows.Forms.Button();
             this.btnBack = new System.Windows.Forms.Button();
             this.lbTitulo = new System.Windows.Forms.Label();
-            this.cboButaca = new System.Windows.Forms.ComboBox();
-            this.label8 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // tbNom
@@ -201,34 +199,15 @@
             this.lbTitulo.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbTitulo.Location = new System.Drawing.Point(42, 25);
             this.lbTitulo.Name = "lbTitulo";
-            this.lbTitulo.Size = new System.Drawing.Size(241, 25);
+            this.lbTitulo.Size = new System.Drawing.Size(432, 25);
             this.lbTitulo.TabIndex = 16;
-            this.lbTitulo.Text = "Ingrese datos del pasajero";
+            this.lbTitulo.Text = "Ingrese datos del responsable de la encomienda";
             // 
-            // cboButaca
-            // 
-            this.cboButaca.FormattingEnabled = true;
-            this.cboButaca.Location = new System.Drawing.Point(510, 279);
-            this.cboButaca.Name = "cboButaca";
-            this.cboButaca.Size = new System.Drawing.Size(142, 21);
-            this.cboButaca.TabIndex = 7;
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(409, 282);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(62, 13);
-            this.label8.TabIndex = 17;
-            this.label8.Text = "Butaca nro:";
-            // 
-            // CompraFormDatosPasajero
+            // CompraFormDatosEncomienda
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(786, 446);
-            this.Controls.Add(this.label8);
-            this.Controls.Add(this.cboButaca);
             this.Controls.Add(this.lbTitulo);
             this.Controls.Add(this.btnBack);
             this.Controls.Add(this.btnContinue);
@@ -246,9 +225,8 @@
             this.Controls.Add(this.tbMail);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.tbNom);
-            this.Name = "CompraFormDatosPasajero";
+            this.Name = "CompraFormDatosEncomienda";
             this.Text = "Form1";
-            this.Load += new System.EventHandler(this.CompraFormDatosPasajero_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -273,7 +251,5 @@
         private System.Windows.Forms.Button btnContinue;
         private System.Windows.Forms.Button btnBack;
         private System.Windows.Forms.Label lbTitulo;
-        private System.Windows.Forms.ComboBox cboButaca;
-        private System.Windows.Forms.Label label8;
     }
 }

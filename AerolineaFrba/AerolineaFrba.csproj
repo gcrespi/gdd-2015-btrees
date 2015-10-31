@@ -126,14 +126,16 @@
     <Compile Include="Classes\Cancelacion.cs" />
     <Compile Include="Classes\Ciudad.cs" />
     <Compile Include="Classes\Cliente.cs" />
+    <Compile Include="Classes\Butaca.cs" />
     <Compile Include="Classes\Encomienda.cs" />
     <Compile Include="Classes\Pasaje.cs" />
     <Compile Include="Classes\Compra.cs" />
-    <Compile Include="Compras\CompraFormDatosPasajero.cs">
+    <Compile Include="Classes\Pasajero.cs" />
+    <Compile Include="Compras\CompraFormFinal.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Compras\CompraFormDatosPasajero.Designer.cs">
-      <DependentUpon>CompraFormDatosPasajero.cs</DependentUpon>
+    <Compile Include="Compras\CompraFormFinal.Designer.cs">
+      <DependentUpon>CompraFormFinal.cs</DependentUpon>
     </Compile>
     <Compile Include="Compras\CompraFormPago.cs">
       <SubType>Form</SubType>
@@ -147,11 +149,17 @@
     <Compile Include="Compras\CompraFormPickViaje.Designer.cs">
       <DependentUpon>CompraFormPickViaje.cs</DependentUpon>
     </Compile>
-    <Compile Include="Compras\CompraFormDatosEncomienda.cs">
+    <Compile Include="Compras\CompraFormDatosPasajero.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Compras\CompraFormDatosEncomienda.Designer.cs">
-      <DependentUpon>CompraFormDatosEncomienda.cs</DependentUpon>
+    <Compile Include="Compras\CompraFormDatosPasajero.Designer.cs">
+      <DependentUpon>CompraFormDatosPasajero.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Compras\CrompraFormDatosEncomienda.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Compras\CrompraFormDatosEncomienda.Designer.cs">
+      <DependentUpon>CrompraFormDatosEncomienda.cs</DependentUpon>
     </Compile>
     <Compile Include="Conexion.cs" />
     <Compile Include="Consulta Millas\Form1.cs">
@@ -298,6 +306,12 @@
     <EmbeddedResource Include="Abm Ruta\RutaAereaForm.resx">
       <DependentUpon>RutaAereaForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Compras\CompraFormFinal.resx">
+      <DependentUpon>CompraFormFinal.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Compras\CrompraFormDatosEncomienda.resx">
+      <DependentUpon>CrompraFormDatosEncomienda.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Plantillas\AltaForm.resx">
       <DependentUpon>AltaForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -322,17 +336,14 @@
     <EmbeddedResource Include="_Examples\ExampleOpcionesABMForm.resx">
       <DependentUpon>ExampleOpcionesABMForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Compras\CompraFormDatosPasajero.resx">
-      <DependentUpon>CompraFormDatosPasajero.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Compras\CompraFormPago.resx">
       <DependentUpon>CompraFormPago.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Compras\CompraFormPickViaje.resx">
       <DependentUpon>CompraFormPickViaje.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Compras\CompraFormDatosEncomienda.resx">
-      <DependentUpon>CompraFormDatosEncomienda.cs</DependentUpon>
+    <EmbeddedResource Include="Compras\CompraFormDatosPasajero.resx">
+      <DependentUpon>CompraFormDatosPasajero.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Devolucion\DevolucionForm.resx">
       <DependentUpon>DevolucionForm.cs</DependentUpon>
