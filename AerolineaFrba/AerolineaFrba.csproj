@@ -143,7 +143,9 @@
     <Compile Include="Compras\CompraFormDatosPasajero.Designer.cs">
       <DependentUpon>CompraFormDatosPasajero.cs</DependentUpon>
     </Compile>
-    <Compile Include="Compras\CompraFormFinal.cs" />
+    <Compile Include="Compras\CompraFormFinal.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Compras\CompraFormFinal.Designer.cs">
       <DependentUpon>CompraFormFinal.cs</DependentUpon>
     </Compile>
@@ -159,7 +161,9 @@
     <Compile Include="Compras\CompraFormPickViaje.Designer.cs">
       <DependentUpon>CompraFormPickViaje.cs</DependentUpon>
     </Compile>
-    <Compile Include="Compras\CrompraFormDatosEncomienda.cs" />
+    <Compile Include="Compras\CrompraFormDatosEncomienda.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Compras\CrompraFormDatosEncomienda.Designer.cs">
       <DependentUpon>CrompraFormDatosEncomienda.cs</DependentUpon>
     </Compile>
@@ -284,11 +288,11 @@
     <Compile Include="Registro de Usuario\Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
-    <Compile Include="Registro Llegada Destino\Form1.cs">
+    <Compile Include="Registro Llegada Destino\RegLlegadaADestinoForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Registro Llegada Destino\Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="Registro Llegada Destino\RegLlegadaADestinoForm.Designer.cs">
+      <DependentUpon>RegLlegadaADestinoForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Classes\RutaAerea.cs" />
     <Compile Include="Classes\TipoServicio.cs" />
@@ -342,6 +346,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Plantillas\ModifForm.resx">
       <DependentUpon>ModifForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Registro Llegada Destino\RegLlegadaADestinoForm.resx">
+      <DependentUpon>RegLlegadaADestinoForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="_Examples\ExampleAltaForm.resx">
       <DependentUpon>ExampleAltaForm.cs</DependentUpon>

@@ -46,7 +46,6 @@ GO
 
 CREATE PROCEDURE [THE_BTREES].[AddViaje]	
 	@FechaSalida AS DATETIME,
-	@FechaLlegada AS DATETIME,
 	@FechaLlegadaEst AS DATETIME,
 	@Avion AS INT,
 	@RutaAerea AS INT	
@@ -65,13 +64,11 @@ AS
 	   BEGIN
 	   INSERT INTO THE_BTREES.Viaje
 	           ( Viaje_FechaSalida ,
-	             Viaje_FechaLlegada ,
 	             Viaje_AvionRef ,
 	             Viaje_RutaAereaRef ,
 	             Viaje_FechaLlegadaEstimada
 	           )
 	   VALUES  ( @FechaSalida,
-				 @FechaLlegada,
 				 @Avion,
 				 @RutaAerea,
 				 @FechaLlegadaEst

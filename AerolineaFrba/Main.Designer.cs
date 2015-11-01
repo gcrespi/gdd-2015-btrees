@@ -44,9 +44,7 @@
             this.bAuditoria = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem5 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem6 = new System.Windows.Forms.ToolStripMenuItem();
-            this.bleh = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItem17 = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItem18 = new System.Windows.Forms.ToolStripMenuItem();
+            this.Estadisticas = new System.Windows.Forms.ToolStripMenuItem();
             this.blih = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem3 = new System.Windows.Forms.ToolStripMenuItem();
@@ -75,7 +73,7 @@
             this.bMillas,
             this.bDevolucion,
             this.bAuditoria,
-            this.bleh,
+            this.Estadisticas,
             this.blih,
             this.bloh,
             this.bluh,
@@ -88,6 +86,7 @@
             this.menu.Size = new System.Drawing.Size(100, 890);
             this.menu.TabIndex = 2;
             this.menu.Text = "menu";
+            this.menu.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.menu_ItemClicked);
             // 
             // bHome
             // 
@@ -135,14 +134,14 @@
             // 
             this.aBMCiudadToolStripMenuItem.BackColor = System.Drawing.Color.White;
             this.aBMCiudadToolStripMenuItem.Name = "aBMCiudadToolStripMenuItem";
-            this.aBMCiudadToolStripMenuItem.Size = new System.Drawing.Size(218, 30);
+            this.aBMCiudadToolStripMenuItem.Size = new System.Drawing.Size(200, 28);
             this.aBMCiudadToolStripMenuItem.Text = "ABM Ciudad";
             // 
             // aBMRolToolStripMenuItem
             // 
             this.aBMRolToolStripMenuItem.BackColor = System.Drawing.Color.White;
             this.aBMRolToolStripMenuItem.Name = "aBMRolToolStripMenuItem";
-            this.aBMRolToolStripMenuItem.Size = new System.Drawing.Size(218, 30);
+            this.aBMRolToolStripMenuItem.Size = new System.Drawing.Size(200, 28);
             this.aBMRolToolStripMenuItem.Text = "ABM Rol";
             this.aBMRolToolStripMenuItem.Click += new System.EventHandler(this.aBMRolToolStripMenuItem_Click);
             // 
@@ -150,7 +149,7 @@
             // 
             this.aBMRutaToolStripMenuItem.BackColor = System.Drawing.Color.White;
             this.aBMRutaToolStripMenuItem.Name = "aBMRutaToolStripMenuItem";
-            this.aBMRutaToolStripMenuItem.Size = new System.Drawing.Size(218, 30);
+            this.aBMRutaToolStripMenuItem.Size = new System.Drawing.Size(200, 28);
             this.aBMRutaToolStripMenuItem.Text = "ABM Ruta";
             this.aBMRutaToolStripMenuItem.Click += new System.EventHandler(this.aBMRutaToolStripMenuItem_Click);
             // 
@@ -186,21 +185,21 @@
             this.bMillas.Margin = new System.Windows.Forms.Padding(0, 0, 0, 1);
             this.bMillas.Name = "bMillas";
             this.bMillas.Padding = new System.Windows.Forms.Padding(0);
-            this.bMillas.Size = new System.Drawing.Size(98, 80);
+            this.bMillas.Size = new System.Drawing.Size(98, 22);
             this.bMillas.Text = "Millas";
             // 
             // consultaToolStripMenuItem
             // 
             this.consultaToolStripMenuItem.BackColor = System.Drawing.Color.White;
             this.consultaToolStripMenuItem.Name = "consultaToolStripMenuItem";
-            this.consultaToolStripMenuItem.Size = new System.Drawing.Size(149, 28);
+            this.consultaToolStripMenuItem.Size = new System.Drawing.Size(162, 30);
             this.consultaToolStripMenuItem.Text = "Consulta";
             // 
             // canjeToolStripMenuItem
             // 
             this.canjeToolStripMenuItem.BackColor = System.Drawing.Color.White;
             this.canjeToolStripMenuItem.Name = "canjeToolStripMenuItem";
-            this.canjeToolStripMenuItem.Size = new System.Drawing.Size(149, 28);
+            this.canjeToolStripMenuItem.Size = new System.Drawing.Size(162, 30);
             this.canjeToolStripMenuItem.Text = "Canje";
             // 
             // bDevolucion
@@ -212,7 +211,7 @@
             this.bDevolucion.Margin = new System.Windows.Forms.Padding(0, 0, 0, 1);
             this.bDevolucion.Name = "bDevolucion";
             this.bDevolucion.Padding = new System.Windows.Forms.Padding(0);
-            this.bDevolucion.Size = new System.Drawing.Size(98, 80);
+            this.bDevolucion.Size = new System.Drawing.Size(98, 22);
             this.bDevolucion.Text = "Devolución";
             this.bDevolucion.Click += new System.EventHandler(this.bDevolucion_Click);
             // 
@@ -228,7 +227,7 @@
             this.bAuditoria.Margin = new System.Windows.Forms.Padding(0, 0, 0, 1);
             this.bAuditoria.Name = "bAuditoria";
             this.bAuditoria.Padding = new System.Windows.Forms.Padding(0);
-            this.bAuditoria.Size = new System.Drawing.Size(98, 80);
+            this.bAuditoria.Size = new System.Drawing.Size(98, 22);
             this.bAuditoria.Text = "Auditoría";
             // 
             // toolStripMenuItem5
@@ -244,36 +243,20 @@
             this.toolStripMenuItem6.Name = "toolStripMenuItem6";
             this.toolStripMenuItem6.Size = new System.Drawing.Size(272, 30);
             this.toolStripMenuItem6.Text = "Reg LLegada Destino";
+            this.toolStripMenuItem6.Click += new System.EventHandler(this.toolStripMenuItem6_Click);
             // 
-            // bleh
+            // Estadisticas
             // 
-            this.bleh.AutoSize = false;
-            this.bleh.BackColor = System.Drawing.SystemColors.MenuHighlight;
-            this.bleh.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripMenuItem17,
-            this.toolStripMenuItem18});
-            this.bleh.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
-            this.bleh.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.bleh.Margin = new System.Windows.Forms.Padding(0, 0, 0, 1);
-            this.bleh.Name = "bleh";
-            this.bleh.Padding = new System.Windows.Forms.Padding(0);
-            this.bleh.Size = new System.Drawing.Size(98, 22);
-            this.bleh.Text = "Estadisticas";
-            this.bleh.Click += new System.EventHandler(this.bleh_Click);
-            // 
-            // toolStripMenuItem17
-            // 
-            this.toolStripMenuItem17.BackColor = System.Drawing.Color.White;
-            this.toolStripMenuItem17.Name = "toolStripMenuItem17";
-            this.toolStripMenuItem17.Size = new System.Drawing.Size(272, 30);
-            this.toolStripMenuItem17.Text = "Reg Usuarios";
-            // 
-            // toolStripMenuItem18
-            // 
-            this.toolStripMenuItem18.BackColor = System.Drawing.Color.White;
-            this.toolStripMenuItem18.Name = "toolStripMenuItem18";
-            this.toolStripMenuItem18.Size = new System.Drawing.Size(272, 30);
-            this.toolStripMenuItem18.Text = "Reg LLegada Destino";
+            this.Estadisticas.AutoSize = false;
+            this.Estadisticas.BackColor = System.Drawing.SystemColors.MenuHighlight;
+            this.Estadisticas.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
+            this.Estadisticas.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.Estadisticas.Margin = new System.Windows.Forms.Padding(0, 0, 0, 1);
+            this.Estadisticas.Name = "Estadisticas";
+            this.Estadisticas.Padding = new System.Windows.Forms.Padding(0);
+            this.Estadisticas.Size = new System.Drawing.Size(98, 22);
+            this.Estadisticas.Text = "Estadisticas";
+            this.Estadisticas.Click += new System.EventHandler(this.bleh_Click);
             // 
             // blih
             // 
@@ -381,7 +364,7 @@
             this.panel.BackColor = System.Drawing.Color.Gainsboro;
             this.panel.Location = new System.Drawing.Point(100, 0);
             this.panel.Name = "panel";
-            this.panel.Size = new System.Drawing.Size(772, 516);
+            this.panel.Size = new System.Drawing.Size(785, 570);
             this.panel.TabIndex = 4;
             // 
             // menuPanel
@@ -392,7 +375,7 @@
             this.menuPanel.Controls.Add(this.menu);
             this.menuPanel.Location = new System.Drawing.Point(0, 0);
             this.menuPanel.Name = "menuPanel";
-            this.menuPanel.Size = new System.Drawing.Size(117, 516);
+            this.menuPanel.Size = new System.Drawing.Size(117, 570);
             this.menuPanel.TabIndex = 5;
             // 
             // Main
@@ -400,7 +383,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(872, 516);
+            this.ClientSize = new System.Drawing.Size(885, 570);
             this.Controls.Add(this.panel);
             this.Controls.Add(this.menuPanel);
             this.ForeColor = System.Drawing.SystemColors.ControlText;
@@ -435,9 +418,7 @@
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem5;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem6;
         protected System.Windows.Forms.ToolStripMenuItem blah;
-        protected System.Windows.Forms.ToolStripMenuItem bleh;
-        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem17;
-        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem18;
+        protected System.Windows.Forms.ToolStripMenuItem Estadisticas;
         protected System.Windows.Forms.ToolStripMenuItem bloh;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem15;
         protected System.Windows.Forms.ToolStripMenuItem bluh;
