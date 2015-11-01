@@ -74,12 +74,12 @@ namespace AerolineaFrba
                 param.Direction = ParameterDirection.Output;
                 comando.Parameters.Add(param);
                 objConexion.Open();
-                comando.ExecuteReader();    
+                comando.ExecuteReader();
                 return Convert.ToString(param.Value);
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                throw new Exception();
+                return "Excepcion técnica: " + ex.Message;
             }
             finally
             {
