@@ -11,22 +11,15 @@ using AerolineaFrba.Utils;
 
 namespace AerolineaFrba.Compras
 {
-    public partial class CompraFormDatosEncomienda : Form
+    public partial class CompraFormDatosEncomienda: Form
     {
 
         private Compra compra;
-        private int nroPasajero;
 
-        public CompraFormDatosEncomienda(Compra compra, int nroPasajero)
+        public CompraFormDatosEncomienda(Compra compra)
         {
             InitializeComponent();
             this.compra = compra;
-            this.nroPasajero = ++nroPasajero;
-        }
-
-        private void CompraFormDatosPasajero_Load(object sender, EventArgs e)
-        {
-            lbTitulo.Text += " " + nroPasajero.ToString();
         }
 
         private void btnBack_Click(object sender, EventArgs e)
@@ -37,8 +30,8 @@ namespace AerolineaFrba.Compras
 
         private void checkIfFilled()
         {
-            if (tbNom.Text!="" && tbApe.Text!="" && tbDNI.Text!="" && tbDirec.Text!=""
-                && tbTel.Text!="" && tbMail.Text!="" && dtpFechaNac.Value.Date<DateTime.Now.Date)
+            if (tbNom.Text != "" && tbApe.Text != "" && tbDNI.Text != "" && tbDirec.Text != ""
+                && tbTel.Text != "" && tbMail.Text != "" && dtpFechaNac.Value.Date < DateTime.Now.Date)
                 btnContinue.Enabled = true;
             else
                 btnContinue.Enabled = false;
@@ -50,21 +43,17 @@ namespace AerolineaFrba.Compras
             return Cliente.TraerDatosCliente(tbNom.Text, tbApe.Text, Convert.ToInt32(tbDNI.Text));
         }
 
+
         private void btnContinue_Click(object sender, EventArgs e)
         {
-            if (nroPasajero < compra.cantPasajes)
-            {
-                DataTable dt = getClientData();
-                if (dt.Rows.Count == 1)
-                {
-                    compra.pasajerosRef.Add((int)dt.Rows[0]["ClienteID"]);
-                }
-                Program.main.addForm(new CompraFormDatosEncomienda(compra, nroPasajero));
-            }
-            else
-            {
-                Program.main.addForm(new CompraFormPago());
-            }
+               
+            
+            Cliente cliente = new Cliente(tbDNI.Text,tbNom.Text,tbApe.Text,tbDirec.Text,tbTel.Text,
+                                                   tbMail.Text,dtpFechaNac.Value);
+            DataTable dt = getClientData();
+            if (dt.Rows.Count == 1) cliente.clienteID = (int)dt.Rows[0]["ClienteID"];
+            compra.encomiendaResp = cliente;
+            Program.main.addForm(new CompraFormPago(compra));
         }
 
         private void fillIfExist()

@@ -10,13 +10,7 @@ namespace AerolineaFrba
 {
     public class Compra
     {
-        public string dni { get; set; }
-        public string nombre { get; set; }
-        public string apellido { get; set; }
-        public string direccion { get; set; }
-        public string telefono { get; set; }
-        public string mail { get; set; }
-        public DateTime fechaNac { get; set; }
+        public Cliente comprador { get; set; }
         public bool efectivo { get; set; }
         public int cantCuotas { get; set; }
         public int tipoTarjeta { get; set; }
@@ -25,18 +19,38 @@ namespace AerolineaFrba
         public DateTime fechaVenc { get; set; }
         public double precio { get; set; }
         public int compraRef { get; set; }
-        public int compradorRef { get; set; }
         public int viajeRef { get; set; }
         public int cantPasajes { get; set; }
-        public List<int> pasajerosRef { get; set; }
-        public int encomiendaResponsabeRef { get; set; }
+        public List<Pasajero> pasajeros { get; set; }
+        public DataTable butacasDisponibles { get; set; }
+        public Cliente encomiendaResp { get; set; }
         public int kg { get; set; }
 
         public Compra()
         {
-            pasajerosRef = new List<int>();
+            pasajeros = new List<Pasajero>();
         }
 
+        public Compra clone() 
+        {
+            Compra clon = new Compra();
+            clon.comprador = comprador;
+            clon.efectivo = efectivo;
+            clon.cantCuotas = cantCuotas;
+            clon.tipoTarjeta = tipoTarjeta;
+            clon.numTarjeta = numTarjeta;
+            clon.codSeg = codSeg;
+            clon.fechaVenc = fechaVenc;
+            clon.viajeRef = viajeRef;
+            clon.cantPasajes = cantPasajes;
+            clon.pasajeros = new List<Pasajero>();
+            clon.pasajeros.AddRange(pasajeros);
+            clon.butacasDisponibles = butacasDisponibles.Copy();
+            clon.encomiendaResp = encomiendaResp;
+            clon.kg = kg;
+            return clon;
+        }
+        
         public void store()
         {
             SqlConnection objConexion = new SqlConnection(Conexion.strCon);
@@ -73,13 +87,13 @@ namespace AerolineaFrba
                 string strProc = "THE_BTREES.AddCompra";
                 SqlCommand comando = new SqlCommand(strProc, openedObjConexion);
                 comando.CommandType = CommandType.StoredProcedure;
-	            comando.Parameters.AddWithValue("@dni",dni);
-	            comando.Parameters.AddWithValue("@nombre",nombre);
-	            comando.Parameters.AddWithValue("@apellido",apellido);
-	            comando.Parameters.AddWithValue("@direccion",direccion);
-	            comando.Parameters.AddWithValue("@telefono",telefono);
-	            comando.Parameters.AddWithValue("@mail",mail);
-	            comando.Parameters.AddWithValue("@fechaNac",fechaNac);
+	            comando.Parameters.AddWithValue("@dni",comprador.dni);
+                comando.Parameters.AddWithValue("@nombre", comprador.nombre);
+                comando.Parameters.AddWithValue("@apellido", comprador.apellido);
+                comando.Parameters.AddWithValue("@direccion", comprador.direccion);
+                comando.Parameters.AddWithValue("@telefono", comprador.telefono);
+                comando.Parameters.AddWithValue("@mail", comprador.mail);
+                comando.Parameters.AddWithValue("@fechaNac", comprador.fechaNac);
 	            comando.Parameters.AddWithValue("@efectivo",efectivo);
 	            comando.Parameters.AddWithValue("@cantCuotas",cantCuotas);
 	            comando.Parameters.AddWithValue("@tipoTarjeta",tipoTarjeta);
@@ -102,15 +116,18 @@ namespace AerolineaFrba
         {
             try
             {
-                string strProc = "THE_BTREES.AddPasaje";
-                SqlCommand comando = new SqlCommand(strProc, openedObjConexion);
-                comando.CommandType = CommandType.StoredProcedure;
-                comando.Parameters.AddWithValue("@butacaRef", cantPasajes);
-                comando.Parameters.AddWithValue("@precio", precio);
-                comando.Parameters.AddWithValue("@compraRef", compraRef);
-                comando.Parameters.AddWithValue("@clienteRef", compradorRef);
-                comando.Parameters.AddWithValue("@viajeRef", viajeRef);
-                comando.ExecuteNonQuery(); 
+                foreach (Pasajero pasajero in pasajeros)
+                {
+                    string strProc = "THE_BTREES.AddPasaje";
+                    SqlCommand comando = new SqlCommand(strProc, openedObjConexion);
+                    comando.CommandType = CommandType.StoredProcedure;
+                    comando.Parameters.AddWithValue("@butacaRef", pasajero.butacaRef);
+                    comando.Parameters.AddWithValue("@precio", precio);
+                    comando.Parameters.AddWithValue("@compraRef", compraRef);
+                    comando.Parameters.AddWithValue("@clienteRef", pasajero.clienteID);
+                    comando.Parameters.AddWithValue("@viajeRef", viajeRef);
+                    comando.ExecuteNonQuery();
+                }
             }
             catch (Exception)
             {
@@ -128,7 +145,7 @@ namespace AerolineaFrba
                 comando.Parameters.AddWithValue("@kg", kg);
                 comando.Parameters.AddWithValue("@precio", precio);
                 comando.Parameters.AddWithValue("@compraRef", compraRef);
-                comando.Parameters.AddWithValue("@clienteRef", compradorRef);
+                comando.Parameters.AddWithValue("@clienteRef", encomiendaResp.clienteID);
                 comando.Parameters.AddWithValue("@viajeRef", viajeRef);
                 comando.ExecuteNonQuery();
             }

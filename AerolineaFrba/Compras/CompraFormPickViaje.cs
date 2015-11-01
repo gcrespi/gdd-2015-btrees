@@ -72,17 +72,39 @@ namespace AerolineaFrba.Compras
             checkBtnContinue();
         }
 
-        private void gridViajes_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        private void gridViajes_MouseClick(object sender, MouseEventArgs e)
         {
             checkBtnContinue();
         }
 
         private void btnContinue_Click(object sender, EventArgs e)
         {
-            compra.viajeRef = (int)gridViajes.CurrentRow.Cells[0].Value;
-            compra.cantPasajes = (int)upDownPasajes.Value;
-            compra.kg = (int)upDownKg.Value;
-            Program.main.addForm(new CompraFormDatosEncomienda(compra, 0));
+            if (upDownPasajes.Value <= (int)gridViajes.CurrentRow.Cells["Cant Butacas Disponibles"].Value)
+            {
+                if (upDownKg.Value <= 
+                    (decimal)gridViajes.CurrentRow.Cells["Cant KG Disponibles"].Value)
+                {
+                    compra.viajeRef = (int)gridViajes.CurrentRow.Cells["ViajeID"].Value;
+                    compra.cantPasajes = (int)upDownPasajes.Value;
+                    compra.kg = (int)upDownKg.Value;
+                    if (compra.cantPasajes > 0)
+                    {
+                        compra.butacasDisponibles = Butaca.GetButacasDisponiblesCombo(compra.viajeRef);
+                        Program.main.addForm(new CompraFormDatosPasajero(compra, 0));
+                    }
+                    else
+                        Program.main.addForm(new CompraFormDatosEncomienda(compra));
+                }
+                else
+                {
+                    MessageBox.Show("No hay suficientes kg disponibles para su encomienda", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                }
+            }
+
+            else
+            {
+                MessageBox.Show("No hay suficientes pasajes para su vuelo", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
         }
 
     }

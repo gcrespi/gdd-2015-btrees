@@ -62,11 +62,13 @@ CREATE PROCEDURE [THE_BTREES].[GetButacasDisponiblesViajeList]
 AS
     BEGIN
 	   SET NOCOUNT ON
-	   SELECT B.Butaca_Numero,
-			  B.Butaca_EsVentanilla
+	   SELECT B.ButacaID,
+			  (CAST(B.Butaca_Numero AS varchar) + (CASE WHEN B.Butaca_EsVentanilla = 1 THEN ' - Ventanilla' 
+												   	    WHEN B.Butaca_EsVentanilla = 0 THEN ' - Pasillo' END))  Butaca_Descr
 	   FROM THE_BTREES.Butaca B
 	   INNER JOIN THE_BTREES.Viaje V ON V.ViajeID=@Viaje AND Butaca_AvionRef=V.Viaje_AvionRef
-	   WHERE B.ButacaID NOT IN (SELECT ButacaID FROM THE_BTREES.Pasaje WHERE Pasaje_ViajeRef=@Viaje AND Pasaje_CancelacionRef IS NULL)
+	   WHERE B.ButacaID NOT IN (SELECT Pasaje_ButacaRef FROM THE_BTREES.Pasaje WHERE Pasaje_ViajeRef=@Viaje AND Pasaje_CancelacionRef IS NULL)
+	   ORDER BY B.Butaca_Numero
 
 	   END
 GO

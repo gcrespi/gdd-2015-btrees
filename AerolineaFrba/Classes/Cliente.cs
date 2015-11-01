@@ -8,8 +8,30 @@ using System.Threading.Tasks;
 
 namespace AerolineaFrba
 {
-    class Cliente
+    public class Cliente
     {
+        public int clienteID { get; set; }
+        public string dni { get; set; }
+        public string nombre { get; set; }
+        public string apellido { get; set; }
+        public string direccion { get; set; }
+        public string telefono { get; set; }
+        public string mail { get; set; }
+        public DateTime fechaNac { get; set; }
+ 
+
+        public Cliente(string dni, string nombre, string apellido, string direccion,
+                        string telefono, string mail, DateTime fechaNac)
+        {
+            this.dni = dni;
+            this.nombre = nombre;           
+            this.apellido = apellido;
+            this.direccion = direccion;
+            this.telefono = telefono;
+            this.mail = mail;
+            this.fechaNac = fechaNac;
+        }
+
         public static DataTable TraerDatosCliente(string nombre,string apellido, int dni)
         {
             DataTable ds = new DataTable();
