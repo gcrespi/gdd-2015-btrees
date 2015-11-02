@@ -188,24 +188,12 @@ INSERT INTO THE_BTREES.Compra
         ( CompraID ,
 		  Compra_Fecha ,
           Compra_AbonaEnEfectivo ,
-          Compra_DNIComprador ,
-          Compra_Nombre ,
-          Compra_Apellido ,
-          Compra_Direccion ,
-          Compra_Telefono ,
-          Compra_Mail ,
-          Compra_FechaNac
+          Compra_CompradorRef
         )
 SELECT DISTINCT C.CodigoCompra ,
 				C.fechaCompra,
 				1, --TODOS ABONAN EN EFECTIVO
-				C.Cli_Dni,
-				C.Cli_Nombre,
-				C.Cli_Apellido,
-				C.Cli_Dir,
-				C.Cli_Telefono,
-				C.Cli_Mail,
-				C.Cli_Fecha_Nac
+				C.CompradorRef
 FROM THE_BTREES.compra_con_ref C
 SET IDENTITY_INSERT THE_BTREES.Compra OFF
 GO

@@ -46,7 +46,8 @@ namespace AerolineaFrba.Compras
             if (checkBoxFecha.Checked) fechaViaje = timePickerFecha.Value;
             else fechaViaje = DateTime.Parse("2000-01-01");
             gridViajes.DataSource = Viaje.TraerViajesDisponibles(tipoSer, fechaViaje, destino, origen);
-            gridViajes.Columns["ViajeId"].Visible=false;
+            gridViajes.Columns["ViajeId"].Visible=false;  
+                
         }
 
         private void checkBtnContinue()

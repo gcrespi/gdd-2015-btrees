@@ -91,24 +91,25 @@ AS
 	SET @sql = 'DROP TABLE ' + @names_tables
 	EXEC(@sql)
 
-
-	
 	--Borro los User define types
-	SELECT @names_types = coalesce(@names_types + ', ','') + '[THE_BTREES].' + t.NAME
+	SELECT @names_types = coalesce( @names_types + ' DROP TYPE ','DROP TYPE ') + '[THE_BTREES].' + t.NAME
 	FROM GD2C2015.sys.types t, GD2C2015.sys.schemas s
 	WHERE s.schema_id = t.schema_id AND s.name = 'THE_BTREES'
-	
-	SET @sql = 'DROP TYPE ' + @names_types
+
+	SET @sql = @names_types
 	EXEC(@sql)
 GO
 
--- Hago un algoritmo para que ande a pesar de los errores de FK
+DECLARE @ok bit
+SET @ok = 0
 begin TRAN
 	EXEC [THE_BTREES].CleanDatabase
-
-	DROP PROCEDURE [THE_BTREES].CleanDatabase
-	DROP PROCEDURE [THE_BTREES].NO_CHECK_CONSTRAINS	
-
-	DROP SCHEMA THE_BTREES
+	SET @ok = 1
 COMMIT TRAN
+
+DROP PROCEDURE [THE_BTREES].CleanDatabase
+DROP PROCEDURE [THE_BTREES].NO_CHECK_CONSTRAINS	
+
+IF @ok = 1 
+DROP SCHEMA THE_BTREES
 GO

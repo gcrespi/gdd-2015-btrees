@@ -12,9 +12,22 @@ namespace AerolineaFrba.Compras
 {
     public partial class CompraFormFinal : Form
     {
-        public CompraFormFinal()
+        private int codCompra;
+
+        public CompraFormFinal(int codCompra)
         {
             InitializeComponent();
+            this.codCompra = codCompra;
         }
+
+        private void CompraFormFinal_Load(object sender, EventArgs e)
+        {
+            lbCompraRef.Text = codCompra.ToString();
+        }
+
+
+
+
+
     }
 }
