@@ -14,6 +14,7 @@ using AerolineaFrba.Compras;
 using AerolineaFrba.Generacion_Viaje;
 using AerolineaFrba.Listado_Estadistico;
 using AerolineaFrba.Devolucion;
+using AerolineaFrba.Registro_Llegada_Destino;
 
 namespace AerolineaFrba
 {
@@ -133,6 +134,16 @@ namespace AerolineaFrba
         private void bDevolucion_Click(object sender, EventArgs e)
         {
             replaceForm(new DevolucionForm());
+        }
+
+        private void menu_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
+        {
+
+        }
+
+        private void toolStripMenuItem6_Click(object sender, EventArgs e)
+        {
+            replaceForm(new RegLlegadaADestinoForm());
         }
    
    

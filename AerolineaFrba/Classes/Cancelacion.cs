@@ -31,7 +31,7 @@ namespace AerolineaFrba
                  tran =objConexion.BeginTransaction();
                  comando.Transaction = tran;
                  comando.ExecuteNonQuery();
-                 int idCancel = Convert.ToInt32(comando.Parameters["@CancelID"].Value);
+                 int idCancel = Convert.ToInt32(idCanPar.Value);
 
                  if (listaPedidosCancelados.Count > 0)
                  {

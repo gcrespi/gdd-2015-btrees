@@ -288,11 +288,11 @@
     <Compile Include="Registro de Usuario\Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
-    <Compile Include="Registro Llegada Destino\Form1.cs">
+    <Compile Include="Registro Llegada Destino\RegLlegadaADestinoForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Registro Llegada Destino\Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="Registro Llegada Destino\RegLlegadaADestinoForm.Designer.cs">
+      <DependentUpon>RegLlegadaADestinoForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Classes\RutaAerea.cs" />
     <Compile Include="Classes\TipoServicio.cs" />
@@ -346,6 +346,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Plantillas\ModifForm.resx">
       <DependentUpon>ModifForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Registro Llegada Destino\RegLlegadaADestinoForm.resx">
+      <DependentUpon>RegLlegadaADestinoForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="_Examples\ExampleAltaForm.resx">
       <DependentUpon>ExampleAltaForm.cs</DependentUpon>
