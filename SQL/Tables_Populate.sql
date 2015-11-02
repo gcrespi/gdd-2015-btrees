@@ -50,6 +50,18 @@ SELECT DISTINCT m.Tipo_Servicio,
 FROM gd_esquema.Maestra m
 GO
 
+UPDATE THE_BTREES.TipoServicio
+SET TipoSer_PorcentajeAdicional=1.2
+WHERE TipoSer_Nombre='Turista'
+UPDATE THE_BTREES.TipoServicio
+SET TipoSer_PorcentajeAdicional=2
+WHERE TipoSer_Nombre='Primera Clase'
+UPDATE THE_BTREES.TipoServicio
+SET TipoSer_PorcentajeAdicional=1.5
+WHERE TipoSer_Nombre='Ejecutivo'
+
+
+
 /************ INSERT AVION ***** 30 AVIONES ********/
 
 INSERT INTO THE_BTREES.Avion
