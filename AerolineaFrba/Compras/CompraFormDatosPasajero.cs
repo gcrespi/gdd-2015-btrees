@@ -52,7 +52,6 @@ namespace AerolineaFrba.Compras
 
         private DataTable getClientData()
         {
-            MessageBox.Show(tbNom.Text + tbApe.Text + tbDNI.Text);
             return Cliente.TraerDatosCliente(tbNom.Text, tbApe.Text, Convert.ToInt32(tbDNI.Text));
         }
 

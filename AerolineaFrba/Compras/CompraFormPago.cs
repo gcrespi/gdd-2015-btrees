@@ -170,7 +170,7 @@ namespace AerolineaFrba.Compras
             try
             {
                 compra.store();
-                Program.main.addForm(new CompraFormFinal(compra.compraRef));
+                Program.main.addForm(new CompraFormFinal(compra));
             }
             catch (Exception)
             {

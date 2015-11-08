@@ -87,7 +87,9 @@ namespace AerolineaFrba.Compras
                 {
                     compra.viajeRef = (int)gridViajes.CurrentRow.Cells["ViajeID"].Value;
                     compra.cantPasajes = (int)upDownPasajes.Value;
+                    compra.precioPasaje = Utiles.parseDoubleFromPrice(gridViajes.CurrentRow.Cells["Precio Pasaje"].Value.ToString());
                     compra.kg = (int)upDownKg.Value;
+                    compra.precioXKg = Utiles.parseDoubleFromPrice(gridViajes.CurrentRow.Cells["Precio por KG"].Value.ToString());
                     if (compra.cantPasajes > 0)
                     {
                         compra.butacasDisponibles = Butaca.GetButacasDisponiblesCombo(compra.viajeRef);

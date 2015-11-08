@@ -25,6 +25,8 @@ namespace AerolineaFrba
         public Cliente encomiendaResp { get; set; }
         public int kg { get; set; }
         public int compraRef { get; set; }
+        public double precioPasaje { get; set; }
+        public double precioXKg { get; set; }
 
         public Compra()
         {
@@ -49,6 +51,8 @@ namespace AerolineaFrba
                 clon.butacasDisponibles = butacasDisponibles.Copy();
             clon.encomiendaResp = encomiendaResp;
             clon.kg = kg;
+            clon.precioPasaje = precioPasaje;
+            clon.precioXKg = precioXKg;
             return clon;
         }
         
