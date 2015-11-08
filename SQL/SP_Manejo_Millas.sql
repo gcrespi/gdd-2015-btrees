@@ -94,3 +94,30 @@ BEGIN
 	END
 
 END
+GO
+
+USE GD2C2015
+GO
+
+/***** GetListadoTransaccionesMillas *****/
+IF OBJECT_ID(N'[THE_BTREES].[GetListadoTransaccionesMillas]','p') IS NOT NULL
+	DROP PROCEDURE [THE_BTREES].[GetListadoTransaccionesMillas]
+GO
+
+CREATE PROCEDURE [THE_BTREES].[GetListadoTransaccionesMillas]
+	@ClienteRef int,
+	@Fecha datetime
+AS
+BEGIN
+	SELECT CASE WHEN T.Tran_PasajeRef IS NOT NULL THEN 'Pasaje' 
+				WHEN T.Tran_EncomiendaRef IS NOT NULL THEN 'Ecomienda'
+				WHEN T.Tran_CanjeRef IS NOT NULL THEN 'Canje'
+		   END AS 'Transaccion',
+		   CASE WHEN T.Tran_PasajeRef IS NOT NULL THEN T.Tran_PasajeRef 
+				WHEN T.Tran_EncomiendaRef IS NOT NULL THEN T.Tran_EncomiendaRef
+				WHEN T.Tran_CanjeRef IS NOT NULL THEN T.Tran_CanjeRef
+		   END AS 'Codigo',
+		   T.Tran_CantidadMillas AS 'Cantidad de millas'
+	FROM TransaccionesMillas T
+END
+GO
