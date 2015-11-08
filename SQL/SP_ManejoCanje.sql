@@ -28,7 +28,8 @@ CREATE PROCEDURE [THE_BTREES].[AddCanjeProducto]
 	@ClienteID INT,
 	@ProductoID INT,
 	@MillasCanje INT,
-	@CantProducto INT 		
+	@CantProducto INT,
+	@Fecha DATETIME 		
 AS
     BEGIN
 	   SET NOCOUNT ON
@@ -40,10 +41,11 @@ AS
 	             Canje_Fecha
 	           )
 	   VALUES  ( @ClienteID,
-	             @ProductoID,
-	             @CantProducto, 
-	             GETDATE() 
+	             @ProductoID , 
+	             @CantProducto , 
+	             @Fecha
 	           )
+	   
 		DECLARE @CanjeID INT
 		SET @CanjeID=SCOPE_IDENTITY()
 
@@ -56,13 +58,15 @@ AS
 		          Tran_ClienteRef ,
 		          Tran_EncomiendaRef ,
 		          Tran_PasajeRef ,
-		          CantidadMillas
+		          Tran_CantidadMillas ,
+		          Tran_Fecha
 		        )
 		VALUES  ( @CanjeID , 
 		          @ClienteID , 
 		          NULL , 
 		          NULL , 
-		          @MillasCanje 
+		          @MillasCanje ,
+				  @Fecha
 		        )	
 	   END
 GO

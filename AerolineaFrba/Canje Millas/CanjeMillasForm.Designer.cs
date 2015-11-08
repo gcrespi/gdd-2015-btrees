@@ -35,12 +35,12 @@
             this.btnConsultar = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.lblCantMillas = new System.Windows.Forms.Label();
+            this.btnCanjear = new System.Windows.Forms.Button();
             this.dgvProductos = new System.Windows.Forms.DataGridView();
             this.Seleccionar = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.CantProductos = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.btnCanjear = new System.Windows.Forms.Button();
+            this.lblCantMillas = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProductos)).BeginInit();
@@ -116,23 +116,15 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Seleccione producto";
             // 
-            // label3
+            // btnCanjear
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(21, 26);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(93, 13);
-            this.label3.TabIndex = 0;
-            this.label3.Text = "Millas Disponibles:";
-            // 
-            // lblCantMillas
-            // 
-            this.lblCantMillas.AutoSize = true;
-            this.lblCantMillas.Location = new System.Drawing.Point(121, 26);
-            this.lblCantMillas.Name = "lblCantMillas";
-            this.lblCantMillas.Size = new System.Drawing.Size(35, 13);
-            this.lblCantMillas.TabIndex = 1;
-            this.lblCantMillas.Text = "label4";
+            this.btnCanjear.Location = new System.Drawing.Point(453, 264);
+            this.btnCanjear.Name = "btnCanjear";
+            this.btnCanjear.Size = new System.Drawing.Size(75, 23);
+            this.btnCanjear.TabIndex = 3;
+            this.btnCanjear.Text = "Canjear";
+            this.btnCanjear.UseVisualStyleBackColor = true;
+            this.btnCanjear.Click += new System.EventHandler(this.btnCanjear_Click);
             // 
             // dgvProductos
             // 
@@ -157,15 +149,22 @@
             this.CantProductos.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.CantProductos.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             // 
-            // btnCanjear
+            // lblCantMillas
             // 
-            this.btnCanjear.Location = new System.Drawing.Point(453, 264);
-            this.btnCanjear.Name = "btnCanjear";
-            this.btnCanjear.Size = new System.Drawing.Size(75, 23);
-            this.btnCanjear.TabIndex = 3;
-            this.btnCanjear.Text = "Canjear";
-            this.btnCanjear.UseVisualStyleBackColor = true;
-            this.btnCanjear.Click += new System.EventHandler(this.btnCanjear_Click);
+            this.lblCantMillas.AutoSize = true;
+            this.lblCantMillas.Location = new System.Drawing.Point(121, 26);
+            this.lblCantMillas.Name = "lblCantMillas";
+            this.lblCantMillas.Size = new System.Drawing.Size(0, 13);
+            this.lblCantMillas.TabIndex = 1;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(21, 26);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(93, 13);
+            this.label3.TabIndex = 0;
+            this.label3.Text = "Millas Disponibles:";
             // 
             // CanjeMillasForm
             // 

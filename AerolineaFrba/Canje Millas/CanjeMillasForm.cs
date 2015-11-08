@@ -26,14 +26,28 @@ namespace AerolineaFrba.Canje_Millas
 
         private void btnConsultar_Click(object sender, EventArgs e)
         {
-              
+            if (txtDNI.Text=="" | txtApellido.Text=="")
+            {
+                MessageBox.Show("Debe ingresar su apellido y DNI");
+                return;
+            }
+                   
+            Canje.TraerMillasDisponible(ref cantMillasDisp, ref idUsuario,txtApellido.Text,txtDNI.Text);
+            
+            if (cantMillasDisp==0)
+            {
+                MessageBox.Show("No tiene millas disponibles");
+                return;
+            }
+ 
             dgvProductos.DataSource = Canje.ListProductosDisponibles(cantMillasDisp);
             if (dgvProductos.RowCount == 0)
             {
-                MessageBox.Show("No hay ningun producto disponible para que pueda canjear con esa cantidad de millas. o sentimos")
+                MessageBox.Show("No hay ningun producto disponible para que pueda canjear con esa cantidad de millas. Lo sentimos");
                 return;
             }
             groupBox2.Enabled=true;
+            lblCantMillas.Text=cantMillasDisp.ToString();
         }
 
         private void btnCanjear_Click(object sender, EventArgs e)
