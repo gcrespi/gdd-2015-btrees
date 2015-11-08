@@ -15,6 +15,7 @@ using AerolineaFrba.Generacion_Viaje;
 using AerolineaFrba.Listado_Estadistico;
 using AerolineaFrba.Devolucion;
 using AerolineaFrba.Registro_Llegada_Destino;
+using AerolineaFrba.Canje_Millas;
 
 namespace AerolineaFrba
 {
@@ -144,6 +145,11 @@ namespace AerolineaFrba
         private void toolStripMenuItem6_Click(object sender, EventArgs e)
         {
             replaceForm(new RegLlegadaADestinoForm());
+        }
+
+        private void canjeToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            replaceForm(new CanjeMillasForm());
         }
    
    

@@ -123,11 +123,11 @@
     <Compile Include="Abm\IBmdForm.cs" />
     <Compile Include="AtributeValidationException.cs" />
     <Compile Include="Classes\Avion.cs" />
-    <Compile Include="Canje Millas\Form1.cs">
+    <Compile Include="Canje Millas\CanjeMillasForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Canje Millas\Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="Canje Millas\CanjeMillasForm.Designer.cs">
+      <DependentUpon>CanjeMillasForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Classes\Butaca.cs" />
     <Compile Include="Classes\Cancelacion.cs" />
@@ -325,6 +325,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Abm Ruta\UctrlRuta.resx">
       <DependentUpon>UctrlRuta.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Canje Millas\CanjeMillasForm.resx">
+      <DependentUpon>CanjeMillasForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Compras\CompraFormFinal.resx">
       <DependentUpon>CompraFormFinal.cs</DependentUpon>
