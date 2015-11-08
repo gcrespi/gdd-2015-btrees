@@ -199,6 +199,7 @@
             this.canjeToolStripMenuItem.Name = "canjeToolStripMenuItem";
             this.canjeToolStripMenuItem.Size = new System.Drawing.Size(152, 28);
             this.canjeToolStripMenuItem.Text = "Canje";
+            this.canjeToolStripMenuItem.Click += new System.EventHandler(this.canjeToolStripMenuItem_Click);
             // 
             // bDevolucion
             // 
