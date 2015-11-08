@@ -140,6 +140,7 @@
             this.gridViajes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.gridViajes.Location = new System.Drawing.Point(12, 107);
             this.gridViajes.Name = "gridViajes";
+            this.gridViajes.ReadOnly = true;
             this.gridViajes.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.gridViajes.Size = new System.Drawing.Size(745, 274);
             this.gridViajes.TabIndex = 9;

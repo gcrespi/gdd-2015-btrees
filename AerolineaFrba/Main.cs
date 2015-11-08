@@ -20,10 +20,13 @@ namespace AerolineaFrba
 {
     public partial class Main : Form
     {
-        public Main()
+        private List<string> botonesVisibles;
+
+        public Main(List<string> botonesVisibles)
         {
             InitializeComponent();
             menu.Renderer = new MyRenderer();
+            this.botonesVisibles = botonesVisibles;
         }
 
         private void MasterForm_Load(object sender, EventArgs e)
@@ -32,6 +35,21 @@ namespace AerolineaFrba
             setColor(bHome);
             menu.Parent = menuPanel;
             menuPanel.AutoScroll = true;
+            foreach (ToolStripMenuItem item in menu.Items)
+            {
+                item.Height = 70;
+                //Esto se saca ↓↓↓↓
+                if (botonesVisibles.First() != "Todos")
+                {
+                    if (!botonesVisibles.Contains(item.ToString()))
+                        item.Visible = false;
+                    foreach (ToolStripItem subitem in item.DropDown.Items)
+                    {
+                        if (!botonesVisibles.Contains(subitem.ToString()))
+                            subitem.Visible = false;
+                    }
+                }
+            }
         }
 
         private class MyRenderer : ToolStripProfessionalRenderer
@@ -146,7 +164,5 @@ namespace AerolineaFrba
             replaceForm(new RegLlegadaADestinoForm());
         }
    
-   
-
     }
 }

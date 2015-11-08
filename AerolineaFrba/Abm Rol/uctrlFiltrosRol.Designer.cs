@@ -40,6 +40,7 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.AutoSize = true;
             this.groupBox1.Controls.Add(this.chbHabilitado);
             this.groupBox1.Controls.Add(this.lblHabilitado);
             this.groupBox1.Controls.Add(this.chlFuncionalidades);
@@ -110,16 +111,17 @@
             this.lblNombre.TabIndex = 17;
             this.lblNombre.Text = "Nombre";
             // 
-            // uctrlFiltrosRol
+            // UctrlFiltrosRol
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.groupBox1);
-            this.Name = "uctrlFiltrosRol";
+            this.Name = "UctrlFiltrosRol";
             this.Size = new System.Drawing.Size(860, 171);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 

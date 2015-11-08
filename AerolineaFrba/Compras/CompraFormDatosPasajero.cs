@@ -31,6 +31,7 @@ namespace AerolineaFrba.Compras
             cboButaca.DataSource = compra.butacasDisponibles;
             cboButaca.DisplayMember = "Butaca_Descr";
             cboButaca.ValueMember = "ButacaID";
+            tbNom.Focus();
         }
 
         private void btnBack_Click(object sender, EventArgs e)
@@ -51,6 +52,7 @@ namespace AerolineaFrba.Compras
 
         private DataTable getClientData()
         {
+            MessageBox.Show(tbNom.Text + tbApe.Text + tbDNI.Text);
             return Cliente.TraerDatosCliente(tbNom.Text, tbApe.Text, Convert.ToInt32(tbDNI.Text));
         }
 

@@ -126,6 +126,7 @@ namespace AerolineaFrba.Compras
         private void CompraFormDatosEncomienda_Load(object sender, EventArgs e)
         {
             dtpFechaNac.MaxDate = DateTime.Now;
+            tbNom.Focus();
         }
 
     }

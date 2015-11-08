@@ -80,6 +80,7 @@
             this.passBox.PasswordChar = '•';
             this.passBox.Size = new System.Drawing.Size(262, 20);
             this.passBox.TabIndex = 2;
+            this.passBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.passBox_KeyPress);
             // 
             // lUsuario
             // 
@@ -98,6 +99,7 @@
             this.usrBox.Name = "usrBox";
             this.usrBox.Size = new System.Drawing.Size(262, 20);
             this.usrBox.TabIndex = 0;
+            this.usrBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.usrBox_KeyPress);
             // 
             // button1
             // 
@@ -127,7 +129,6 @@
             this.Name = "Login";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Aerolineas Btrees ";
-            this.Load += new System.EventHandler(this.Login_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.ResumeLayout(false);

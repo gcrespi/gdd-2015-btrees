@@ -36,6 +36,7 @@ namespace AerolineaFrba.Compras
             dtpFechaVencimiento.MinDate = DateTime.Now;
             dtpFechaNac.MaxDate = DateTime.Now;
             updCuotas.Maximum = 18;
+            tbNom.Focus();
         }
 
         private DataTable getClientData()

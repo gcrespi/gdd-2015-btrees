@@ -16,11 +16,12 @@ namespace AerolineaFrba
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             // Aca se chequea la infiguracion para determinar la terminal
-            main = new Main();
-            int bleh = -1;
+            List<string> botonesDisponibles = new List<string> {"Todos", "Home", "ABM Rol", "Compras" };
+            int bleh = 1;
             if (bleh == 1)
             {
                 Login login = new Login();
+                main = new Main(botonesDisponibles);
                 if (login.ShowDialog() == DialogResult.OK) Application.Run(main);
                 else Application.Exit();
             }
