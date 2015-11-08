@@ -1,6 +1,23 @@
 USE [GD2C2015]
 GO
 
+/************ INSERT PRODUCTOS **************/
+INSERT INTO THE_BTREES.Producto
+        ( Producto_Stock ,
+          Producto_Descripcion ,
+          Producto_Millas
+        )
+VALUES  ( 5,'Pava electriva' , 3000),
+		( 6,'Horno' , 15000),
+		( 1,'LED TV' , 150000),
+		( 8,'Maso de cartas' , 60),
+		( 10,'Reloj' , 500),
+		( 50,'Vaso de vidrio' , 70),
+		( 7,'Juego de te' , 1000),
+		(4,'TEG' , 2000)
+
+GO
+
 /************ INSERT CIUDADES *********35 CIUDADES*****/
 
 INSERT INTO THE_BTREES.Ciudad
