@@ -46,14 +46,13 @@ namespace AerolineaFrba.Compras
 
         private void btnContinue_Click(object sender, EventArgs e)
         {
-               
-            
-            Cliente cliente = new Cliente(tbDNI.Text,tbNom.Text,tbApe.Text,tbDirec.Text,tbTel.Text,
+            Cliente cliente = new Cliente(tbDNI.Text, tbNom.Text, tbApe.Text, tbDirec.Text, Convert.ToInt32(tbTel.Text),
                                                    tbMail.Text,dtpFechaNac.Value);
             DataTable dt = getClientData();
             if (dt.Rows.Count == 1) cliente.clienteID = (int)dt.Rows[0]["ClienteID"];
-            compra.encomiendaResp = cliente;
-            Program.main.addForm(new CompraFormPago(compra));
+            Compra compraActualizada = compra.clone();
+            compraActualizada.encomiendaResp = cliente;
+            Program.main.addForm(new CompraFormPago(compraActualizada));
         }
 
         private void fillIfExist()
@@ -122,6 +121,12 @@ namespace AerolineaFrba.Compras
         private void dtpFechaNac_ValueChanged(object sender, EventArgs e)
         {
             checkIfFilled();
+        }
+
+        private void CompraFormDatosEncomienda_Load(object sender, EventArgs e)
+        {
+            dtpFechaNac.MaxDate = DateTime.Now;
+            tbNom.Focus();
         }
 
     }

@@ -31,22 +31,27 @@ AS
 			SET @Fecha=NULL
 
 	   SELECT V.ViajeID,
-			  A.Avion_Matricula AS Avión,
-			  (SELECT TipoSer_Nombre FROM THE_BTREES.TipoServicio WHERE TipoServicioID=A.Avion_TipoDeServicioRef) AS 'Tipo De Servicio',
-			  V.Viaje_FechaSalida AS 'Fecha Salida',
-			  V.Viaje_FechaLlegadaEstimada AS 'Fecha LLegada Estimada',
 			  (SELECT Ciudad_Nombre FROM THE_BTREES.Ciudad WHERE CiudadID=R.Ruta_CiudadOrigenRef) AS 'Ciudad Origen',
 			  (SELECT Ciudad_Nombre FROM THE_BTREES.Ciudad WHERE CiudadID=R.Ruta_CiudadDestinoRef) AS 'Ciudad Destino',
+			  V.Viaje_FechaSalida AS 'Fecha Salida',
+			  V.Viaje_FechaLlegadaEstimada AS 'Fecha LLegada Estimada',
+			  --A.Avion_Matricula AS Avión,
+			  T.TipoSer_Nombre AS 'Tipo De Servicio',
 			  W.ButacasDisponibles AS 'Cant Butacas Disponibles',
-			  K.KGDisponibles AS 'Cant KG Disponibles'
+			  '$' + CAST((R.Ruta_PrecioBasePasaje*(1+T.TipoSer_PorcentajeAdicional)) AS varchar) AS 'Precio Pasaje',
+			  K.KGDisponibles AS 'Cant KG Disponibles',
+			  '$' + CAST(R.Ruta_PrecioBaseKg AS varchar) AS 'Precio por KG'
 	   FROM THE_BTREES.Viaje V
 	   INNER JOIN THE_BTREES.RutaAerea R ON R.RutaAereaID = V.Viaje_RutaAereaRef
 	   INNER JOIN THE_BTREES.Avion A ON A.AvionID = V.Viaje_AvionRef AND A.Avion_TipoDeServicioRef=ISNULL(@TipoServicio,a.Avion_TipoDeServicioRef)
 	   INNER JOIN THE_BTREES.Viaje_Pasajes_Vendidos W ON W.Viaje=V.ViajeID
 	   INNER JOIN THE_BTREES.kg_Dispo_Por_Viaje K ON K.ViajeID=V.ViajeID
-	   WHERE CAST(V.Viaje_FechaSalida AS DATE) = ISNULL(@Fecha,CAST(V.Viaje_FechaSalida AS DATE)) AND R.Ruta_CiudadDestinoRef=ISNULL(@CiudadDestino,R.Ruta_CiudadDestinoRef) 
-			AND R.Ruta_CiudadOrigenRef=ISNULL(@CiudadOrigen,R.Ruta_CiudadOrigenRef) AND W.ButacasDisponibles>0
-	   ORDER BY V.Viaje_FechaLlegada
+	   INNER JOIN THE_BTREES.TipoServicio T ON T.TipoServicioID=A.Avion_TipoDeServicioRef
+	   WHERE CAST(V.Viaje_FechaSalida AS DATE) = ISNULL(@Fecha,CAST(V.Viaje_FechaSalida AS DATE)) AND 
+			R.Ruta_CiudadDestinoRef=ISNULL(@CiudadDestino,R.Ruta_CiudadDestinoRef) AND 
+			R.Ruta_CiudadOrigenRef=ISNULL(@CiudadOrigen,R.Ruta_CiudadOrigenRef) AND 
+			W.ButacasDisponibles>0
+	   ORDER BY V.Viaje_FechaSalida
 	   END
 GO
 

@@ -20,7 +20,6 @@ namespace AerolineaFrba.Generacion_Viaje
         private void GenerarViajeForm_Load(object sender, EventArgs e)
         {
             dtpFechaSalida.MinDate = DateTime.Today;
-            dtpFechaLlegada.MinDate = DateTime.Today;
             dtpFechaLlegadaEstimada.MinDate = DateTime.Today;
             gridAeronave.DataSource = Avion.TraerAvionesParaCompra();
             gridAeronave.Columns["AvionID"].Visible = false;
@@ -32,14 +31,14 @@ namespace AerolineaFrba.Generacion_Viaje
 
         private void button1_Click(object sender, EventArgs e)
         {
-            if (dtpFechaSalida.Value > dtpFechaLlegada.Value | dtpFechaSalida.Value > dtpFechaLlegadaEstimada.Value)
+            if (dtpFechaSalida.Value > dtpFechaLlegadaEstimada.Value)
             {
-                MessageBox.Show("La fecha de llegada (o estimada) no puede ser menor que la fecha de salida");
+                MessageBox.Show("La fecha de llegada estimada no puede ser menor que la fecha de salida");
                 return;
             }
-            if (dtpFechaLlegadaEstimada.Value>dtpFechaLlegada.Value.AddHours(24)) 
+            if (dtpFechaLlegadaEstimada.Value>dtpFechaSalida.Value.AddHours(24)) 
             {
-                MessageBox.Show("La fecha de llegada estimada no puede ser 24hs mayor que la de llegada");
+                MessageBox.Show("La fecha de llegada estimada no puede ser 24hs mayor que la de salida");
                 return;
             }
             
@@ -59,7 +58,7 @@ namespace AerolineaFrba.Generacion_Viaje
             int avion = Convert.ToByte(gridAeronave.SelectedRows[0].Cells["AvionID"].Value);
             try
             {
-                Viaje.CrearViaje(dtpFechaSalida.Value, dtpFechaLlegada.Value, dtpFechaLlegadaEstimada.Value, avion, ruta);
+                Viaje.CrearViaje(dtpFechaSalida.Value, dtpFechaLlegadaEstimada.Value, avion, ruta);
                 MessageBox.Show("Viaje creado correctamente");
                 Close();
             }

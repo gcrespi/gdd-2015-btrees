@@ -111,17 +111,19 @@
     <Compile Include="Abm\IBmdForm.cs" />
     <Compile Include="AtributeValidationException.cs" />
     <Compile Include="Classes\Avion.cs" />
-    <Compile Include="Canje Millas\Form1.cs">
+    <Compile Include="Canje Millas\CanjeMillasForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Canje Millas\Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="Canje Millas\CanjeMillasForm.Designer.cs">
+      <DependentUpon>CanjeMillasForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Classes\Butaca.cs" />
     <Compile Include="Classes\Cancelacion.cs" />
+    <Compile Include="Classes\Canje.cs" />
     <Compile Include="Classes\Ciudad.cs" />
     <Compile Include="Classes\Cliente.cs" />
     <Compile Include="Classes\Encomienda.cs" />
+    <Compile Include="Classes\Millas.cs" />
     <Compile Include="Classes\Pasaje.cs" />
     <Compile Include="Classes\Compra.cs" />
     <Compile Include="Classes\Pasajero.cs" />
@@ -156,11 +158,11 @@
       <DependentUpon>CrompraFormDatosEncomienda.cs</DependentUpon>
     </Compile>
     <Compile Include="Conexion.cs" />
-    <Compile Include="Consulta Millas\Form1.cs">
+    <Compile Include="Consulta Millas\ConsultaMillasForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Consulta Millas\Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="Consulta Millas\ConsultaMillasForm.Designer.cs">
+      <DependentUpon>ConsultaMillasForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Filtros\FiltroDtp.cs" />
     <Compile Include="Filtros\FiltroCbo.cs" />
@@ -288,11 +290,11 @@
     <Compile Include="Registro de Usuario\Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
-    <Compile Include="Registro Llegada Destino\Form1.cs">
+    <Compile Include="Registro Llegada Destino\RegLlegadaADestinoForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Registro Llegada Destino\Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="Registro Llegada Destino\RegLlegadaADestinoForm.Designer.cs">
+      <DependentUpon>RegLlegadaADestinoForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Classes\RutaAerea.cs" />
     <Compile Include="Classes\TipoServicio.cs" />
@@ -326,11 +328,17 @@
     <EmbeddedResource Include="Abm Ruta\UctrlRuta.resx">
       <DependentUpon>UctrlRuta.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Canje Millas\CanjeMillasForm.resx">
+      <DependentUpon>CanjeMillasForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Compras\CompraFormFinal.resx">
       <DependentUpon>CompraFormFinal.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Compras\CrompraFormDatosEncomienda.resx">
       <DependentUpon>CrompraFormDatosEncomienda.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Consulta Millas\ConsultaMillasForm.resx">
+      <DependentUpon>ConsultaMillasForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Plantillas\AltaForm.resx">
       <DependentUpon>AltaForm.cs</DependentUpon>
@@ -349,6 +357,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Utils\DisableableDate.resx">
       <DependentUpon>DisableableDate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Registro Llegada Destino\RegLlegadaADestinoForm.resx">
+      <DependentUpon>RegLlegadaADestinoForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="_Examples\ExampleAltaForm.resx">
       <DependentUpon>ExampleAltaForm.cs</DependentUpon>

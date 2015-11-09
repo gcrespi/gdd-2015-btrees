@@ -28,14 +28,9 @@ SELECT DISTINCT (SELECT AvionID FROM THE_BTREES.Avion WHERE Avion_Matricula=m.Ae
 	   m.FechaLLegada,
 	   m.FechaSalida,
 	   m.Fecha_LLegada_Estimada,
-	   M.Cli_Apellido,
-	   M.Cli_Dir,
-	   M.Cli_Dni,
-	   M.Cli_Fecha_Nac,
-	   M.Cli_Mail,
-	   M.Cli_Nombre,
-	   M.Cli_Telefono	
-FROM gd_esquema.Maestra m
+	   c.ClienteID AS CompradorRef
+FROM gd_esquema.Maestra m, THE_BTREES.Cliente c
+WHERE m.Cli_Dni = c.Cliente_DNI AND m.Cli_Apellido = c.Cliente_Apellido
 GO
 
 CREATE VIEW THE_BTREES.Viaje_Pasajes_Vendidos

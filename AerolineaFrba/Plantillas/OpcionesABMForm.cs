@@ -57,9 +57,9 @@ namespace AerolineaFrba
 
         private void crearListadoForm(IBmdForm bmdForm)
         {
-            ListadoForm frmDetalle = new ListadoForm(this.filtroControl(), bmdForm);
-            frmDetalle.StartPosition = FormStartPosition.CenterScreen;
-            frmDetalle.Show();
+            
+            Program.main.replaceForm(new ListadoForm(this.filtroControl(), bmdForm));
+            
         }
 
     }

@@ -22,6 +22,9 @@ namespace AerolineaFrba
 
         private int idUsuarioWith(String nombre, String pass)
         {
+            //Esto sacarlo.. solo para probar!!!!
+            if (nombre == "sa") return 1;
+            
             int _usuarioID = 0;
             bool _usuarioActivo = false;
             bool _wrongPassword = false;
@@ -55,7 +58,7 @@ namespace AerolineaFrba
         }
 
         private int validarUsuario(int usuarioID, bool usuarioActivo, bool wrongPassword) 
-        {
+        {   
             if (usuarioID == 0)
             {
                 wrongLabel.Text = "Usuario  o contraseña incorrecto!";
@@ -84,9 +87,14 @@ namespace AerolineaFrba
                 this.DialogResult = DialogResult.OK;
         }
 
-        private void Login_Load(object sender, EventArgs e)
+        private void usrBox_KeyPress(object sender, KeyPressEventArgs e)
         {
-            
+            if (e.KeyChar == Convert.ToChar(Keys.Enter)) button1_Click(sender, e);
+        }
+
+        private void passBox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == Convert.ToChar(Keys.Enter)) button1_Click(sender, e);
         }
 
 

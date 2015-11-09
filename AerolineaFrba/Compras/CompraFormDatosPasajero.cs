@@ -27,10 +27,11 @@ namespace AerolineaFrba.Compras
         private void CompraFormDatosPasajero_Load(object sender, EventArgs e)
         {
             lbTitulo.Text += " " + nroPasajero.ToString();
+            dtpFechaNac.MaxDate = DateTime.Now;
             cboButaca.DataSource = compra.butacasDisponibles;
             cboButaca.DisplayMember = "Butaca_Descr";
             cboButaca.ValueMember = "ButacaID";
-            label9.Text = compra.pasajeros.Count.ToString();
+            tbNom.Focus();
         }
 
         private void btnBack_Click(object sender, EventArgs e)
@@ -56,7 +57,7 @@ namespace AerolineaFrba.Compras
 
         private void btnContinue_Click(object sender, EventArgs e)
         {
-            Pasajero pasajero = new Pasajero(tbDNI.Text, tbNom.Text, tbApe.Text, tbDirec.Text, tbTel.Text,
+            Pasajero pasajero = new Pasajero(tbDNI.Text, tbNom.Text, tbApe.Text, tbDirec.Text, Convert.ToInt32(tbTel.Text),
                                                    tbMail.Text, dtpFechaNac.Value, (int)cboButaca.SelectedValue);
             DataTable dt = getClientData();
             if (dt.Rows.Count == 1) pasajero.clienteID = (int)dt.Rows[0]["ClienteID"];
@@ -143,6 +144,7 @@ namespace AerolineaFrba.Compras
         {
             checkIfFilled();
         }
+
 
     }
 }

@@ -227,6 +227,7 @@
             this.Controls.Add(this.tbNom);
             this.Name = "CompraFormDatosEncomienda";
             this.Text = "Form1";
+            this.Load += new System.EventHandler(this.CompraFormDatosEncomienda_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

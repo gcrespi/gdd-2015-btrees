@@ -1,6 +1,23 @@
 USE [GD2C2015]
 GO
 
+/************ INSERT PRODUCTOS **************/
+INSERT INTO THE_BTREES.Producto
+        ( Producto_Stock ,
+          Producto_Descripcion ,
+          Producto_Millas
+        )
+VALUES  ( 5,'Pava electriva' , 3000),
+		( 6,'Horno' , 15000),
+		( 1,'LED TV' , 150000),
+		( 8,'Maso de cartas' , 60),
+		( 10,'Reloj' , 500),
+		( 50,'Vaso de vidrio' , 70),
+		( 7,'Juego de te' , 1000),
+		(4,'TEG' , 2000)
+
+GO
+
 /************ INSERT CIUDADES *********35 CIUDADES*****/
 
 INSERT INTO THE_BTREES.Ciudad
@@ -49,6 +66,18 @@ SELECT DISTINCT m.Tipo_Servicio,
 		1
 FROM gd_esquema.Maestra m
 GO
+
+UPDATE THE_BTREES.TipoServicio
+SET TipoSer_PorcentajeAdicional=1.2
+WHERE TipoSer_Nombre='Turista'
+UPDATE THE_BTREES.TipoServicio
+SET TipoSer_PorcentajeAdicional=2
+WHERE TipoSer_Nombre='Primera Clase'
+UPDATE THE_BTREES.TipoServicio
+SET TipoSer_PorcentajeAdicional=1.5
+WHERE TipoSer_Nombre='Ejecutivo'
+
+
 
 /************ INSERT AVION ***** 30 AVIONES ********/
 
@@ -188,24 +217,12 @@ INSERT INTO THE_BTREES.Compra
         ( CompraID ,
 		  Compra_Fecha ,
           Compra_AbonaEnEfectivo ,
-          Compra_DNIComprador ,
-          Compra_Nombre ,
-          Compra_Apellido ,
-          Compra_Direccion ,
-          Compra_Telefono ,
-          Compra_Mail ,
-          Compra_FechaNac
+          Compra_CompradorRef
         )
 SELECT DISTINCT C.CodigoCompra ,
 				C.fechaCompra,
 				1, --TODOS ABONAN EN EFECTIVO
-				C.Cli_Dni,
-				C.Cli_Nombre,
-				C.Cli_Apellido,
-				C.Cli_Dir,
-				C.Cli_Telefono,
-				C.Cli_Mail,
-				C.Cli_Fecha_Nac
+				C.CompradorRef
 FROM THE_BTREES.compra_con_ref C
 SET IDENTITY_INSERT THE_BTREES.Compra OFF
 GO

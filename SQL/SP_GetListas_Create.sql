@@ -145,6 +145,22 @@ AS
 	   END
 GO
 
+/***** GetAvionesMatricula *****/
+IF  OBJECT_ID(N'[THE_BTREES].[GetAvionesMatricula]','P') IS NOT NULL
+	DROP PROCEDURE [THE_BTREES].[GetAvionesMatricula]
+GO
+
+CREATE PROCEDURE [THE_BTREES].[GetAvionesMatricula]		
+AS
+    BEGIN
+	   SET NOCOUNT ON	
+
+	   SELECT A.AvionID,
+			  A.Avion_Matricula
+	   FROM THE_BTREES.Avion A
+	   ORDER BY A.Avion_Matricula
+	   END
+GO
 
 
 

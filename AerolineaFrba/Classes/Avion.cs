@@ -98,5 +98,15 @@ namespace AerolineaFrba
                 conn.Close();
             }
         }
+
+        public static DataTable TraerAvionesMatricula()
+        {
+            DataTable ds = new DataTable();
+            string strSQL = "THE_BTREES.GetAvionesMatricula";
+            SqlDataAdapter da = new SqlDataAdapter(strSQL, Conexion.strCon);
+            da.Fill(ds);
+            return ds;
+        }
+
     }
 }

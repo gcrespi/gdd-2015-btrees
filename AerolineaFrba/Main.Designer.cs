@@ -44,9 +44,7 @@
             this.bAuditoria = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem5 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem6 = new System.Windows.Forms.ToolStripMenuItem();
-            this.bleh = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItem17 = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItem18 = new System.Windows.Forms.ToolStripMenuItem();
+            this.Estadisticas = new System.Windows.Forms.ToolStripMenuItem();
             this.blih = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem3 = new System.Windows.Forms.ToolStripMenuItem();
@@ -56,7 +54,6 @@
             this.bluh = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem11 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem12 = new System.Windows.Forms.ToolStripMenuItem();
-            this.blah = new System.Windows.Forms.ToolStripMenuItem();
             this.panel = new System.Windows.Forms.Panel();
             this.menuPanel = new System.Windows.Forms.Panel();
             this.menu.SuspendLayout();
@@ -75,11 +72,10 @@
             this.bMillas,
             this.bDevolucion,
             this.bAuditoria,
-            this.bleh,
+            this.Estadisticas,
             this.blih,
             this.bloh,
-            this.bluh,
-            this.blah});
+            this.bluh});
             this.menu.LayoutStyle = System.Windows.Forms.ToolStripLayoutStyle.VerticalStackWithOverflow;
             this.menu.Location = new System.Drawing.Point(0, 0);
             this.menu.Name = "menu";
@@ -93,12 +89,12 @@
             // 
             this.bHome.AutoSize = false;
             this.bHome.BackColor = System.Drawing.SystemColors.MenuHighlight;
-            this.bHome.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
+            this.bHome.Font = new System.Drawing.Font("Calibri Light", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.bHome.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.bHome.Margin = new System.Windows.Forms.Padding(0, 0, 0, 1);
             this.bHome.Name = "bHome";
             this.bHome.Padding = new System.Windows.Forms.Padding(0);
-            this.bHome.Size = new System.Drawing.Size(98, 80);
+            this.bHome.Size = new System.Drawing.Size(98, 30);
             this.bHome.Text = "Home";
             this.bHome.Click += new System.EventHandler(this.bHome_Click);
             // 
@@ -114,12 +110,12 @@
             this.aBMRolToolStripMenuItem,
             this.aBMRutaToolStripMenuItem,
             this.generarViajeToolStripMenuItem});
-            this.bAdministracion.Font = new System.Drawing.Font("Calibri Light", 15F);
+            this.bAdministracion.Font = new System.Drawing.Font("Calibri Light", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.bAdministracion.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.bAdministracion.Margin = new System.Windows.Forms.Padding(0, 0, 0, 1);
             this.bAdministracion.Name = "bAdministracion";
             this.bAdministracion.Padding = new System.Windows.Forms.Padding(0);
-            this.bAdministracion.Size = new System.Drawing.Size(98, 80);
+            this.bAdministracion.Size = new System.Drawing.Size(98, 30);
             this.bAdministracion.Text = "Admin";
             // 
             // aBMAeronaveToolStripMenuItem
@@ -135,14 +131,14 @@
             // 
             this.aBMCiudadToolStripMenuItem.BackColor = System.Drawing.Color.White;
             this.aBMCiudadToolStripMenuItem.Name = "aBMCiudadToolStripMenuItem";
-            this.aBMCiudadToolStripMenuItem.Size = new System.Drawing.Size(218, 30);
+            this.aBMCiudadToolStripMenuItem.Size = new System.Drawing.Size(200, 28);
             this.aBMCiudadToolStripMenuItem.Text = "ABM Ciudad";
             // 
             // aBMRolToolStripMenuItem
             // 
             this.aBMRolToolStripMenuItem.BackColor = System.Drawing.Color.White;
             this.aBMRolToolStripMenuItem.Name = "aBMRolToolStripMenuItem";
-            this.aBMRolToolStripMenuItem.Size = new System.Drawing.Size(218, 30);
+            this.aBMRolToolStripMenuItem.Size = new System.Drawing.Size(200, 28);
             this.aBMRolToolStripMenuItem.Text = "ABM Rol";
             this.aBMRolToolStripMenuItem.Click += new System.EventHandler(this.aBMRolToolStripMenuItem_Click);
             // 
@@ -150,7 +146,7 @@
             // 
             this.aBMRutaToolStripMenuItem.BackColor = System.Drawing.Color.White;
             this.aBMRutaToolStripMenuItem.Name = "aBMRutaToolStripMenuItem";
-            this.aBMRutaToolStripMenuItem.Size = new System.Drawing.Size(218, 30);
+            this.aBMRutaToolStripMenuItem.Size = new System.Drawing.Size(200, 28);
             this.aBMRutaToolStripMenuItem.Text = "ABM Ruta";
             this.aBMRutaToolStripMenuItem.Click += new System.EventHandler(this.aBMRutaToolStripMenuItem_Click);
             // 
@@ -165,12 +161,12 @@
             // 
             this.bCompras.AutoSize = false;
             this.bCompras.BackColor = System.Drawing.SystemColors.MenuHighlight;
-            this.bCompras.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
+            this.bCompras.Font = new System.Drawing.Font("Calibri Light", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.bCompras.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.bCompras.Margin = new System.Windows.Forms.Padding(0, 0, 0, 1);
             this.bCompras.Name = "bCompras";
             this.bCompras.Padding = new System.Windows.Forms.Padding(0);
-            this.bCompras.Size = new System.Drawing.Size(98, 80);
+            this.bCompras.Size = new System.Drawing.Size(98, 30);
             this.bCompras.Text = "Compras";
             this.bCompras.Click += new System.EventHandler(this.bCompras_Click);
             // 
@@ -181,38 +177,40 @@
             this.bMillas.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.consultaToolStripMenuItem,
             this.canjeToolStripMenuItem});
-            this.bMillas.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
+            this.bMillas.Font = new System.Drawing.Font("Calibri Light", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.bMillas.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.bMillas.Margin = new System.Windows.Forms.Padding(0, 0, 0, 1);
             this.bMillas.Name = "bMillas";
             this.bMillas.Padding = new System.Windows.Forms.Padding(0);
-            this.bMillas.Size = new System.Drawing.Size(98, 80);
+            this.bMillas.Size = new System.Drawing.Size(98, 30);
             this.bMillas.Text = "Millas";
             // 
             // consultaToolStripMenuItem
             // 
             this.consultaToolStripMenuItem.BackColor = System.Drawing.Color.White;
             this.consultaToolStripMenuItem.Name = "consultaToolStripMenuItem";
-            this.consultaToolStripMenuItem.Size = new System.Drawing.Size(149, 28);
+            this.consultaToolStripMenuItem.Size = new System.Drawing.Size(152, 28);
             this.consultaToolStripMenuItem.Text = "Consulta";
+            this.consultaToolStripMenuItem.Click += new System.EventHandler(this.consultaToolStripMenuItem_Click);
             // 
             // canjeToolStripMenuItem
             // 
             this.canjeToolStripMenuItem.BackColor = System.Drawing.Color.White;
             this.canjeToolStripMenuItem.Name = "canjeToolStripMenuItem";
-            this.canjeToolStripMenuItem.Size = new System.Drawing.Size(149, 28);
+            this.canjeToolStripMenuItem.Size = new System.Drawing.Size(152, 28);
             this.canjeToolStripMenuItem.Text = "Canje";
+            this.canjeToolStripMenuItem.Click += new System.EventHandler(this.canjeToolStripMenuItem_Click);
             // 
             // bDevolucion
             // 
             this.bDevolucion.AutoSize = false;
             this.bDevolucion.BackColor = System.Drawing.SystemColors.MenuHighlight;
-            this.bDevolucion.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
+            this.bDevolucion.Font = new System.Drawing.Font("Calibri Light", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.bDevolucion.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.bDevolucion.Margin = new System.Windows.Forms.Padding(0, 0, 0, 1);
             this.bDevolucion.Name = "bDevolucion";
             this.bDevolucion.Padding = new System.Windows.Forms.Padding(0);
-            this.bDevolucion.Size = new System.Drawing.Size(98, 80);
+            this.bDevolucion.Size = new System.Drawing.Size(98, 30);
             this.bDevolucion.Text = "Devolución";
             this.bDevolucion.Click += new System.EventHandler(this.bDevolucion_Click);
             // 
@@ -223,57 +221,41 @@
             this.bAuditoria.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripMenuItem5,
             this.toolStripMenuItem6});
-            this.bAuditoria.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
+            this.bAuditoria.Font = new System.Drawing.Font("Calibri Light", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.bAuditoria.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.bAuditoria.Margin = new System.Windows.Forms.Padding(0, 0, 0, 1);
             this.bAuditoria.Name = "bAuditoria";
             this.bAuditoria.Padding = new System.Windows.Forms.Padding(0);
-            this.bAuditoria.Size = new System.Drawing.Size(98, 80);
+            this.bAuditoria.Size = new System.Drawing.Size(98, 30);
             this.bAuditoria.Text = "Auditoría";
             // 
             // toolStripMenuItem5
             // 
             this.toolStripMenuItem5.BackColor = System.Drawing.Color.White;
             this.toolStripMenuItem5.Name = "toolStripMenuItem5";
-            this.toolStripMenuItem5.Size = new System.Drawing.Size(272, 30);
+            this.toolStripMenuItem5.Size = new System.Drawing.Size(244, 28);
             this.toolStripMenuItem5.Text = "Reg Usuarios";
             // 
             // toolStripMenuItem6
             // 
             this.toolStripMenuItem6.BackColor = System.Drawing.Color.White;
             this.toolStripMenuItem6.Name = "toolStripMenuItem6";
-            this.toolStripMenuItem6.Size = new System.Drawing.Size(272, 30);
+            this.toolStripMenuItem6.Size = new System.Drawing.Size(244, 28);
             this.toolStripMenuItem6.Text = "Reg LLegada Destino";
+            this.toolStripMenuItem6.Click += new System.EventHandler(this.toolStripMenuItem6_Click);
             // 
-            // bleh
+            // Estadisticas
             // 
-            this.bleh.AutoSize = false;
-            this.bleh.BackColor = System.Drawing.SystemColors.MenuHighlight;
-            this.bleh.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripMenuItem17,
-            this.toolStripMenuItem18});
-            this.bleh.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
-            this.bleh.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.bleh.Margin = new System.Windows.Forms.Padding(0, 0, 0, 1);
-            this.bleh.Name = "bleh";
-            this.bleh.Padding = new System.Windows.Forms.Padding(0);
-            this.bleh.Size = new System.Drawing.Size(98, 22);
-            this.bleh.Text = "Estadisticas";
-            this.bleh.Click += new System.EventHandler(this.bleh_Click);
-            // 
-            // toolStripMenuItem17
-            // 
-            this.toolStripMenuItem17.BackColor = System.Drawing.Color.White;
-            this.toolStripMenuItem17.Name = "toolStripMenuItem17";
-            this.toolStripMenuItem17.Size = new System.Drawing.Size(272, 30);
-            this.toolStripMenuItem17.Text = "Reg Usuarios";
-            // 
-            // toolStripMenuItem18
-            // 
-            this.toolStripMenuItem18.BackColor = System.Drawing.Color.White;
-            this.toolStripMenuItem18.Name = "toolStripMenuItem18";
-            this.toolStripMenuItem18.Size = new System.Drawing.Size(272, 30);
-            this.toolStripMenuItem18.Text = "Reg LLegada Destino";
+            this.Estadisticas.AutoSize = false;
+            this.Estadisticas.BackColor = System.Drawing.SystemColors.MenuHighlight;
+            this.Estadisticas.Font = new System.Drawing.Font("Calibri Light", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Estadisticas.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.Estadisticas.Margin = new System.Windows.Forms.Padding(0, 0, 0, 1);
+            this.Estadisticas.Name = "Estadisticas";
+            this.Estadisticas.Padding = new System.Windows.Forms.Padding(0);
+            this.Estadisticas.Size = new System.Drawing.Size(98, 30);
+            this.Estadisticas.Text = "Estadisticas";
+            this.Estadisticas.Click += new System.EventHandler(this.bleh_Click);
             // 
             // blih
             // 
@@ -282,26 +264,26 @@
             this.blih.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripMenuItem2,
             this.toolStripMenuItem3});
-            this.blih.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
+            this.blih.Font = new System.Drawing.Font("Calibri Light", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.blih.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.blih.Margin = new System.Windows.Forms.Padding(0, 0, 0, 1);
             this.blih.Name = "blih";
             this.blih.Padding = new System.Windows.Forms.Padding(0);
-            this.blih.Size = new System.Drawing.Size(98, 80);
+            this.blih.Size = new System.Drawing.Size(98, 30);
             this.blih.Text = "Blih";
             // 
             // toolStripMenuItem2
             // 
             this.toolStripMenuItem2.BackColor = System.Drawing.Color.White;
             this.toolStripMenuItem2.Name = "toolStripMenuItem2";
-            this.toolStripMenuItem2.Size = new System.Drawing.Size(272, 30);
+            this.toolStripMenuItem2.Size = new System.Drawing.Size(244, 28);
             this.toolStripMenuItem2.Text = "Reg Usuarios";
             // 
             // toolStripMenuItem3
             // 
             this.toolStripMenuItem3.BackColor = System.Drawing.Color.White;
             this.toolStripMenuItem3.Name = "toolStripMenuItem3";
-            this.toolStripMenuItem3.Size = new System.Drawing.Size(272, 30);
+            this.toolStripMenuItem3.Size = new System.Drawing.Size(244, 28);
             this.toolStripMenuItem3.Text = "Reg LLegada Destino";
             // 
             // bloh
@@ -311,26 +293,26 @@
             this.bloh.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripMenuItem14,
             this.toolStripMenuItem15});
-            this.bloh.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
+            this.bloh.Font = new System.Drawing.Font("Calibri Light", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.bloh.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.bloh.Margin = new System.Windows.Forms.Padding(0, 0, 0, 1);
             this.bloh.Name = "bloh";
             this.bloh.Padding = new System.Windows.Forms.Padding(0);
-            this.bloh.Size = new System.Drawing.Size(98, 80);
+            this.bloh.Size = new System.Drawing.Size(98, 30);
             this.bloh.Text = "Bloh";
             // 
             // toolStripMenuItem14
             // 
             this.toolStripMenuItem14.BackColor = System.Drawing.Color.White;
             this.toolStripMenuItem14.Name = "toolStripMenuItem14";
-            this.toolStripMenuItem14.Size = new System.Drawing.Size(272, 30);
+            this.toolStripMenuItem14.Size = new System.Drawing.Size(244, 28);
             this.toolStripMenuItem14.Text = "Reg Usuarios";
             // 
             // toolStripMenuItem15
             // 
             this.toolStripMenuItem15.BackColor = System.Drawing.Color.White;
             this.toolStripMenuItem15.Name = "toolStripMenuItem15";
-            this.toolStripMenuItem15.Size = new System.Drawing.Size(272, 30);
+            this.toolStripMenuItem15.Size = new System.Drawing.Size(244, 28);
             this.toolStripMenuItem15.Text = "Reg LLegada Destino";
             // 
             // bluh
@@ -340,38 +322,27 @@
             this.bluh.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripMenuItem11,
             this.toolStripMenuItem12});
-            this.bluh.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
+            this.bluh.Font = new System.Drawing.Font("Calibri Light", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.bluh.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.bluh.Margin = new System.Windows.Forms.Padding(0, 0, 0, 1);
             this.bluh.Name = "bluh";
             this.bluh.Padding = new System.Windows.Forms.Padding(0);
-            this.bluh.Size = new System.Drawing.Size(98, 80);
+            this.bluh.Size = new System.Drawing.Size(98, 30);
             this.bluh.Text = "Bluh";
             // 
             // toolStripMenuItem11
             // 
             this.toolStripMenuItem11.BackColor = System.Drawing.Color.White;
             this.toolStripMenuItem11.Name = "toolStripMenuItem11";
-            this.toolStripMenuItem11.Size = new System.Drawing.Size(272, 30);
+            this.toolStripMenuItem11.Size = new System.Drawing.Size(244, 28);
             this.toolStripMenuItem11.Text = "Reg Usuarios";
             // 
             // toolStripMenuItem12
             // 
             this.toolStripMenuItem12.BackColor = System.Drawing.Color.White;
             this.toolStripMenuItem12.Name = "toolStripMenuItem12";
-            this.toolStripMenuItem12.Size = new System.Drawing.Size(272, 30);
+            this.toolStripMenuItem12.Size = new System.Drawing.Size(244, 28);
             this.toolStripMenuItem12.Text = "Reg LLegada Destino";
-            // 
-            // blah
-            // 
-            this.blah.AutoSize = false;
-            this.blah.BackColor = System.Drawing.SystemColors.MenuHighlight;
-            this.blah.Font = new System.Drawing.Font("Calibri Light", 15F);
-            this.blah.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.blah.Margin = new System.Windows.Forms.Padding(0, 0, 0, 1);
-            this.blah.Name = "blah";
-            this.blah.Padding = new System.Windows.Forms.Padding(0);
-            this.blah.Size = new System.Drawing.Size(98, 22);
-            this.blah.Text = "Estadisticas";
             // 
             // panel
             // 
@@ -381,7 +352,7 @@
             this.panel.BackColor = System.Drawing.Color.Gainsboro;
             this.panel.Location = new System.Drawing.Point(100, 0);
             this.panel.Name = "panel";
-            this.panel.Size = new System.Drawing.Size(772, 516);
+            this.panel.Size = new System.Drawing.Size(785, 570);
             this.panel.TabIndex = 4;
             // 
             // menuPanel
@@ -392,7 +363,7 @@
             this.menuPanel.Controls.Add(this.menu);
             this.menuPanel.Location = new System.Drawing.Point(0, 0);
             this.menuPanel.Name = "menuPanel";
-            this.menuPanel.Size = new System.Drawing.Size(117, 516);
+            this.menuPanel.Size = new System.Drawing.Size(117, 570);
             this.menuPanel.TabIndex = 5;
             // 
             // Main
@@ -400,7 +371,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(872, 516);
+            this.ClientSize = new System.Drawing.Size(885, 570);
             this.Controls.Add(this.panel);
             this.Controls.Add(this.menuPanel);
             this.ForeColor = System.Drawing.SystemColors.ControlText;
@@ -434,10 +405,7 @@
         protected System.Windows.Forms.ToolStripMenuItem bAuditoria;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem5;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem6;
-        protected System.Windows.Forms.ToolStripMenuItem blah;
-        protected System.Windows.Forms.ToolStripMenuItem bleh;
-        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem17;
-        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem18;
+        protected System.Windows.Forms.ToolStripMenuItem Estadisticas;
         protected System.Windows.Forms.ToolStripMenuItem bloh;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem15;
         protected System.Windows.Forms.ToolStripMenuItem bluh;
