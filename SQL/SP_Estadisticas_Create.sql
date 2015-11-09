@@ -61,6 +61,16 @@ AS
 
 		 ELSE IF @Opcion=3
 		 BEGIN
+			SELECT TOP 5 (SELECT Cliente_Nombre FROM THE_BTREES.Cliente WHERE ClienteID=M.Tran_ClienteRef) AS Cliente,
+			       SUM(M.CantMillas) AS 'Cantidad de millas disponibles'
+			FROM (SELECT E.Tran_ClienteRef,
+    					 (CASE 
+						  WHEN E.Tran_CanjeRef IS NULL THEN E.Tran_CantidadMillas
+						  ELSE 0-E.Tran_CantidadMillas
+						  END) AS CantMillas
+				  FROM THE_BTREES.TransaccionesMillas E ) M 
+			GROUP BY M.Tran_ClienteRef
+			ORDER BY SUM(M.CantMillas) DESC
 		 RETURN
 		 END
 
