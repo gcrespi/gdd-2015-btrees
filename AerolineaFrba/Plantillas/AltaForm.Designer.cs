@@ -39,7 +39,7 @@
             this.btnGuardar.FlatAppearance.BorderSize = 0;
             this.btnGuardar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnGuardar.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnGuardar.Location = new System.Drawing.Point(699, 404);
+            this.btnGuardar.Location = new System.Drawing.Point(563, 404);
             this.btnGuardar.Name = "btnGuardar";
             this.btnGuardar.Size = new System.Drawing.Size(107, 56);
             this.btnGuardar.TabIndex = 3;
@@ -67,7 +67,7 @@
             this.btnCancelar.FlatAppearance.BorderSize = 0;
             this.btnCancelar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCancelar.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCancelar.Location = new System.Drawing.Point(541, 404);
+            this.btnCancelar.Location = new System.Drawing.Point(701, 404);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(107, 56);
             this.btnCancelar.TabIndex = 4;
@@ -85,7 +85,7 @@
             this.Controls.Add(this.btnGuardar);
             this.Name = "AltaForm";
             this.Text = "Alta";
-            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.AltaForm_FormClosing);
+            this.Load += new System.EventHandler(this.AltaForm_Load);
             this.ResumeLayout(false);
 
         }

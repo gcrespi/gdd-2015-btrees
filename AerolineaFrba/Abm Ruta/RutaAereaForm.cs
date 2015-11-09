@@ -35,10 +35,5 @@ namespace AerolineaFrba.Abm_Ruta
         {
             return new UctrlRuta();
         }
-
-        protected override AltaForm nuevoAlta()
-        {
-            return new AltaRutaForm();
-        }
     }
 }

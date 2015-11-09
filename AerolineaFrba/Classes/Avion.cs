@@ -5,7 +5,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Data;
 using System.Data.SqlClient;
-
+using AerolineaFrba.Abm_Aeronave;
+using sql = System.Data.SqlClient;
 
 namespace AerolineaFrba
 {
@@ -20,6 +21,84 @@ namespace AerolineaFrba
             da.SelectCommand.Parameters.AddWithValue("@Fecha",DateTime.Today);
             da.Fill(ds);
             return ds;
+        }
+
+        internal static DataTable getWithServicioAndButacas(int AeronaveID)
+        {
+            DataTable dt = new DataTable();
+            string strProc = "THE_BTREES.TraerAvionConServicioYButacas";
+
+            using (var da = new sql.SqlDataAdapter(strProc, Conexion.strCon))
+            {
+                da.SelectCommand.CommandType = CommandType.StoredProcedure;
+                da.SelectCommand.Parameters.AddWithValue("@AvionID", AeronaveID);
+                da.Fill(dt);
+            }
+
+            return dt;
+        }
+
+        public static void darAlta(UctrlAeronave avionAttrs)
+        {
+            using (var conn = new SqlConnection(Conexion.strCon))
+            using (var command = new SqlCommand("THE_BTREES.Crear_Avion", conn)
+            {
+                CommandType = CommandType.StoredProcedure
+            })
+            {
+                command.Parameters.AddWithValue("@Avion_FechaDeAlta", avionAttrs.FechaAlta);
+                command.Parameters.AddWithValue("@Avion_Modelo", avionAttrs.Modelo);
+                command.Parameters.AddWithValue("@Avion_Matricula", avionAttrs.Matricula);
+                command.Parameters.AddWithValue("@Avion_Fabricante", avionAttrs.Fabricante);
+                command.Parameters.AddWithValue("@Avion_TipoDeServicioRef", avionAttrs.TipoDeServicio);
+                command.Parameters.AddWithValue("@Avion_CantidadKgsDisponibles", avionAttrs.KgsEncomienda);
+                command.Parameters.AddWithValue("@Butacas_Pasillo", avionAttrs.ButacasPasillo);
+                command.Parameters.AddWithValue("@Butacas_Ventana", avionAttrs.ButacasVentana);
+
+                conn.Open();
+                command.ExecuteNonQuery();
+                conn.Close();
+            }
+        }
+
+        public static void darBajaLogica(UctrlAeronave avionAttrs)
+        {
+            using (var conn = new SqlConnection(Conexion.strCon))
+            using (var command = new SqlCommand("THE_BTREES.DarDeBaja_Avion", conn)
+            {
+                CommandType = CommandType.StoredProcedure
+            })
+            {
+                command.Parameters.AddWithValue("@AvionID", avionAttrs.AeronaveID);
+                command.Parameters.AddWithValue("@Avion_FechaDeBajaDefinitiva", avionAttrs.FechaBaja);
+                conn.Open();
+                command.ExecuteNonQuery();
+                conn.Close();
+            }
+        }
+
+        public static void darModif(UctrlAeronave avionAttrs)
+        {
+            using (var conn = new SqlConnection(Conexion.strCon))
+            using (var command = new SqlCommand("THE_BTREES.Modificar_Avion", conn)
+            {
+                CommandType = CommandType.StoredProcedure
+            })
+            {
+                command.Parameters.AddWithValue("@AvionID", avionAttrs.AeronaveID);
+                command.Parameters.AddWithValue("@Avion_FechaDeAlta", avionAttrs.FechaAlta);
+                command.Parameters.AddWithValue("@Avion_Modelo", avionAttrs.Modelo);
+                command.Parameters.AddWithValue("@Avion_Matricula", avionAttrs.Matricula);
+                command.Parameters.AddWithValue("@Avion_Fabricante", avionAttrs.Fabricante);
+                command.Parameters.AddWithValue("@Avion_TipoDeServicioRef", avionAttrs.TipoDeServicio);
+                command.Parameters.AddWithValue("@Avion_CantidadKgsDisponibles", avionAttrs.KgsEncomienda);
+                command.Parameters.AddWithValue("@Butacas_Pasillo", avionAttrs.ButacasPasillo);
+                command.Parameters.AddWithValue("@Butacas_Ventana", avionAttrs.ButacasVentana);
+
+                conn.Open();
+                command.ExecuteNonQuery();
+                conn.Close();
+            }
         }
 
         public static DataTable TraerAvionesMatricula()

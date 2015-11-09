@@ -1,5 +1,4 @@
-﻿using AerolineaFrba.Abm_Ruta;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -9,7 +8,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using AerolineaFrba.Plantillas;
-using AerolineaFrba.Abm_Rol;
+using AerolineaFrba.Filtros;
+using AerolineaFrba.Abm;
 
 namespace AerolineaFrba.Abm_Aeronave
 {
@@ -21,14 +21,19 @@ namespace AerolineaFrba.Abm_Aeronave
             InitializeComponent();
         }
 
+        protected override FiltroControl filtroControl()
+        {
+            return new UctrlFiltrosAeronave();
+        }
+
+        protected override IAbmControl abmControl()
+        {
+            return new UctrlAeronave();
+        }
+
         private void button1_Click(object sender, EventArgs e)
         {
 
-        }
-
-        protected override AltaForm nuevoAlta()
-        {
-            return new AltaAeronaveForm();
         }
     }
 }

@@ -35,27 +35,27 @@ GO
 
 CREATE VIEW THE_BTREES.Viaje_Pasajes_Vendidos
 AS
-SELECT P.Pasaje_ViajeRef AS Viaje,
+SELECT V.ViajeID AS Viaje,
 	   B.CantidadDeButacas,
 	   B.CantidadDeButacas -  COUNT(P.PasajeID) AS ButacasDisponibles
 FROM THE_BTREES.Pasaje P
-INNER JOIN THE_BTREES.Viaje V ON V.ViajeID = P.Pasaje_ViajeRef
-INNER JOIN (SELECT Butaca_AvionRef AS Avion,
+RIGHT JOIN THE_BTREES.Viaje V ON V.ViajeID = P.Pasaje_ViajeRef
+RIGHT JOIN (SELECT Butaca_AvionRef AS Avion,
 					COUNT(ButacaID) AS CantidadDeButacas
             FROM THE_BTREES.Butaca
 			GROUP BY Butaca_AvionRef) B ON V.Viaje_AvionRef=B.Avion
 WHERE P.Pasaje_CancelacionRef IS NULL
-GROUP BY P.Pasaje_ViajeRef,B.CantidadDeButacas
+GROUP BY V.ViajeID,B.CantidadDeButacas
 GO
 
 CREATE VIEW THE_BTREES.kg_Dispo_Por_Viaje
 AS
 	   SELECT v.ViajeID,
 			  A.Avion_CantidadKgsDisponibles AS KSTotales,
-			 (A.Avion_CantidadKgsDisponibles-(SUM(E.Enco_KG))) AS KGDisponibles
+			 (A.Avion_CantidadKgsDisponibles-(SUM(ISNULL(E.Enco_KG,0)))) AS KGDisponibles
 	   FROM THE_BTREES.Avion A
 	   INNER JOIN THE_BTREES.Viaje V ON A.AvionID=V.Viaje_AvionRef
-	   INNER JOIN THE_BTREES.Encomienda E ON E.Enco_ViajeRef=V.ViajeID
+	   LEFT JOIN THE_BTREES.Encomienda E ON E.Enco_ViajeRef=V.ViajeID
 	   WHERE E.Enco_CancelacionRef IS NULL
 	   GROUP BY E.Enco_ViajeRef,A.Avion_CantidadKgsDisponibles,V.ViajeID
 

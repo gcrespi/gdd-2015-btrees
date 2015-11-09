@@ -35,11 +35,6 @@ namespace AerolineaFrba.Abm_Rol
             return new UctrlRol();
         }
 
-        protected override AltaForm nuevoAlta()
-        {
-            return new AltaRolForm();
-        }
-
         private void btnModificar_Click(object sender, EventArgs e)
         {
 

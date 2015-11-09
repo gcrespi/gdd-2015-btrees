@@ -289,19 +289,19 @@ WHERE Paquete_Codigo<>0
 /************ INSERT Usuarios ******* *******/
 BEGIN TRAN
 INSERT INTO THE_BTREES.Funcionalidades (Funcionalidad_Nombre) VALUES 
-	('ABM de Rol'),
+	('ABM Rol'),
 	('Login y seguridad'),
-	('Registro de Usuario'),
-	('ABM de Ciudad'),
-	('ABM de Ruta Aérea'),
-	('ABM de Aeronave'),
-	('Generación de Viaje'),
-	('Registro de llegada a Destino'),
-	('Compra de pasaje/encomienda'),
-	('Devolución/Cancelación de pasaje y/o encomienda'),
-	('Canje de millas'),
-	('Consulta de millas de pasajero frecuente'),
-	('Listado Estadístico')
+	('Reg Usuario'),
+	('ABM Ciudad'),
+	('ABM Ruta Aerea'),
+	('ABM Aeronave'),
+	('Generar Viaje'),
+	('Reg Llegada Destino'),
+	('Comprar'),
+	('Cancelacion'),
+	('Canje de Millas'),
+	('Consulta de Millas'),
+	('Estadisticas')
 
 INSERT INTO THE_BTREES.Roles (Rol_Nombre, Rol_Activo) VALUES 
 	('Administrador General', 1),

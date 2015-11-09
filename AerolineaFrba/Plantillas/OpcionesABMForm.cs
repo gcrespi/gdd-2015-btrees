@@ -33,11 +33,6 @@ namespace AerolineaFrba
             return new UctrlRol();
         }
 
-        protected virtual AltaForm nuevoAlta()
-        {
-            return new AltaForm();
-        }
-
         private void btnListar_Click(object sender, EventArgs e)
         {
             this.crearListadoForm(new DetalleForm(this.abmControl()));
@@ -55,7 +50,7 @@ namespace AerolineaFrba
 
         private void btnAgregar_Click(object sender, EventArgs e)
         {
-            AltaForm frmDetalle = this.nuevoAlta();
+            AltaForm frmDetalle = new AltaForm(this.abmControl());
             frmDetalle.StartPosition = FormStartPosition.CenterScreen;
             frmDetalle.Show();
         }

@@ -10,11 +10,19 @@ namespace AerolineaFrba.Filtros
     class FiltroChb : Filtro
     {
         private CheckBox chbFiltro;
+        public bool DefaultValue { get; set; } 
 
         public FiltroChb(CheckBox chbFiltro, String campo) 
             :base(campo)
         {
             this.chbFiltro = chbFiltro;
+            DefaultValue = true;
+        }
+
+        public FiltroChb(CheckBox chbFiltro, String campo, bool defaultValue)
+            : this(chbFiltro, campo)
+        {
+            DefaultValue = defaultValue;
         }
 
         public override String whereClause()
@@ -24,7 +32,7 @@ namespace AerolineaFrba.Filtros
 
         public override void limpiar()
         {
-            chbFiltro.Checked = true;
+            chbFiltro.Checked = DefaultValue;
         }
     }
 }

@@ -25,7 +25,9 @@ AS
 	   IF @CiudadOrigen=0 
 			SET @CiudadOrigen=NULL
 
-	   IF CAST(@Fecha AS DATE)= CAST('2000-01-01' AS DATE)
+		SET @Fecha = CAST(@Fecha AS DATE)
+
+	   IF @Fecha = '2000-01-01'
 			SET @Fecha=NULL
 
 	   SELECT V.ViajeID,
@@ -33,7 +35,6 @@ AS
 			  (SELECT Ciudad_Nombre FROM THE_BTREES.Ciudad WHERE CiudadID=R.Ruta_CiudadDestinoRef) AS 'Ciudad Destino',
 			  V.Viaje_FechaSalida AS 'Fecha Salida',
 			  V.Viaje_FechaLlegadaEstimada AS 'Fecha LLegada Estimada',
-			  --A.Avion_Matricula AS Avión,
 			  T.TipoSer_Nombre AS 'Tipo De Servicio',
 			  W.ButacasDisponibles AS 'Cant Butacas Disponibles',
 			  '$' + CAST((R.Ruta_PrecioBasePasaje*(1+T.TipoSer_PorcentajeAdicional)) AS varchar) AS 'Precio Pasaje',
@@ -42,8 +43,8 @@ AS
 	   FROM THE_BTREES.Viaje V
 	   INNER JOIN THE_BTREES.RutaAerea R ON R.RutaAereaID = V.Viaje_RutaAereaRef
 	   INNER JOIN THE_BTREES.Avion A ON A.AvionID = V.Viaje_AvionRef AND A.Avion_TipoDeServicioRef=ISNULL(@TipoServicio,a.Avion_TipoDeServicioRef)
-	   INNER JOIN THE_BTREES.Viaje_Pasajes_Vendidos W ON W.Viaje=V.ViajeID
-	   INNER JOIN THE_BTREES.kg_Dispo_Por_Viaje K ON K.ViajeID=V.ViajeID
+	   LEFT JOIN THE_BTREES.Viaje_Pasajes_Vendidos W ON W.Viaje=V.ViajeID
+	   LEFT JOIN THE_BTREES.kg_Dispo_Por_Viaje K ON K.ViajeID=V.ViajeID
 	   INNER JOIN THE_BTREES.TipoServicio T ON T.TipoServicioID=A.Avion_TipoDeServicioRef
 	   WHERE CAST(V.Viaje_FechaSalida AS DATE)=ISNULL(CAST(@Fecha AS DATE),CAST(V.Viaje_FechaSalida AS DATE)) AND 
 			 R.Ruta_CiudadDestinoRef=ISNULL(@CiudadDestino,R.Ruta_CiudadDestinoRef) AND 
