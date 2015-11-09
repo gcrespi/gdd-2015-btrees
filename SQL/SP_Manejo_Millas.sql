@@ -59,10 +59,9 @@ BEGIN
 	DECLARE 
 		@Tran_CanjeRef int,
 		@CantidadMillas int,
-		@Tran_Fecha datetime,
-		@CantidadMillasDisponibles int		
+		@Tran_Fecha datetime
 
-	SET @CantidadMillasDisponibles = 0
+	SET @CantMillasDisponibles = 0
 	
 	DECLARE cursorTrans CURSOR FOR  SELECT M.Tran_CanjeRef, M.Tran_CantidadMillas, M.Tran_Fecha
 									FROM THE_BTREES.TransaccionesMillas M
@@ -81,11 +80,11 @@ BEGIN
 		BEGIN
 			IF @Tran_CanjeRef IS NULL
 			BEGIN
-				SET @CantidadMillasDisponibles = @CantidadMillasDisponibles + @CantidadMillas
+				SET @CantMillasDisponibles = @CantMillasDisponibles + @CantidadMillas
 			END
 			ELSE
 			BEGIN
-				SET @CantidadMillasDisponibles = @CantidadMillasDisponibles - @CantidadMillas
+				SET @CantMillasDisponibles = @CantMillasDisponibles - @CantidadMillas
 			END
 		END
 
