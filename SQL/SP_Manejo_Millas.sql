@@ -64,6 +64,7 @@ BEGIN
 		@Tran_CanjeRef int,
 		@CantidadMillas int,
 		@Tran_Fecha datetime
+	SET @CantMillasDisponibles=0		
 
 	SET @CantMillasDisponibles = 0
 	
