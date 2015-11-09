@@ -148,9 +148,7 @@ namespace AerolineaFrba.Abm_Ruta
         }
 
         public void blockKeyAttrs()
-        {
-            //TODO ver si hace falta codigo de Ruta
-        }
+        {}
 
         public bool validateAttrs()
         {

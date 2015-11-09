@@ -1,4 +1,5 @@
-﻿using System;
+﻿using AerolineaFrba.Utils;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -34,7 +35,7 @@ namespace AerolineaFrba.Compras
             cboCiudadDestino.DisplayMember = "Ciudad_Nombre";
             cboCiudadDestino.ValueMember = "CiudadID";
             cboCiudadDestino.SelectedValue = 0;
-            timePickerFecha.MinDate = DateTime.Today;
+            timePickerFecha.MinDate = Config.dateTimeNow;
             timePickerFecha.Enabled = false;
         }
 

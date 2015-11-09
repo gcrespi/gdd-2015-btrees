@@ -25,7 +25,9 @@ AS
 	   IF @CiudadOrigen=0 
 			SET @CiudadOrigen=NULL
 
-	   IF CAST(@Fecha AS DATE)= CAST('2000-01-01' AS DATE)
+		SET @Fecha = CAST(@Fecha AS DATE)
+
+	   IF @Fecha = '2000-01-01'
 			SET @Fecha=NULL
 
 	   SELECT V.ViajeID,
@@ -42,7 +44,7 @@ AS
 	   INNER JOIN THE_BTREES.Avion A ON A.AvionID = V.Viaje_AvionRef AND A.Avion_TipoDeServicioRef=ISNULL(@TipoServicio,a.Avion_TipoDeServicioRef)
 	   INNER JOIN THE_BTREES.Viaje_Pasajes_Vendidos W ON W.Viaje=V.ViajeID
 	   INNER JOIN THE_BTREES.kg_Dispo_Por_Viaje K ON K.ViajeID=V.ViajeID
-	   WHERE V.Viaje_FechaSalida=ISNULL(@Fecha,V.Viaje_FechaSalida) AND R.Ruta_CiudadDestinoRef=ISNULL(@CiudadDestino,R.Ruta_CiudadDestinoRef) 
+	   WHERE CAST(V.Viaje_FechaSalida AS DATE) = ISNULL(@Fecha,CAST(V.Viaje_FechaSalida AS DATE)) AND R.Ruta_CiudadDestinoRef=ISNULL(@CiudadDestino,R.Ruta_CiudadDestinoRef) 
 			AND R.Ruta_CiudadOrigenRef=ISNULL(@CiudadOrigen,R.Ruta_CiudadOrigenRef) AND W.ButacasDisponibles>0
 	   ORDER BY V.Viaje_FechaLlegada
 	   END

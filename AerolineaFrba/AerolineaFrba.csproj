@@ -53,11 +53,17 @@
     <Compile Include="Abm Aeronave\ABMAeronave.Designer.cs">
       <DependentUpon>ABMAeronave.cs</DependentUpon>
     </Compile>
-    <Compile Include="Abm Aeronave\ListadoAeronaveForm.cs">
-      <SubType>Form</SubType>
+    <Compile Include="Abm Aeronave\UctrlAeronave.cs">
+      <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Abm Aeronave\ListadoAeronaveForm.Designer.cs">
-      <DependentUpon>ListadoAeronaveForm.cs</DependentUpon>
+    <Compile Include="Abm Aeronave\UctrlAeronave.Designer.cs">
+      <DependentUpon>UctrlAeronave.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Abm Aeronave\UctrlFiltrosAeronave.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Abm Aeronave\UctrlFiltrosAeronave.Designer.cs">
+      <DependentUpon>UctrlFiltrosAeronave.cs</DependentUpon>
     </Compile>
     <Compile Include="Abm Ciudad\Form1.cs">
       <SubType>Form</SubType>
@@ -156,6 +162,7 @@
     <Compile Include="Consulta Millas\Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Filtros\FiltroDtp.cs" />
     <Compile Include="Filtros\FiltroCbo.cs" />
     <Compile Include="Filtros\FiltroChb.cs" />
     <Compile Include="Filtros\FiltroChlb.cs" />
@@ -212,11 +219,18 @@
     <Compile Include="Utils\ComboBoxWithAllOption.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="Utils\Config.cs" />
     <Compile Include="Utils\DecimalBox.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Utils\NumericBox.cs">
       <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Utils\DisableableDate.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Utils\DisableableDate.Designer.cs">
+      <DependentUpon>DisableableDate.cs</DependentUpon>
     </Compile>
     <Compile Include="_Examples\ExampleAltaForm.cs">
       <SubType>Form</SubType>
@@ -288,6 +302,12 @@
     <EmbeddedResource Include="Abm Aeronave\ABMAeronave.resx">
       <DependentUpon>ABMAeronave.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Abm Aeronave\UctrlAeronave.resx">
+      <DependentUpon>UctrlAeronave.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Abm Aeronave\UctrlFiltrosAeronave.resx">
+      <DependentUpon>UctrlFiltrosAeronave.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Abm Rol\RolForm.resx">
       <DependentUpon>RolForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -326,6 +346,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Plantillas\ModifForm.resx">
       <DependentUpon>ModifForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Utils\DisableableDate.resx">
+      <DependentUpon>DisableableDate.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="_Examples\ExampleAltaForm.resx">
       <DependentUpon>ExampleAltaForm.cs</DependentUpon>

@@ -73,9 +73,9 @@
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(161, 13);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(40, 13);
+            this.label3.Size = new System.Drawing.Size(72, 13);
             this.label3.TabIndex = 2;
-            this.label3.Text = "Fecha:";
+            this.label3.Text = "Fecha Salida:";
             // 
             // label4
             // 
@@ -125,7 +125,7 @@
             // timePickerFecha
             // 
             this.timePickerFecha.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.timePickerFecha.Location = new System.Drawing.Point(208, 10);
+            this.timePickerFecha.Location = new System.Drawing.Point(239, 10);
             this.timePickerFecha.Name = "timePickerFecha";
             this.timePickerFecha.Size = new System.Drawing.Size(98, 20);
             this.timePickerFecha.TabIndex = 8;
@@ -170,7 +170,7 @@
             // checkBoxFecha
             // 
             this.checkBoxFecha.AutoSize = true;
-            this.checkBoxFecha.Location = new System.Drawing.Point(313, 12);
+            this.checkBoxFecha.Location = new System.Drawing.Point(344, 12);
             this.checkBoxFecha.Name = "checkBoxFecha";
             this.checkBoxFecha.Size = new System.Drawing.Size(99, 17);
             this.checkBoxFecha.TabIndex = 12;
