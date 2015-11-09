@@ -17,7 +17,6 @@ namespace AerolineaFrba
         public int numTarjeta { get; set; }
         public int codSeg { get; set; }
         public DateTime fechaVenc { get; set; }
-        public double precio { get; set; }
         public int viajeRef { get; set; }
         public int cantPasajes { get; set; }
         public List<Pasajero> pasajeros { get; set; }
@@ -115,7 +114,7 @@ namespace AerolineaFrba
             comando.Transaction = tran;
             comando.CommandType = CommandType.StoredProcedure;
             comando.Parameters.AddWithValue("@dtPasajeros", Pasajero.ToDataTable(pasajeros));
-            comando.Parameters.AddWithValue("@precio", precio);
+            comando.Parameters.AddWithValue("@precio", precioPasaje);
             comando.Parameters.AddWithValue("@compraRef", compraRef);
             comando.Parameters.AddWithValue("@viajeRef", viajeRef);
             comando.ExecuteNonQuery();
@@ -128,7 +127,7 @@ namespace AerolineaFrba
             comando.Transaction = tran;
             comando.CommandType = CommandType.StoredProcedure;
             comando.Parameters.AddWithValue("@kg", kg);
-            comando.Parameters.AddWithValue("@precio", precio);
+            comando.Parameters.AddWithValue("@precio", precioXKg*kg);
             comando.Parameters.AddWithValue("@compraRef", compraRef);
             comando.Parameters.AddWithValue("@dtResponsable", Cliente.ToDataTable(encomiendaResp));
             comando.Parameters.AddWithValue("@viajeRef", viajeRef);
