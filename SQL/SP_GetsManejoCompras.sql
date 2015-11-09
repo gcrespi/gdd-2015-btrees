@@ -45,7 +45,7 @@ AS
 	   INNER JOIN THE_BTREES.Viaje_Pasajes_Vendidos W ON W.Viaje=V.ViajeID
 	   INNER JOIN THE_BTREES.kg_Dispo_Por_Viaje K ON K.ViajeID=V.ViajeID
 	   INNER JOIN THE_BTREES.TipoServicio T ON T.TipoServicioID=A.Avion_TipoDeServicioRef
-	   WHERE CAST(V.Viaje_FechaSalida AS DATE)=ISNULL(CAST(@Fecha AS DATE),V.Viaje_FechaSalida) AND 
+	   WHERE CAST(V.Viaje_FechaSalida AS DATE)=ISNULL(CAST(@Fecha AS DATE),CAST(V.Viaje_FechaSalida AS DATE)) AND 
 			 R.Ruta_CiudadDestinoRef=ISNULL(@CiudadDestino,R.Ruta_CiudadDestinoRef) AND 
 			 R.Ruta_CiudadOrigenRef=ISNULL(@CiudadOrigen,R.Ruta_CiudadOrigenRef) AND
 			 W.ButacasDisponibles>0

@@ -55,7 +55,7 @@ AS
     BEGIN
 	   SET NOCOUNT ON
 
-	   IF (@Avion IN (SELECT Viaje_AvionRef FROM THE_BTREES.Viaje WHERE @FechaSalida BETWEEN Viaje_FechaSalida AND Viaje_FechaLlegada))
+	   IF (@Avion IN (SELECT Viaje_AvionRef FROM THE_BTREES.Viaje WHERE @FechaSalida BETWEEN Viaje_FechaSalida AND Viaje_FechaLlegadaEstimada))
 			  BEGIN
 			  RAISERROR ('Avion Ocupado en otro Viaje', 11,1)
 			  RETURN
@@ -77,4 +77,3 @@ AS
 	   END
 	END
 GO
-
