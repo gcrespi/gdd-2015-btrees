@@ -15,6 +15,7 @@ CREATE PROCEDURE [THE_BTREES].[AddTranMillas]
 	@Fecha datetime
 AS
 BEGIN
+	IF @Tran_CanjeRef Is
 	INSERT INTO THE_BTREES.TransaccionesMillas 
 	( 
 		Tran_CanjeRef,
@@ -61,7 +62,9 @@ BEGIN
 		@Tran_Fecha datetime,
 		@CantidadMillasDisponibles int		
 
-	DECLARE cursorTrans CURSOR FOR SELECT M.Tran_CanjeRef, M.Tran_CantidadMillas, M.Tran_Fecha
+	SET @CantidadMillasDisponibles = 0
+	
+	DECLARE cursorTrans CURSOR FOR  SELECT M.Tran_CanjeRef, M.Tran_CantidadMillas, M.Tran_Fecha
 									FROM THE_BTREES.TransaccionesMillas M
 									WHERE M.Tran_ClienteRef = @ClienteRef
 	OPEN cursorTrans
