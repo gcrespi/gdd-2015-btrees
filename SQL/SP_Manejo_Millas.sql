@@ -15,25 +15,29 @@ CREATE PROCEDURE [THE_BTREES].[AddTranMillas]
 	@Fecha datetime
 AS
 BEGIN
-	IF @Tran_CanjeRef Is
-	INSERT INTO THE_BTREES.TransaccionesMillas 
-	( 
-		Tran_CanjeRef,
-		Tran_ClienteRef,
-		Tran_EncomiendaRef,
-		Tran_PasajeRef,
-		Tran_CantidadMillas,
-		Tran_Fecha
-	)
-	VALUES
-	(
-		@Tran_CanjeRef,
-		@Tran_ClienteRef,
-		@Tran_EncomiendaRef,
-		@Tran_PasajeRef,
-		@CantidadMillas,
-		@Fecha
-	)
+	IF @Tran_CanjeRef IS NOT NULL OR 
+	   @Tran_EncomiendaRef IS NOT NULL OR 
+	   @Tran_PasajeRef IS NOT NULL
+	BEGIN
+		INSERT INTO THE_BTREES.TransaccionesMillas 
+		( 
+			Tran_CanjeRef,
+			Tran_ClienteRef,
+			Tran_EncomiendaRef,
+			Tran_PasajeRef,
+			Tran_CantidadMillas,
+			Tran_Fecha
+		)
+		VALUES
+		(
+			@Tran_CanjeRef,
+			@Tran_ClienteRef,
+			@Tran_EncomiendaRef,
+			@Tran_PasajeRef,
+			@CantidadMillas,
+			@Fecha
+		)
+	END
 END
 GO
 
