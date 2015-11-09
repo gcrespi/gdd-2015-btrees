@@ -18,6 +18,7 @@ namespace AerolineaFrba
             SqlCommand comando = new SqlCommand(strProc, objConexion);
             comando.CommandType = CommandType.StoredProcedure;
             comando.Parameters.AddWithValue("@CompraID", idCompra);
+            comando.Parameters.AddWithValue("@Fecha", DateTime.Today);
             SqlParameter cantkg = new SqlParameter("@CantKg", 0);
             cantkg.Direction = ParameterDirection.Output;
             comando.Parameters.Add(cantkg);

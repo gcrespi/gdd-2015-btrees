@@ -3,7 +3,8 @@ IF  object_id(N'[THE_BTREES].[GetAeronavesParaCompraList]','P') IS NOT NULL
 	DROP PROCEDURE [THE_BTREES].[GetAeronavesParaCompraList]
 GO
 
-CREATE PROCEDURE [THE_BTREES].[GetAeronavesParaCompraList]		
+CREATE PROCEDURE [THE_BTREES].[GetAeronavesParaCompraList]	
+	@Fecha AS DATETIME	
 		
 AS
     BEGIN
@@ -13,7 +14,7 @@ AS
 			  (SELECT TipoSer_Nombre FROM THE_BTREES.TipoServicio WHERE A.Avion_TipoDeServicioRef=TipoServicioID) AS 'Tipo de Servicio',
 			  A.Avion_TipoDeServicioRef AS ServicioRef
 	   FROM THE_BTREES.Avion A
-	   WHERE (A.Avion_FechaDeBajaDefinitiva<GETDATE() OR A.Avion_FechaDeBajaDefinitiva IS NULL)  AND A.Avion_BajaPorFueraDeServicio=0 AND A.Avion_BajaPorVidaUtil=0
+	   WHERE (A.Avion_FechaDeBajaDefinitiva<@Fecha OR A.Avion_FechaDeBajaDefinitiva IS NULL)  AND A.Avion_BajaPorFueraDeServicio=0 AND A.Avion_BajaPorVidaUtil=0
 
 	   END
 GO

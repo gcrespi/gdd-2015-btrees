@@ -7,7 +7,8 @@ IF  object_id(N'[THE_BTREES].[GetPasajesDeCompraList]','P') IS NOT NULL
 GO
 
 CREATE PROCEDURE [THE_BTREES].[GetPasajesDeCompraList]		
-    @CompraID AS INT
+    @CompraID AS INT,
+	@Fecha AS DATETIME
 	
 AS
     BEGIN
@@ -19,7 +20,7 @@ AS
 			  P.Pasaje_Precio AS Precio
 	   FROM THE_BTREES.Pasaje P
 	   INNER JOIN THE_BTREES.Viaje V ON V.ViajeID = P.Pasaje_ViajeRef 
-	   WHERE P.Pasaje_CompraRef=@CompraID AND P.Pasaje_CancelacionRef IS NULL AND V.Viaje_FechaSalida>GETDATE()
+	   WHERE P.Pasaje_CompraRef=@CompraID AND P.Pasaje_CancelacionRef IS NULL AND V.Viaje_FechaSalida>@Fecha
 	   ORDER BY P.PasajeID
 	   END
 GO
@@ -34,6 +35,7 @@ GO
 
 CREATE PROCEDURE [THE_BTREES].[GetEncomiendaKGCompra]		
     @CompraID AS INT,
+	@Fecha AS DATETIME,
 	@CantKg AS SMALLINT OUTPUT
 	
 AS
@@ -44,7 +46,7 @@ AS
 	   SELECT @kg=E.Enco_KG
 	   FROM THE_BTREES.Encomienda E
 	   INNER JOIN THE_BTREES.Viaje V ON V.ViajeID = E.Enco_ViajeRef 
-	   WHERE E.Enco_CompraRef=@CompraID AND Enco_CancelacionRef IS NULL AND V.Viaje_FechaSalida>GETDATE()
+	   WHERE E.Enco_CompraRef=@CompraID AND Enco_CancelacionRef IS NULL AND V.Viaje_FechaSalida>@Fecha
 
 	   SELECT @CantKg=ISNULL(@kg,0)
 	   
@@ -60,6 +62,7 @@ CREATE PROCEDURE [THE_BTREES].[AddCancelacion]
     @CancelID AS INT OUTPUT,
 	@CompraID AS INT,
 	@Motivo AS VARCHAR(50),
+	@Fecha AS DATETIME,
 	@CancelEco bit
 	
 AS
@@ -72,7 +75,7 @@ AS
 	             Motivo
 	           )
 	   VALUES  ( @CompraID,
-	             GETDATE(),
+	             @Fecha,
 	             @Motivo
 	           )
 	   
