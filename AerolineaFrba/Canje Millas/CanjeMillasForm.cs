@@ -52,6 +52,8 @@ namespace AerolineaFrba.Canje_Millas
 
         private void btnCanjear_Click(object sender, EventArgs e)
         {
+            lCanjes = new List<Canje>();
+            sumaMillas = 0;
             foreach (DataGridViewRow row in dgvProductos.Rows)
             {
                 if (Convert.ToBoolean(row.Cells["Seleccionar"].Value))
@@ -64,6 +66,7 @@ namespace AerolineaFrba.Canje_Millas
                     Canje itm = new Canje();
                     itm.prodCantidad=Convert.ToInt32(row.Cells["CantProductos"].Value);
                     itm.prodId=Convert.ToInt32(row.Cells["ProductoID"].Value);
+                    itm.prodMillas = itm.prodCantidad * Convert.ToInt32(row.Cells["Producto_Millas"].Value);
                     sumaMillas += itm.prodCantidad * Convert.ToInt32(row.Cells["Producto_Millas"].Value);
                     lCanjes.Add(itm);
                 }

@@ -33,8 +33,8 @@ namespace AerolineaFrba.Compras
 
         private void CompraFormPago_Load(object sender, EventArgs e)
         {
-            dtpFechaVencimiento.MinDate = DateTime.Now;
-            dtpFechaNac.MaxDate = DateTime.Now;
+            dtpFechaVencimiento.MinDate = Config.dateTimeNow;
+            dtpFechaNac.MaxDate = Config.dateTimeNow;
             tbNom.Focus();
             cboTipoTarjeta.DataSource = TipoTarjeta.ListTipoTarjeta();
             cboTipoTarjeta.DisplayMember = "Descripcion";
@@ -70,10 +70,10 @@ namespace AerolineaFrba.Compras
         private void checkIfFilled()
         {
             if (tbNom.Text != "" && tbApe.Text != "" && tbDNI.Text != "" && tbDirec.Text != ""
-                && tbTel.Text != "" && tbMail.Text != "" && dtpFechaNac.Value.Date < DateTime.Now.Date)
+                && tbTel.Text != "" && tbMail.Text != "" && dtpFechaNac.Value.Date < Config.dateTimeNow.Date)
             {
-                if (rdTarjeta.Checked && updCuotas.Value != 0 && tbNroTarjeta.Text != "" &&
-                      tbCodSeg.Text != "")
+                if (rdTarjeta.Checked && updCuotas.Value != 0 && 
+                      tbNroTarjeta.Text != "" && tbCodSeg.Text != "")
                     btnContinue.Enabled = true;
                 else if (rdEfectivo.Checked)
                     btnContinue.Enabled = true;

@@ -17,6 +17,8 @@ namespace AerolineaFrba
             DataTable ds = new DataTable();
             string strSQL = "THE_BTREES.GetAeronavesParaCompraList";
             SqlDataAdapter da = new SqlDataAdapter(strSQL, Conexion.strCon);
+            da.SelectCommand.CommandType = CommandType.StoredProcedure;
+            da.SelectCommand.Parameters.AddWithValue("@Fecha",Config.dateTimeNow);
             da.Fill(ds);
             return ds;
         }

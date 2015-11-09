@@ -27,7 +27,7 @@ namespace AerolineaFrba.Compras
         private void CompraFormDatosPasajero_Load(object sender, EventArgs e)
         {
             lbTitulo.Text += " " + nroPasajero.ToString();
-            dtpFechaNac.MaxDate = DateTime.Now;
+            dtpFechaNac.MaxDate = Config.dateTimeNow; 
             cboButaca.DataSource = compra.butacasDisponibles;
             cboButaca.DisplayMember = "Butaca_Descr";
             cboButaca.ValueMember = "ButacaID";
@@ -43,7 +43,7 @@ namespace AerolineaFrba.Compras
         private void checkIfFilled()
         {
             if (tbNom.Text!="" && tbApe.Text!="" && tbDNI.Text!="" && tbDirec.Text!=""
-                && tbTel.Text!="" && tbMail.Text!="" && dtpFechaNac.Value.Date<DateTime.Now.Date)
+                && tbTel.Text!="" && tbMail.Text!="" && dtpFechaNac.Value.Date<Config.dateTimeNow)
                 btnContinue.Enabled = true;
             else
                 btnContinue.Enabled = false;
