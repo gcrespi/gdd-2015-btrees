@@ -70,7 +70,7 @@ namespace AerolineaFrba
                 comando.Parameters.AddWithValue("@CiudadOrigen", ciudadOrigen);
                 comando.Parameters.AddWithValue("@CiudadDestino", ciudadDestino);
                 comando.Parameters.AddWithValue("@FechaLlegada", fLle);
-                comando.Parameters.AddWithValue("@FechaActual", DateTime.Now);
+                comando.Parameters.AddWithValue("@FechaActual",Config.dateTimeNow);
                 SqlParameter param = new SqlParameter("@Resultado", SqlDbType.VarChar, 100);
                 param.Direction = ParameterDirection.Output;
                 comando.Parameters.Add(param);

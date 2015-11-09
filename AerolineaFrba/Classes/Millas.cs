@@ -18,7 +18,7 @@ namespace AerolineaFrba
             comando.CommandType = CommandType.StoredProcedure;
             comando.Parameters.AddWithValue("@Apellido", ape);
             comando.Parameters.AddWithValue("@DNI", dni);
-            comando.Parameters.AddWithValue("@Fecha", DateTime.Today);
+            comando.Parameters.AddWithValue("@Fecha", Config.dateTimeNow);
             SqlParameter idCli = new SqlParameter("@ClienteRef", 0);
             idCli.Direction = ParameterDirection.Output;
             comando.Parameters.Add(idCli);
@@ -43,7 +43,7 @@ namespace AerolineaFrba
             {
                 da.SelectCommand.CommandType = CommandType.StoredProcedure;
                 da.SelectCommand.Parameters.AddWithValue("@ClienteRef", clienteRef);
-                da.SelectCommand.Parameters.AddWithValue("@Fecha", DateTime.Now);
+                da.SelectCommand.Parameters.AddWithValue("@Fecha", Config.dateTimeNow);
                 da.Fill(dt);
             }
             return dt;

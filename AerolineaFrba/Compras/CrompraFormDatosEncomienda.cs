@@ -31,7 +31,7 @@ namespace AerolineaFrba.Compras
         private void checkIfFilled()
         {
             if (tbNom.Text != "" && tbApe.Text != "" && tbDNI.Text != "" && tbDirec.Text != ""
-                && tbTel.Text != "" && tbMail.Text != "" && dtpFechaNac.Value.Date < DateTime.Now.Date)
+                && tbTel.Text != "" && tbMail.Text != "" && dtpFechaNac.Value.Date < Config.dateTimeNow.Date)
                 btnContinue.Enabled = true;
             else
                 btnContinue.Enabled = false;
@@ -125,7 +125,7 @@ namespace AerolineaFrba.Compras
 
         private void CompraFormDatosEncomienda_Load(object sender, EventArgs e)
         {
-            dtpFechaNac.MaxDate = DateTime.Now;
+            dtpFechaNac.MaxDate = Config.dateTimeNow; 
             tbNom.Focus();
         }
 

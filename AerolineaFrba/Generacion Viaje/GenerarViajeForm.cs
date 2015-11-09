@@ -19,8 +19,8 @@ namespace AerolineaFrba.Generacion_Viaje
 
         private void GenerarViajeForm_Load(object sender, EventArgs e)
         {
-            dtpFechaSalida.MinDate = DateTime.Today;
-            dtpFechaLlegadaEstimada.MinDate = DateTime.Today;
+            dtpFechaSalida.MinDate = Config.dateTimeNow;
+            dtpFechaLlegadaEstimada.MinDate = Config.dateTimeNow;
             gridAeronave.DataSource = Avion.TraerAvionesParaCompra();
             gridAeronave.Columns["AvionID"].Visible = false;
             gridAeronave.Columns["ServicioRef"].Visible = false;

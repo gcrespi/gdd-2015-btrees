@@ -24,7 +24,7 @@ namespace AerolineaFrba
                  comando.Parameters.AddWithValue("@CompraID", idCompra);
                  comando.Parameters.AddWithValue("@Motivo", motivo);
                  comando.Parameters.AddWithValue("@CancelEco", cancelEco);
-                 comando.Parameters.AddWithValue("@Fecha", DateTime.Today);
+                 comando.Parameters.AddWithValue("@Fecha", Config.dateTimeNow);
                  SqlParameter idCanPar = new SqlParameter("@CancelID", 0);
                  idCanPar.Direction = ParameterDirection.Output;
                  comando.Parameters.Add(idCanPar);

@@ -23,7 +23,7 @@ namespace AerolineaFrba
             {
                 da.SelectCommand.CommandType = CommandType.StoredProcedure;
                 da.SelectCommand.Parameters.AddWithValue("@CompraID", idCompra);
-                da.SelectCommand.Parameters.AddWithValue("@Fecha", DateTime.Today);
+                da.SelectCommand.Parameters.AddWithValue("@Fecha", Config.dateTimeNow);
                 da.Fill(dt);
             }
             return dt;

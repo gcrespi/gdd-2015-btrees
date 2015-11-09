@@ -33,8 +33,8 @@ namespace AerolineaFrba.Compras
 
         private void CompraFormPago_Load(object sender, EventArgs e)
         {
-            dtpFechaVencimiento.MinDate = DateTime.Now;
-            dtpFechaNac.MaxDate = DateTime.Now;
+            dtpFechaVencimiento.MinDate = Config.dateTimeNow;
+            dtpFechaNac.MaxDate = Config.dateTimeNow;
             updCuotas.Maximum = 18;
             tbNom.Focus();
         }
@@ -62,11 +62,11 @@ namespace AerolineaFrba.Compras
         private void checkIfFilled()
         {
             if (tbNom.Text != "" && tbApe.Text != "" && tbDNI.Text != "" && tbDirec.Text != ""
-                && tbTel.Text != "" && tbMail.Text != "" && dtpFechaNac.Value.Date < DateTime.Now.Date)
+                && tbTel.Text != "" && tbMail.Text != "" && dtpFechaNac.Value.Date < Config.dateTimeNow.Date)
             {
                 if (rdTarjeta.Checked && updCuotas.Value != 0 && tbNroTarjeta.Text != "" &&
-                      tbCodSeg.Text != "" && dtpFechaVencimiento.Value.Month >= DateTime.Now.Month &&
-                        dtpFechaVencimiento.Value.Year >= DateTime.Now.Year)
+                      tbCodSeg.Text != "" && dtpFechaVencimiento.Value.Month >= Config.dateTimeNow.Month &&
+                        dtpFechaVencimiento.Value.Year >= Config.dateTimeNow.Year)
                     btnContinue.Enabled = true;
                 else if (rdEfectivo.Checked)
                     btnContinue.Enabled = true;
