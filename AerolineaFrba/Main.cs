@@ -49,6 +49,8 @@ namespace AerolineaFrba
                     {
                         if (!botonesVisibles.Contains(subitem.ToString()))
                             subitem.Visible = false;
+                        else
+                            item.Visible = true;
                     }
                 }
             }

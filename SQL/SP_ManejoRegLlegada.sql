@@ -15,8 +15,9 @@ AS
 
 	   DECLARE @RutaAerea SMALLINT
 	   DECLARE @DestinoReal SMALLINT
-	  
-	   SELECT @DestinoReal=R.Ruta_CiudadDestinoRef, @RutaAerea=RutaAereaID 
+	   DECLARE @ViajeID int
+
+	   SELECT @DestinoReal=R.Ruta_CiudadDestinoRef, @RutaAerea=RutaAereaID , @ViajeID=V.ViajeID
 	   FROM THE_BTREES.Viaje V
 	   INNER JOIN THE_BTREES.RutaAerea R ON R.RutaAereaID = V.Viaje_RutaAereaRef
 	   WHERE V.Viaje_AvionRef=@AvionID AND V.Viaje_FechaSalida BETWEEN DATEADD(HOUR,-24,@FechaLlegada) AND @FechaLlegada 
@@ -41,15 +42,7 @@ AS
 			SET @Resultado= 'El avión arribo a una ciudad erronea. Debia llegar a ' + (SELECT Ciudad_Nombre FROM THE_BTREES.Ciudad WHERE CiudadID=@DestinoReal)
 			END
 		
-		--Agrego las millas correcpondientes al viaje a los clientes
-		DECLARE @viajeID int
-
-		SELECT @viajeID=V.ViajeID
-	    FROM THE_BTREES.Viaje V
-	    INNER JOIN THE_BTREES.RutaAerea R ON R.RutaAereaID = V.Viaje_RutaAereaRef
-	    WHERE V.Viaje_AvionRef=@AvionID AND V.Viaje_FechaSalida BETWEEN DATEADD(HOUR,-24,@FechaLlegada) AND @FechaLlegada 
-			  AND R.Ruta_CiudadOrigenRef=@CiudadOrigen
-
+		--Agrego las millas correcpondientes al viaje a los cliente
 		INSERT INTO THE_BTREES.TransaccionesMillas
 		(
 			Tran_PasajeRef,
