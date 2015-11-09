@@ -1,49 +1,6 @@
 USE GD2C2015
 GO
 
-/***** AddTranMillas *****/
-IF OBJECT_ID(N'[THE_BTREES].[AddTranMillas]','p') IS NOT NULL
-	DROP PROCEDURE [THE_BTREES].[AddTranMillas]
-GO
-
-CREATE PROCEDURE [THE_BTREES].[AddTranMillas]
-	@Tran_CanjeRef int,
-	@Tran_ClienteRef int,
-	@Tran_EncomiendaRef	int,
-	@Tran_PasajeRef	int,
-	@CantidadMillas int,
-	@Fecha datetime
-AS
-BEGIN
-	IF @Tran_CanjeRef IS NOT NULL OR 
-	   @Tran_EncomiendaRef IS NOT NULL OR 
-	   @Tran_PasajeRef IS NOT NULL
-	BEGIN
-		INSERT INTO THE_BTREES.TransaccionesMillas 
-		( 
-			Tran_CanjeRef,
-			Tran_ClienteRef,
-			Tran_EncomiendaRef,
-			Tran_PasajeRef,
-			Tran_CantidadMillas,
-			Tran_Fecha
-		)
-		VALUES
-		(
-			@Tran_CanjeRef,
-			@Tran_ClienteRef,
-			@Tran_EncomiendaRef,
-			@Tran_PasajeRef,
-			@CantidadMillas,
-			@Fecha
-		)
-	END
-END
-GO
-
-USE GD2C2015
-GO
-
 /***** GetCantMillasDisponibles *****/
 IF OBJECT_ID(N'[THE_BTREES].[GetCantMillasDisponibles]','p') IS NOT NULL
 	DROP PROCEDURE [THE_BTREES].[GetCantMillasDisponibles]
@@ -51,7 +8,7 @@ GO
 
 CREATE PROCEDURE [THE_BTREES].[GetCantMillasDisponibles]
 	@Apellido varchar(50), 
-	@DNI int,
+	@DNI varchar(15),
 	@Fecha datetime,
 	@ClienteRef int OUTPUT,
 	@CantMillasDisponibles int OUTPUT
@@ -124,7 +81,9 @@ BEGIN
 				WHEN T.Tran_EncomiendaRef IS NOT NULL THEN T.Tran_EncomiendaRef
 				WHEN T.Tran_CanjeRef IS NOT NULL THEN T.Tran_CanjeRef
 		   END AS 'Codigo',
+		   T.Tran_Fecha AS 'Fecha',
 		   T.Tran_CantidadMillas AS 'Cantidad de millas'
 	FROM TransaccionesMillas T
+	WHERE DATEDIFF(day,T.Tran_Fecha,@Fecha)<365
 END
 GO

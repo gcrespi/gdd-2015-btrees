@@ -84,7 +84,6 @@
             this.menu.Size = new System.Drawing.Size(100, 890);
             this.menu.TabIndex = 2;
             this.menu.Text = "menu";
-            this.menu.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.menu_ItemClicked);
             // 
             // bHome
             // 
@@ -192,6 +191,7 @@
             this.consultaToolStripMenuItem.Name = "consultaToolStripMenuItem";
             this.consultaToolStripMenuItem.Size = new System.Drawing.Size(152, 28);
             this.consultaToolStripMenuItem.Text = "Consulta";
+            this.consultaToolStripMenuItem.Click += new System.EventHandler(this.consultaToolStripMenuItem_Click);
             // 
             // canjeToolStripMenuItem
             // 

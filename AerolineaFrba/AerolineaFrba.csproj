@@ -135,6 +135,7 @@
     <Compile Include="Classes\Ciudad.cs" />
     <Compile Include="Classes\Cliente.cs" />
     <Compile Include="Classes\Encomienda.cs" />
+    <Compile Include="Classes\Millas.cs" />
     <Compile Include="Classes\Pasaje.cs" />
     <Compile Include="Classes\Compra.cs" />
     <Compile Include="Classes\Pasajero.cs" />
@@ -169,11 +170,11 @@
       <DependentUpon>CrompraFormDatosEncomienda.cs</DependentUpon>
     </Compile>
     <Compile Include="Conexion.cs" />
-    <Compile Include="Consulta Millas\Form1.cs">
+    <Compile Include="Consulta Millas\ConsultaMillasForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Consulta Millas\Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="Consulta Millas\ConsultaMillasForm.Designer.cs">
+      <DependentUpon>ConsultaMillasForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Filtros\FiltroCbo.cs" />
     <Compile Include="Filtros\FiltroChb.cs" />
@@ -335,6 +336,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Compras\CrompraFormDatosEncomienda.resx">
       <DependentUpon>CrompraFormDatosEncomienda.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Consulta Millas\ConsultaMillasForm.resx">
+      <DependentUpon>ConsultaMillasForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Plantillas\AltaForm.resx">
       <DependentUpon>AltaForm.cs</DependentUpon>

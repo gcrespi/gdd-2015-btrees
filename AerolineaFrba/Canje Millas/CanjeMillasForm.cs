@@ -32,7 +32,7 @@ namespace AerolineaFrba.Canje_Millas
                 return;
             }
                    
-            Canje.TraerMillasDisponible(ref cantMillasDisp, ref idUsuario,txtApellido.Text,txtDNI.Text);
+            Millas.TraerMillasDisponible(ref cantMillasDisp, ref idUsuario,txtApellido.Text,txtDNI.Text);
             
             if (cantMillasDisp==0)
             {
