@@ -32,7 +32,6 @@
             this.bHome = new System.Windows.Forms.ToolStripMenuItem();
             this.bAdministracion = new System.Windows.Forms.ToolStripMenuItem();
             this.aBMAeronaveToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.aBMCiudadToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aBMRolToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aBMRutaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.generarViajeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -44,7 +43,7 @@
             this.bAuditoria = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem5 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem6 = new System.Windows.Forms.ToolStripMenuItem();
-            this.Estadisticas = new System.Windows.Forms.ToolStripMenuItem();
+            this.bEstadisticas = new System.Windows.Forms.ToolStripMenuItem();
             this.panel = new System.Windows.Forms.Panel();
             this.menuPanel = new System.Windows.Forms.Panel();
             this.menu.SuspendLayout();
@@ -63,7 +62,7 @@
             this.bMillas,
             this.bDevolucion,
             this.bAuditoria,
-            this.Estadisticas});
+            this.bEstadisticas});
             this.menu.LayoutStyle = System.Windows.Forms.ToolStripLayoutStyle.VerticalStackWithOverflow;
             this.menu.Location = new System.Drawing.Point(0, 0);
             this.menu.Name = "menu";
@@ -94,7 +93,6 @@
             this.bAdministracion.CheckState = System.Windows.Forms.CheckState.Checked;
             this.bAdministracion.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.aBMAeronaveToolStripMenuItem,
-            this.aBMCiudadToolStripMenuItem,
             this.aBMRolToolStripMenuItem,
             this.aBMRutaToolStripMenuItem,
             this.generarViajeToolStripMenuItem});
@@ -114,13 +112,6 @@
             this.aBMAeronaveToolStripMenuItem.Size = new System.Drawing.Size(200, 28);
             this.aBMAeronaveToolStripMenuItem.Text = "ABM Aeronave";
             this.aBMAeronaveToolStripMenuItem.Click += new System.EventHandler(this.aBMAeronaveToolStripMenuItem_Click);
-            // 
-            // aBMCiudadToolStripMenuItem
-            // 
-            this.aBMCiudadToolStripMenuItem.BackColor = System.Drawing.Color.White;
-            this.aBMCiudadToolStripMenuItem.Name = "aBMCiudadToolStripMenuItem";
-            this.aBMCiudadToolStripMenuItem.Size = new System.Drawing.Size(213, 28);
-            this.aBMCiudadToolStripMenuItem.Text = "ABM Ciudad";
             // 
             // aBMRolToolStripMenuItem
             // 
@@ -232,18 +223,18 @@
             this.toolStripMenuItem6.Text = "Reg LLegada Destino";
             this.toolStripMenuItem6.Click += new System.EventHandler(this.toolStripMenuItem6_Click);
             // 
-            // Estadisticas
+            // bEstadisticas
             // 
-            this.Estadisticas.AutoSize = false;
-            this.Estadisticas.BackColor = System.Drawing.SystemColors.MenuHighlight;
-            this.Estadisticas.Font = new System.Drawing.Font("Calibri Light", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Estadisticas.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.Estadisticas.Margin = new System.Windows.Forms.Padding(0, 0, 0, 1);
-            this.Estadisticas.Name = "Estadisticas";
-            this.Estadisticas.Padding = new System.Windows.Forms.Padding(0);
-            this.Estadisticas.Size = new System.Drawing.Size(105, 30);
-            this.Estadisticas.Text = "Estadisticas";
-            this.Estadisticas.Click += new System.EventHandler(this.bleh_Click);
+            this.bEstadisticas.AutoSize = false;
+            this.bEstadisticas.BackColor = System.Drawing.SystemColors.MenuHighlight;
+            this.bEstadisticas.Font = new System.Drawing.Font("Calibri Light", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bEstadisticas.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.bEstadisticas.Margin = new System.Windows.Forms.Padding(0, 0, 0, 1);
+            this.bEstadisticas.Name = "bEstadisticas";
+            this.bEstadisticas.Padding = new System.Windows.Forms.Padding(0);
+            this.bEstadisticas.Size = new System.Drawing.Size(105, 30);
+            this.bEstadisticas.Text = "Estadisticas";
+            this.bEstadisticas.Click += new System.EventHandler(this.bleh_Click);
             // 
             // panel
             // 
@@ -299,14 +290,13 @@
         private System.Windows.Forms.ToolStripMenuItem canjeToolStripMenuItem;
         protected System.Windows.Forms.ToolStripMenuItem bHome;
         protected System.Windows.Forms.ToolStripMenuItem aBMAeronaveToolStripMenuItem;
-        protected System.Windows.Forms.ToolStripMenuItem aBMCiudadToolStripMenuItem;
         public System.Windows.Forms.MenuStrip menu;
         private System.Windows.Forms.Panel panel;
         private System.Windows.Forms.Panel menuPanel;
         protected System.Windows.Forms.ToolStripMenuItem bAuditoria;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem5;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem6;
-        protected System.Windows.Forms.ToolStripMenuItem Estadisticas;
+        protected System.Windows.Forms.ToolStripMenuItem bEstadisticas;
         private System.Windows.Forms.ToolStripMenuItem generarViajeToolStripMenuItem;
     }
 }

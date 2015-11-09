@@ -93,6 +93,7 @@ namespace AerolineaFrba
         private void bCompras_Click(object sender, EventArgs e)
         {
             replaceForm(new CompraFormPickViaje());
+            setColor(bCompras);
         }
         private void aBMAeronaveToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -142,31 +143,37 @@ namespace AerolineaFrba
         private void generarViajeToolStripMenuItem_Click(object sender, EventArgs e)
         {
             replaceForm(new GenerarViajeForm());
+            setColor(bAdministracion);
         }
 
         private void bleh_Click(object sender, EventArgs e)
         {
             replaceForm(new Estadisticas());
+            setColor(bEstadisticas);
         }
 
         private void bDevolucion_Click(object sender, EventArgs e)
         {
             replaceForm(new DevolucionForm());
+            setColor(bDevolucion);
         }
 
         private void toolStripMenuItem6_Click(object sender, EventArgs e)
         {
             replaceForm(new RegLlegadaADestinoForm());
+            setColor(bAuditoria);
         }
 
         private void canjeToolStripMenuItem_Click(object sender, EventArgs e)
         {
             replaceForm(new CanjeMillasForm());
+            setColor(bMillas);
         }
 
         private void consultaToolStripMenuItem_Click(object sender, EventArgs e)
         {
             replaceForm(new ConsultaMillasForm());
+            setColor(bMillas);
         }
    
     }

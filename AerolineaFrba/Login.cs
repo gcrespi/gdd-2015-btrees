@@ -80,9 +80,11 @@ namespace AerolineaFrba
         private void button1_Click(object sender, EventArgs e)
         {
             usuarioID = idUsuarioWith(usrBox.Text, passBox.Text);
-            if(usuarioID != 0)
+            if (usuarioID != 0)
+            {
                 Program.userID = usuarioID;
                 this.DialogResult = DialogResult.OK;
+            }
         }
 
         private void usrBox_KeyPress(object sender, KeyPressEventArgs e)
