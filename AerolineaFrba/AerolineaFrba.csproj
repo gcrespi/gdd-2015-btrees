@@ -131,6 +131,7 @@
     </Compile>
     <Compile Include="Classes\Butaca.cs" />
     <Compile Include="Classes\Cancelacion.cs" />
+    <Compile Include="Classes\Canje.cs" />
     <Compile Include="Classes\Ciudad.cs" />
     <Compile Include="Classes\Cliente.cs" />
     <Compile Include="Classes\Encomienda.cs" />
