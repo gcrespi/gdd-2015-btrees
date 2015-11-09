@@ -10,6 +10,12 @@ namespace AerolineaFrba.Classes
 {
     class Milla
     {
+        public void CrearMillas()
+        {
+
+        }
+
+        
         public static void TraerMillasDisponible(ref int millasDisp, ref int idUsuario, string ape, string dni)
         {
             SqlConnection objConexion = new SqlConnection(Conexion.strCon);
@@ -31,6 +37,21 @@ namespace AerolineaFrba.Classes
             millasDisp = Convert.ToInt32(comando.Parameters["@CantMillasDisponibles"].Value);
             objConexion.Close();
             objConexion.Dispose();
+        }
+
+        public static DataTable TraerDetalleTransMillas(int clienteRef)
+        {
+            DataTable dt = new DataTable();
+            string strProc = "THE_BTREES.GetCantMillasDisponibles";
+
+            using (var da = new SqlDataAdapter(strProc, Conexion.strCon))
+            {
+                da.SelectCommand.CommandType = CommandType.StoredProcedure;
+                da.SelectCommand.Parameters.AddWithValue("@ClienteRef", clienteRef);
+                da.SelectCommand.Parameters.AddWithValue("@Fecha", DateTime.Now);
+                da.Fill(dt);
+            }
+            return dt;
         }
     }
 }
