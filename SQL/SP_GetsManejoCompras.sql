@@ -108,3 +108,39 @@ AS
 	   WHERE Cliente_DNI = @dni AND Cliente_Apellido = @apellido AND Cliente_Nombre = @nombre
 	END
 GO
+
+USE [GD2C2015]
+GO
+
+/***** GetTiposTarjeta *****/
+IF  object_id(N'[THE_BTREES].[GetTiposTarjeta]','P') IS NOT NULL
+	DROP PROCEDURE [THE_BTREES].[GetTiposTarjeta]
+GO
+
+CREATE PROCEDURE [THE_BTREES].[GetTiposTarjeta]		
+AS
+BEGIN
+	SELECT t.TipoTarjetaID AS 'TipoTarjetaID', t.TipoTarj_Descripcion AS 'Descripcion'
+	FROM THE_BTREES.TiposTarjeta t
+END
+GO
+
+
+USE [GD2C2015]
+GO
+
+/***** GetCantCuotas *****/
+IF  object_id(N'[THE_BTREES].[GetCantCuotas]','P') IS NOT NULL
+	DROP PROCEDURE [THE_BTREES].[GetCantCuotas]
+GO
+
+CREATE PROCEDURE [THE_BTREES].[GetCantCuotas]
+	@TipoTarjetaID int,
+	@CantCuotas int OUTPUT		
+AS
+BEGIN
+	SELECT @CantCuotas = t.TipoTarj_CuotasMax
+	FROM THE_BTREES.TiposTarjeta t
+	WHERE t.TipoTarjetaID = @TipoTarjetaID
+END
+GO

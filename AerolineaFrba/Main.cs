@@ -40,18 +40,14 @@ namespace AerolineaFrba
             foreach (ToolStripMenuItem item in menu.Items)
             {
                 item.Height = 70;
-                //Esto se saca ↓↓↓↓
-                if (botonesVisibles.First() != "Todos")
+                if (!botonesVisibles.Contains(item.ToString()))
+                    item.Visible = false;
+                foreach (ToolStripItem subitem in item.DropDown.Items)
                 {
-                    if (!botonesVisibles.Contains(item.ToString()))
-                        item.Visible = false;
-                    foreach (ToolStripItem subitem in item.DropDown.Items)
-                    {
-                        if (!botonesVisibles.Contains(subitem.ToString()))
-                            subitem.Visible = false;
-                        else
-                            item.Visible = true;
-                    }
+                    if (!botonesVisibles.Contains(subitem.ToString()))
+                        subitem.Visible = false;
+                    else
+                        item.Visible = true;
                 }
             }
         }

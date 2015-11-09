@@ -35,8 +35,16 @@ namespace AerolineaFrba.Compras
         {
             dtpFechaVencimiento.MinDate = DateTime.Now;
             dtpFechaNac.MaxDate = DateTime.Now;
-            updCuotas.Maximum = 18;
             tbNom.Focus();
+            cboTipoTarjeta.DataSource = TipoTarjeta.ListTipoTarjeta();
+            cboTipoTarjeta.DisplayMember = "Descripcion";
+            cboTipoTarjeta.ValueMember = "TipoTarjetaID";
+            if (Program.terminal == "kiosco")
+            {
+                rdTarjeta.Checked = true;
+                checkMetodoDePago();
+                rdEfectivo.Enabled = false;
+            }
         }
 
         private DataTable getClientData()
@@ -65,8 +73,7 @@ namespace AerolineaFrba.Compras
                 && tbTel.Text != "" && tbMail.Text != "" && dtpFechaNac.Value.Date < DateTime.Now.Date)
             {
                 if (rdTarjeta.Checked && updCuotas.Value != 0 && tbNroTarjeta.Text != "" &&
-                      tbCodSeg.Text != "" && dtpFechaVencimiento.Value.Month >= DateTime.Now.Month &&
-                        dtpFechaVencimiento.Value.Year >= DateTime.Now.Year)
+                      tbCodSeg.Text != "")
                     btnContinue.Enabled = true;
                 else if (rdEfectivo.Checked)
                     btnContinue.Enabled = true;
@@ -75,6 +82,26 @@ namespace AerolineaFrba.Compras
             }
             else
                 btnContinue.Enabled = false;
+        }
+
+        private void checkMetodoDePago()
+        {
+            if (rdTarjeta.Checked)
+            {
+                updCuotas.Enabled = true;
+                cboTipoTarjeta.Enabled = true;
+                tbNroTarjeta.Enabled = true;
+                tbCodSeg.Enabled = true;
+                dtpFechaVencimiento.Enabled = true;
+            }
+            else
+            {
+                updCuotas.Enabled = false;
+                cboTipoTarjeta.Enabled = false;
+                tbNroTarjeta.Enabled = false;
+                tbCodSeg.Enabled = false;
+                dtpFechaVencimiento.Enabled = false;
+            }
         }
 
         private void tbNom_TextChanged(object sender, EventArgs e)
@@ -112,11 +139,13 @@ namespace AerolineaFrba.Compras
         private void rdEfectivo_CheckedChanged(object sender, EventArgs e)
         {
             checkIfFilled();
+            checkMetodoDePago();
         }
 
         private void rdTarjeta_CheckedChanged(object sender, EventArgs e)
         {
             checkIfFilled();
+            checkMetodoDePago();
         }
 
         private void updCuotas_ValueChanged(object sender, EventArgs e)
@@ -151,6 +180,11 @@ namespace AerolineaFrba.Compras
 
         private void btnContinue_Click(object sender, EventArgs e)
         {
+            if (rdTarjeta.Checked && !TipoTarjeta.cantCuotasIsOK((int)cboTipoTarjeta.SelectedValue, (int)updCuotas.Value))
+            {
+                MessageBox.Show("El tipo de tarjeta seleccionado no permite esa cantidad de cuotas", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
             Cliente cliente = new Cliente(tbDNI.Text, tbNom.Text, tbApe.Text, tbDirec.Text, Convert.ToInt32(tbTel.Text),
                                                   tbMail.Text, dtpFechaNac.Value);
             DataTable dt = getClientData();

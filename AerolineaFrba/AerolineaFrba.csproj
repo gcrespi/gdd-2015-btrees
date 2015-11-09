@@ -127,6 +127,7 @@
     <Compile Include="Classes\Pasaje.cs" />
     <Compile Include="Classes\Compra.cs" />
     <Compile Include="Classes\Pasajero.cs" />
+    <Compile Include="Classes\TipoTarjeta.cs" />
     <Compile Include="Compras\CompraFormDatosPasajero.cs">
       <SubType>Form</SubType>
     </Compile>

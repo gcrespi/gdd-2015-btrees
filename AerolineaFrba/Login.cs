@@ -21,10 +21,7 @@ namespace AerolineaFrba
         }
 
         private int idUsuarioWith(String nombre, String pass)
-        {
-            //Esto sacarlo.. solo para probar!!!!
-            if (nombre == "sa") return 1;
-            
+        {   
             int _usuarioID = 0;
             bool _usuarioActivo = false;
             bool _wrongPassword = false;
@@ -61,7 +58,7 @@ namespace AerolineaFrba
         {   
             if (usuarioID == 0)
             {
-                wrongLabel.Text = "Usuario  o contraseña incorrecto!";
+                wrongLabel.Text = "Usuario  o contraseña incorrecto";
                 return 0;
             }
 
@@ -84,6 +81,7 @@ namespace AerolineaFrba
         {
             usuarioID = idUsuarioWith(usrBox.Text, passBox.Text);
             if(usuarioID != 0)
+                Program.userID = usuarioID;
                 this.DialogResult = DialogResult.OK;
         }
 

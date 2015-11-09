@@ -29,5 +29,21 @@ namespace AerolineaFrba
             return _self;
         }
 
+        public static DataTable listFuncionalidadesDeUsuario(int usuarioID)
+        {
+            var _self = new DataTable();
+
+            string strProc = "THE_BTREES.TraerFuncionalidadesDeUsuario";
+
+            using (var da = new sql.SqlDataAdapter(strProc, Conexion.strCon))
+            {
+                da.SelectCommand.CommandType = CommandType.StoredProcedure;
+                da.SelectCommand.Parameters.AddWithValue("@usuarioID",usuarioID);
+                da.Fill(_self);
+            }
+
+            return _self;
+        }
+
     }
 }

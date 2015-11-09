@@ -11,3 +11,21 @@ AS
 	WHERE @RolID = r.RolID
 GO
 
+USE GD2C2015
+GO
+
+/***** TraerFuncionalidadesDeUsuario *****/
+IF  object_id(N'[THE_BTREES].[TraerFuncionalidadesDeUsuario]','P') IS NOT NULL
+	DROP PROCEDURE [THE_BTREES].[TraerFuncionalidadesDeUsuario]
+GO
+
+CREATE PROCEDURE [THE_BTREES].[TraerFuncionalidadesDeUsuario]		
+	@usuarioID int
+AS
+BEGIN
+	SELECT f.Funcionalidad_Nombre AS 'Funcionalidad'
+	FROM THE_BTREES.RolesXUsuarios ru
+	INNER JOIN THE_BTREES.FuncionalidadesXRoles fr ON ru.RolRef = fr.RolRef
+	INNER JOIN THE_BTREES.Funcionalidades f ON fr.FuncionalidadRef = f.FuncionalidadID
+	WHERE ru.UsuarioRef = @usuarioID
+END
