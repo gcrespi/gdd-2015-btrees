@@ -204,7 +204,7 @@ namespace AerolineaFrba.Compras
             try
             {
                 compra.store();
-                Program.main.addForm(new CompraFormFinal(compra));
+                Program.main.replaceForm(new CompraFormFinal(compra));
             }
             catch (Exception)
             {

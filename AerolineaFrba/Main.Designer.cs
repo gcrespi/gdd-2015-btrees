@@ -54,7 +54,7 @@
             // 
             this.menu.AutoSize = false;
             this.menu.BackColor = System.Drawing.Color.White;
-            this.menu.Dock = System.Windows.Forms.DockStyle.Left;
+            this.menu.Dock = System.Windows.Forms.DockStyle.None;
             this.menu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.bHome,
             this.bAdministracion,
@@ -78,10 +78,10 @@
             this.bHome.BackColor = System.Drawing.SystemColors.MenuHighlight;
             this.bHome.Font = new System.Drawing.Font("Calibri Light", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.bHome.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.bHome.Margin = new System.Windows.Forms.Padding(0, 0, 0, 1);
+            this.bHome.Margin = new System.Windows.Forms.Padding(1, 0, 0, 1);
             this.bHome.Name = "bHome";
             this.bHome.Padding = new System.Windows.Forms.Padding(0);
-            this.bHome.Size = new System.Drawing.Size(105, 30);
+            this.bHome.Size = new System.Drawing.Size(103, 30);
             this.bHome.Text = "Home";
             this.bHome.Click += new System.EventHandler(this.bHome_Click);
             // 
@@ -98,10 +98,10 @@
             this.generarViajeToolStripMenuItem});
             this.bAdministracion.Font = new System.Drawing.Font("Calibri Light", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.bAdministracion.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.bAdministracion.Margin = new System.Windows.Forms.Padding(0, 0, 0, 1);
+            this.bAdministracion.Margin = new System.Windows.Forms.Padding(1, 0, 0, 1);
             this.bAdministracion.Name = "bAdministracion";
             this.bAdministracion.Padding = new System.Windows.Forms.Padding(0);
-            this.bAdministracion.Size = new System.Drawing.Size(105, 30);
+            this.bAdministracion.Size = new System.Drawing.Size(103, 30);
             this.bAdministracion.Text = "Admin";
             // 
             // aBMAeronaveToolStripMenuItem
@@ -142,10 +142,10 @@
             this.bCompras.BackColor = System.Drawing.SystemColors.MenuHighlight;
             this.bCompras.Font = new System.Drawing.Font("Calibri Light", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.bCompras.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.bCompras.Margin = new System.Windows.Forms.Padding(0, 0, 0, 1);
+            this.bCompras.Margin = new System.Windows.Forms.Padding(1, 0, 0, 1);
             this.bCompras.Name = "bCompras";
             this.bCompras.Padding = new System.Windows.Forms.Padding(0);
-            this.bCompras.Size = new System.Drawing.Size(105, 30);
+            this.bCompras.Size = new System.Drawing.Size(103, 30);
             this.bCompras.Text = "Comprar";
             this.bCompras.Click += new System.EventHandler(this.bCompras_Click);
             // 
@@ -158,10 +158,10 @@
             this.canjeToolStripMenuItem});
             this.bMillas.Font = new System.Drawing.Font("Calibri Light", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.bMillas.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.bMillas.Margin = new System.Windows.Forms.Padding(0, 0, 0, 1);
+            this.bMillas.Margin = new System.Windows.Forms.Padding(1, 0, 0, 1);
             this.bMillas.Name = "bMillas";
             this.bMillas.Padding = new System.Windows.Forms.Padding(0);
-            this.bMillas.Size = new System.Drawing.Size(105, 30);
+            this.bMillas.Size = new System.Drawing.Size(103, 30);
             this.bMillas.Text = "Millas";
             // 
             // consultaToolStripMenuItem
@@ -186,10 +186,10 @@
             this.bDevolucion.BackColor = System.Drawing.SystemColors.MenuHighlight;
             this.bDevolucion.Font = new System.Drawing.Font("Calibri Light", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.bDevolucion.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.bDevolucion.Margin = new System.Windows.Forms.Padding(0, 0, 0, 1);
+            this.bDevolucion.Margin = new System.Windows.Forms.Padding(1, 0, 0, 1);
             this.bDevolucion.Name = "bDevolucion";
             this.bDevolucion.Padding = new System.Windows.Forms.Padding(0);
-            this.bDevolucion.Size = new System.Drawing.Size(105, 30);
+            this.bDevolucion.Size = new System.Drawing.Size(103, 30);
             this.bDevolucion.Text = "Cancelacion";
             this.bDevolucion.Click += new System.EventHandler(this.bDevolucion_Click);
             // 
@@ -202,25 +202,25 @@
             this.toolStripMenuItem6});
             this.bAuditoria.Font = new System.Drawing.Font("Calibri Light", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.bAuditoria.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.bAuditoria.Margin = new System.Windows.Forms.Padding(0, 0, 0, 1);
+            this.bAuditoria.Margin = new System.Windows.Forms.Padding(1, 0, 0, 1);
             this.bAuditoria.Name = "bAuditoria";
             this.bAuditoria.Padding = new System.Windows.Forms.Padding(0);
-            this.bAuditoria.Size = new System.Drawing.Size(105, 30);
+            this.bAuditoria.Size = new System.Drawing.Size(103, 30);
             this.bAuditoria.Text = "Auditoría";
             // 
             // toolStripMenuItem5
             // 
             this.toolStripMenuItem5.BackColor = System.Drawing.Color.White;
             this.toolStripMenuItem5.Name = "toolStripMenuItem5";
-            this.toolStripMenuItem5.Size = new System.Drawing.Size(244, 28);
+            this.toolStripMenuItem5.Size = new System.Drawing.Size(240, 28);
             this.toolStripMenuItem5.Text = "Reg Usuarios";
             // 
             // toolStripMenuItem6
             // 
             this.toolStripMenuItem6.BackColor = System.Drawing.Color.White;
             this.toolStripMenuItem6.Name = "toolStripMenuItem6";
-            this.toolStripMenuItem6.Size = new System.Drawing.Size(244, 28);
-            this.toolStripMenuItem6.Text = "Reg LLegada Destino";
+            this.toolStripMenuItem6.Size = new System.Drawing.Size(240, 28);
+            this.toolStripMenuItem6.Text = "Reg Llegada Destino";
             this.toolStripMenuItem6.Click += new System.EventHandler(this.toolStripMenuItem6_Click);
             // 
             // bEstadisticas
@@ -229,10 +229,10 @@
             this.bEstadisticas.BackColor = System.Drawing.SystemColors.MenuHighlight;
             this.bEstadisticas.Font = new System.Drawing.Font("Calibri Light", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.bEstadisticas.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.bEstadisticas.Margin = new System.Windows.Forms.Padding(0, 0, 0, 1);
+            this.bEstadisticas.Margin = new System.Windows.Forms.Padding(1, 0, 0, 1);
             this.bEstadisticas.Name = "bEstadisticas";
             this.bEstadisticas.Padding = new System.Windows.Forms.Padding(0);
-            this.bEstadisticas.Size = new System.Drawing.Size(105, 30);
+            this.bEstadisticas.Size = new System.Drawing.Size(103, 30);
             this.bEstadisticas.Text = "Estadisticas";
             this.bEstadisticas.Click += new System.EventHandler(this.bleh_Click);
             // 
@@ -255,7 +255,7 @@
             this.menuPanel.Controls.Add(this.menu);
             this.menuPanel.Location = new System.Drawing.Point(0, 0);
             this.menuPanel.Name = "menuPanel";
-            this.menuPanel.Size = new System.Drawing.Size(117, 570);
+            this.menuPanel.Size = new System.Drawing.Size(132, 570);
             this.menuPanel.TabIndex = 5;
             // 
             // Main
@@ -271,6 +271,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Aerolineas Btrees";
             this.Load += new System.EventHandler(this.MasterForm_Load);
+            this.Resize += new System.EventHandler(this.Main_Resize);
             this.menu.ResumeLayout(false);
             this.menu.PerformLayout();
             this.menuPanel.ResumeLayout(false);

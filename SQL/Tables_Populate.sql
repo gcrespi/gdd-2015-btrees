@@ -291,7 +291,7 @@ BEGIN TRAN
 INSERT INTO THE_BTREES.Funcionalidades (Funcionalidad_Nombre) VALUES 
 	('ABM Rol'),
 	('Login y seguridad'),
-	('Reg Usuario'),
+	('Reg Usuarios'),
 	('ABM Ciudad'),
 	('ABM Ruta Aerea'),
 	('ABM Aeronave'),

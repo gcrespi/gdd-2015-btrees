@@ -37,9 +37,10 @@ namespace AerolineaFrba
             setColor(bHome);
             menu.Parent = menuPanel;
             menuPanel.AutoScroll = true;
+            menu.Height = this.Height + menu.Items.Count - this.Height % menu.Items.Count;
             foreach (ToolStripMenuItem item in menu.Items)
             {
-                item.Height = 70;
+                item.Height = this.Height/menu.Items.Count;
                 if (!botonesVisibles.Contains(item.ToString()))
                     item.Visible = false;
                 foreach (ToolStripItem subitem in item.DropDown.Items)
@@ -174,6 +175,15 @@ namespace AerolineaFrba
         {
             replaceForm(new ConsultaMillasForm());
             setColor(bMillas);
+        }
+
+        private void Main_Resize(object sender, EventArgs e)
+        {
+            menu.Height = this.Height + menu.Items.Count - this.Height % menu.Items.Count;
+            foreach (ToolStripMenuItem item in menu.Items)
+            {
+                item.Height = this.Height / menu.Items.Count;
+            }
         }
    
     }
