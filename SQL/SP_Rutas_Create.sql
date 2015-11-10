@@ -95,3 +95,41 @@ AS
 	WHERE r.Ruta_CiudadOrigenRef = co.CiudadID AND r.Ruta_CiudadDestinoRef = cd.CiudadID AND ts.RutaAereaRef = r.RutaAereaID AND @RutaID = RutaAereaID
 GO
 
+
+IF OBJECT_ID(N'[THE_BTREES].[CancelarRutasInhabilitados]','P') IS NOT NULL
+	DROP PROCEDURE [THE_BTREES].CancelarRutasInhabilitados
+GO
+
+CREATE PROCEDURE THE_BTREES.CancelarRutasInhabilitados
+	@RutaID INT,
+	@FechaActual DATE
+AS
+BEGIN
+
+	-- Sin terminar todavía
+
+	SELECT DISTINCT CompraRef INTO THE_BTREES.#ItemsCompra
+	FROM 
+	(
+		SELECT Enco_ViajeRef as ViajeRef, Enco_CompraRef AS CompraRef FROM THE_BTREES.Encomienda
+		UNION
+		SELECT Pasaje_ViajeRef as ViajeRef, Pasaje_CompraRef AS CompraRef FROM THE_BTREES.Pasaje
+	) ItemsCompra
+
+	INSERT INTO THE_BTREES.Cancelacion (Cance_CompraRef, Cance_Fecha, Motivo)
+	SELECT i.PasajeID, @FechaActual, 'Baja de la Ruta Aerea asignada.' 
+	FROM THE_BTREES.Viaje v 
+		JOIN THE_BTREES.Compra c ON c.Compra_ViajeRef = v.ViajeID
+		JOIN THE_BTREES.#ItemsCompra i ON i.CompraRef = c.CompraID
+		--En realidad fecha de la aplicación WHERE v.Viaje_FechaSalida > GETDATE() AND v.Viaje_RutaAereaRef IN 
+		(
+			SELECT d.RutaAereaID FROM deleted d
+				JOIN inserted as ins ON d.RutaAereaID = ins.RutaAereaID
+				WHERE ins.Ruta_Activo = 1 AND d.Ruta_Activo = 0
+		)
+
+	DROP TABLE THE_BTREES.#ItemsCompra
+	
+	-- Sin terminar todavía
+END
+GO

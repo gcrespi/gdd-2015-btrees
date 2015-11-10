@@ -31,6 +31,12 @@ namespace AerolineaFrba.Plantillas
 
         private void btnEliminar_Click(object sender, EventArgs e)
         {
+            if (!abmControl.validateBaja())
+            {
+                MessageBox.Show("No se ha deshabilitado " + abmControl.accionRechazadaMessage() + "!", "No se Deshabilitó", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return;
+            }
+
             abmControl.darBaja();
             MessageBox.Show("Se ha Deshabilitado " + abmControl.accionConcretadaMessage() + " con Exito!", "Baja Exitosa", MessageBoxButtons.OK, MessageBoxIcon.Information);
             this.Hide();
@@ -44,7 +50,7 @@ namespace AerolineaFrba.Plantillas
         public void showUp(DataGridViewRow selectedRow)
         {
             this.abmControl.retrieveInfoFrom(selectedRow);
-            if (!abmControl.validateBaja())
+            if (!abmControl.activo())
             {
                 MessageBox.Show("No se puede deshabilitar, " + abmControl.accionRechazadaMessage() + " ya estaba deshabilitado!", "Ya deshabilitado", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 return;

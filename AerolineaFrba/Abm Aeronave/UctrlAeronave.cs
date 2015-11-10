@@ -44,6 +44,11 @@ namespace AerolineaFrba.Abm_Aeronave
 
         }
 
+        public bool activo()
+        {
+            return Activo;
+        }
+
         public void retrieveInfoFrom(DataGridViewRow selectedRow)
         {
             this.AeronaveID = (int)selectedRow.Cells[0].Value;

@@ -45,6 +45,11 @@ namespace AerolineaFrba.Abm_Rol
 
         }
 
+        public bool activo()
+        {
+            return Activo;
+        }
+
         public void retrieveInfoFrom(DataGridViewRow selectedRow)
         {
             this.rolID = (byte)selectedRow.Cells[0].Value;

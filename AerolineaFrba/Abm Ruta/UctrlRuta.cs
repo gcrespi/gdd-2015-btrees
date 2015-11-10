@@ -81,6 +81,11 @@ namespace AerolineaFrba.Abm_Ruta
             InitializeComponent();
         }
 
+        public bool activo()
+        {
+            return Activo;
+        }
+
         public void retrieveInfoFrom(DataGridViewRow selectedRow)
         {
             this.rutaID = (int)selectedRow.Cells[0].Value;
@@ -365,8 +370,8 @@ namespace AerolineaFrba.Abm_Ruta
 
         public bool validateBaja()
         {
-            //TODO Falta validación tiene Vuelos
-            return chbHabilitado.Checked;
+            DialogResult dialogResult = MessageBox.Show("Esta seguro que desea dar de baja esta Ruta Aerea?, en caso afirmativo se cancelaran todos las ventas asociadas a ella.", "Baja Ruta Aerea", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            return dialogResult == DialogResult.Yes;
         }
 
     }

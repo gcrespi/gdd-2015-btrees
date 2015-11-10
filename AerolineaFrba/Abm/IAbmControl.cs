@@ -9,6 +9,8 @@ namespace AerolineaFrba.Abm
 {
     public interface IAbmControl
     {
+        bool activo();
+
         void retrieveInfoFrom(DataGridViewRow selectedRow);
         
         void fillAttrsDefault();
