@@ -68,7 +68,7 @@ namespace AerolineaFrba.Abm_Aeronave
 
         public void drawIn(Form aForm)
         {
-            this.Location = new System.Drawing.Point(12, -1);
+            this.Location = new System.Drawing.Point(3, -1);
             this.Name = "filtroCtrl";
             this.Size = new System.Drawing.Size(868, 177);
             this.TabIndex = 8;

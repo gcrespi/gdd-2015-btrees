@@ -29,14 +29,14 @@ namespace AerolineaFrba.Plantillas
             this.Hide();
         }
 
-        public void showUp(DataGridViewRow selectedRow)
+        public virtual void showUp(DataGridViewRow selectedRow)
         {
             this.StartPosition = FormStartPosition.CenterScreen;
             this.Show();
             this.abmControl.retrieveInfoFrom(selectedRow);
         }
 
-        public String nameButtonAccess()
+        public virtual String nameButtonAccess()
         {
             return "Detalles";
         }

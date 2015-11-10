@@ -35,5 +35,10 @@ namespace AerolineaFrba.Abm_Aeronave
         {
 
         }
+
+        private void btnServicio_Click(object sender, EventArgs e)
+        {
+            this.crearListadoForm(new BajaServicioAeronaveForm(new UctrlAeronave()));
+        }
     }
 }

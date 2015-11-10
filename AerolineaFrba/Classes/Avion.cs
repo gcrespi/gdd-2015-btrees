@@ -110,5 +110,54 @@ namespace AerolineaFrba
             return ds;
         }
 
+
+        public static DataTable getLastFueraDeServicio(int AeronaveID)
+        {
+            DataTable dt = new DataTable();
+            string strProc = "THE_BTREES.TraerUltimoFueraDeServicioAvion";
+
+            using (var da = new sql.SqlDataAdapter(strProc, Conexion.strCon))
+            {
+                da.SelectCommand.CommandType = CommandType.StoredProcedure;
+                da.SelectCommand.Parameters.AddWithValue("@AvionID", AeronaveID);
+                da.Fill(dt);
+            }
+
+            return dt;
+        }
+
+        public static void DarFueraServicio(UctrlAeronave avionAttrs)
+        {
+            using (var conn = new SqlConnection(Conexion.strCon))
+            using (var command = new SqlCommand("THE_BTREES.DarFueraServicio_Avion", conn)
+            {
+                CommandType = CommandType.StoredProcedure
+            })
+            {
+                command.Parameters.AddWithValue("@AvionID", avionAttrs.AeronaveID);
+                command.Parameters.AddWithValue("@Avion_FechaFueraServicio", Config.dateTimeNow);
+                conn.Open();
+                command.ExecuteNonQuery();
+                conn.Close();
+            }
+        }
+
+        public static void DarReinicioServicio(UctrlAeronave avionAttrs)
+        {
+            using (var conn = new SqlConnection(Conexion.strCon))
+            using (var command = new SqlCommand("THE_BTREES.DarReinicioServicio_Avion", conn)
+            {
+                CommandType = CommandType.StoredProcedure
+            })
+            {
+                command.Parameters.AddWithValue("@AvionID", avionAttrs.AeronaveID);
+                command.Parameters.AddWithValue("@Avion_FechaReinicioServicio", Config.dateTimeNow);
+                command.Parameters.AddWithValue("@FueraDeServicioId", avionAttrs.FueraDeServicioId);
+
+                conn.Open();
+                command.ExecuteNonQuery();
+                conn.Close();
+            }
+        }
     }
 }

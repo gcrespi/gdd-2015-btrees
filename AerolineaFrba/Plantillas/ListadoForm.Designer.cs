@@ -47,7 +47,7 @@
             this.DataGrid.Location = new System.Drawing.Point(0, 240);
             this.DataGrid.Name = "DataGrid";
             this.DataGrid.ReadOnly = true;
-            this.DataGrid.Size = new System.Drawing.Size(884, 246);
+            this.DataGrid.Size = new System.Drawing.Size(764, 246);
             this.DataGrid.TabIndex = 3;
             this.DataGrid.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DataGrid_CellContentClick);
             // 
@@ -57,7 +57,7 @@
             this.btnVolver.FlatAppearance.BorderSize = 0;
             this.btnVolver.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnVolver.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnVolver.Location = new System.Drawing.Point(753, 182);
+            this.btnVolver.Location = new System.Drawing.Point(633, 182);
             this.btnVolver.Name = "btnVolver";
             this.btnVolver.Size = new System.Drawing.Size(119, 38);
             this.btnVolver.TabIndex = 6;
@@ -85,7 +85,7 @@
             this.btnBuscar.FlatAppearance.BorderSize = 0;
             this.btnBuscar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnBuscar.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnBuscar.Location = new System.Drawing.Point(615, 182);
+            this.btnBuscar.Location = new System.Drawing.Point(495, 182);
             this.btnBuscar.Name = "btnBuscar";
             this.btnBuscar.Size = new System.Drawing.Size(119, 38);
             this.btnBuscar.TabIndex = 8;
@@ -97,7 +97,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(884, 486);
+            this.ClientSize = new System.Drawing.Size(764, 486);
             this.Controls.Add(this.btnBuscar);
             this.Controls.Add(this.btnLimpiar);
             this.Controls.Add(this.btnVolver);

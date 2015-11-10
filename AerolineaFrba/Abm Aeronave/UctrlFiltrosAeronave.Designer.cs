@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.cboServicios = new AerolineaFrba.Utils.ComboBoxWithAllOption();
             this.chbFueraServicio = new System.Windows.Forms.CheckBox();
             this.lblFueraServicio = new System.Windows.Forms.Label();
             this.txtMatricula = new System.Windows.Forms.TextBox();
@@ -43,6 +42,7 @@
             this.txtModelo = new System.Windows.Forms.TextBox();
             this.lblFechaAlta = new System.Windows.Forms.Label();
             this.dtpAlta = new AerolineaFrba.Utils.DisableableDate();
+            this.cboServicios = new AerolineaFrba.Utils.ComboBoxWithAllOption();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -64,25 +64,15 @@
             this.groupBox1.Controls.Add(this.lblFechaAlta);
             this.groupBox1.Location = new System.Drawing.Point(3, 3);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(852, 166);
+            this.groupBox1.Size = new System.Drawing.Size(765, 166);
             this.groupBox1.TabIndex = 9;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Filtros Aeronave";
             // 
-            // cboServicios
-            // 
-            this.cboServicios.DataTableSource = null;
-            this.cboServicios.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cboServicios.FormattingEnabled = true;
-            this.cboServicios.Location = new System.Drawing.Point(576, 28);
-            this.cboServicios.Name = "cboServicios";
-            this.cboServicios.Size = new System.Drawing.Size(200, 21);
-            this.cboServicios.TabIndex = 32;
-            // 
             // chbFueraServicio
             // 
             this.chbFueraServicio.AutoSize = true;
-            this.chbFueraServicio.Location = new System.Drawing.Point(576, 127);
+            this.chbFueraServicio.Location = new System.Drawing.Point(529, 127);
             this.chbFueraServicio.Name = "chbFueraServicio";
             this.chbFueraServicio.Size = new System.Drawing.Size(15, 14);
             this.chbFueraServicio.TabIndex = 31;
@@ -92,7 +82,7 @@
             // 
             this.lblFueraServicio.AutoSize = true;
             this.lblFueraServicio.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblFueraServicio.Location = new System.Drawing.Point(450, 124);
+            this.lblFueraServicio.Location = new System.Drawing.Point(403, 124);
             this.lblFueraServicio.Name = "lblFueraServicio";
             this.lblFueraServicio.Size = new System.Drawing.Size(123, 17);
             this.lblFueraServicio.TabIndex = 30;
@@ -171,7 +161,7 @@
             // 
             this.lblServicio.AutoSize = true;
             this.lblServicio.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblServicio.Location = new System.Drawing.Point(450, 29);
+            this.lblServicio.Location = new System.Drawing.Point(403, 29);
             this.lblServicio.Name = "lblServicio";
             this.lblServicio.Size = new System.Drawing.Size(114, 17);
             this.lblServicio.TabIndex = 19;
@@ -191,7 +181,7 @@
             // 
             this.lblFechaAlta.AutoSize = true;
             this.lblFechaAlta.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblFechaAlta.Location = new System.Drawing.Point(450, 79);
+            this.lblFechaAlta.Location = new System.Drawing.Point(403, 79);
             this.lblFechaAlta.Name = "lblFechaAlta";
             this.lblFechaAlta.Size = new System.Drawing.Size(99, 17);
             this.lblFechaAlta.TabIndex = 17;
@@ -199,12 +189,23 @@
             // 
             // dtpAlta
             // 
-            this.dtpAlta.EnableDate = false;
-            this.dtpAlta.Location = new System.Drawing.Point(576, 75);
+            this.dtpAlta.EnableDate = true;
+            this.dtpAlta.Location = new System.Drawing.Point(529, 75);
             this.dtpAlta.Name = "dtpAlta";
             this.dtpAlta.Size = new System.Drawing.Size(217, 27);
             this.dtpAlta.TabIndex = 33;
+            this.dtpAlta.TextCheck = "Filtrar por fecha";
             this.dtpAlta.Value = new System.DateTime(2015, 11, 1, 19, 30, 27, 129);
+            // 
+            // cboServicios
+            // 
+            this.cboServicios.DataTableSource = null;
+            this.cboServicios.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboServicios.FormattingEnabled = true;
+            this.cboServicios.Location = new System.Drawing.Point(529, 28);
+            this.cboServicios.Name = "cboServicios";
+            this.cboServicios.Size = new System.Drawing.Size(200, 21);
+            this.cboServicios.TabIndex = 32;
             // 
             // UctrlFiltrosAeronave
             // 
@@ -212,7 +213,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.groupBox1);
             this.Name = "UctrlFiltrosAeronave";
-            this.Size = new System.Drawing.Size(860, 171);
+            this.Size = new System.Drawing.Size(770, 171);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.ResumeLayout(false);

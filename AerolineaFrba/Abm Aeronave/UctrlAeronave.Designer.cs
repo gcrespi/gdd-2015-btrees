@@ -53,6 +53,8 @@
             this.lblServicio = new System.Windows.Forms.Label();
             this.txtModelo = new System.Windows.Forms.TextBox();
             this.lblFechaAlta = new System.Windows.Forms.Label();
+            this.dtpFechaFuera = new System.Windows.Forms.DateTimePicker();
+            this.lblFuera = new System.Windows.Forms.Label();
             this.grbDatosRol.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.upbKgs)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.upbButacaVentana)).BeginInit();
@@ -61,6 +63,8 @@
             // 
             // grbDatosRol
             // 
+            this.grbDatosRol.Controls.Add(this.dtpFechaFuera);
+            this.grbDatosRol.Controls.Add(this.lblFuera);
             this.grbDatosRol.Controls.Add(this.cboServicio);
             this.grbDatosRol.Controls.Add(this.lblValFabricante);
             this.grbDatosRol.Controls.Add(this.lblValKgs);
@@ -357,6 +361,28 @@
             this.lblFechaAlta.TabIndex = 34;
             this.lblFechaAlta.Text = "Fecha de Alta:";
             // 
+            // dtpFechaFuera
+            // 
+            this.dtpFechaFuera.Enabled = false;
+            this.dtpFechaFuera.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dtpFechaFuera.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtpFechaFuera.Location = new System.Drawing.Point(221, 299);
+            this.dtpFechaFuera.Name = "dtpFechaFuera";
+            this.dtpFechaFuera.Size = new System.Drawing.Size(115, 23);
+            this.dtpFechaFuera.TabIndex = 70;
+            this.dtpFechaFuera.Visible = false;
+            // 
+            // lblFuera
+            // 
+            this.lblFuera.AutoSize = true;
+            this.lblFuera.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblFuera.Location = new System.Drawing.Point(21, 304);
+            this.lblFuera.Name = "lblFuera";
+            this.lblFuera.Size = new System.Drawing.Size(166, 17);
+            this.lblFuera.TabIndex = 69;
+            this.lblFuera.Text = "Fuera de Servicio desde:";
+            this.lblFuera.Visible = false;
+            // 
             // UctrlAeronave
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -400,5 +426,7 @@
         private System.Windows.Forms.Label lblValFechaAlta;
         private System.Windows.Forms.Label lblValMatricula;
         private System.Windows.Forms.ComboBox cboServicio;
+        private System.Windows.Forms.DateTimePicker dtpFechaFuera;
+        private System.Windows.Forms.Label lblFuera;
     }
 }

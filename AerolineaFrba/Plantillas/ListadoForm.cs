@@ -94,6 +94,11 @@ namespace AerolineaFrba.Plantillas
 
         private void ListadoForm_Load(object sender, EventArgs e)
         {
+           
+        }
+
+        public void buscar()
+        {
             btnBuscar.PerformClick();
         }
 

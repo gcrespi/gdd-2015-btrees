@@ -138,6 +138,49 @@ AS
 	SELECT TOP 1 AvionID, Avion_Matricula, Avion_Fabricante, Avion_Modelo, Avion_TipoDeServicioRef, Avion_FechaDeAlta, 
 				(SELECT COUNT(*) FROM THE_BTREES.Butaca WHERE @AvionID = Butaca_AvionRef AND Butaca_EsVentanilla = 0) Butacas_Pasillo, 
 				(SELECT COUNT(*) FROM THE_BTREES.Butaca WHERE @AvionID = Butaca_AvionRef AND Butaca_EsVentanilla = 1) Butacas_Ventanilla, 
-				Avion_CantidadKgsDisponibles, Avion_BajaPorVidaUtil
+				Avion_CantidadKgsDisponibles, Avion_BajaPorVidaUtil, Avion_BajaPorFueraDeServicio
 	FROM THE_BTREES.Avion WHERE @AvionID = AvionID
+GO
+
+IF  object_id(N'[THE_BTREES].[TraerUltimoFueraDeServicioAvion]','P') IS NOT NULL
+	DROP PROCEDURE [THE_BTREES].TraerUltimoFueraDeServicioAvion
+GO
+
+CREATE PROCEDURE THE_BTREES.TraerUltimoFueraDeServicioAvion
+	@AvionID INT
+AS
+	SELECT TOP 1 Fuera_FechaFuera, FueraDeServicioId
+	FROM THE_BTREES.FueraDeServicio WHERE @AvionID = Fuera_AvionRef
+	ORDER BY Fuera_FechaFuera DESC
+GO
+
+
+IF  object_id(N'[THE_BTREES].[DarFueraServicio_Avion]','P') IS NOT NULL
+	DROP PROCEDURE [THE_BTREES].DarFueraServicio_Avion
+GO
+
+CREATE PROCEDURE THE_BTREES.DarFueraServicio_Avion
+	@AvionID INT,
+	@Avion_FechaFueraServicio DATE
+AS
+	BEGIN TRAN
+		UPDATE THE_BTREES.Avion SET Avion_BajaPorFueraDeServicio = 1 WHERE @AvionID = AvionID
+		INSERT INTO THE_BTREES.FueraDeServicio (Fuera_AvionRef, Fuera_FechaFuera) VALUES (@AvionID, @Avion_FechaFueraServicio)
+	COMMIT TRAN
+GO
+
+
+IF  object_id(N'[THE_BTREES].[DarReinicioServicio_Avion]','P') IS NOT NULL
+	DROP PROCEDURE [THE_BTREES].DarReinicioServicio_Avion
+GO
+
+CREATE PROCEDURE THE_BTREES.DarReinicioServicio_Avion
+	@AvionID INT,
+	@Avion_FechaReinicioServicio DATE,
+	@FueraDeServicioId INT
+AS
+	BEGIN TRAN
+		UPDATE THE_BTREES.Avion SET Avion_BajaPorFueraDeServicio = 0 WHERE @AvionID = AvionID
+		UPDATE THE_BTREES.FueraDeServicio SET Fuera_FechaVuelta = @Avion_FechaReinicioServicio WHERE FueraDeServicioId = @FueraDeServicioId
+	COMMIT TRAN
 GO

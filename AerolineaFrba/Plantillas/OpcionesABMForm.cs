@@ -55,11 +55,11 @@ namespace AerolineaFrba
             frmDetalle.Show();
         }
 
-        private void crearListadoForm(IBmdForm bmdForm)
+        protected void crearListadoForm(IBmdForm bmdForm)
         {
-            
-            Program.main.replaceForm(new ListadoForm(this.filtroControl(), bmdForm));
-            
+            var frmListado = new ListadoForm(this.filtroControl(), bmdForm);
+            Program.main.addForm(frmListado);
+            frmListado.buscar();
         }
 
     }

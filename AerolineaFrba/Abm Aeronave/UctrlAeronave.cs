@@ -35,6 +35,9 @@ namespace AerolineaFrba.Abm_Aeronave
 
         public DateTime FechaBaja { get; set; }
 
+        public bool BajaPorFueraDeServicio { get; set; }
+        public int FueraDeServicioId { get; set; }
+
         public UctrlAeronave()
         {
             InitializeComponent();
@@ -46,6 +49,7 @@ namespace AerolineaFrba.Abm_Aeronave
             this.AeronaveID = (int)selectedRow.Cells[0].Value;
             this.fillAttrsDefault();
             DataTable dt = Avion.getWithServicioAndButacas(AeronaveID);
+
             var row = dt.Rows[0];
 
             txtMatricula.Text = (String)row["Avion_Matricula"];
@@ -61,6 +65,23 @@ namespace AerolineaFrba.Abm_Aeronave
             upbButacaVentana.Value = (int)row["Butacas_Ventanilla"];
             upbKgs.Value = (Decimal)row["Avion_CantidadKgsDisponibles"];
             Activo = !(bool)row["Avion_BajaPorVidaUtil"];
+
+            BajaPorFueraDeServicio = (bool)row["Avion_BajaPorFueraDeServicio"];
+
+            if (BajaPorFueraDeServicio)
+            {
+                DataTable dtS = Avion.getLastFueraDeServicio(AeronaveID);
+                
+                var rowS = dtS.Rows[0];
+
+                dtpFechaFuera.Value = (DateTime)rowS["Fuera_FechaFuera"];
+                dtpFechaFuera.Checked = true;
+                FueraDeServicioId = (int)rowS["FueraDeServicioId"];
+            }
+
+            lblFuera.Visible = BajaPorFueraDeServicio;
+            dtpFechaFuera.Visible = BajaPorFueraDeServicio;
+
         }
 
         public void fillAttrsDefault()
