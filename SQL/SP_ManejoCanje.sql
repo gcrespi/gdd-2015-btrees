@@ -14,7 +14,7 @@ AS
 		      Producto_Stock,
 			  Producto_Millas			   
 	   FROM THE_BTREES.Producto
-	   WHERE Producto_Millas<=@CantMillas
+	   WHERE Producto_Millas<=@CantMillas AND Producto_Stock>0
 	
 	   END
 GO
