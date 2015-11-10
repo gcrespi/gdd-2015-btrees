@@ -71,7 +71,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(23, 230);
+            this.label5.Location = new System.Drawing.Point(23, 239);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(64, 13);
             this.label5.TabIndex = 4;
@@ -98,7 +98,7 @@
             this.gridRutaAerea.AllowUserToAddRows = false;
             this.gridRutaAerea.AllowUserToDeleteRows = false;
             this.gridRutaAerea.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.gridRutaAerea.Location = new System.Drawing.Point(156, 220);
+            this.gridRutaAerea.Location = new System.Drawing.Point(26, 255);
             this.gridRutaAerea.Name = "gridRutaAerea";
             this.gridRutaAerea.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.gridRutaAerea.Size = new System.Drawing.Size(584, 156);
@@ -106,7 +106,7 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(631, 27);
+            this.button1.Location = new System.Drawing.Point(220, 420);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(109, 31);
             this.button1.TabIndex = 10;
@@ -120,7 +120,7 @@
             this.gridAeronave.AllowUserToDeleteRows = false;
             this.gridAeronave.AllowUserToOrderColumns = true;
             this.gridAeronave.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.gridAeronave.Location = new System.Drawing.Point(156, 65);
+            this.gridAeronave.Location = new System.Drawing.Point(26, 84);
             this.gridAeronave.Name = "gridAeronave";
             this.gridAeronave.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.gridAeronave.Size = new System.Drawing.Size(584, 149);
@@ -130,7 +130,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(768, 447);
+            this.ClientSize = new System.Drawing.Size(626, 463);
             this.Controls.Add(this.gridAeronave);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.gridRutaAerea);

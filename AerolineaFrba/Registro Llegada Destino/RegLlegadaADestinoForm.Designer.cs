@@ -69,7 +69,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(25, 106);
+            this.label4.Location = new System.Drawing.Point(25, 105);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(81, 13);
             this.label4.TabIndex = 3;
@@ -96,16 +96,16 @@
             // dtpFechaLlegada
             // 
             this.dtpFechaLlegada.Format = System.Windows.Forms.DateTimePickerFormat.Time;
-            this.dtpFechaLlegada.Location = new System.Drawing.Point(123, 106);
+            this.dtpFechaLlegada.Location = new System.Drawing.Point(124, 99);
             this.dtpFechaLlegada.Name = "dtpFechaLlegada";
-            this.dtpFechaLlegada.Size = new System.Drawing.Size(89, 20);
+            this.dtpFechaLlegada.Size = new System.Drawing.Size(121, 20);
             this.dtpFechaLlegada.TabIndex = 7;
             // 
             // btnRegistrar
             // 
-            this.btnRegistrar.Location = new System.Drawing.Point(28, 142);
+            this.btnRegistrar.Location = new System.Drawing.Point(77, 136);
             this.btnRegistrar.Name = "btnRegistrar";
-            this.btnRegistrar.Size = new System.Drawing.Size(75, 23);
+            this.btnRegistrar.Size = new System.Drawing.Size(101, 30);
             this.btnRegistrar.TabIndex = 8;
             this.btnRegistrar.Text = "Registrar";
             this.btnRegistrar.UseVisualStyleBackColor = true;
