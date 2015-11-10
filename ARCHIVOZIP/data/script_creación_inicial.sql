@@ -1620,8 +1620,10 @@ CREATE PROCEDURE [THE_BTREES].[AddCompra]
 	@numTarjeta AS varchar(20) = NULL,
 	@codSeg AS int = NULL,
 	@fechaVenc AS datetime = NULL,
+	@fechaActual AS datetime,
 	@dtComprador THE_BTREES.ClienteDT READONLY,
 	@compraID int OUTPUT
+
 AS
 	BEGIN
 		SET NOCOUNT ON
@@ -1675,7 +1677,7 @@ AS
 			Compra_CompradorRef
 		)
 		VALUES (
-			CAST(GETDATE() AS date),
+			CAST(@fechaActual AS date),
 			@efectivo,
 			@cantCuotas,
 			@tipoTarjeta,
