@@ -30,7 +30,7 @@ namespace AerolineaFrba.Abm_Rol
             return new UctrlFiltrosRol();
         }
 
-        protected override IAbmControl abmControl()
+        public override IAbmControl abmControl()
         {
             return new UctrlRol();
         }

@@ -11,23 +11,23 @@ using System.Windows.Forms;
 
 namespace AerolineaFrba.Plantillas
 {
-    public partial class ModifForm : Form, IBmdForm
+    public partial class ModifForm : Form
     {
         private IAbmControl abmControl;
 
-        public ModifForm(IAbmControl abmControl)
+        public ModifForm(IAbmControl abmControl, DataGridViewRow selectedRow)
         {
             InitializeComponent();
 
             this.abmControl = abmControl;
             this.abmControl.drawIn(this);
             this.abmControl.blockKeyAttrs();
-        
+            this.showUp(selectedRow);
         }
 
         private void btnCancelar_Click(object sender, EventArgs e)
         {
-            this.Hide();
+            this.Close();
         }
 
         protected virtual void btnModif_Click(object sender, EventArgs e)
@@ -36,7 +36,7 @@ namespace AerolineaFrba.Plantillas
             {
                 abmControl.darModif();
                 MessageBox.Show("Se ha Modificado " + abmControl.accionConcretadaMessage() + " con Exito!", "Modificación Exitosa", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                this.Hide();
+                this.Close();
             }
             else
             {
@@ -46,14 +46,7 @@ namespace AerolineaFrba.Plantillas
 
         public void showUp(DataGridViewRow selectedRow)
         {
-            this.StartPosition = FormStartPosition.CenterScreen;
-            this.Show();
             this.abmControl.retrieveInfoFrom(selectedRow);
-        }
-
-        public String nameButtonAccess()
-        {
-            return "Modificar";
         }
 
     }

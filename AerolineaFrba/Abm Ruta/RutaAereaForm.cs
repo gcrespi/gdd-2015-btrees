@@ -31,7 +31,7 @@ namespace AerolineaFrba.Abm_Ruta
             return new UctrlFiltrosRuta();
         }
 
-        protected override IAbmControl abmControl()
+        public override IAbmControl abmControl()
         {
             return new UctrlRuta();
         }

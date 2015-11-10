@@ -11,34 +11,28 @@ using System.Windows.Forms;
 
 namespace AerolineaFrba.Plantillas
 {
-    public partial class DetalleForm : Form, IBmdForm
+    public partial class DetalleForm : Form
     {
         private IAbmControl abmControl;
 
-        public DetalleForm(IAbmControl abmControl)
+        public DetalleForm(IAbmControl abmControl, DataGridViewRow selectedRow)
         {
             InitializeComponent();
 
             this.abmControl = abmControl;
             this.abmControl.drawIn(this);
             this.abmControl.blockAttrs();
+            this.showUp(selectedRow);
         }
 
         private void btnCancelar_Click(object sender, EventArgs e)
         {
-            this.Hide();
+            this.Close();
         }
 
         public virtual void showUp(DataGridViewRow selectedRow)
         {
-            this.StartPosition = FormStartPosition.CenterScreen;
-            this.Show();
             this.abmControl.retrieveInfoFrom(selectedRow);
-        }
-
-        public virtual String nameButtonAccess()
-        {
-            return "Detalles";
         }
     }
 }

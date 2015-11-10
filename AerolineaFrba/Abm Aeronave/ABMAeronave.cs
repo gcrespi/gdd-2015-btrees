@@ -26,7 +26,7 @@ namespace AerolineaFrba.Abm_Aeronave
             return new UctrlFiltrosAeronave();
         }
 
-        protected override IAbmControl abmControl()
+        public override IAbmControl abmControl()
         {
             return new UctrlAeronave();
         }
@@ -38,7 +38,7 @@ namespace AerolineaFrba.Abm_Aeronave
 
         private void btnServicio_Click(object sender, EventArgs e)
         {
-            this.crearListadoForm(new BajaServicioAeronaveForm(new UctrlAeronave()));
+            this.crearListadoForm(new FueraServicioFactory(this));
         }
     }
 }

@@ -82,9 +82,9 @@ namespace AerolineaFrba.Abm_Ruta
             this.Name = "filtroCtrl";
             this.Size = new System.Drawing.Size(868, 177);
             this.TabIndex = 8;
-
             aForm.Controls.Add(this);
             aForm.Controls.SetChildIndex(this, 0);
+            this.Anchor = AnchorStyles.Right | AnchorStyles.Left | AnchorStyles.Top;
         }
     }
 }

@@ -11,22 +11,23 @@ using System.Windows.Forms;
 
 namespace AerolineaFrba.Plantillas
 {
-    public partial class BajaForm : Form, IBmdForm
+    public partial class BajaForm : Form
     {
         private IAbmControl abmControl;
 
-        public BajaForm(IAbmControl abmControl)
+        public BajaForm(IAbmControl abmControl, DataGridViewRow selectedRow)
         {
             InitializeComponent();
 
             this.abmControl = abmControl;
             this.abmControl.drawIn(this);
             this.abmControl.blockAttrs();
+            this.showUp(selectedRow);
         }
 
         private void btnCancelar_Click(object sender, EventArgs e)
         {
-            this.Hide();
+            this.Close();
         }
 
         private void btnEliminar_Click(object sender, EventArgs e)
@@ -39,7 +40,7 @@ namespace AerolineaFrba.Plantillas
 
             abmControl.darBaja();
             MessageBox.Show("Se ha Deshabilitado " + abmControl.accionConcretadaMessage() + " con Exito!", "Baja Exitosa", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            this.Hide();
+            this.Close();
         }
 
         private void BajaForm_Load(object sender, EventArgs e)
@@ -53,16 +54,9 @@ namespace AerolineaFrba.Plantillas
             if (!abmControl.activo())
             {
                 MessageBox.Show("No se puede deshabilitar, " + abmControl.accionRechazadaMessage() + " ya estaba deshabilitado!", "Ya deshabilitado", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                return;
+                this.Close();                
             }
 
-            this.StartPosition = FormStartPosition.CenterScreen;
-            this.Show();
-        }
-
-        public String nameButtonAccess()
-        {
-            return "Eliminar";
         }
 
         private void BajaForm_VisibleChanged(object sender, EventArgs e)

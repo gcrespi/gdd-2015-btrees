@@ -178,7 +178,7 @@ namespace AerolineaFrba.Abm_Aeronave
         {
             this.Location = new System.Drawing.Point(12, 12);
             this.Name = "uctrlRolModif";
-            this.Size = new System.Drawing.Size(770, 171);
+            this.Size = new System.Drawing.Size(761, 349);
             this.TabIndex = 7;
 
             aForm.Controls.Add(this);

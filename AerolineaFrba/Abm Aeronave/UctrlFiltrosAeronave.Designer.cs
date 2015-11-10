@@ -29,6 +29,8 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.dtpAlta = new AerolineaFrba.Utils.DisableableDate();
+            this.cboServicios = new AerolineaFrba.Utils.ComboBoxWithAllOption();
             this.chbFueraServicio = new System.Windows.Forms.CheckBox();
             this.lblFueraServicio = new System.Windows.Forms.Label();
             this.txtMatricula = new System.Windows.Forms.TextBox();
@@ -41,8 +43,6 @@
             this.lblServicio = new System.Windows.Forms.Label();
             this.txtModelo = new System.Windows.Forms.TextBox();
             this.lblFechaAlta = new System.Windows.Forms.Label();
-            this.dtpAlta = new AerolineaFrba.Utils.DisableableDate();
-            this.cboServicios = new AerolineaFrba.Utils.ComboBoxWithAllOption();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -68,6 +68,26 @@
             this.groupBox1.TabIndex = 9;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Filtros Aeronave";
+            // 
+            // dtpAlta
+            // 
+            this.dtpAlta.EnableDate = true;
+            this.dtpAlta.Location = new System.Drawing.Point(529, 75);
+            this.dtpAlta.Name = "dtpAlta";
+            this.dtpAlta.Size = new System.Drawing.Size(217, 27);
+            this.dtpAlta.TabIndex = 33;
+            this.dtpAlta.TextCheck = "Filtrar por fecha";
+            this.dtpAlta.Value = new System.DateTime(2015, 11, 1, 19, 30, 27, 129);
+            // 
+            // cboServicios
+            // 
+            this.cboServicios.DataTableSource = null;
+            this.cboServicios.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboServicios.FormattingEnabled = true;
+            this.cboServicios.Location = new System.Drawing.Point(529, 28);
+            this.cboServicios.Name = "cboServicios";
+            this.cboServicios.Size = new System.Drawing.Size(200, 21);
+            this.cboServicios.TabIndex = 32;
             // 
             // chbFueraServicio
             // 
@@ -186,26 +206,6 @@
             this.lblFechaAlta.Size = new System.Drawing.Size(99, 17);
             this.lblFechaAlta.TabIndex = 17;
             this.lblFechaAlta.Text = "Fecha de Alta:";
-            // 
-            // dtpAlta
-            // 
-            this.dtpAlta.EnableDate = true;
-            this.dtpAlta.Location = new System.Drawing.Point(529, 75);
-            this.dtpAlta.Name = "dtpAlta";
-            this.dtpAlta.Size = new System.Drawing.Size(217, 27);
-            this.dtpAlta.TabIndex = 33;
-            this.dtpAlta.TextCheck = "Filtrar por fecha";
-            this.dtpAlta.Value = new System.DateTime(2015, 11, 1, 19, 30, 27, 129);
-            // 
-            // cboServicios
-            // 
-            this.cboServicios.DataTableSource = null;
-            this.cboServicios.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cboServicios.FormattingEnabled = true;
-            this.cboServicios.Location = new System.Drawing.Point(529, 28);
-            this.cboServicios.Name = "cboServicios";
-            this.cboServicios.Size = new System.Drawing.Size(200, 21);
-            this.cboServicios.TabIndex = 32;
             // 
             // UctrlFiltrosAeronave
             // 

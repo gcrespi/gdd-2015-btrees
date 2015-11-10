@@ -28,24 +28,24 @@ namespace AerolineaFrba
             return new UctrlFiltrosRol();
         }
 
-        protected virtual IAbmControl abmControl()
+        public virtual IAbmControl abmControl()
         { 
             return new UctrlRol();
         }
 
         private void btnListar_Click(object sender, EventArgs e)
         {
-            this.crearListadoForm(new DetalleForm(this.abmControl()));
+            this.crearListadoForm(new DetalleFactory(this));
         }
 
         private void btnModificar_Click(object sender, EventArgs e)
         {
-            this.crearListadoForm(new ModifForm(this.abmControl()));
+            this.crearListadoForm(new ModifFactory(this));
         }
 
         private void btnEliminar_Click(object sender, EventArgs e)
         {
-            this.crearListadoForm(new BajaForm(this.abmControl()));
+            this.crearListadoForm(new BajaFactory(this));
         }
 
         private void btnAgregar_Click(object sender, EventArgs e)
@@ -54,9 +54,9 @@ namespace AerolineaFrba
             Program.main.addForm(frmAlta);
         }
 
-        protected void crearListadoForm(IBmdForm bmdForm)
+        protected void crearListadoForm(AbstractBMDFactory bmdFactory)
         {
-            var frmListado = new ListadoForm(this.filtroControl(), bmdForm);
+            var frmListado = new ListadoForm(this.filtroControl(), bmdFactory);
             Program.main.addForm(frmListado);
             frmListado.buscar();
         }

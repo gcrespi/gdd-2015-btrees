@@ -19,14 +19,14 @@ namespace AerolineaFrba.Plantillas
     public partial class ListadoForm : Form
     {
         private TipoListado tipo;
-        private IBmdForm bmdForm;
+        private AbstractBMDFactory bmdFactory;
         private FiltroControl filtroCtrl;
 
-        public ListadoForm(FiltroControl filtroCtrl, IBmdForm bmdForm)
+        public ListadoForm(FiltroControl filtroCtrl, AbstractBMDFactory bmdFactory)
         {
             InitializeComponent();
             this.filtroCtrl = filtroCtrl;
-            this.bmdForm = bmdForm;
+            this.bmdFactory = bmdFactory;
 
             filtroCtrl.drawIn(this);
         }
@@ -40,7 +40,7 @@ namespace AerolineaFrba.Plantillas
         {
             var columnaDetalles = new DataGridViewButtonColumn();
             {
-                columnaDetalles.Text = bmdForm.nameButtonAccess();
+                columnaDetalles.Text = bmdFactory.nameButtonAccess();
                 columnaDetalles.UseColumnTextForButtonValue = true;
                 columnaDetalles.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
                 columnaDetalles.FlatStyle = FlatStyle.Standard;
@@ -72,7 +72,8 @@ namespace AerolineaFrba.Plantillas
             var senderGrid = (DataGridView)sender;
             if (senderGrid.Columns[e.ColumnIndex] is DataGridViewButtonColumn && e.RowIndex >= 0)
             {
-                bmdForm.showUp(senderGrid.Rows[e.RowIndex]);
+                var frm = bmdFactory.create(senderGrid.Rows[e.RowIndex]);
+                Program.main.addForm(frm);
             }
         }
 
@@ -104,7 +105,6 @@ namespace AerolineaFrba.Plantillas
 
         private void ListadoForm_FormClosing(object sender, FormClosingEventArgs e)
         {
-            bmdForm.Close();
         }
     }
 }

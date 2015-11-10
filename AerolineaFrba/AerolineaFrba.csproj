@@ -113,8 +113,8 @@
     <Compile Include="Abm Ruta\UctrlRuta.Designer.cs">
       <DependentUpon>UctrlRuta.cs</DependentUpon>
     </Compile>
+    <Compile Include="Abm\AbstractABMFactory.cs" />
     <Compile Include="Abm\IAbmControl.cs" />
-    <Compile Include="Abm\IBmdForm.cs" />
     <Compile Include="AtributeValidationException.cs" />
     <Compile Include="Classes\Avion.cs" />
     <Compile Include="Canje Millas\CanjeMillasForm.cs">

@@ -108,8 +108,8 @@ namespace AerolineaFrba.Abm_Ruta
 
             _codigoRutaAnterior = CodigoRuta;
             _serviciosCheckeadosAnterior = ServiciosCheckeadosSet;
-            _ciudadOrigenAnterior = CiudadOrigenKey;
-            _ciudadDestinoAnterior = CiudadDestinoKey;
+            _ciudadOrigenAnterior = origen;
+            _ciudadDestinoAnterior = destino;
             _precioPasajeAnterior = PrecioBPas;
             _precioEncomiendaAnterior = PrecioBEnc;
         }
