@@ -21,6 +21,8 @@ namespace AerolineaFrba.Abm
 
         bool validateAttrs();
 
+        bool validateAttrsModif();
+
         void darModif();
 
         void darBaja();

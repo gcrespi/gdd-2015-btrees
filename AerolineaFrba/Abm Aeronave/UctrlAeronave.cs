@@ -130,6 +130,14 @@ namespace AerolineaFrba.Abm_Aeronave
 
         }
 
+
+        public bool validateAttrsModif()
+        {
+            //TODO
+            return true;
+        }
+
+
         public bool validateAttrs()
         {
             //TODO
@@ -165,7 +173,7 @@ namespace AerolineaFrba.Abm_Aeronave
         {
             this.Location = new System.Drawing.Point(12, 12);
             this.Name = "uctrlRolModif";
-            this.Size = new System.Drawing.Size(761, 349);
+            this.Size = new System.Drawing.Size(770, 171);
             this.TabIndex = 7;
 
             aForm.Controls.Add(this);

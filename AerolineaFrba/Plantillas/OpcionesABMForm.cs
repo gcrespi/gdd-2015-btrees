@@ -50,9 +50,8 @@ namespace AerolineaFrba
 
         private void btnAgregar_Click(object sender, EventArgs e)
         {
-            AltaForm frmDetalle = new AltaForm(this.abmControl());
-            frmDetalle.StartPosition = FormStartPosition.CenterScreen;
-            frmDetalle.Show();
+            AltaForm frmAlta = new AltaForm(this.abmControl());
+            Program.main.addForm(frmAlta);
         }
 
         protected void crearListadoForm(IBmdForm bmdForm)

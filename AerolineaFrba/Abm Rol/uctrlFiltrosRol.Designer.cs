@@ -49,7 +49,7 @@
             this.groupBox1.Controls.Add(this.lblNombre);
             this.groupBox1.Location = new System.Drawing.Point(3, 3);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(852, 166);
+            this.groupBox1.Size = new System.Drawing.Size(762, 166);
             this.groupBox1.TabIndex = 9;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "groupBox1";
@@ -57,7 +57,7 @@
             // chbHabilitado
             // 
             this.chbHabilitado.AutoSize = true;
-            this.chbHabilitado.Location = new System.Drawing.Point(137, 115);
+            this.chbHabilitado.Location = new System.Drawing.Point(110, 113);
             this.chbHabilitado.Name = "chbHabilitado";
             this.chbHabilitado.Size = new System.Drawing.Size(15, 14);
             this.chbHabilitado.TabIndex = 22;
@@ -67,7 +67,7 @@
             // 
             this.lblHabilitado.AutoSize = true;
             this.lblHabilitado.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblHabilitado.Location = new System.Drawing.Point(33, 113);
+            this.lblHabilitado.Location = new System.Drawing.Point(6, 111);
             this.lblHabilitado.Name = "lblHabilitado";
             this.lblHabilitado.Size = new System.Drawing.Size(71, 17);
             this.lblHabilitado.TabIndex = 21;
@@ -76,7 +76,7 @@
             // chlFuncionalidades
             // 
             this.chlFuncionalidades.FormattingEnabled = true;
-            this.chlFuncionalidades.Location = new System.Drawing.Point(557, 19);
+            this.chlFuncionalidades.Location = new System.Drawing.Point(456, 19);
             this.chlFuncionalidades.Name = "chlFuncionalidades";
             this.chlFuncionalidades.Size = new System.Drawing.Size(271, 124);
             this.chlFuncionalidades.TabIndex = 20;
@@ -85,7 +85,7 @@
             // 
             this.lblFuncionalidades.AutoSize = true;
             this.lblFuncionalidades.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblFuncionalidades.Location = new System.Drawing.Point(426, 29);
+            this.lblFuncionalidades.Location = new System.Drawing.Point(325, 29);
             this.lblFuncionalidades.Name = "lblFuncionalidades";
             this.lblFuncionalidades.Size = new System.Drawing.Size(111, 17);
             this.lblFuncionalidades.TabIndex = 19;
@@ -94,7 +94,7 @@
             // txtNombre
             // 
             this.txtNombre.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtNombre.Location = new System.Drawing.Point(157, 32);
+            this.txtNombre.Location = new System.Drawing.Point(130, 29);
             this.txtNombre.Margin = new System.Windows.Forms.Padding(0);
             this.txtNombre.MaxLength = 60;
             this.txtNombre.Name = "txtNombre";
@@ -105,7 +105,7 @@
             // 
             this.lblNombre.AutoSize = true;
             this.lblNombre.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblNombre.Location = new System.Drawing.Point(33, 32);
+            this.lblNombre.Location = new System.Drawing.Point(6, 29);
             this.lblNombre.Name = "lblNombre";
             this.lblNombre.Size = new System.Drawing.Size(58, 17);
             this.lblNombre.TabIndex = 17;
@@ -117,7 +117,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.groupBox1);
             this.Name = "UctrlFiltrosRol";
-            this.Size = new System.Drawing.Size(860, 171);
+            this.Size = new System.Drawing.Size(770, 171);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.ResumeLayout(false);

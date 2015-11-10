@@ -100,6 +100,11 @@ namespace AerolineaFrba.Abm_Rol
             return nombreVal && funcionalidadesVal;
         }
 
+        public bool validateAttrsModif()
+        {
+            return this.validateAttrs();
+        }
+
         public void darModif()
         {
             Roles.darModif(this);

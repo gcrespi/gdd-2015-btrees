@@ -106,5 +106,33 @@ namespace AerolineaFrba
             return dt;
         }
 
+
+        public static bool codigoRutaYaExistente(UctrlRuta rutaAttrs)
+        {
+            var _params = new Dictionary<String, Object>();
+            _params.Add("@CodigoRuta", rutaAttrs.CodigoRuta);
+            return Conexion.callBooleanFunctionWithParameters(_params, "codigoRutaYaExistente");
+        }
+
+        public static bool tieneViajeProgramado(int RutaID)
+        {
+            var _params = new Dictionary<String, Object>();
+            _params.Add("@RutaID", RutaID);
+            return Conexion.callBooleanFunctionWithParameters(_params, "tieneViajeProgramado");
+        }
+
+        public static bool tienePasajesVendidos(int RutaID)
+        {
+            var _params = new Dictionary<String, Object>();
+            _params.Add("@RutaID", RutaID);
+            return Conexion.callBooleanFunctionWithParameters(_params, "tienePasajesVendidos");
+        }
+
+        public static bool tieneEncomiendasVendidas(int RutaID)
+        {
+            var _params = new Dictionary<String, Object>();
+            _params.Add("@RutaID", RutaID);
+            return Conexion.callBooleanFunctionWithParameters(_params, "tieneEncomiendasVendidas");
+        }
     }
 }

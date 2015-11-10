@@ -78,6 +78,7 @@ as
 	+ 'FROM THE_BTREES.RutaAerea r, THE_BTREES.Ciudad co, THE_BTREES.Ciudad cd, THE_BTREES.TipoServicioXRutaAerea ts ' 
 	+ 'WHERE r.Ruta_CiudadOrigenRef = co.CiudadID AND r.Ruta_CiudadDestinoRef = cd.CiudadID AND ts.RutaAereaRef = r.RutaAereaID'
 	+ @WhereClause
+	+ 'ORDER BY r.RutaAereaID'
 	execute (@sentencia)
 GO
 

@@ -32,7 +32,7 @@ namespace AerolineaFrba.Plantillas
 
         protected virtual void btnModif_Click(object sender, EventArgs e)
         {
-            if (abmControl.validateAttrs())
+            if (abmControl.validateAttrsModif())
             {
                 abmControl.darModif();
                 MessageBox.Show("Se ha Modificado " + abmControl.accionConcretadaMessage() + " con Exito!", "Modificación Exitosa", MessageBoxButtons.OK, MessageBoxIcon.Information);

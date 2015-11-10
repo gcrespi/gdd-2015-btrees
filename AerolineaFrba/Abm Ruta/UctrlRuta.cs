@@ -15,8 +15,15 @@ namespace AerolineaFrba.Abm_Ruta
 {
     public partial class UctrlRuta : UserControl, IAbmControl
     {
+        private int _codigoRutaAnterior;
+        private HashSet<int> _serviciosCheckeadosAnterior = new HashSet<int>();
+        private Int16 _ciudadOrigenAnterior = 0;
+        private Int16 _ciudadDestinoAnterior = 0;
+        private Decimal _precioPasajeAnterior = 0;
+        private Decimal _precioEncomiendaAnterior = 0;
+
         private List<int> serviciosRefs;
-        private int rutaID;
+        private int rutaID = 0;
         private DataTable serviciosTable = new DataTable();
         private DataTable ciudadesOrigen = new DataTable();
         private DataTable ciudadesDestino = new DataTable();
@@ -60,6 +67,14 @@ namespace AerolineaFrba.Abm_Ruta
                 return _self;
             }
         }
+        public HashSet<int> ServiciosCheckeadosSet
+        {
+            get
+            {
+                return new HashSet<int>(ServiciosCheckeados.AsEnumerable().Select(row => (int)row[0])); 
+            }
+        }
+
 
         public UctrlRuta()
         {
@@ -73,6 +88,7 @@ namespace AerolineaFrba.Abm_Ruta
             var dt = RutaAerea.getWithServicios(rutaID);
 
             numCodigoRuta.TextValue = Decimal.ToInt32(((Decimal)dt.Rows[0][0]));
+            
             var origen =(Int16)dt.Rows[0][1];
             cboCiudadOrigen.SelectedValue = origen;
             var destino = (Int16)dt.Rows[0][2];
@@ -83,10 +99,17 @@ namespace AerolineaFrba.Abm_Ruta
             chbHabilitado.Checked = (bool)dt.Rows[0][5];
             serviciosRefs = dt.AsEnumerable().Select(row => Convert.ToInt32((byte)row[6])).ToList();
 
-            this.checkRutaFunc();
+            this.checkRutaServicios();
+
+            _codigoRutaAnterior = CodigoRuta;
+            _serviciosCheckeadosAnterior = ServiciosCheckeadosSet;
+            _ciudadOrigenAnterior = CiudadOrigenKey;
+            _ciudadDestinoAnterior = CiudadDestinoKey;
+            _precioPasajeAnterior = PrecioBPas;
+            _precioEncomiendaAnterior = PrecioBEnc;
         }
 
-        private void checkRutaFunc()
+        private void checkRutaServicios()
         {
             for (int i = 0; i < chlServicios.Items.Count; i++)
             {
@@ -150,10 +173,159 @@ namespace AerolineaFrba.Abm_Ruta
         public void blockKeyAttrs()
         {}
 
+        public bool validateAttrsModif()
+        {
+            bool _conViaje = RutaAerea.tieneViajeProgramado(RutaID);
+            bool _conPasaje = RutaAerea.tienePasajesVendidos(RutaID);
+            bool _conEncomienda = RutaAerea.tieneEncomiendasVendidas(RutaID);
+
+            var _self = this.validateAttrs();
+            _self = this.validarTipoServicio(_conViaje) && _self;
+            _self = this.validarCiudades(_conViaje) && _self;
+            _self = this.validarPrecioPasaje(_conPasaje) && _self;
+            _self = this.validarPrecioEncomienda(_conEncomienda) && _self;
+
+            return _self;
+        }
+
+        private bool validarPrecioPasaje(bool _conPasaje)
+        {
+            lblValPrecioBPas.Text = "";
+
+            if ((_precioPasajeAnterior != PrecioBPas) && _conPasaje)
+            {
+                lblValPrecioBPas.Text = "Hay pasajes vendidos \nno puede cambiar Precio!";
+                return false;
+            }
+            return true;
+        }
+
+        private bool validarPrecioEncomienda(bool _conEncomienda)
+        {
+            lblValPrecioBEnc.Text = "";
+
+            if ((_precioEncomiendaAnterior != PrecioBEnc) && _conEncomienda)
+            {
+                lblValPrecioBEnc.Text = "Hay encomiendas vendidas \nno puede cambiar Precio!";
+                return false;
+            }
+            return true;
+        }
+
+        private bool validarCiudades(bool _conViaje)
+        {
+            lblValDestino.Text = "";
+            lblValOrigen.Text = "";
+
+            var _self = true;
+
+            if ((_ciudadOrigenAnterior != CiudadOrigenKey) && _conViaje)
+            {
+                lblValOrigen.Text = "Hay viajes planeados \nno puede cambiar Origen!";
+                _self = false;
+            }
+
+            if ((_ciudadDestinoAnterior != CiudadDestinoKey) && _conViaje)
+            {
+                lblValDestino.Text = "Hay viajes planeados \nno puede cambiar Destino!";
+                _self = false;
+            }
+
+            return _self;
+        }
+
+        private bool validarTipoServicio(bool conViaje)
+        {
+            lblValServicio.Text = "";
+
+            if ((!_serviciosCheckeadosAnterior.SetEquals(ServiciosCheckeadosSet)) && conViaje)
+            {
+                lblValServicio.Text = "Hay viajes planeados \nno puede cambiar Servicio!";
+                return false;
+            }
+            return true;
+        }
+
+
+
         public bool validateAttrs()
         {
-            return true; //TODO
+            var _self = this.validarCodigoRuta();
+            _self = this.validarCiudadesAlta() && _self;
+            _self = this.validarServiciosAlta() && _self;
+            _self = this.validarPreciosAlta() && _self;
+
+            return _self;
         }
+
+        private bool validarPreciosAlta()
+        {
+            lblValPrecioBPas.Text = "";
+
+            if (PrecioBPas == 0 || PrecioBEnc == 0)
+            {
+                lblValPrecioBPas.Text = "Los precios no pueden ser nulos!";
+                return false;
+            }
+            return true;
+        }
+
+        private bool validarServiciosAlta()
+        {
+            lblValServicio.Text = "";
+
+            if (!ServiciosCheckeadosSet.Any())
+            {
+                lblValServicio.Text = "Debe elegir al menos un Servicio!";
+                return false;
+            }
+            return true;
+        }
+
+        private bool validarCiudadesAlta()
+        {
+            lblValOrigen.Text = "";
+
+            if (cboCiudadOrigen.SelectedIndex == -1 || cboCiudadDestino.SelectedIndex == -1)
+            {
+                lblValOrigen.Text = "Origen y Destino son obligatorios!";
+                return false;
+            }
+
+            if (CiudadDestinoKey == CiudadOrigenKey)
+            {
+                lblValOrigen.Text = "El Origen no puede ser la misma ciudad de Destino!";
+                return false;
+            }
+
+            return true;
+        }
+
+        private bool validarCodigoRuta()
+        {
+            lblValCodigoRuta.Text = "";
+
+            if (CodigoRuta == 0)
+            {
+                lblValCodigoRuta.Text = "Codigo de Ruta debe ser distinto de 0!";
+                return false;
+            }
+
+            if (this.cambioCodigoRuta() && RutaAerea.codigoRutaYaExistente(this))
+            {
+                lblValCodigoRuta.Text = "Codigo de Ruta Repetido!";
+                return false;
+            }
+
+            return true;
+        }
+
+        private bool cambioCodigoRuta()
+        {
+            return rutaID == 0 || _codigoRutaAnterior!= CodigoRuta;
+        }
+
+
 
         public void darModif()
         {
