@@ -106,30 +106,44 @@ CREATE PROCEDURE THE_BTREES.CancelarRutasInhabilitados
 AS
 BEGIN
 
-	-- Sin terminar todavía
+	DECLARE @CompraID int,
+			@CancelacionRef int
 
-	SELECT DISTINCT CompraRef INTO THE_BTREES.#ItemsCompra
-	FROM 
-	(
-		SELECT Enco_ViajeRef as ViajeRef, Enco_CompraRef AS CompraRef FROM THE_BTREES.Encomienda
-		UNION
-		SELECT Pasaje_ViajeRef as ViajeRef, Pasaje_CompraRef AS CompraRef FROM THE_BTREES.Pasaje
-	) ItemsCompra
+	DECLARE cursorCancelacion CURSOR FOR SELECT DISTINCT c.CompraID 
+										 FROM THE_BTREES.Compra c 
+										 INNER JOIN (
+													 SELECT p.Pasaje_CompraRef AS CompreRef
+													 FROM THE_BTREES.Pasaje p INNER JOIN THE_BTREES.Viaje v ON p.Pasaje_ViajeRef=v.ViajeID
+									   				 WHERE v.Viaje_RutaAereaRef=@RutaID
+													 UNION
+													 SELECT e.Enco_CompraRef AS ComprRef  
+													 FROM THE_BTREES.Encomienda e INNER JOIN THE_BTREES.Viaje v ON e.Enco_ViajeRef=v.ViajeID
+									   				 WHERE v.Viaje_RutaAereaRef=@RutaID
+													 ) r
+									     ON c.CompraID = r.CompreRef
 
-	INSERT INTO THE_BTREES.Cancelacion (Cance_CompraRef, Cance_Fecha, Motivo)
-	SELECT i.PasajeID, @FechaActual, 'Baja de la Ruta Aerea asignada.' 
-	FROM THE_BTREES.Viaje v 
-		JOIN THE_BTREES.Compra c ON c.Compra_ViajeRef = v.ViajeID
-		JOIN THE_BTREES.#ItemsCompra i ON i.CompraRef = c.CompraID
-		--En realidad fecha de la aplicación WHERE v.Viaje_FechaSalida > GETDATE() AND v.Viaje_RutaAereaRef IN 
+	FETCH NEXT cursorCancelacion INTO @CompraID
+
+	WHILE @@FETCH_STATUS = 0
+	BEGIN
+		INSERT INTO THE_BTREES.Cancelacion 
 		(
-			SELECT d.RutaAereaID FROM deleted d
-				JOIN inserted as ins ON d.RutaAereaID = ins.RutaAereaID
-				WHERE ins.Ruta_Activo = 1 AND d.Ruta_Activo = 0
+			Cance_CompraRef,Cance_Fecha,Motivo
 		)
+		VALUES
+		(
+			@CompraID,@FechaActual,'Baja de la Ruta Aerea asignada.'
+		)
+		SET @CancelacionRef = SCOPE_IDENTITY()
+		
+		UPDATE THE_BTREES.Pasaje
+		SET Pasaje_CancelacionRef=@CancelacionRef
+		WHERE Pasaje_CompraRef=@CompraID
 
-	DROP TABLE THE_BTREES.#ItemsCompra
-	
-	-- Sin terminar todavía
+		UPDATE THE_BTREES.Encomienda
+		SET Enco_CancelacionRef=@CancelacionRef
+		WHERE Enco_CompraRef=@CompraID
+
+	END
 END
 GO

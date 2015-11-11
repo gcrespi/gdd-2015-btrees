@@ -95,7 +95,7 @@
             // 
             // txtKGEncomienda
             // 
-            this.txtKGEncomienda.Location = new System.Drawing.Point(18, 19);
+            this.txtKGEncomienda.Location = new System.Drawing.Point(6, 19);
             this.txtKGEncomienda.Name = "txtKGEncomienda";
             this.txtKGEncomienda.Size = new System.Drawing.Size(192, 20);
             this.txtKGEncomienda.TabIndex = 6;
@@ -103,7 +103,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(3, 10);
+            this.label4.Location = new System.Drawing.Point(18, 10);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(185, 13);
             this.label4.TabIndex = 7;
@@ -111,10 +111,10 @@
             // 
             // txtMotivo
             // 
-            this.txtMotivo.Location = new System.Drawing.Point(6, 26);
+            this.txtMotivo.Location = new System.Drawing.Point(21, 26);
             this.txtMotivo.Multiline = true;
             this.txtMotivo.Name = "txtMotivo";
-            this.txtMotivo.Size = new System.Drawing.Size(590, 38);
+            this.txtMotivo.Size = new System.Drawing.Size(575, 38);
             this.txtMotivo.TabIndex = 8;
             // 
             // panel2
@@ -124,17 +124,17 @@
             this.panel2.Controls.Add(this.label4);
             this.panel2.Controls.Add(this.txtMotivo);
             this.panel2.Enabled = false;
-            this.panel2.Location = new System.Drawing.Point(41, 65);
+            this.panel2.Location = new System.Drawing.Point(12, 65);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(638, 407);
+            this.panel2.Size = new System.Drawing.Size(606, 369);
             this.panel2.TabIndex = 13;
             // 
             // groupBox2
             // 
             this.groupBox2.Controls.Add(this.gridPasajes);
-            this.groupBox2.Location = new System.Drawing.Point(15, 70);
+            this.groupBox2.Location = new System.Drawing.Point(15, 81);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(581, 242);
+            this.groupBox2.Size = new System.Drawing.Size(581, 208);
             this.groupBox2.TabIndex = 21;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Pasajes";
@@ -143,9 +143,9 @@
             // 
             this.groupBox1.Controls.Add(this.chkCancelarEnco);
             this.groupBox1.Controls.Add(this.txtKGEncomienda);
-            this.groupBox1.Location = new System.Drawing.Point(15, 328);
+            this.groupBox1.Location = new System.Drawing.Point(15, 306);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(590, 67);
+            this.groupBox1.Size = new System.Drawing.Size(581, 52);
             this.groupBox1.TabIndex = 20;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Encomienda: Cant Kg";
@@ -153,7 +153,7 @@
             // chkCancelarEnco
             // 
             this.chkCancelarEnco.AutoSize = true;
-            this.chkCancelarEnco.Location = new System.Drawing.Point(236, 19);
+            this.chkCancelarEnco.Location = new System.Drawing.Point(214, 22);
             this.chkCancelarEnco.Name = "chkCancelarEnco";
             this.chkCancelarEnco.Size = new System.Drawing.Size(130, 17);
             this.chkCancelarEnco.TabIndex = 7;
@@ -162,9 +162,9 @@
             // 
             // btnCancelarElem
             // 
-            this.btnCancelarElem.Location = new System.Drawing.Point(270, 478);
+            this.btnCancelarElem.Location = new System.Drawing.Point(216, 440);
             this.btnCancelarElem.Name = "btnCancelarElem";
-            this.btnCancelarElem.Size = new System.Drawing.Size(152, 23);
+            this.btnCancelarElem.Size = new System.Drawing.Size(173, 33);
             this.btnCancelarElem.TabIndex = 9;
             this.btnCancelarElem.Text = "Cancelar Seleccionados";
             this.btnCancelarElem.UseVisualStyleBackColor = true;
@@ -175,16 +175,16 @@
             this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.txtCodCompra);
             this.panel1.Controls.Add(this.btnBuscar);
-            this.panel1.Location = new System.Drawing.Point(41, 12);
+            this.panel1.Location = new System.Drawing.Point(12, 12);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(638, 47);
+            this.panel1.Size = new System.Drawing.Size(606, 47);
             this.panel1.TabIndex = 14;
             // 
             // DevolucionForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(724, 527);
+            this.ClientSize = new System.Drawing.Size(633, 485);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.btnCancelarElem);

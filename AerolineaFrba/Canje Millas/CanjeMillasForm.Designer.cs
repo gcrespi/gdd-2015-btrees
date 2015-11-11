@@ -37,10 +37,10 @@
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.btnCanjear = new System.Windows.Forms.Button();
             this.dgvProductos = new System.Windows.Forms.DataGridView();
-            this.lblCantMillas = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
             this.Seleccionar = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.CantProductos = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.lblCantMillas = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProductos)).BeginInit();
@@ -58,7 +58,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(254, 25);
+            this.label2.Location = new System.Drawing.Point(187, 25);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(29, 13);
             this.label2.TabIndex = 1;
@@ -73,14 +73,14 @@
             // 
             // txtDNI
             // 
-            this.txtDNI.Location = new System.Drawing.Point(289, 22);
+            this.txtDNI.Location = new System.Drawing.Point(222, 22);
             this.txtDNI.Name = "txtDNI";
             this.txtDNI.Size = new System.Drawing.Size(100, 20);
             this.txtDNI.TabIndex = 3;
             // 
             // btnConsultar
             // 
-            this.btnConsultar.Location = new System.Drawing.Point(432, 19);
+            this.btnConsultar.Location = new System.Drawing.Point(342, 20);
             this.btnConsultar.Name = "btnConsultar";
             this.btnConsultar.Size = new System.Drawing.Size(97, 23);
             this.btnConsultar.TabIndex = 4;
@@ -111,16 +111,16 @@
             this.groupBox2.Enabled = false;
             this.groupBox2.Location = new System.Drawing.Point(13, 84);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(648, 296);
+            this.groupBox2.Size = new System.Drawing.Size(648, 324);
             this.groupBox2.TabIndex = 6;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Seleccione producto";
             // 
             // btnCanjear
             // 
-            this.btnCanjear.Location = new System.Drawing.Point(544, 264);
+            this.btnCanjear.Location = new System.Drawing.Point(282, 264);
             this.btnCanjear.Name = "btnCanjear";
-            this.btnCanjear.Size = new System.Drawing.Size(75, 23);
+            this.btnCanjear.Size = new System.Drawing.Size(106, 42);
             this.btnCanjear.TabIndex = 3;
             this.btnCanjear.Text = "Canjear";
             this.btnCanjear.UseVisualStyleBackColor = true;
@@ -139,6 +139,22 @@
             this.dgvProductos.Size = new System.Drawing.Size(607, 202);
             this.dgvProductos.TabIndex = 2;
             // 
+            // Seleccionar
+            // 
+            this.Seleccionar.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
+            this.Seleccionar.HeaderText = "Seleccionar";
+            this.Seleccionar.Name = "Seleccionar";
+            this.Seleccionar.Width = 69;
+            // 
+            // CantProductos
+            // 
+            this.CantProductos.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
+            this.CantProductos.HeaderText = "Cantidad";
+            this.CantProductos.Name = "CantProductos";
+            this.CantProductos.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.CantProductos.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.CantProductos.Width = 55;
+            // 
             // lblCantMillas
             // 
             this.lblCantMillas.AutoSize = true;
@@ -156,27 +172,11 @@
             this.label3.TabIndex = 0;
             this.label3.Text = "Millas Disponibles:";
             // 
-            // Seleccionar
-            // 
-            this.Seleccionar.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
-            this.Seleccionar.HeaderText = "Seleccionar";
-            this.Seleccionar.Name = "Seleccionar";
-            this.Seleccionar.Width = 69;
-            // 
-            // CantProductos
-            // 
-            this.CantProductos.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
-            this.CantProductos.HeaderText = "Cantidad";
-            this.CantProductos.Name = "CantProductos";
-            this.CantProductos.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.CantProductos.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.CantProductos.Width = 55;
-            // 
             // CanjeMillasForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(712, 419);
+            this.ClientSize = new System.Drawing.Size(675, 420);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Name = "CanjeMillasForm";

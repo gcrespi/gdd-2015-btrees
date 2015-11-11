@@ -176,14 +176,14 @@
             this.gridListado.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.gridListado.Location = new System.Drawing.Point(13, 163);
             this.gridListado.Name = "gridListado";
-            this.gridListado.Size = new System.Drawing.Size(655, 219);
+            this.gridListado.Size = new System.Drawing.Size(655, 235);
             this.gridListado.TabIndex = 2;
             // 
             // btnBuscar
             // 
-            this.btnBuscar.Location = new System.Drawing.Point(440, 119);
+            this.btnBuscar.Location = new System.Drawing.Point(450, 113);
             this.btnBuscar.Name = "btnBuscar";
-            this.btnBuscar.Size = new System.Drawing.Size(75, 23);
+            this.btnBuscar.Size = new System.Drawing.Size(112, 40);
             this.btnBuscar.TabIndex = 3;
             this.btnBuscar.Text = "Buscar";
             this.btnBuscar.UseVisualStyleBackColor = true;
@@ -193,7 +193,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(737, 394);
+            this.ClientSize = new System.Drawing.Size(683, 421);
             this.Controls.Add(this.btnBuscar);
             this.Controls.Add(this.gridListado);
             this.Controls.Add(this.groupSemestre);

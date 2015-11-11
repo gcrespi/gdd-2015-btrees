@@ -92,6 +92,7 @@ namespace AerolineaFrba
             comando.CommandType = CommandType.StoredProcedure;
 	        comando.Parameters.AddWithValue("@dtComprador", Cliente.ToDataTable(comprador));
 	        comando.Parameters.AddWithValue("@efectivo",efectivo);
+            comando.Parameters.AddWithValue("@fechaActual", Config.dateTimeNow);
             if (efectivo != 1)
             {
                 comando.Parameters.AddWithValue("@cantCuotas", cantCuotas);

@@ -41,7 +41,6 @@
             this.canjeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.bDevolucion = new System.Windows.Forms.ToolStripMenuItem();
             this.bAuditoria = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItem5 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem6 = new System.Windows.Forms.ToolStripMenuItem();
             this.bEstadisticas = new System.Windows.Forms.ToolStripMenuItem();
             this.panel = new System.Windows.Forms.Panel();
@@ -198,7 +197,6 @@
             this.bAuditoria.AutoSize = false;
             this.bAuditoria.BackColor = System.Drawing.SystemColors.MenuHighlight;
             this.bAuditoria.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripMenuItem5,
             this.toolStripMenuItem6});
             this.bAuditoria.Font = new System.Drawing.Font("Calibri Light", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.bAuditoria.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
@@ -207,13 +205,6 @@
             this.bAuditoria.Padding = new System.Windows.Forms.Padding(0);
             this.bAuditoria.Size = new System.Drawing.Size(103, 30);
             this.bAuditoria.Text = "Auditoría";
-            // 
-            // toolStripMenuItem5
-            // 
-            this.toolStripMenuItem5.BackColor = System.Drawing.Color.White;
-            this.toolStripMenuItem5.Name = "toolStripMenuItem5";
-            this.toolStripMenuItem5.Size = new System.Drawing.Size(240, 28);
-            this.toolStripMenuItem5.Text = "Reg Usuarios";
             // 
             // toolStripMenuItem6
             // 
@@ -295,7 +286,6 @@
         private System.Windows.Forms.Panel panel;
         private System.Windows.Forms.Panel menuPanel;
         protected System.Windows.Forms.ToolStripMenuItem bAuditoria;
-        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem5;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem6;
         protected System.Windows.Forms.ToolStripMenuItem bEstadisticas;
         private System.Windows.Forms.ToolStripMenuItem generarViajeToolStripMenuItem;
