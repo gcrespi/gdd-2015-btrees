@@ -85,6 +85,55 @@ AS
 	COMMIT TRAN
 GO
 
+IF  object_id(N'[THE_BTREES].[NotInBetween24h]','fn') IS NOT NULL
+	DROP FUNCTION [THE_BTREES].[NotInBetween24h]
+GO
+
+CREATE FUNCTION [THE_BTREES].[NotInBetween24h]
+	(@fecha datetime, @AvionID int)
+	RETURNS BIT
+AS
+BEGIN
+	DECLARE @Fecha24 datetime
+	DECLARE cursorFechas CURSOR FOR SELECT v.Viaje_FechaSalida FROM THE_BTREES.Viaje v WHERE v.Viaje_AvionRef = @AvionID
+	OPEN cursorFechas
+	FETCH NEXT FROM cursorFEchas INTO @Fecha24	
+
+	WHILE @@FETCH_STATUS = 0
+	BEGIN
+		IF @fecha BETWEEN @Fecha24-24 AND @Fecha24+24 RETURN 0
+		FETCH NEXT FROM cursorFEchas 
+		INTO @Fecha24
+	END
+	RETURN 1
+END
+GO
+
+
+IF  object_id(N'[THE_BTREES].[VerificarSiHayAvionParaReemplazar]','P') IS NOT NULL
+	DROP PROCEDURE [THE_BTREES].[VerificarSiHayAvionParaReemplazar]
+GO
+
+CREATE PROCEDURE [THE_BTREES].[VerificarSiHayAvionParaReemplazar]
+	@AvionAReemplazarID int,
+	@FechaActual datetime,
+	@AvionCandidatoID int OUTPUT
+AS
+BEGIN
+	SELECT a.AvionID
+	FROM THE_BTREES.Avion a 
+	WHERE a.AvionID != @AvionAReemplazarID
+	  AND a.Avion_Modelo=(SELECT r.Avion_Modelo FROM THE_BTREES.Avion r WHERE r.AvionID=@AvionAReemplazarID) 
+	  AND a.Avion_Fabricante=(SELECT r.Avion_Fabricante FROM THE_BTREES.Avion r WHERE r.AvionID=@AvionAReemplazarID)
+	  AND a.Avion_TipoDeServicioRef=(SELECT r.Avion_TipoDeServicioRef FROM THE_BTREES.Avion r WHERE r.AvionID=@AvionAReemplazarID)  
+	  AND (SELECT COUNT(*) FROM THE_BTREES.Viaje v WHERE v.Viaje_AvionRef=@AvionAReemplazarID AND v.Viaje_FechaSalida>@FechaActual) = 
+		  (SELECT COUNT(*)
+		   FROM THE_BTREES.Viaje v2 
+		   WHERE v2.Viaje_AvionRef=@AvionAReemplazarID
+			 AND v2.Viaje_FechaSalida>@FechaActual
+	         AND THE_BTREES.NotInBetween24h(v2.Viaje_FechaSalida, a.AvionID) = 1)
+END
+GO
 
 IF  object_id(N'[THE_BTREES].[DarDeBaja_Avion]','P') IS NOT NULL
 	DROP PROCEDURE [THE_BTREES].DarDeBaja_Avion
@@ -92,9 +141,64 @@ GO
 
 CREATE PROCEDURE THE_BTREES.DarDeBaja_Avion
 	@AvionID INT,
-	@Avion_FechaDeBajaDefinitiva DATE
+	@Avion_FechaDeBajaDefinitiva DATE,
+	@AvionATranspasar INT
 AS
+BEGIN	
+	DECLARE @CompraID int,
+			@CancelacionRef int
+
+	DECLARE cursorCancelacion CURSOR FOR SELECT DISTINCT c.CompraID 
+										 FROM THE_BTREES.Compra c 
+										 INNER JOIN (
+													 SELECT p.Pasaje_CompraRef AS CompreRef
+													 FROM THE_BTREES.Pasaje p INNER JOIN THE_BTREES.Viaje v ON p.Pasaje_ViajeRef=v.ViajeID
+									   				 WHERE v.Viaje_AvionRef=@AvionID AND v.Viaje_FechaSalida>@Avion_FechaDeBajaDefinitiva
+													 UNION
+													 SELECT e.Enco_CompraRef AS ComprRef  
+													 FROM THE_BTREES.Encomienda e INNER JOIN THE_BTREES.Viaje v ON e.Enco_ViajeRef=v.ViajeID
+									   				 WHERE v.Viaje_AvionRef=@AvionID AND v.Viaje_FechaSalida>@Avion_FechaDeBajaDefinitiva
+													 ) r
+									     ON c.CompraID = r.CompreRef
+
+	BEGIN TRAN
+	OPEN cursorCancelacion
+	FETCH NEXT FROM cursorCancelacion INTO @CompraID
+
+	WHILE @@FETCH_STATUS = 0
+	BEGIN
+		INSERT INTO THE_BTREES.Cancelacion 
+		(
+			Cance_CompraRef,Cance_Fecha,Motivo
+		)
+		VALUES
+		(
+			@CompraID,@Avion_FechaDeBajaDefinitiva,'Baja de la Ruta Aerea asignada.'
+		)
+		SET @CancelacionRef = SCOPE_IDENTITY()
+		
+		UPDATE THE_BTREES.Pasaje
+		SET Pasaje_CancelacionRef=@CancelacionRef 
+		WHERE Pasaje_CompraRef=@CompraID
+
+		UPDATE THE_BTREES.Encomienda
+		SET Enco_CancelacionRef=@CancelacionRef
+		WHERE Enco_CompraRef=@CompraID
+
+		FETCH NEXT FROM cursorCancelacion INTO @CompraID
+	END
+
+	IF @AvionATranspasar IS NOT NULL
+	BEGIN
+		UPDATE THE_BTREES.Viaje 
+		SET Viaje_AvionRef=@AvionATranspasar
+		WHERE Viaje_AvionRef=@AvionID AND Viaje_FechaSalida>@Avion_FechaDeBajaDefinitiva
+	END
+
 	UPDATE THE_BTREES.Avion SET Avion_BajaPorVidaUtil = 1, @Avion_FechaDeBajaDefinitiva = Avion_FechaDeBajaDefinitiva WHERE @AvionID = AvionID
+
+	COMMIT TRAN
+END
 GO
 
 
