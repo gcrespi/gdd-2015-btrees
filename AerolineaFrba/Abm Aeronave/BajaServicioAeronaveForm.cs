@@ -49,12 +49,12 @@ namespace AerolineaFrba.Abm_Aeronave
             if (uctrlAeronave.BajaPorFueraDeServicio)
             {
                 Avion.DarReinicioServicio(uctrlAeronave);
-                MessageBox.Show("Se dio de Baja por fuera de Servicio a la Aeronave: " + uctrlAeronave.Matricula + "con Exito!", "Fuera de Servicio", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Se reinició el Servicio a la Aeronave: " + uctrlAeronave.Matricula + "con Exito!", "Reinicio de Servicio", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             else
             {
                 Avion.DarFueraServicio(uctrlAeronave);
-                MessageBox.Show("Se reinició el Servicio a la Aeronave: " + uctrlAeronave.Matricula + " con Exito!", "Reinicio de Servicio", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Se dio de Baja por fuera de Servicio a la Aeronave: " + uctrlAeronave.Matricula + " con Exito!", "Fuera de Servicio", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
 
             this.Close();

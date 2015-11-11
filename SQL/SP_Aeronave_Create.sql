@@ -111,7 +111,8 @@ CREATE PROCEDURE THE_BTREES.Modificar_Avion
 	@Avion_TipoDeServicioRef TINYINT, 
 	@Avion_CantidadKgsDisponibles NUMERIC(18,0),
 	@Butacas_Pasillo INT,
-	@Butacas_Ventana INT
+	@Butacas_Ventana INT,
+	@ModificaButaca BIT
 AS
 
 	BEGIN TRAN
@@ -120,9 +121,12 @@ AS
 								Avion_CantidadKgsDisponibles = @Avion_CantidadKgsDisponibles
 	WHERE @AvionID = AvionID
 
-	DELETE FROM THE_BTREES.Butaca WHERE @AvionID = Butaca_AvionRef
-
-	EXEC THE_BTREES.AutoCrear_Butacas @AvionID, @Butacas_Pasillo, @Butacas_Ventana;
+	IF @ModificaButaca = 1
+	BEGIN
+		DELETE FROM THE_BTREES.Butaca WHERE @AvionID = Butaca_AvionRef
+		EXEC THE_BTREES.AutoCrear_Butacas @AvionID, @Butacas_Pasillo, @Butacas_Ventana;
+	END
+	
 	COMMIT TRAN
 GO
 

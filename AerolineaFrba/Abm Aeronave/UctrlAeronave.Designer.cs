@@ -29,6 +29,8 @@
         private void InitializeComponent()
         {
             this.grbDatosRol = new System.Windows.Forms.GroupBox();
+            this.dtpFechaFuera = new System.Windows.Forms.DateTimePicker();
+            this.lblFuera = new System.Windows.Forms.Label();
             this.cboServicio = new System.Windows.Forms.ComboBox();
             this.lblValFabricante = new System.Windows.Forms.Label();
             this.lblValKgs = new System.Windows.Forms.Label();
@@ -53,8 +55,6 @@
             this.lblServicio = new System.Windows.Forms.Label();
             this.txtModelo = new System.Windows.Forms.TextBox();
             this.lblFechaAlta = new System.Windows.Forms.Label();
-            this.dtpFechaFuera = new System.Windows.Forms.DateTimePicker();
-            this.lblFuera = new System.Windows.Forms.Label();
             this.grbDatosRol.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.upbKgs)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.upbButacaVentana)).BeginInit();
@@ -94,7 +94,29 @@
             this.grbDatosRol.Size = new System.Drawing.Size(751, 337);
             this.grbDatosRol.TabIndex = 10;
             this.grbDatosRol.TabStop = false;
-            this.grbDatosRol.Text = "Datos de Aeronave";
+            this.grbDatosRol.Text = "Atributos Aeronave";
+            // 
+            // dtpFechaFuera
+            // 
+            this.dtpFechaFuera.Enabled = false;
+            this.dtpFechaFuera.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dtpFechaFuera.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtpFechaFuera.Location = new System.Drawing.Point(221, 299);
+            this.dtpFechaFuera.Name = "dtpFechaFuera";
+            this.dtpFechaFuera.Size = new System.Drawing.Size(115, 23);
+            this.dtpFechaFuera.TabIndex = 70;
+            this.dtpFechaFuera.Visible = false;
+            // 
+            // lblFuera
+            // 
+            this.lblFuera.AutoSize = true;
+            this.lblFuera.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblFuera.Location = new System.Drawing.Point(21, 304);
+            this.lblFuera.Name = "lblFuera";
+            this.lblFuera.Size = new System.Drawing.Size(166, 17);
+            this.lblFuera.TabIndex = 69;
+            this.lblFuera.Text = "Fuera de Servicio desde:";
+            this.lblFuera.Visible = false;
             // 
             // cboServicio
             // 
@@ -109,6 +131,7 @@
             // 
             this.lblValFabricante.AutoSize = true;
             this.lblValFabricante.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblValFabricante.ForeColor = System.Drawing.Color.DarkRed;
             this.lblValFabricante.Location = new System.Drawing.Point(360, 84);
             this.lblValFabricante.Name = "lblValFabricante";
             this.lblValFabricante.Size = new System.Drawing.Size(0, 17);
@@ -118,6 +141,7 @@
             // 
             this.lblValKgs.AutoSize = true;
             this.lblValKgs.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblValKgs.ForeColor = System.Drawing.Color.DarkRed;
             this.lblValKgs.Location = new System.Drawing.Point(360, 264);
             this.lblValKgs.Name = "lblValKgs";
             this.lblValKgs.Size = new System.Drawing.Size(0, 17);
@@ -127,6 +151,7 @@
             // 
             this.lblValButacasVentana.AutoSize = true;
             this.lblValButacasVentana.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblValButacasVentana.ForeColor = System.Drawing.Color.DarkRed;
             this.lblValButacasVentana.Location = new System.Drawing.Point(360, 234);
             this.lblValButacasVentana.Name = "lblValButacasVentana";
             this.lblValButacasVentana.Size = new System.Drawing.Size(0, 17);
@@ -136,6 +161,7 @@
             // 
             this.lblValButacasPasillo.AutoSize = true;
             this.lblValButacasPasillo.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblValButacasPasillo.ForeColor = System.Drawing.Color.DarkRed;
             this.lblValButacasPasillo.Location = new System.Drawing.Point(360, 202);
             this.lblValButacasPasillo.Name = "lblValButacasPasillo";
             this.lblValButacasPasillo.Size = new System.Drawing.Size(0, 17);
@@ -145,6 +171,7 @@
             // 
             this.lblValModelo.AutoSize = true;
             this.lblValModelo.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblValModelo.ForeColor = System.Drawing.Color.DarkRed;
             this.lblValModelo.Location = new System.Drawing.Point(360, 111);
             this.lblValModelo.Name = "lblValModelo";
             this.lblValModelo.Size = new System.Drawing.Size(0, 17);
@@ -154,6 +181,7 @@
             // 
             this.lblValServicio.AutoSize = true;
             this.lblValServicio.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblValServicio.ForeColor = System.Drawing.Color.DarkRed;
             this.lblValServicio.Location = new System.Drawing.Point(360, 141);
             this.lblValServicio.Name = "lblValServicio";
             this.lblValServicio.Size = new System.Drawing.Size(0, 17);
@@ -163,6 +191,7 @@
             // 
             this.lblValFechaAlta.AutoSize = true;
             this.lblValFechaAlta.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblValFechaAlta.ForeColor = System.Drawing.Color.DarkRed;
             this.lblValFechaAlta.Location = new System.Drawing.Point(360, 174);
             this.lblValFechaAlta.Name = "lblValFechaAlta";
             this.lblValFechaAlta.Size = new System.Drawing.Size(0, 17);
@@ -172,6 +201,7 @@
             // 
             this.lblValMatricula.AutoSize = true;
             this.lblValMatricula.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblValMatricula.ForeColor = System.Drawing.Color.DarkRed;
             this.lblValMatricula.Location = new System.Drawing.Point(360, 55);
             this.lblValMatricula.Name = "lblValMatricula";
             this.lblValMatricula.Size = new System.Drawing.Size(0, 17);
@@ -360,28 +390,6 @@
             this.lblFechaAlta.Size = new System.Drawing.Size(99, 17);
             this.lblFechaAlta.TabIndex = 34;
             this.lblFechaAlta.Text = "Fecha de Alta:";
-            // 
-            // dtpFechaFuera
-            // 
-            this.dtpFechaFuera.Enabled = false;
-            this.dtpFechaFuera.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dtpFechaFuera.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpFechaFuera.Location = new System.Drawing.Point(221, 299);
-            this.dtpFechaFuera.Name = "dtpFechaFuera";
-            this.dtpFechaFuera.Size = new System.Drawing.Size(115, 23);
-            this.dtpFechaFuera.TabIndex = 70;
-            this.dtpFechaFuera.Visible = false;
-            // 
-            // lblFuera
-            // 
-            this.lblFuera.AutoSize = true;
-            this.lblFuera.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblFuera.Location = new System.Drawing.Point(21, 304);
-            this.lblFuera.Name = "lblFuera";
-            this.lblFuera.Size = new System.Drawing.Size(166, 17);
-            this.lblFuera.TabIndex = 69;
-            this.lblFuera.Text = "Fuera de Servicio desde:";
-            this.lblFuera.Visible = false;
             // 
             // UctrlAeronave
             // 

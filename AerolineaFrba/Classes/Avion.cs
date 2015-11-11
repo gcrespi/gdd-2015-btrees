@@ -94,6 +94,7 @@ namespace AerolineaFrba
                 command.Parameters.AddWithValue("@Avion_CantidadKgsDisponibles", avionAttrs.KgsEncomienda);
                 command.Parameters.AddWithValue("@Butacas_Pasillo", avionAttrs.ButacasPasillo);
                 command.Parameters.AddWithValue("@Butacas_Ventana", avionAttrs.ButacasVentana);
+                command.Parameters.AddWithValue("@ModificaButaca", avionAttrs.cambioButacas());
 
                 conn.Open();
                 command.ExecuteNonQuery();
@@ -158,6 +159,20 @@ namespace AerolineaFrba
                 command.ExecuteNonQuery();
                 conn.Close();
             }
+        }
+
+        public static bool tieneViajeAsignado(int AeronaveID)
+        {
+            var _params = new Dictionary<String, Object>();
+            _params.Add("@AvionID", AeronaveID);
+            return Conexion.callBooleanFunctionWithParameters(_params, "aeronaveTieneViajesAsignados");
+        }
+
+        internal static bool matriculaYaExistente(String matricula)
+        {
+            var _params = new Dictionary<String, Object>();
+            _params.Add("@Matricula", matricula);
+            return Conexion.callBooleanFunctionWithParameters(_params, "matriculaYaExistente");
         }
     }
 }

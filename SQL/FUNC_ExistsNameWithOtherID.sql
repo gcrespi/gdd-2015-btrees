@@ -109,3 +109,48 @@ BEGIN
 	RETURN 0;
 END
 GO
+
+IF  object_id(N'[THE_BTREES].[aeronaveTieneViajesAsignados]','FN') IS NOT NULL
+	DROP FUNCTION [THE_BTREES].aeronaveTieneViajesAsignados
+GO
+
+CREATE FUNCTION THE_BTREES.aeronaveTieneViajesAsignados 
+	(@AvionID INT)
+	RETURNS BIT
+AS
+BEGIN
+	DECLARE @Cantidad INT;
+
+	SELECT @Cantidad = COUNT(*) 
+		FROM THE_BTREES.Viaje v 
+		WHERE @AvionID = v.Viaje_AvionRef;
+
+	IF(@Cantidad > 0)
+		RETURN 1;
+
+	RETURN 0;
+END
+GO
+
+IF  object_id(N'[THE_BTREES].[matriculaYaExistente]','FN') IS NOT NULL
+	DROP FUNCTION [THE_BTREES].matriculaYaExistente
+GO
+
+CREATE FUNCTION THE_BTREES.matriculaYaExistente 
+	(@Matricula NVARCHAR(255))
+	RETURNS BIT
+AS
+BEGIN
+	DECLARE @Cantidad INT;
+
+	SELECT @Cantidad = COUNT(*) FROM THE_BTREES.Avion 
+	WHERE Avion_Matricula = @Matricula;
+
+	IF @Cantidad > 0
+		RETURN 1;
+
+	RETURN 0;
+END
+GO
+
+

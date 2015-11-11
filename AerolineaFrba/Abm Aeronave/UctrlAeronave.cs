@@ -18,6 +18,17 @@ namespace AerolineaFrba.Abm_Aeronave
     {
         private DataTable serviciosTable = new DataTable();
 
+        private String _matriculaAnterior = "";
+        private String _modeloAnterior;
+        private String _fabricanteAnterior;
+
+        private byte _tipoDeServicioAnterior;
+        private String _fechaAltaAnterior;
+
+        private int _butacasPasilloAnterior;
+        private int _butacasVentanaAnterior;
+        private int _kgsEncomiendaAnterior;
+
         public bool Activo          { get; set; }
 
         public int AeronaveID       { get; set; }
@@ -33,7 +44,7 @@ namespace AerolineaFrba.Abm_Aeronave
         public int ButacasVentana   { get { return Int32.Parse(upbButacaVentana.Value.ToString()); } }
         public int KgsEncomienda    { get { return Int32.Parse(upbKgs.Value.ToString()); } }
 
-        public DateTime FechaBaja { get; set; }
+        public DateTime FechaBaja { get { return Config.dateTimeNow; } }
 
         public bool BajaPorFueraDeServicio { get; set; }
         public int FueraDeServicioId { get; set; }
@@ -87,6 +98,18 @@ namespace AerolineaFrba.Abm_Aeronave
             lblFuera.Visible = BajaPorFueraDeServicio;
             dtpFechaFuera.Visible = BajaPorFueraDeServicio;
 
+
+            _matriculaAnterior = Matricula;
+            _modeloAnterior = Modelo;
+            _fabricanteAnterior = Fabricante;
+
+            _butacasPasilloAnterior = ButacasPasillo;
+            _butacasVentanaAnterior = ButacasVentana;
+
+            _fechaAltaAnterior = FechaAlta;
+            _kgsEncomiendaAnterior = KgsEncomienda;
+            _tipoDeServicioAnterior = TipoDeServicio;
+
         }
 
         public void fillAttrsDefault()
@@ -135,20 +158,6 @@ namespace AerolineaFrba.Abm_Aeronave
 
         }
 
-
-        public bool validateAttrsModif()
-        {
-            //TODO
-            return true;
-        }
-
-
-        public bool validateAttrs()
-        {
-            //TODO
-            return true;
-        }
-
         public void darModif()
         {
             Avion.darModif(this);
@@ -187,11 +196,210 @@ namespace AerolineaFrba.Abm_Aeronave
 
         public bool validateBaja()
         {
-
             //TODO
             //TODO Fecha de baja la del día o dejar ingresarla
             return Activo;
         }
 
+        public bool validateAttrsModif()
+        {
+            if (this.validateAttrs())
+                return false;
+
+            bool tieneViajeAsignado = Avion.tieneViajeAsignado(AeronaveID);
+
+            bool _self = validateFabricanteModif(tieneViajeAsignado);
+            _self = validateModeloModif(tieneViajeAsignado) && _self;
+            _self = validateTipoServicioModif(tieneViajeAsignado) && _self;
+            _self = validateButacasPasillo(tieneViajeAsignado) && _self;
+            _self = validateButacasVentana(tieneViajeAsignado) && _self;
+            _self = validateKgs(tieneViajeAsignado) && _self;
+            
+            return _self;
+        }
+
+        private bool validateFabricanteModif(bool tieneViajeAsignado)
+        {
+            lblValFabricante.Text = "";
+
+            if (_fabricanteAnterior != Fabricante && tieneViajeAsignado)
+            {
+                lblValFabricante.Text = "Fabricante no puede cambiar si tiene viajes asignados!";
+                return false;
+            }
+            return false;
+        }
+
+        private bool validateModeloModif(bool tieneViajeAsignado)
+        {
+            lblValModelo.Text = "";
+
+            if (_modeloAnterior != Modelo && tieneViajeAsignado)
+            {
+                lblValModelo.Text = "Modelo no puede cambiar si tiene viajes asignados!";
+                return false;
+            }
+            return false;
+        }
+
+        private bool validateTipoServicioModif(bool tieneViajeAsignado)
+        {
+            lblValServicio.Text = "";
+
+            if (_tipoDeServicioAnterior != TipoDeServicio && tieneViajeAsignado)
+            {
+                lblValServicio.Text = "Servicio no puede cambiar si tiene viajes asignados!";
+                return false;
+            }
+            return false;
+        }
+
+
+        private bool validateButacasPasillo(bool tieneViajeAsignado)
+        {
+            lblValButacasPasillo.Text = "";
+
+            if (_butacasPasilloAnterior != ButacasPasillo && tieneViajeAsignado)
+            {
+                lblValButacasPasillo.Text = "Butacas Pasillo no puede cambiar si tiene viajes asignados!";
+                return false;
+            }
+            return false;
+        }
+
+        private bool validateButacasVentana(bool tieneViajeAsignado)
+        {
+            lblValButacasVentana.Text = "";
+
+            if (_butacasVentanaAnterior != ButacasVentana && tieneViajeAsignado)
+            {
+                lblValButacasVentana.Text = "Butacas Ventana no puede cambiar si tiene viajes asignados!";
+                return false;
+            }
+            return false;
+        }
+
+        private bool validateKgs(bool tieneViajeAsignado)
+        {
+            lblValKgs.Text = "";
+
+            if (_kgsEncomiendaAnterior != KgsEncomienda && tieneViajeAsignado)
+            {
+                lblValKgs.Text = "Kgs max de Encomienda no puede cambiar\n si tiene viajes asignados!";
+                return false;
+            }
+            return false;
+        }
+
+
+        public bool validateAttrs()
+        {
+            var _self = validateMatricula();
+            _self = validateFabricante() && _self;
+            _self = validateModelo() && _self;
+
+            _self = validateTipoServicio() && _self;
+            _self = validateButacasPasillo() && _self;
+
+            _self = validateButacasVentana() && _self;
+            _self = validateKgsEncomienda() && _self;
+
+            return _self;
+        }
+
+        private bool validateFabricante()
+        {
+            lblValFabricante.Text = "";
+
+            if (Fabricante == "")
+            {
+                lblValFabricante.Text = "Debe indicar Fabricante!";
+                return false;
+            }
+            return false;
+        }
+
+        private bool validateModelo()
+        {
+            lblValModelo.Text = "";
+
+            if (Modelo == "")
+            {
+                lblValModelo.Text = "Debe indicar Modelo!";
+                return false;
+            }
+            return false;
+        }
+
+        private bool validateTipoServicio()
+        {
+            lblValServicio.Text = "";
+
+            if (cboServicio.SelectedIndex  == -1)
+            {
+                lblValServicio.Text = "Debe indicar Servicio!";
+                return false;
+            }
+            return false;
+        }
+
+        private bool validateButacasPasillo()
+        {
+            lblValButacasPasillo.Text = "";
+
+            if (ButacasPasillo == 0)
+            {
+                lblValButacasPasillo.Text = "Debe indicar más de 0 Butacas Pasillo!";
+                return false;
+            }
+            return false;
+        }
+
+        private bool validateButacasVentana()
+        {
+            lblValButacasVentana.Text = "";
+
+            if (ButacasVentana == 0)
+            {
+                lblValButacasVentana.Text = "Debe indicar más de 0 Butacas Ventana!";
+                return false;
+            }
+            return false;
+        }
+
+        private bool validateKgsEncomienda()
+        {
+            lblValKgs.Text = "";
+
+            if (KgsEncomienda == 0)
+            {
+                lblValKgs.Text = "Debe indicar capacidad en Kgs para Encomiendas!";
+                return false;
+            }
+            return false;
+        }
+
+        public bool validateMatricula()
+        {
+            lblValMatricula.Text = "";
+
+            if(txtMatricula.Text == "")
+            {
+                lblValMatricula.Text = "Debe ingresar una matrícula!";
+                return false;
+            }
+
+            if (_matriculaAnterior != Matricula && Avion.matriculaYaExistente(Matricula))
+            {
+                lblValMatricula.Text = "La matricula debe ser única!";
+                return false;
+            }
+            return true;
+        }
+
+        internal object cambioButacas()
+        {
+            return _butacasPasilloAnterior != ButacasPasillo || _butacasVentanaAnterior != ButacasVentana;
+        }
     }
 }
