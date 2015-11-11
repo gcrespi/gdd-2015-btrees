@@ -120,7 +120,8 @@ CREATE PROCEDURE [THE_BTREES].[VerificarSiHayAvionParaReemplazar]
 	@AvionCandidatoID int OUTPUT
 AS
 BEGIN
-	SELECT a.AvionID
+	SET @AvionCandidatoID = 0
+	SELECT TOP 1 @AvionCandidatoID = a.AvionID
 	FROM THE_BTREES.Avion a 
 	WHERE a.AvionID != @AvionAReemplazarID
 	  AND a.Avion_Modelo=(SELECT r.Avion_Modelo FROM THE_BTREES.Avion r WHERE r.AvionID=@AvionAReemplazarID) 
