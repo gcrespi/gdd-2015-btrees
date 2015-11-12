@@ -28,43 +28,65 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.label1 = new System.Windows.Forms.Label();
             this.pnlOpciones.SuspendLayout();
             this.SuspendLayout();
             // 
             // pnlOpciones
             // 
-            this.pnlOpciones.Location = new System.Drawing.Point(80, 358);
-            this.pnlOpciones.Size = new System.Drawing.Size(792, 116);
+            this.pnlOpciones.Location = new System.Drawing.Point(80, 261);
+            this.pnlOpciones.Size = new System.Drawing.Size(717, 116);
             // 
             // btnListar
             // 
+            this.btnListar.FlatAppearance.BorderSize = 0;
             this.btnListar.Location = new System.Drawing.Point(22, 47);
             this.btnListar.Click += new System.EventHandler(this.button1_Click);
             // 
-            // btnEliminar
+            // btnAgregar
             // 
-            this.btnEliminar.Location = new System.Drawing.Point(448, 47);
+            this.btnAgregar.FlatAppearance.BorderSize = 0;
+            this.btnAgregar.Location = new System.Drawing.Point(167, 47);
             // 
             // btnModificar
             // 
-            this.btnModificar.Location = new System.Drawing.Point(295, 47);
+            this.btnModificar.FlatAppearance.BorderSize = 0;
+            this.btnModificar.Location = new System.Drawing.Point(315, 47);
             // 
-            // btnAgregar
+            // btnEliminar
             // 
-            this.btnAgregar.Location = new System.Drawing.Point(151, 47);
+            this.btnEliminar.FlatAppearance.BorderSize = 0;
+            this.btnEliminar.Location = new System.Drawing.Point(459, 47);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(54, 102);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(253, 31);
+            this.label1.TabIndex = 2;
+            this.label1.Text = "Menu Rutas Aereas";
+            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // RutaAereaForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(884, 486);
+            this.ClientSize = new System.Drawing.Size(809, 457);
+            this.Controls.Add(this.label1);
             this.Name = "RutaAereaForm";
             this.Text = "Ruta Aerea";
+            this.Controls.SetChildIndex(this.pnlOpciones, 0);
+            this.Controls.SetChildIndex(this.label1, 0);
             this.pnlOpciones.ResumeLayout(false);
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
         #endregion
+
+        private System.Windows.Forms.Label label1;
     }
 }

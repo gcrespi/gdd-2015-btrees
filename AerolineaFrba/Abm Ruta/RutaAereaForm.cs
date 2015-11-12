@@ -35,5 +35,10 @@ namespace AerolineaFrba.Abm_Ruta
         {
             return new UctrlRuta();
         }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
