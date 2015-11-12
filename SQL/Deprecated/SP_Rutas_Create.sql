@@ -61,9 +61,56 @@ AS
 GO
 
 CREATE PROCEDURE THE_BTREES.Deshabilitar_Ruta
-	@RutaAereaID INT
+	@RutaID INT,
+	@FechaActual DATE
 AS
-	UPDATE THE_BTREES.RutaAerea SET Ruta_Activo = 0 WHERE @RutaAereaID = RutaAereaID
+BEGIN
+	DECLARE @CompraID int,
+			@CancelacionRef int
+
+	DECLARE cursorCancelacion CURSOR FOR SELECT DISTINCT c.CompraID 
+										 FROM THE_BTREES.Compra c 
+										 INNER JOIN (
+													 SELECT p.Pasaje_CompraRef AS CompreRef
+													 FROM THE_BTREES.Pasaje p INNER JOIN THE_BTREES.Viaje v ON p.Pasaje_ViajeRef=v.ViajeID
+									   				 WHERE v.Viaje_RutaAereaRef=@RutaID AND v.Viaje_FechaSalida>@FechaActual
+													 UNION
+													 SELECT e.Enco_CompraRef AS ComprRef  
+													 FROM THE_BTREES.Encomienda e INNER JOIN THE_BTREES.Viaje v ON e.Enco_ViajeRef=v.ViajeID
+									   				 WHERE v.Viaje_RutaAereaRef=@RutaID AND v.Viaje_FechaSalida>@FechaActual
+													 ) r
+									     ON c.CompraID = r.CompreRef
+
+	BEGIN TRAN
+	OPEN cursorCancelacion
+	FETCH NEXT FROM cursorCancelacion INTO @CompraID
+
+	WHILE @@FETCH_STATUS = 0
+	BEGIN
+		INSERT INTO THE_BTREES.Cancelacion 
+		(
+			Cance_CompraRef,Cance_Fecha,Motivo
+		)
+		VALUES
+		(
+			@CompraID,@FechaActual,'Baja de la Ruta Aerea asignada.'
+		)
+		SET @CancelacionRef = SCOPE_IDENTITY()
+		
+		UPDATE THE_BTREES.Pasaje
+		SET Pasaje_CancelacionRef=@CancelacionRef
+		WHERE Pasaje_CompraRef=@CompraID
+
+		UPDATE THE_BTREES.Encomienda
+		SET Enco_CancelacionRef=@CancelacionRef
+		WHERE Enco_CompraRef=@CompraID
+
+		FETCH NEXT FROM cursorCancelacion INTO @CompraID
+	END
+	UPDATE THE_BTREES.RutaAerea SET Ruta_Activo = 0 WHERE @RutaID = RutaAereaID
+
+	COMMIT TRAN
+END
 GO
 
 IF  object_id(N'[THE_BTREES].[Listar_Rutas]','P') IS NOT NULL
@@ -93,57 +140,4 @@ AS
 	SELECT r.Ruta_Codigo, r.Ruta_CiudadOrigenRef, r.Ruta_CiudadDestinoRef, r.Ruta_PrecioBasePasaje, r.Ruta_PrecioBaseKg, r.Ruta_Activo, ts.TipoServicioRef 
 	FROM THE_BTREES.RutaAerea r, THE_BTREES.Ciudad co, THE_BTREES.Ciudad cd, THE_BTREES.TipoServicioXRutaAerea ts 
 	WHERE r.Ruta_CiudadOrigenRef = co.CiudadID AND r.Ruta_CiudadDestinoRef = cd.CiudadID AND ts.RutaAereaRef = r.RutaAereaID AND @RutaID = RutaAereaID
-GO
-
-
-IF OBJECT_ID(N'[THE_BTREES].[CancelarRutasInhabilitados]','P') IS NOT NULL
-	DROP PROCEDURE [THE_BTREES].CancelarRutasInhabilitados
-GO
-
-CREATE PROCEDURE THE_BTREES.CancelarRutasInhabilitados
-	@RutaID INT,
-	@FechaActual DATE
-AS
-BEGIN
-
-	DECLARE @CompraID int,
-			@CancelacionRef int
-
-	DECLARE cursorCancelacion CURSOR FOR SELECT DISTINCT c.CompraID 
-										 FROM THE_BTREES.Compra c 
-										 INNER JOIN (
-													 SELECT p.Pasaje_CompraRef AS CompreRef
-													 FROM THE_BTREES.Pasaje p INNER JOIN THE_BTREES.Viaje v ON p.Pasaje_ViajeRef=v.ViajeID
-									   				 WHERE v.Viaje_RutaAereaRef=@RutaID
-													 UNION
-													 SELECT e.Enco_CompraRef AS ComprRef  
-													 FROM THE_BTREES.Encomienda e INNER JOIN THE_BTREES.Viaje v ON e.Enco_ViajeRef=v.ViajeID
-									   				 WHERE v.Viaje_RutaAereaRef=@RutaID
-													 ) r
-									     ON c.CompraID = r.CompreRef
-
-	FETCH NEXT cursorCancelacion INTO @CompraID
-
-	WHILE @@FETCH_STATUS = 0
-	BEGIN
-		INSERT INTO THE_BTREES.Cancelacion 
-		(
-			Cance_CompraRef,Cance_Fecha,Motivo
-		)
-		VALUES
-		(
-			@CompraID,@FechaActual,'Baja de la Ruta Aerea asignada.'
-		)
-		SET @CancelacionRef = SCOPE_IDENTITY()
-		
-		UPDATE THE_BTREES.Pasaje
-		SET Pasaje_CancelacionRef=@CancelacionRef
-		WHERE Pasaje_CompraRef=@CompraID
-
-		UPDATE THE_BTREES.Encomienda
-		SET Enco_CancelacionRef=@CancelacionRef
-		WHERE Enco_CompraRef=@CompraID
-
-	END
-END
 GO
