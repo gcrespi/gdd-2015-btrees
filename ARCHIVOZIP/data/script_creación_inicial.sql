@@ -885,6 +885,19 @@ as
 
 GO
 
+
+IF  object_id(N'[THE_BTREES].[TraerDataConFiltros]','P') IS NOT NULL
+	DROP PROCEDURE [THE_BTREES].[TraerDataConFiltros]
+GO
+
+create PROCEDURE [THE_BTREES].[TraerDataConFiltros]
+	( @Tabla nvarchar(MAX), @WhereClause VARCHAR(MAX) )
+as
+	declare @sentencia nvarchar(MAX)
+	set @sentencia='select * FROM ' + @Tabla + ' ' + @WhereClause
+	execute (@sentencia)
+GO
+
 /***** GetClientesList *****/
 IF  object_id(N'[THE_BTREES].[GetClientesList]','P') IS NOT NULL
 	DROP PROCEDURE [THE_BTREES].[GetClientesList]
@@ -2175,7 +2188,7 @@ AS
 GO
 
 /****************************************************************************************************************************/
-/*CREACION DE PROCEDURE PARA REMOVER ROLES INHABILITADOS*/
+/*CREACION DE TRIGGER PARA REMOVER ROLES INHABILITADOS*/
 
 
 IF OBJECT_ID(N'[THE_BTREES].[RemoverRolesInhabilitados]','TR') IS NOT NULL
@@ -2490,7 +2503,7 @@ BEGIN
 													 ) r
 									     ON c.CompraID = r.CompreRef
 
-	FETCH NEXT cursorCancelacion INTO @CompraID
+	FETCH NEXT FROM cursorCancelacion INTO @CompraID
 
 	WHILE @@FETCH_STATUS = 0
 	BEGIN
