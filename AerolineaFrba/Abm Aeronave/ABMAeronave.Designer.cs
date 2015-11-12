@@ -46,7 +46,20 @@
             // 
             // btnListar
             // 
+            this.btnListar.FlatAppearance.BorderSize = 0;
             this.btnListar.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // btnAgregar
+            // 
+            this.btnAgregar.FlatAppearance.BorderSize = 0;
+            // 
+            // btnModificar
+            // 
+            this.btnModificar.FlatAppearance.BorderSize = 0;
+            // 
+            // btnEliminar
+            // 
+            this.btnEliminar.FlatAppearance.BorderSize = 0;
             // 
             // label1
             // 
@@ -54,19 +67,19 @@
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(43, 104);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(188, 31);
+            this.label1.Size = new System.Drawing.Size(218, 31);
             this.label1.TabIndex = 0;
-            this.label1.Text = "ABMAeronave";
+            this.label1.Text = "Menu Aeronaves";
             // 
             // btnServicio
             // 
             this.btnServicio.BackColor = System.Drawing.Color.Silver;
             this.btnServicio.FlatAppearance.BorderSize = 0;
             this.btnServicio.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnServicio.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnServicio.Location = new System.Drawing.Point(624, 39);
+            this.btnServicio.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnServicio.Location = new System.Drawing.Point(620, 28);
             this.btnServicio.Name = "btnServicio";
-            this.btnServicio.Size = new System.Drawing.Size(128, 37);
+            this.btnServicio.Size = new System.Drawing.Size(101, 68);
             this.btnServicio.TabIndex = 4;
             this.btnServicio.Text = "Fuera de Servicio";
             this.btnServicio.UseVisualStyleBackColor = false;
