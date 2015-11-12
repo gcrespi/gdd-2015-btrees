@@ -52,7 +52,8 @@ namespace AerolineaFrba
                 CommandType = CommandType.StoredProcedure
             })
             {
-                command.Parameters.AddWithValue("@RutaAereaID ", rolAttrs.RutaID);
+                command.Parameters.AddWithValue("@RutaID", rolAttrs.RutaID);
+                command.Parameters.AddWithValue("@FechaActual", Config.dateTimeNow);
                 conn.Open();
                 command.ExecuteNonQuery();
                 conn.Close();

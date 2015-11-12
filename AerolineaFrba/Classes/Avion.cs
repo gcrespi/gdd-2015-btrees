@@ -71,6 +71,8 @@ namespace AerolineaFrba
             {
                 command.Parameters.AddWithValue("@AvionID", avionAttrs.AeronaveID);
                 command.Parameters.AddWithValue("@Avion_FechaDeBajaDefinitiva", avionAttrs.FechaBaja);
+                command.Parameters.AddWithValue("@AvionATranspasar", avionAttrs.RealocarViajesAeroID);
+                
                 conn.Open();
                 command.ExecuteNonQuery();
                 conn.Close();
@@ -173,6 +175,35 @@ namespace AerolineaFrba
             var _params = new Dictionary<String, Object>();
             _params.Add("@Matricula", matricula);
             return Conexion.callBooleanFunctionWithParameters(_params, "matriculaYaExistente");
+        }
+
+        internal static int VerificarSiHayAvionParaReemplazar(int AeronaveID)
+        {
+            int _aeroRemplazoID = 0;
+
+            using (var conn = new SqlConnection(Conexion.strCon))
+            using (var command = new SqlCommand("THE_BTREES.VerificarSiHayAvionParaReemplazar", conn)
+            {
+                CommandType = CommandType.StoredProcedure
+            })
+            {
+                // set up the parameters
+                command.Parameters.Add("@AvionCandidatoID", SqlDbType.Int).Direction = ParameterDirection.Output;
+
+
+                // set parameter values
+                command.Parameters.AddWithValue("@AvionAReemplazarID", AeronaveID);
+                command.Parameters.AddWithValue("@FechaActual", Config.dateTimeNow);
+                conn.Open();
+
+                command.ExecuteNonQuery();
+
+                // read output value from output variables
+                _aeroRemplazoID = Convert.ToInt32(command.Parameters["@AvionCandidatoID"].Value);
+                conn.Close();
+            }
+
+            return _aeroRemplazoID;
         }
     }
 }

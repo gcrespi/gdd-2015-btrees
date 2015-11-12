@@ -48,6 +48,7 @@
             this.btnCancelar.TabIndex = 5;
             this.btnCancelar.Text = "Cancelar pasajes y encomiendas";
             this.btnCancelar.UseVisualStyleBackColor = false;
+            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
             // btnReasignar
             // 
@@ -61,6 +62,7 @@
             this.btnReasignar.TabIndex = 6;
             this.btnReasignar.Text = "Reasignar Viaje";
             this.btnReasignar.UseVisualStyleBackColor = false;
+            this.btnReasignar.Click += new System.EventHandler(this.btnReasignar_Click);
             // 
             // label1
             // 
@@ -104,6 +106,7 @@
             this.btnVolver.TabIndex = 42;
             this.btnVolver.Text = "Volver";
             this.btnVolver.UseVisualStyleBackColor = false;
+            this.btnVolver.Click += new System.EventHandler(this.btnVolver_Click);
             // 
             // DecisionBajaAeronaveForm
             // 

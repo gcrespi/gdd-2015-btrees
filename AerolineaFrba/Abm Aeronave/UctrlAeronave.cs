@@ -29,6 +29,8 @@ namespace AerolineaFrba.Abm_Aeronave
         private int _butacasVentanaAnterior;
         private int _kgsEncomiendaAnterior;
 
+        public int RealocarViajesAeroID { get; set; }
+
         public bool Activo          { get; set; }
 
         public int AeronaveID       { get; set; }
@@ -52,7 +54,7 @@ namespace AerolineaFrba.Abm_Aeronave
         public UctrlAeronave()
         {
             InitializeComponent();
-
+            RealocarViajesAeroID = 0;
         }
 
         public bool activo()
@@ -196,9 +198,30 @@ namespace AerolineaFrba.Abm_Aeronave
 
         public bool validateBaja()
         {
-            //TODO
-            //TODO Fecha de baja la del día o dejar ingresarla
-            return Activo;
+            if (!Avion.tieneViajeAsignado(AeronaveID))
+                return true;
+
+            var decision = new DecisionBajaAeronaveForm().ShowDialog();
+
+            switch (decision)
+            {
+                case DialogResult.OK:
+                    RealocarViajesAeroID = Avion.VerificarSiHayAvionParaReemplazar(AeronaveID);
+                    if (RealocarViajesAeroID > 0)
+                    {
+                        return true;
+                    }
+                    else
+                    {
+                        MessageBox.Show("No existe ninguna Aeronave que pueda reemplazarlo!", "Sin Reemplazo", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    }
+                    break;
+
+                case DialogResult.Yes:
+                    RealocarViajesAeroID = 0;
+                    return true;                  
+            }
+            return false;
         }
 
         public bool validateAttrsModif()
@@ -316,7 +339,7 @@ namespace AerolineaFrba.Abm_Aeronave
                 lblValFabricante.Text = "Debe indicar Fabricante!";
                 return false;
             }
-            return false;
+            return true;
         }
 
         private bool validateModelo()
@@ -328,7 +351,7 @@ namespace AerolineaFrba.Abm_Aeronave
                 lblValModelo.Text = "Debe indicar Modelo!";
                 return false;
             }
-            return false;
+            return true;
         }
 
         private bool validateTipoServicio()
@@ -340,7 +363,7 @@ namespace AerolineaFrba.Abm_Aeronave
                 lblValServicio.Text = "Debe indicar Servicio!";
                 return false;
             }
-            return false;
+            return true;
         }
 
         private bool validateButacasPasillo()
@@ -352,7 +375,7 @@ namespace AerolineaFrba.Abm_Aeronave
                 lblValButacasPasillo.Text = "Debe indicar más de 0 Butacas Pasillo!";
                 return false;
             }
-            return false;
+            return true;
         }
 
         private bool validateButacasVentana()
@@ -364,7 +387,7 @@ namespace AerolineaFrba.Abm_Aeronave
                 lblValButacasVentana.Text = "Debe indicar más de 0 Butacas Ventana!";
                 return false;
             }
-            return false;
+            return true;
         }
 
         private bool validateKgsEncomienda()
@@ -376,7 +399,7 @@ namespace AerolineaFrba.Abm_Aeronave
                 lblValKgs.Text = "Debe indicar capacidad en Kgs para Encomiendas!";
                 return false;
             }
-            return false;
+            return true;
         }
 
         public bool validateMatricula()
