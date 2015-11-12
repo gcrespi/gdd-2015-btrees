@@ -1,4 +1,4 @@
-Curso: K3021 y K3022
+Curso: K3022
 Nombre de grupo: "THE BTREES"
 Integrantes:
   - Belén Lupani. Leg:1494892
