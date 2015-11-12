@@ -6,4 +6,4 @@ Integrantes:
   - Gustavo Crespi. Leg:1491696
   - Leandro Rodriguez. Leg:1492469
 Email del responsable:
-  - santiago.federella@outlook.com
+  - santiagoefederella@gmail.com
