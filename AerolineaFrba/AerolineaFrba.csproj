@@ -59,6 +59,12 @@
     <Compile Include="Abm Aeronave\BajaServicioAeronaveForm.Designer.cs">
       <DependentUpon>BajaServicioAeronaveForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Abm Aeronave\DecisionBajaAeronaveForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Abm Aeronave\DecisionBajaAeronaveForm.Designer.cs">
+      <DependentUpon>DecisionBajaAeronaveForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Abm Aeronave\UctrlAeronave.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -313,6 +319,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Abm Aeronave\BajaServicioAeronaveForm.resx">
       <DependentUpon>BajaServicioAeronaveForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Abm Aeronave\DecisionBajaAeronaveForm.resx">
+      <DependentUpon>DecisionBajaAeronaveForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Abm Aeronave\UctrlAeronave.resx">
       <DependentUpon>UctrlAeronave.cs</DependentUpon>
